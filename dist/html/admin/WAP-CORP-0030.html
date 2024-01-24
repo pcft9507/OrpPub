@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+          <div class="header__info__cell header__page-sort">
+            <span>관리자 페이지</span>
+          </div>
+          <ul class="header__info__cell header__list-count">
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">10건</span>
+            </li>
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">8건</span>
+            </li>
+            <li>
+              <span class="key">계약만료</span>
+              <span class="val point-color">2건</span>
+            </li>
+          </ul>
+          <div class="header__info__cell header__input-search">
+            <div class="input-box type-search">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
+            </div>
+          </div>
+        </div>
+        <div class="header__util">
+          <a href="#">홍길동님</a>
+          <a href="#">도움말</a>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+        <ul class="snb__menu">
+          <li class="isCurrent">
+            <button
+              type="button"
+              class="snb__depth1--btn icon1 has-child"
+              aria-expanded="true"
+              aria-controls="snbSubMenu1"
+            ><span>기업 관리</span></button>
+            <div id="snbSubMenu1" class="snb__depth2 isOpen">
+              <ul>
+                <li class="isCurrent"><a href="WAP-CORP-0010.html">기업 관리</a></li>
+                <li><a href="WAP-CORP-0040.html">채용 관리</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon7 has-child"
+              aria-expanded="false"
+              aria-controls="snbSubMenu2"
+            ><span>콘텐츠 관리</span></button>
+            <div id="snbSubMenu2" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon2 has-child"
+              aria-expanded="false"
+              aria-controls="snbSubMenu3"
+            ><span>시스템 관리</span></button>
+            <div id="snbSubMenu3" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-SYS-0010.html">공지사항</a></li>
+                <li><a href="WAP-SYS-0050.html">팝업</a></li>
+                <li><a href="WAP-SYS-0090.html" class="isMark">사용자</a></li>
+                <li><a href="WAP-SYS-0120.html" class="isMark">권한 관리</a></li>
+                <li><a href="WAP-SYS-0170.html" class="isMark">메뉴얼 관리</a></li>
+                <li><a href="WAP-SYS-0230.html" class="isMark">접속 기록</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">관리자</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "관리자",
+                        "value": "관리자",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업",
+                        "value": "기업",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+        </div>
+        <div class="box-flex content-mt6 type-gap2">
+          <!-- 관리자 -->
+          <div class="box-flex__cell" style="width: 50%;">
+            <div class="board-head">
+              <div class="board-head__cell">
+                <h3 class="title-sub">관리자</h3>
+              </div>
+              <div class="board-head__cell">
+                <div class="input-search-toggle">
+                  <button type="button" class="base-icon icon-search__color2__size-m" onclick="inputSearchToggle();">
+                    <span class="isHidden">검색</span>
+                  </button>
+                  <div class="input-box toggle-target">
+                    <input type="text" class="input-txt" placeholder="검색어를 입력하세요." oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="board-body">
+              <div class="table table-type1">
+                <table>
+                  <colgroup>
+                    <col/>
+                    <col style="width: 220px"/>
+                    <col style="width: 100px;"/>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">관리자</th>
+                      <th scope="col">등록/수정일자</th>
+                      <th scope="col">삭제</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="pagination">
+              <button type="button" class="pagination__nav-prev" disabled>이전</button>
+              <div class="pagination__number">
+                <button type="button" class="pagination__nav-btn" disabled>1</button>
+                <button type="button" class="pagination__nav-btn">2</button>
+                <button type="button" class="pagination__nav-btn">3</button>
+                <button type="button" class="pagination__nav-btn">4</button>
+                <button type="button" class="pagination__nav-btn">5</button>
+              </div>
+              <button type="button" class="pagination__nav-next">다음</button>
+            </div>
+
+          </div>
+          <!-- //관리자 -->
+          <!-- 기업명 -->
+          <div class="box-flex__cell" style="width: 50%;">
+            <h3 class="title-sub">기업명</h3>
+            <div class="board-body">
+              <div class="table table-type1">
+                <table>
+                  <colgroup>
+                    <col style="width: 100px;"/>
+                    <col/>
+                    <col style="width: 220px"/>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">NO</th>
+                      <th scope="col">기업명</th>
+                      <th scope="col">관리자</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>251</td>
+                      <td class="point-color">테스트기업_아던트</td>
+                      <td>관리자명</td>
+                    </tr>
+                    <tr>
+                      <td>251</td>
+                      <td class="point-color">테스트기업_아던트</td>
+                      <td>관리자명</td>
+                    </tr>
+                    <tr>
+                      <td>251</td>
+                      <td class="point-color">테스트기업_아던트</td>
+                      <td>관리자명</td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- //기업명 -->
+        </div>
+        
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

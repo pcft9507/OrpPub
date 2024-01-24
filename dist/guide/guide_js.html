@@ -1,0 +1,249 @@
+<section class="guide__section">
+	<h2 class="guide__subTit">JS</h2>
+  <pre><code class="hljs language-js">
+      /**
+       * ui.js 스크립트 가이드
+       */
+      Util {
+        //return "isMobile" or "isPC"
+        Util.deviceChk()
+        
+        //return [data-ref="name"];
+        Util.returnRef("name");
+
+        //숫자 증감
+        Util.numFunc({ 
+          start: 초기 값,
+          total: 목표 값,
+          time: sec,
+          onEnd: (num)=>{
+            console.log(num)
+          }
+        });
+
+        //엘리먼트가 화면에 노출 될 때
+        Util.createObserver(
+          Elements,
+          (_this)=>{
+            console.log(_this);
+          },
+          { //옵션
+            rootMargin: '0px 0px -50px',
+            threshold: 1.0
+          }
+        );
+
+        //return {key: val}
+        Util.getUrlParams();
+      }
+
+      /** 
+      * 슬라이드 open, close, toggle
+      * @param {Element} el 엘리먼트
+      * @param {Number} time 시간
+      * @param {String} cls 슬라이드 후 적용 클래스 명
+      * @param {Function} callBack 슬라이드 후 콜백 설정
+      */
+      slide.open(el, time, cls, callback);
+      slide.close(el, time, cls, callback);
+      slide.toggle(el, time, cls, callback);
+
+      /**
+      * class SideNav - 사이드 네비게이션
+      * @param {Object} params {target: String}
+      */
+      const sideNav = new SideNav({target: "sideNav"});
+
+      /**
+      * class DropDown - 드랍다운 메뉴
+      * @param {Object} params {target: Element, data: Object}
+      */
+      ** 페이지 로드 되면 페이지 내에 모든 드롭다운 메뉴는 dropdown.items 에서 확인 가능합니다.
+      {
+        target: Element,
+        data: {
+          "name" : "sample",  // dropdown.items.sample 로 세팅
+          "type" : "single" || "multi" || "input", // 드롭다운 타입
+          "option" : [
+            {
+              "name": "전체", // 옵션 버튼 텍스트
+              "value": "value", // 옵션 값
+              "all": true, // 멀티 타입에서 전체 선택 옵션 일 경우 true
+              "disabled": false, //disabled 유무
+              "checked": true //check 유무
+            }
+          ]
+        }
+      }
+      // 체인지 콜백
+      dropdown.items.sample.onChange((_this)=>{ console.log(_this) });
+      // 옵션 변경
+      dropdown.items.sample.update([
+        {
+          "name": "키워드1",
+          "value": "val1",
+          "disabled": false,
+          "checked": false
+        },
+        {
+          "name": "키워드2",
+          "value": "val2",
+          "disabled": false,
+          "checked": false
+        }
+      ]);
+      // 초기 상태로 리셋
+      dropdown.items.sample.reset();
+      // 값 확인
+      dropdown.items.sample.value;
+
+      /**
+      * class GlobalSetObj - 드롭다운 글로벌 세팅
+      * @param {String} sort 구분 텍스트
+      */
+      const dropdown = new GlobalSetObj('dropdown');
+      window.addEventListener('DOMContentLoaded',()=>{
+        dropdown.init('dropdown');
+      });
+      ex) dropdown.items.sampleDropdown1;
+      ex) dropdown.items.sampleDropdown2;
+
+      비동기로 생성 해야 하는 드롭다운 메뉴는
+      dropdown.init('dropdown'); 실행 후
+      dropdown.items 에서 확인 가능합니다.
+
+      /**
+      * class TabContents - 탭 컨텐츠
+      * @param {Object} params {target: String or Element}
+      */
+      const tabContents = new TabContents({target: 'tabContents'});
+      // change 콜백
+      tabContents.onChange((_this)=>{console.log(_this)});
+
+      /**
+      * class LayerPopup - 레이어팝업
+      * @param {Object} params {target: data-ref 네임, dimClose: 딤 클릭 시 숨김 처리 유무}
+      */
+      const layerSample = new LayerPopup({target: "layerSample", dimClose: false}); 
+
+      layerSample.show(); //show 바디 스크롤 기능이 비활성화 됩니다.
+      layerSample.hide(); //hide 반드시 hide()로 처리해야만 바디 스크롤 기능이 활성화 됩니다.
+
+      // show, hide 실행 후 콜백 기본 옵션은 this 반환
+      layerSample.show((_this)=>{console.log(_this)});
+      layerSample.hide((_this)=>{console.log(_this)});
+
+      // show 콜백
+      layerSample.onShow((_this)=>{console.log(_this)})
+      // hide 콜백
+      layerSample.onHide((_this)=>{console.log(_this)})
+      // remove 콜백 - alert, confirm 실행 시 생성된 레이어가 삭제 될 때 쓰입니다.
+      layerSample.onRemove((_this)=>{console.log(_this)})
+
+      /**
+      * 메시지 팝업 alert, confirm
+      * @param {Object} params {
+      *  msg: 줄 바꿈 &lt;br>,
+      *  type: 'confirm', //confirm 일 경우
+      *  btnClose: true, //닫기 버튼이 있을 경우
+      *  btn: {confirm: '선택', cancel: '삭제'}, // 기본 값은 확인, 취소
+      *  onConfirm: // 확인 콜백
+      *  onCancel: // 취소 콜백
+      *  onShow: // show 콜백
+      *  onHide: // hide 콜백
+      * }
+      */
+      alert({
+        msg: '메시지메시지&lt;br>메시지',
+        onShow: ()=>console.log('show'),
+        onHide: ()=>console.log('hide'),
+        onConfirm: ()=>console.log('confirm')
+      })
+      confirm({
+        msg: '메시지메시지&lt;br>메시지',
+        onShow: ()=>console.log('show'),
+        onHide: ()=>console.log('hide'),
+        onConfirm: ()=>console.log('confirm'),
+        onCancel: ()=>console.log('cancel')
+      })
+
+      /**
+      * class CreateTag - 태그 생성 스크립트
+      * @param {Object} params 태그 생성 영역 엘리먼트, 태그 형태 넘버
+      */
+      const searchTag = new CreateTag({
+        target: document.getElementById('searchTag'),
+        tagType: 1
+      });
+      searchTag.reset();
+      searchTag.addTag(value, value);"
+
+      /**
+       * rowItemDel 인풋 엘리먼트 삭제
+       * @param {Numer} num 삭제될 클래스명 숫자로 구분
+       */
+      rowItemDel(Number);
+
+      /**
+       * rowItemAdd 인풋 엘리먼트 추가
+       * @param {Number} num 추가할 엘리먼트 탬플릿 타입별 넘버
+       * @param {Element} targetEl 특정 엘리먼트에 추가 할 경우만 작성하지 않는 경우에는 이벤트 타겟 바로 위에 생성
+       */
+      rowItemAdd(Number);
+      rowItemAdd(Number, Element);
+
+       /**
+        * rowItemUp 아이템 순서를 대상 위로 옮길 경우에 사용
+        * @param {String} target 대상 클래스명
+        */
+        rowItemUp(className);
+
+        /**
+         * rowItemDown 아이템 순서를 대상 아래로 옮길 경우 사용
+         * @param {String} target 대상 클래스명
+         */
+        rowItemDown(className);
+         
+        /**
+         * class ContentsNav - 페이지 내에서 앵커 이동
+         */
+
+        /**
+         * class ControlAddItem - 추가 생성 될 엘리먼트에 드롭다운, 캘린더가 들어가 있는 곳에 사용
+         * @param {Object} params 
+         * target: data-ref 속성 or Element,
+         * wrapTag: 생성할 태그 명,
+         * wrapClassName: 생성 도니 태그에 클래스명,
+         * stateNum: 1 태그 내에 순서대로 숫자가 들어가야 할 경우 상태 넘버
+         * template: html 태그 문자열 
+         */
+         
+        const sample = new ControlAddItem({
+        target: 'controlTable4',
+        stateNum: 1,
+        wrapTag: 'tr',
+        template: `
+          <td class="pd-type1">
+            <button type="button" class="btn-item--del" onclick="controlTable4.del('tr');">
+              <span>삭제</span>
+            </button>
+          </td>
+          <td class="left">자격증 점수</td>
+          <td>
+            <div class="form-inner type-gap2">
+              <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
+              점
+            </div>
+          </td>
+          <td>
+            <div class="form-inner type-gap2">
+              <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
+              점
+            </div>
+          </td>
+          <td class="left">조건에 등록되어 있지 않은 자격증</td>
+          `
+        });
+        sample.add();
+  </code></pre>
+</section>

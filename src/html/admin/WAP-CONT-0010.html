@@ -1,0 +1,416 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "관리자", dep1: "2", dep2: "1"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">입사 지원서</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="base-tab tab-type1 content-mt6" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">양식 관리</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">약관 관리</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+        <div class="board-head content-mt2">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 172px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "multi",
+                  "option": [
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "all": true,
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "관리자",
+                      "value": "관리자",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "기업명",
+                      "value": "기업명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용명",
+                      "value": "채용명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용기간",
+                      "value": "채용기간",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "지원자(채용분야)",
+                      "value": "지원자(채용분야)",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "진행상태",
+                      "value": "진행상태",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >
+                <span class="dropdown-btn__label">분야</span>
+                <span class="dropdown-btn__checked">전체</span>
+              </button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="board-head__cell" data-ref="rowNoneCheck">
+            <button class="base-btn type2__size-s" onclick="WAP_CONT_0020.show();">
+              <span class="base-icon icon-add__color1__size-s">등록</span>
+            </button>
+          </div>
+          <div class="board-head__cell" data-ref="rowCheck" style="display: none;">
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-copy__color1__size-s">복사</span>
+            </button>
+            <button class="base-btn type2__size-s point-color4">
+              <span class="base-icon icon-del__color4__size-s">삭제</span>
+            </button>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table>
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 50px;"/>
+                <col style="width: 80px"/>
+                <col style="width: 80px"/>
+                <col style="width: 120px"/>
+                <col style="width: 80px"/>
+                <col/>
+                <col style="width: 90px"/>
+                <col style="width: 240px"/>
+                <col style="width: 240px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">
+                    <span class="base-icon icon-mark__color1__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </th>
+                  <th scope="col">No</th>
+                  <th scope="col">구분</th>
+                  <th scope="col">코드</th>
+                  <th scope="col">상태</th>
+                  <th scope="col">지원서 양식명</th>
+                  <th scope="col">미리 보기</th>
+                  <th scope="col">등록 정보</th>
+                  <th scope="col">최종 수정일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>99999</td>
+                  <td>표준형</td>
+                  <td>STD-000079</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td class="point-color">지원서_테스트용 2</td>
+                  <td><button type="button" onclick="WAP_CONT_0050.show();"><u>보기</u></button></td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td>표준형</td>
+                  <td>STD-000079</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td class="point-color">지원서_테스트용 2</td>
+                  <td><button type="button" onclick="WAP_CONT_0050.show();"><u>보기</u></button></td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td>표준형</td>
+                  <td>STD-000079</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td class="point-color">지원서_테스트용 2</td>
+                  <td><button type="button" onclick="WAP_CONT_0050.show();"><u>보기</u></button></td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td>표준형</td>
+                  <td>STD-000079</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td class="point-color">지원서_테스트용 2</td>
+                  <td><button type="button" onclick="WAP_CONT_0050.show();"><u>보기</u></button></td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td>표준형</td>
+                  <td>STD-000079</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td class="point-color">지원서_테스트용 2</td>
+                  <td><button type="button" onclick="WAP_CONT_0050.show();"><u>보기</u></button></td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td>표준형</td>
+                  <td>STD-000079</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td class="point-color">지원서_테스트용 2</td>
+                  <td><button type="button" onclick="WAP_CONT_0050.show();"><u>보기</u></button></td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/admin/WAP-CONT-0020.html');
+  @@include('../html/admin/WAP-CONT-0050.html');
+  
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_CONT_0020" : ()=>{WAP_CONT_0020.show()},
+      "WAP_CONT_0050" : ()=>{WAP_CONT_0050.show()},
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

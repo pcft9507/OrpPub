@@ -1,0 +1,1321 @@
+<section class="guide__section">
+  <h2 class="guide__subTit">LAYOUT <button type="button" class="btnFold">접기</button></h2>
+  <pre><code class="hljs language-html">
+    <div class="wrap">
+    
+      <!-- header fixed z-index: 60 -->
+      <header class="header">
+        ...
+      </header>
+      <!-- //header -->
+  
+      <!-- container -->
+      <div class="container">
+        <!-- snb fixed z-index: 50  -->
+        <div class="snb">
+          ...
+        </div>
+        <!-- //snb -->
+
+        <!-- contents -->
+        <div class="contents">
+          ...
+        </div>
+        <!-- //contents -->
+      </div>
+      <!-- //container -->
+
+    </div>
+
+    <!-- 레이어 z-index: 100 -->
+    <div class="layer-popup">레이어</div>
+    <div class="layer-popup">레이어1</div>
+    <div class="layer-popup">레이어2</div>
+  </code></pre>
+</section>
+
+<section class="guide__section">
+  <h2 class="guide__subTit">공통 클래스 <button type="button" class="btnFold">접기</button></h2>
+  <div class="guide__code-view">
+    <h2 class="title-sub">제목</h2>
+    <h2 class="title-sub1">제목</h2>
+    <h2 class="title-sub2">제목</h2>
+    <h2 class="title-sub3">제목</h2>
+    <h2 class="title-sub4">제목</h2>
+    <h2 class="title-sub5">제목</h2>
+    <p class="point-color">font-color</p>
+    <p class="point-color1">font-color1</p>
+    <p class="point-color2">font-color2</p>
+    <p class="point-color3">font-color3</p>
+    <p class="point-color4">font-color4</p>
+    <p class="point-color5">font-color5</p>
+    <p class="point-color6">font-color6</p>
+    <div class="box-type1">
+      Radius 8 Shadow padding 32
+      <div class="box-type2">Radius 8 Border padding 32</div>
+      <div class="box-type3">Radius 8 BG padding 24</div>
+      <div class="box-type4">Radius 6 padding 16 24</div>
+      <div class="box-type5">Radius 8 BG</div>
+      <div class="box-type5 type2">Radius 8 BG padding 16 32</div>
+      <div class="box-type6">Radius 16 BG padding 24</div>
+    </div>
+  </div>
+  <pre><code class="hljs language-html">
+    <h2 class="title-sub">제목</h2>
+    <h2 class="title-sub1">제목</h2>
+    <h2 class="title-sub2">제목</h2>
+    <h2 class="title-sub3">제목</h2>
+    <h2 class="title-sub4">제목</h2>
+    <h2 class="title-sub5">제목</h2>
+
+    <div class="box-type1">Radius Shadow</div>
+    <div class="box-type2">Radius Border</div>
+    <div class="box-type3">Radius BG</div>
+
+    <p class="point-color">font-color</p>
+    <p class="point-color1">font-color1</p>
+    <p class="point-color2">font-color2</p>
+    <p class="point-color3">font-color3</p>
+    <p class="point-color4">font-color4</p>
+    <p class="point-color5">font-color5</p>
+    <p class="point-color6">font-color6</p>
+
+    .content-mt1 {margin-top: 8px;}
+    .content-mt2 {margin-top: 16px;}
+    .content-mt3 {margin-top: 24px;}
+    .content-mt4 {margin-top: 32px;}
+    .content-mt5 {margin-top: 40px;}
+    .content-mt6 {margin-top: 48px;}
+    .content-mt7 {margin-top: 56spx;}
+
+    <div class="box-type1">Radius 8 Shadow padding 32</div>
+    <div class="box-type2">Radius 8 Border padding 32</div>
+    <div class="box-type3">Radius 8 BG padding 24</div>
+    <div class="box-type4">Radius 6 padding 16 24</div>
+    <div class="box-type5">Radius 8 BG</div>
+    <div class="box-type5 type2">Radius 8 BG padding 16 32</div>
+    <div class="box-type6">Radius 16 BG padding 24</div>
+
+    <div class="table table-type1">
+      <table>
+        <colgroup>
+          <col style="width: 25%;" />
+          <col style="width: 25%;" />
+          <col style="width: 25%;" />
+          <col style="width: 25%;" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">th1</th>
+            <th scope="col">th2</th>
+            <th scope="col">th3</th>
+            <th scope="col">th4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="center">td1</td>
+            <td class="left">td2</td>
+            <td class="right">td3</td>
+            <td>td4</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </code></pre>
+</section>
+
+<section class="guide__section">
+  <h2 class="guide__subTit">ICON <button type="button" class="btnFold">접기</button></h2>
+  <div class="guide__code-view">
+    <span class="base-icon icon-add__size-s__color1">등록</span>
+    <span class="base-icon icon-copy__size-s__color1">복사</span>
+    <span class="base-icon icon-del__size-s__color4">삭제</span>
+    <span class="base-icon icon-excel__size-s__color1">엑셀 업로드</span>
+    <span class="base-icon icon-excel__size-s__color1">불러오기</span>
+    <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+    <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+    <span class="base-icon icon-graph__size-m__color5">통계</span>
+    <span class="base-icon icon-reset__size-s__color3">초기화</span>
+    <span class="base-icon icon-setup2__size-s__color1">설정</span>
+    <span class="base-icon icon-send__size-s__color1">발송</span>
+    <span class="base-icon icon-upload__size-s__color1">평가점수 업로드</span>
+    <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+    <span class="base-icon icon-trash__size-m__color3"><span class="isHidden">삭제</span></span>
+    <span class="base-icon icon-up__size-m__color3"><span class="isHidden">위로</span></span>
+    <span class="base-icon icon-down2__size-m__color3"><span class="isHidden">아래로</span></span>
+    <span class="base-icon icon-mark__size-m__color1"><span class="isHidden">마크</span></span>
+    <span class="base-icon icon-share__size-m__color3"><span class="isHidden">공유</span></span>
+    <span class="base-icon icon-down__size-s__color"><span class="isHidden">다운로드</span></span>
+    <span class="base-icon icon-mod__size-s__fix">수정</span>
+    <span class="base-icon icon-mod__size-s__fix">간편등록</span>
+  </div>
+
+  <pre><code class="hljs language-html">
+    <span class="base-icon icon-add__size-s__color1">등록</span>
+    <span class="base-icon icon-copy__size-s__color1">복사</span>
+    <span class="base-icon icon-del__size-s__color4">삭제</span>
+    <span class="base-icon icon-excel__size-s__color1">엑셀 업로드</span>
+    <span class="base-icon icon-excel__size-s__color1">불러오기</span>
+    <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+    <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+    <span class="base-icon icon-graph__size-m__color5">통계</span>
+    <span class="base-icon icon-reset__size-s__color3">초기화</span>
+    <span class="base-icon icon-setup2__size-s__color1">설정</span>
+    <span class="base-icon icon-send__size-s__color1">발송</span>
+    <span class="base-icon icon-upload__size-s__color1">평가점수 업로드</span>
+    <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+    <span class="base-icon icon-trash__size-m__color3"><span class="isHidden">삭제</span></span>
+    <span class="base-icon icon-up__size-m__color3"><span class="isHidden">위로</span></span>
+    <span class="base-icon icon-down2__size-m__color3"><span class="isHidden">아래로</span></span>
+    <span class="base-icon icon-mark__size-m__color1"><span class="isHidden">마크</span></span>
+    <span class="base-icon icon-share__size-m__color3"><span class="isHidden">공유</span></span>
+    <span class="base-icon icon-down__size-s__color"><span class="isHidden">다운로드</span></span>
+    <span class="base-icon icon-mod__size-s__fix">수정</span>
+    <span class="base-icon icon-mod__size-s__fix">간편등록</span>
+  </code></pre>
+</section>
+
+<section class="guide__section">
+  <h2 class="guide__subTit">BUTTON <button type="button" class="btnFold">접기</button></h2>
+  <div class="guide__code-view">
+    <button class="base-btn type1__size-s">버튼</button>
+    <button class="base-btn type1__size-s" disabled>버튼</button>
+    <button class="base-btn type1__size-s2">버튼</button>
+    <a href="#" class="base-btn type1__size-m">링크</a>
+    <a href="#" class="base-btn type1__size-m disabled">링크</a>
+    <button class="base-btn type1__size-m2">버튼 font-size: 14</button>
+    <br>
+    <button class="base-btn type2__size-s">버튼</button>
+    <button class="base-btn type2__size-s" disabled="disabled">버튼</button>
+    <a href="#" class="base-btn type2__size-m">링크</a>
+    <a href="#" class="base-btn type2__size-m disabled">링크</a>
+    <br>
+    <button class="base-btn type3">설정</button>
+    <br>
+    <label class="btn-toggle">
+      <input type="checkbox">
+      <span>버튼</span>
+    </label>
+    <label class="btn-toggle size-s">
+      <input type="checkbox">
+      <span>버튼</span>
+    </label>
+  </div>
+  <pre><code class="hljs language-html">
+    //type1__size-m 컬러1 높이 48
+    //type1__size-m2 폰트 14
+    //type2__size-s 컬러2 높이 44
+    //type2__size-s2 컬러2 높이 40
+    <button class="base-btn type1__size-m">버튼</button>
+    <a href="#" class="base-btn type2__size-s">링크</a>
+    
+    //비활성 처리
+    <button class="base-btn type1__size-s" disabled="disabled">버튼</button> // disabled
+    <a href="#" class="base-btn type1__size-m disabled">링크</a> // 링크는 class disabled
+
+    //토글
+    <label class="btn-toggle">
+      <input type="checkbox">
+      <span>버튼</span>
+    </label>
+    <label class="btn-toggle size-s">
+      <input type="checkbox">
+      <span>버튼</span>
+    </label>
+
+  </code></pre>
+</section>
+
+<section class="guide__section">
+  <h2 class="guide__subTit">FORM <button type="button" class="btnFold">접기</button></h2>
+  <div class="guide__code-view">
+    <label class="input-chk">
+      <input type="checkbox">
+      <span>체크박스</span>
+    </label>
+    <label class="input-chk">
+      <input type="radio">
+      <span>라디오</span>
+    </label>
+    <label class="input-chk">
+      <input type="checkbox">
+      <span class="isHidden">체크박스</span>
+    </label>
+    <label class="input-chk">
+      <input type="radio">
+      <span class="isHidden">라디오</span>
+    </label>
+    <br>
+    <label class="input-chk type2">
+      <input type="checkbox">
+      <span>체크박스</span>
+    </label>
+    <label class="input-chk type2">
+      <input type="radio">
+      <span>라디오</span>
+    </label>
+    <label class="input-chk type2">
+      <input type="checkbox">
+      <span class="isHidden">체크박스</span>
+    </label>
+    <label class="input-chk type2">
+      <input type="radio">
+      <span class="isHidden">라디오</span>
+    </label>
+    <br>
+    <br>
+    <label class="input-chk">
+      <input type="checkbox" data-ref="chkItem" value="chkAll" onchange="inputCheckAll('chkItem')">
+      <span>전체 체크</span>
+    </label>
+    <label class="input-chk">
+      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+      <span>체크1</span>
+    </label>
+    <label class="input-chk">
+      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+      <span>체크2</span>
+    </label>
+    <label class="input-chk">
+      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+      <span>체크3</span>
+    </label>
+    <br>
+
+    <div class="input-box" style="width: 172px">
+      <input type="text" class="input-txt" placeholder="입력해주세요." oninput="inputValueChk()">
+      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+    </div>
+
+    <div class="input-box" style="width: 172px">
+      <input type="text" class="input-txt" placeholder="입력해주세요." value="비활성" disabled oninput="inputValueChk()">
+      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+    </div>
+    <br>
+    <div class="dropdown" style="width: 172px">
+      <button type="button" class="dropdown-btn"
+        style="width: 172px"
+        data-dropdown='{
+          "name": "dropdownSingle",
+          "type" : "sigle",
+          "option": [
+            {
+              "name": "키워드1키워드1키워드1",
+              "value": "val1",
+              "disabled": false,
+              "checked": true
+            },
+            {
+              "name": "키워드2",
+              "value": "val2",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "키워드3",
+              "value": "val3",
+              "disabled": false,
+              "checked": false
+            }
+          ]
+        }'
+      >선택</button>
+    </div>
+    <script>
+      sampleDropdown.items.dropdownSingle.onChange((_this)=>{console.log(_this)});
+    </script>
+
+    <div class="dropdown" style="width: 172px">
+      <button type="button" class="dropdown-btn size-s"
+        data-dropdown='{
+          "name": "dropdownMulti",
+          "type" : "multi",
+          "option": [
+            {
+              "name": "전체",
+              "value": "전체",
+              "all": true,
+              "disabled": false,
+              "checked": true
+            },
+            {
+              "name": "관리자",
+              "value": "관리자",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "기업명",
+              "value": "기업명",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "채용명",
+              "value": "채용명",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "채용기간",
+              "value": "채용기간",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "지원자(채용분야)",
+              "value": "지원자(채용분야)",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "진행상태",
+              "value": "진행상태",
+              "disabled": false,
+              "checked": false
+            }
+          ]
+        }'
+      >
+        <span class="dropdown-btn__label">분야</span>
+        <span class="dropdown-btn__checked">전체</span>
+      </button>
+    </div>
+    <script>
+      sampleDropdown.items.dropdownMulti.onChange((_this)=>{console.log(_this)});
+    </script>
+    <br>
+    
+    <div class="input-box type-search" style="width: 300px;">
+      <input type="text" class="input-txt" placeholder="입력해주세요." name="searchDropDown" oninput="inputValueChk()">
+      <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+    </div>
+    <script>
+    const SAMPLE_DATA2 = [
+      {"name": "키워드"},
+      {"name": "키워드드"},
+      {"name": "키워드드드"}
+    ]
+    sampleDropdown.addItem({
+      target: document.querySelector('[name="searchDropDown"]'),
+      data: {
+        "name": "searchDropDown",
+        "type" : "input",
+        "option": SAMPLE_DATA2,
+      }
+    });
+    sampleDropdown.items.searchDropDown.onChange((_this)=>{console.log(_this)});
+    </script>
+    <br>
+    <div class="input-search-toggle">
+      <button type="button" class="base-icon icon-search__color2__size-m" onclick="inputSearchToggle();">
+        <span class="isHidden">검색</span>
+      </button>
+      <div class="input-box toggle-target">
+        <input type="text" class="input-txt" placeholder="검색어를 입력하세요." oninput="inputValueChk()">
+        <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+      </div>
+    </div>
+    <div class="input-box type-calendar">
+      <input type="text" id="calendar1" class="input-txt" placeholder="날짜 선택">
+      <script>
+        const calendar1 = new Datepicker(document.getElementById('calendar1'), {
+          ...CALENDAR_DEFAULT_OPTION,
+          ...{
+            "minDate": "2023.12.06",
+            "maxDate": "2023.12.20"
+          }
+        });
+      </script>
+    </div>
+
+  </div>
+  <pre><code class="hljs language-html">
+    <label class="input-chk">
+      <input type="checkbox">
+      <span>체크박스</span>
+    </label>
+    <label class="input-chk">
+      <input type="radio" name="radio">
+      <span>라디오</span>
+    </label>
+    <label class="input-chk">
+      <input type="checkbox">
+      <span class="isHidden">체크박스만 보임</span>
+    </label>
+    <label class="input-chk">
+      <input type="radio" name="radio">
+      <span class="isHidden">라디오 버튼만 보임</span>
+    </label>
+
+    // 전체 선택 기능
+    // 컨트롤 할 체크박스 태그에 data-ref="" 속성 추가
+    // inputCheckAll( data-ref="" 속성 값 );
+    <label class="input-chk">
+      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">  //전체 체크 해야 하는 체크 박스 value="chkAll"
+      <span>전체 체크</span>
+    </label>
+    <label class="input-chk">
+      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+      <span>체크1</span>
+    </label>
+    <label class="input-chk">
+      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+      <span>체크2</span>
+    </label>
+    <label class="input-chk">
+      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+      <span>체크3</span>
+    </label>
+
+    <div class="input-box">
+      <input type="text" class="input-txt" placeholder="입력해주세요." oninput="inputValueChk()">
+      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+    </div>
+    //inputValueDel, inputValueChk 함수는 value 체크해서 삭제 버튼 노출시키는 함수입니다.
+    
+    //type="single" 높이 48픽셀
+    <div class="dropdown">
+      <button type="button" class="dropdown-btn"
+        data-dropdown='...'
+      >선택</button> 
+    </div>
+    <!-- 
+      data-dropdown='...' 속성에 아래와 같이 정보를 넣어줘야합니다.
+      data-dropdown='{
+        "name": "dropdownSingle", // 드롭다운 메뉴 네임 *필수
+        "type" : "single", // 싱글 타입
+        "option": [
+          {
+            "name": "키워드1키워드1키워드1", //렌더링 되는 텍스트
+            "value": "val1", // value
+            "disabled": false, // disabled 여부
+            "checked": true // checked 여부
+          },
+          {
+            "name": "키워드2",
+            "value": "val2",
+            "disabled": false,
+            "checked": false
+          },
+          {
+            "name": "키워드3",
+            "value": "val3",
+            "disabled": false,
+            "checked": false
+          }
+        ]
+      }'
+      data-dropdown='{
+        "name": "dropdownSingle",
+        "type" : "single",
+        "option": [
+          {
+            "name": "옵션1",
+            "value": "val1",
+            "disabled": false,
+            "checked": false
+          },
+          {
+            "name": "옵션2",
+            "value": "val2",
+            "disabled": false,
+            "checked": false
+          },
+          {
+            "name": "옵션3",
+            "value": "val3",
+            "disabled": false,
+            "checked": false
+          }
+        ]
+      }'
+
+      // 렌더링 된 후 체인지 콜백 설정
+      dropdown.init('dropdown', {
+        name: 'dropdownSingle',
+        onChange: _this=>{
+          console.log(_this.value);
+        }
+      });
+    -->
+
+    //type="multi" 높이 44px 일 경우 dropdown-btn size-s
+    <div class="dropdown">
+      <button type="button" class="dropdown-btn size-s"
+        data-dropdown='...'
+      >
+        <span class="dropdown-btn__label">분야</span>
+        <span class="dropdown-btn__checked">전체</span>
+      </button>
+    </div>
+    <!--
+      data-dropdown='{
+        "name": "dropdownMulti",
+        "type" : "multi", // 멀티 타입
+        "option": [
+          {
+            "name": "전체",
+            "value": "전체",
+            "all": true, // 전체 선택 버튼에 설정
+            "disabled": false,
+            "checked": true
+          },
+          {
+            "name": "관리자",
+            "value": "관리자",
+            "disabled": false,
+            "checked": false
+          },
+          {
+            "name": "기업명",
+            "value": "기업명",
+            "disabled": false,
+            "checked": false
+          }
+        ]
+      }'
+
+      // 렌더링 된 후 체인지 콜백 설정
+      dropdown.init('dropdown', {
+        name: 'dropdownMulti',
+        onChange: _this=>{
+          console.log(_this.value);
+        }
+      });
+    -->
+
+    <div class="input-box type-search" style="width: 100%">
+      <input type="text" class="input-txt" placeholder="입력해주세요." name="searchDropDown" oninput="inputValueChk()">
+      <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+    </div>
+    <script>
+      const SAMPLE_DATA = [
+        {"name": "키워드"},
+        {"name": "키워드드"},
+        {"name": "키워드드드"}
+      ]
+      dropdown.addItem({
+        target: document.querySelector('[name="searchDropDown"]'),
+        data: {
+          "name": "searchDropDown",
+          "type" : "input",
+          "option": SAMPLE_DATA2,
+        }
+      });
+      dropdown.items.searchDropDown.onChange((_this)=>{console.log(_this)});
+    </script>
+
+    //토글 형태
+    <div class="input-search-toggle">
+      <button type="button" class="base-icon icon-search__color2__size-m" onclick="inputSearchToggle();">
+        <span class="isHidden">검색</span>
+      </button>
+      <div class="input-box toggle-target">
+        <input type="text" class="input-txt" placeholder="검색어를 입력하세요." oninput="inputValueChk()">
+        <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+      </div>
+    </div>
+
+    <div class="input-box type-calendar">
+      <input type="text" id="calendar" class="input-txt" placeholder="날짜 선택">
+      <script>
+        const calendar = new Datepicker(document.getElementById('calendar'), {
+          ...CALENDAR_DEFAULT_OPTION,
+          ...{
+            "minDate": "2023.12.06",
+            "maxDate": "2023.12.20"
+          }
+        });
+      </script>
+    </div>
+
+  </code></pre>
+</section>
+
+<section class="guide__section">
+  <h2 class="guide__subTit">TAB <button type="button" class="btnFold">접기</button></h2>
+  <div class="guide__code-view">
+
+    <div class="base-tab tab-type1" data-ref="tab">
+      <ul class="tab__list" role="tablist">
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="true"
+          >전체(405)</button>
+        </li>
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="false"
+          >계약중(24)</button>
+        </li>
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="false"
+          >계약만료(8)</button>
+        </li>
+      </ul>
+    </div>
+    <script>
+      const tab = new TabContents({target: 'tab'});
+      tab.onChange((_this)=>{console.log(_this)});
+    </script>
+
+    <div class="base-tab tab-type1" data-ref="tab2">
+      <ul class="tab__list" role="tablist">
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="true"
+            aria-controls="tabContent1"
+          >전체(405)</button>
+        </li>
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="tabContent2"
+          >계약중(24)</button>
+        </li>
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="tabContent3"
+          >계약만료(8)</button>
+        </li>
+      </ul>
+    </div>
+    <div class="tab__content" id="tabContent1">전체</div>
+    <div class="tab__content" id="tabContent2">계약중</div>
+    <div class="tab__content" id="tabContent3">계약만료</div>
+    <script>
+      const tab2 = new TabContents({target: 'tab2'});
+      tab2.onChange((_this)=>{console.log(_this)});
+    </script>
+
+  </div>
+  <pre><code class="hljs language-html">
+    // role="tablist" 탭 리스트
+    // role="tab" 탭 버튼
+    // aria-selected="true" 활성/비활성 여부 true로 돼 있는 버튼은 클래스로 활성화 됩니다.
+    // tabContents1.current 는 "전체(405)"
+    <div class="base-tab tab-type1" data-ref="tabContents1">
+      <ul class="tab__list" role="tablist">
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="true"
+          >전체(405)</button>
+        </li>
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="false"
+          >계약중(24)</button>
+        </li>
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="false"
+          >계약만료(8)</button>
+        </li>
+      </ul>
+    </div>
+    <script>
+      const tabContents1 = new TabContents({target: 'tabContents1'});
+    </script>
+
+    // 컨텐츠가 준비돼있는 경우
+    // 버튼에 있는 속성 aria-controls="tabContent1" 해당 컨텐츠 id와 매칭 필수 사항입니다.
+    <div class="base-tab tab-type1" data-ref="tabContents2">
+      <ul class="tab__list" role="tablist">
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="true"
+            aria-controls="tabContent1"
+          >전체(405)</button>
+        </li>
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="tabContent2"
+          >계약중(24)</button>
+        </li>
+        <li class="tab__item">
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="tabContent3"
+          >계약만료(8)</button>
+        </li>
+      </ul>
+    </div>
+
+    // aria-controls="tabContent1" === id="tabContent1" id 필수 사항입니다.
+    <div class="tab__content" id="tabContent1">전체</div>
+    <div class="tab__content" id="tabContent2">계약중</div>
+    <div class="tab__content" id="tabContent3">계약만료</div>
+    <script>
+      const tabContents2 = new TabContents({target: 'tabContents2'});
+    </script>
+
+  </code></pre>
+</section>
+
+<section class="guide__section">
+  <h2 class="guide__subTit">LAYER POPUP <button type="button" class="btnFold">접기</button></h2>
+  <div class="guide__code-view">
+    <button 
+      class="base-btn type1__size-s"
+      onclick="confirm({
+        msg: '올바른 휴대폰 번호 또는<br>통신사를 입력해주세요.',
+        onShow: ()=>console.log('show'),
+        onHide: ()=>console.log('hide'),
+        onConfirm: ()=>console.log('confirm'),
+        onCancel: ()=>console.log('cancel')
+      })"
+    >confirm</button>
+    <button 
+      class="base-btn type1__size-s"
+      onclick="alert({
+        msg: '올바른 휴대폰 번호 또는<br>통신사를 입력해주세요.',
+        onShow: ()=>console.log('show'),
+        onHide: ()=>console.log('hide'),
+        onConfirm: ()=>console.log('confirm')
+      })"
+    >alert</button>
+    <button class="base-btn type2__size-s" onclick="layerModal.show((_this)=>{console.log(_this)});">레이어 모달</button>
+
+    <div class="layer-popup type-modal" data-ref="layerModal">
+      <section class="popup__container">
+        <div class="popup__header">
+          <h3 class="popup__title">타이틀</h3>
+        </div>
+
+        <div class="popup__contents">
+          <p class="txt-type">16px 500 center</p>
+          <p class="txt-type2">--gray1 400</p>
+          <p class="txt-type3">--gray1 16px 400</p>
+        </div>
+
+        <div class="popup__btn-wrap">
+          <button class="base-btn type2__size-m">수정</button>
+          <button class="base-btn type2__size-m">삭제</button>
+        </div>
+
+        <button class="btn-close" onclick="layerModal.hide()">닫기</button>
+      </section>
+    </div>
+    <script>
+      layerModal = new LayerPopup({target: "layerModal"});
+    </script>
+
+  </div>
+  <pre><code class="hljs language-html">
+    // layer z-index: 100; 컨텐츠 z-index 는 100 미만
+    // layer 중첩일 경우 마크업 순서대로 처리 or layer-popup 내부에 layer-popup 넣어서 처리
+    // data-ref="팝업명" const 팝업명 = new LayerPopup({target: "팝업명"}); 필수 입니다.
+    <div class="layer-popup type-modal" data-ref="layerSample">
+      <section class="popup__container">
+        <div class="popup__header">
+          <h3 class="popup__title">타이틀</h3>
+        </div>
+        <div class="popup__contents">
+          <p class="txt-type">16px 500 center</p>
+          <p class="txt-type2">--gray1 400</p>
+          <p class="txt-type3">--gray1 16px 400</p>
+        </div>
+        <div class="popup__btn-wrap">
+          <button class="base-btn type2__size-m">수정</button>
+          <button class="base-btn type2__size-m">삭제</button>
+        </div>
+        <button class="btn-close" onclick="layerSample.hide()">닫기</button>
+      </section>
+    </div>
+    <script>
+      // target: "data-ref" 필수
+      const layerSample = new LayerPopup({target: "layerSample"});
+    </script>
+  </code></pre>
+</section>
+
+<section class="guide__section">
+  <h2 class="guide__subTit">입사지원 약관 스타일의 체크박스 그룹<button type="button" class="btnFold">접기</button></h2>
+  <div class="guide__code-view">
+    
+    <div class="form-td" style="flex: 1;">
+      <div class="agree-head-row">
+        <label class="input-chk type2">
+          <input type="checkbox" id="agreeAll">
+          <span>모두 사용</span>
+        </label>
+      </div>
+      <div class="box-type4 content-mt2">
+        <div class="agree-toggle-row">
+          <div class="col-left">
+            <label class="btn-toggle">
+              <input type="checkbox" class="ag-all">
+              <span>버튼</span>
+            </label>
+            <span class="label">공통</span>
+          </div>
+
+          <div class="col-right radio-wrap d-flex ai-c">
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-1">
+              <span>필수</span>
+            </label>                    
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-1">
+              <span>선택</span>
+            </label>                    
+          </div>
+        </div>
+        <div class="agree-toggle-row">
+          <div class="col-left">
+            <label class="btn-toggle">
+              <input type="checkbox" class="ag-all">
+              <span>버튼</span>
+            </label>
+            <span class="label">기계</span>
+          </div>
+
+          <div class="col-right radio-wrap d-flex ai-c">
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-2">
+              <span>필수</span>
+            </label>                    
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-2">
+              <span>선택</span>
+            </label>                    
+          </div>
+        </div>
+        <div class="agree-toggle-row">
+          <div class="col-left">
+            <label class="btn-toggle">
+              <input type="checkbox" class="ag-all">
+              <span>버튼</span>
+            </label>
+            <span class="label">IT</span>
+          </div>
+
+          <div class="col-right radio-wrap d-flex ai-c">
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-3">
+              <span>필수</span>
+            </label>                    
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-3">
+              <span>선택</span>
+            </label>                    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      initializeCheckboxManagers([
+        { master: '#agreeAll', children: '.ag-all' },
+      ]);
+    </script>
+
+  </div>
+  <pre><code class="hljs language-html">
+    // layer z-index: 100; 컨텐츠 z-index 는 100 미만
+    // layer 중첩일 경우 마크업 순서대로 처리 or layer-popup 내부에 layer-popup 넣어서 처리
+    // data-ref="팝업명" const 팝업명 = new LayerPopup({target: "팝업명"}); 필수 입니다.
+    <div class="form-td">
+      <div class="agree-head-row">
+        <label class="input-chk type2">
+          <input type="checkbox" id="agreeAll">
+          <span>모두 사용</span>
+        </label>
+      </div>
+      <div class="box-type4 content-mt2">
+        <div class="agree-toggle-row">
+          <div class="col-left">
+            <label class="btn-toggle">
+              <input type="checkbox" class="ag-all">
+              <span>버튼</span>
+            </label>
+            <span class="label">공통</span>
+          </div>
+
+          <div class="col-right radio-wrap d-flex ai-c">
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-1">
+              <span>필수</span>
+            </label>                    
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-1">
+              <span>선택</span>
+            </label>                    
+          </div>
+        </div>
+        <div class="agree-toggle-row">
+          <div class="col-left">
+            <label class="btn-toggle">
+              <input type="checkbox" class="ag-all">
+              <span>버튼</span>
+            </label>
+            <span class="label">기계</span>
+          </div>
+
+          <div class="col-right radio-wrap d-flex ai-c">
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-2">
+              <span>필수</span>
+            </label>                    
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-2">
+              <span>선택</span>
+            </label>                    
+          </div>
+        </div>
+        <div class="agree-toggle-row">
+          <div class="col-left">
+            <label class="btn-toggle">
+              <input type="checkbox" class="ag-all">
+              <span>버튼</span>
+            </label>
+            <span class="label">IT</span>
+          </div>
+
+          <div class="col-right radio-wrap d-flex ai-c">
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-3">
+              <span>필수</span>
+            </label>                    
+            <label class="input-chk inp-radio">
+              <input type="radio" name="agree1-3">
+              <span>선택</span>
+            </label>                    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      initializeCheckboxManagers([
+        { master: '#agreeAll', children: '.ag-all' },
+      ]);
+    </script>
+  </code></pre>
+</section>
+
+<section class="guide__section">
+  <h2 class="guide__subTit">게시판 조건 검색<button type="button" class="btnFold">접기</button></h2>
+  <div class="guide__code-view">
+    
+    <div class="sch-comp box-type1" data-type="text">
+      <div class="sch-comp__in">
+        <div class="sch-comp__select">
+          <div class="dropdown first" tabindex="0">
+            <button type="button" class="dropdown-btn">전체</button>
+
+            <div class="dropdown-option">
+              <div class="inner">
+                <!-- D:전체 텍스트 입력 -->
+                <button data-type="text" class="isChecked">전체</button>
+                <!-- D:전체 텍스트 입력 -->
+                <button data-type="search-select">기업명</button>
+                <!-- D:전체 텍스트 입력 -->
+                <button data-type="date-picker">공고기간</button>
+                <!-- D:전체 텍스트 입력 -->
+                <button data-type="select">필기전형</button>
+                <!-- D:전체 텍스트 입력 -->
+                <button data-type="number">공고번호</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sch-comp__inp-wrap">
+
+          <!-- D:전체 텍스트 입력 -->
+          <div class="sch-comp__inp active" data-type="text">
+            <div class="input-box type-search">
+              <input type="text" class="input-txt sch-data" placeholder="검색어를 입력해주세요" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            </div>
+          </div>
+          <!-- // D: 전체 텍스트 입력 -->
+
+          <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+          <div class="sch-comp__inp" data-type="search-select">
+            <button class="sch-comp__ss-btn dropdown-btn">선택</button>
+            <div class="sch-comp__ss">
+              <div class="input-box type-search">
+                <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <div class="sch-comp__ss-result">
+                <input type="hidden" class="sch-data">
+                <ul class="sch-comp__result-list">
+                  <li data-value="1"><a href="#" class="sch-comp__btn-result">지방공기업평가원</a></li>
+                  <li data-value="167" class="depth02"><a href="#" class="sch-comp__btn-result">케이티아이에스4</a></li>
+                  <li data-value="204" class="depth02"><a href="#" class="sch-comp__btn-result">포스코</a></li>
+                  <li data-value="297" class="depth02"><a href="#" class="sch-comp__btn-result">테스트기업입니다</a></li>
+                  <li data-value="331" class="depth02"><a href="#" class="sch-comp__btn-result">test</a></li>
+                  <li data-value="1000" class="depth02"><a href="#" class="sch-comp__btn-result">test</a></li>
+                  <li data-value="1023" class="depth02"><a href="#" class="sch-comp__btn-result">잘나가는기업</a></li>
+                  <li data-value="1024" class="depth02"><a href="#" class="sch-comp__btn-result">양갈비</a></li>
+                  <li data-value="1033" class="depth02"><a href="#" class="sch-comp__btn-result">스위트회사</a></li>
+                  <li data-value="1060" class="depth02"><a href="#" class="sch-comp__btn-result">지방공기업평가원222</a></li>
+                  <li data-value="1103" class="depth02"><a href="#">채용을 그리다</a></li>
+                  <li data-value="1127" class="depth02"><a href="#">testCompany</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+
+          <!-- D:기간 입력 -->
+          <div class="sch-comp__inp" data-type="date-picker">
+            <div class="sch-comp__col-row">
+              <div class="input-box type-calendar">
+                <input type="text" class="input-txt datepicker-input datepicker-input1" id="calendar1_1" placeholder="일자 선택">
+              </div>
+              <span class="cal-dash">-</span>
+              <div class="input-box type-calendar">
+                <input type="text" class="input-txt datepicker-input datepicker-input2" id="calendar1_2" placeholder="일자 선택">
+              </div>
+            </div>
+          </div>
+          <!-- // D:기간 입력 -->
+
+          <!-- D:선택 -->
+          <div class="sch-comp__inp" data-type="select">
+            <input type="hidden" class="sch-data">
+            <div class="dropdown full">
+              <button class="sch-comp__s-btn dropdown-btn">선택</button>
+              <div class="dropdown-option">
+                <div class="inner">
+                  <button class="isChecked">인성검사</button>
+                  <button>적성검사</button>
+                  <button>기타검사</button>
+                  <button>K-TEST</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- // D:선택 -->
+
+          <!-- D:숫자만 입력 -->
+          <div class="sch-comp__inp" data-type="number">
+            <div class="input-box">
+              <input type="text" class="input-txt a-num sch-data" placeholder="공고번호 입력" oninput="inputNumber();">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            </div>
+          </div>
+          <!-- // D:숫자만 입력 -->
+
+        </div>
+
+        <!-- // D:추가 버튼 -->
+        <div class="sch-comp__add">
+          <button class="btn-add base-btn type1__size-m">추가</button>
+        </div>
+        <!-- // D:추가 버튼 -->
+      </div>
+
+      <div class="search-tag content-mt4" id="searchTag">
+        <div class="tag__box">
+        </div>
+        <div class="btn-wrap btn-size-type1">
+          <button class="base-btn type2__size-m js-reset">초기화</button>
+          <button class="base-btn type1__size-m js-go">검색</button>
+        </div>
+      </div>
+
+      <script>
+        const searchTag = new CreateTag({
+          target: document.getElementById('searchTag'),
+          tagType: 1,
+        });
+      </script>
+
+    </div>
+
+    <script>
+      // 데이트 피커
+      const datepicker1_1 = document.getElementById('calendar1_1');
+      const calendar1_1 = new Datepicker(datepicker1_1, {
+        ...CALENDAR_DEFAULT_OPTION,
+        ...{
+          "minDate": "2023.12.06",
+          "maxDate": "2023.12.20",
+        }
+      });
+
+      // 날짜가 선택될 때 이벤트 리스너 추가
+      datepicker1_1.addEventListener('changeDate', function() {
+        calendar1_1.hide(); // 달력을 숨김
+      });
+
+      const datepicker1_2 = document.getElementById('calendar1_2');
+      const calendar1_2 = new Datepicker(datepicker1_2, {
+        ...CALENDAR_DEFAULT_OPTION,
+        ...{
+          "minDate": "2023.12.06",
+          "maxDate": "2023.12.20",
+        }
+      });
+
+      // 날짜가 선택될 때 이벤트 리스너 추가
+      datepicker1_2.addEventListener('changeDate', function() {
+        calendar1_2.hide(); // 달력을 숨김
+      });
+
+      // 리스트 조건 검색
+      $('.sch-comp').searchList();
+    </script>
+
+  </div>
+  <pre><code class="hljs language-html">
+    // layer z-index: 100; 컨텐츠 z-index 는 100 미만
+    // layer 중첩일 경우 마크업 순서대로 처리 or layer-popup 내부에 layer-popup 넣어서 처리
+    // data-ref="팝업명" const 팝업명 = new LayerPopup({target: "팝업명"}); 필수 입니다.
+    <div class="sch-comp box-type1" data-type="text">
+      <div class="sch-comp__in">
+        <div class="sch-comp__select">
+          <div class="dropdown first" tabindex="0">
+            <button type="button" class="dropdown-btn">전체</button>
+
+            <div class="dropdown-option">
+              <div class="inner">
+                <!-- D:전체 텍스트 입력 -->
+                <button data-type="text" class="isChecked">전체</button>
+                <!-- D:전체 텍스트 입력 -->
+                <button data-type="search-select">기업명</button>
+                <!-- D:전체 텍스트 입력 -->
+                <button data-type="date-picker">공고기간</button>
+                <!-- D:전체 텍스트 입력 -->
+                <button data-type="select">필기전형</button>
+                <!-- D:전체 텍스트 입력 -->
+                <button data-type="number">공고번호</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sch-comp__inp-wrap">
+
+          <!-- D:전체 텍스트 입력 -->
+          <div class="sch-comp__inp active" data-type="text">
+            <div class="input-box type-search">
+              <input type="text" class="input-txt sch-data" placeholder="검색어를 입력해주세요" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            </div>
+          </div>
+          <!-- // D: 전체 텍스트 입력 -->
+
+          <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+          <div class="sch-comp__inp" data-type="search-select">
+            <button class="sch-comp__ss-btn dropdown-btn">선택</button>
+            <div class="sch-comp__ss">
+              <div class="input-box type-search">
+                <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <div class="sch-comp__ss-result">
+                <input type="hidden" class="sch-data">
+                <ul class="sch-comp__result-list">
+                  <li data-value="1"><a href="#" class="sch-comp__btn-result">지방공기업평가원</a></li>
+                  <li data-value="167" class="depth02"><a href="#" class="sch-comp__btn-result">케이티아이에스4</a></li>
+                  <li data-value="204" class="depth02"><a href="#" class="sch-comp__btn-result">포스코</a></li>
+                  <li data-value="297" class="depth02"><a href="#" class="sch-comp__btn-result">테스트기업입니다</a></li>
+                  <li data-value="331" class="depth02"><a href="#" class="sch-comp__btn-result">test</a></li>
+                  <li data-value="1000" class="depth02"><a href="#" class="sch-comp__btn-result">test</a></li>
+                  <li data-value="1023" class="depth02"><a href="#" class="sch-comp__btn-result">잘나가는기업</a></li>
+                  <li data-value="1024" class="depth02"><a href="#" class="sch-comp__btn-result">양갈비</a></li>
+                  <li data-value="1033" class="depth02"><a href="#" class="sch-comp__btn-result">스위트회사</a></li>
+                  <li data-value="1060" class="depth02"><a href="#" class="sch-comp__btn-result">지방공기업평가원222</a></li>
+                  <li data-value="1103" class="depth02"><a href="#">채용을 그리다</a></li>
+                  <li data-value="1127" class="depth02"><a href="#">testCompany</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+
+          <!-- D:기간 입력 -->
+          <div class="sch-comp__inp" data-type="date-picker">
+            <div class="sch-comp__col-row">
+              <div class="input-box type-calendar">
+                <input type="text" class="input-txt datepicker-input datepicker-input1" id="calendar1_1" placeholder="일자 선택">
+              </div>
+              <span class="cal-dash">-</span>
+              <div class="input-box type-calendar">
+                <input type="text" class="input-txt datepicker-input datepicker-input2" id="calendar1_2" placeholder="일자 선택">
+              </div>
+            </div>
+          </div>
+          <!-- // D:기간 입력 -->
+
+          <!-- D:선택 -->
+          <div class="sch-comp__inp" data-type="select">
+            <input type="hidden" class="sch-data">
+            <div class="dropdown full">
+              <button class="sch-comp__s-btn dropdown-btn">선택</button>
+              <div class="dropdown-option">
+                <div class="inner">
+                  <button class="isChecked">인성검사</button>
+                  <button>적성검사</button>
+                  <button>기타검사</button>
+                  <button>K-TEST</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- // D:선택 -->
+
+          <!-- D:숫자만 입력 -->
+          <div class="sch-comp__inp" data-type="number">
+            <div class="input-box">
+              <input type="text" class="input-txt a-num sch-data" placeholder="공고번호 입력" oninput="inputNumber();">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            </div>
+          </div>
+          <!-- // D:숫자만 입력 -->
+
+        </div>
+
+        <!-- // D:추가 버튼 -->
+        <div class="sch-comp__add">
+          <button class="btn-add base-btn type1__size-m">추가</button>
+        </div>
+        <!-- // D:추가 버튼 -->
+      </div>
+
+      <div class="search-tag content-mt4" id="searchTag">
+        <div class="tag__box">
+        </div>
+        <div class="btn-wrap btn-size-type1">
+          <button class="base-btn type2__size-m js-reset">초기화</button>
+          <button class="base-btn type1__size-m js-go">검색</button>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      // 데이트 피커도 따로 설정하여야 합니다.
+
+      // 날짜가 선택될 때 이벤트 리스너 추가
+      datepicker1_2.addEventListener('changeDate', function() {
+        calendar1_2.hide(); // 달력을 숨김
+      });
+            
+      // 리스트 조건 검색
+      $('.sch-comp').searchList();
+    </script>
+  </code></pre>
+</section>

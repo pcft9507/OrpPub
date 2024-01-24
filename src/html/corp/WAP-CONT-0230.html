@@ -1,0 +1,319 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "4", dep2: "5"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">평가척도</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "컨설턴트",
+                        "value": "컨설턴트",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업명",
+                        "value": "기업명",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고기간",
+                        "value": "공고기간",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "필기전형",
+                        "value": "필기전형",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고번호",
+                        "value": "공고번호",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <script>
+                const SAMPLE_DATA = [
+                  {"name": "키워드"},
+                  {"name": "키워드드"},
+                  {"name": "키워드드드"}
+                ]
+                dropdown.addItem({
+                  target: document.querySelector('[name="inputKeyword"]'),
+                  data: {
+                    "name": "inputKeyword",
+                    "type" : "input",
+                    "option": SAMPLE_DATA,
+                  }
+                });
+              </script>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
+            </div>
+          </div>
+
+          <div class="search-tag content-mt4" id="searchTag" style="display: none;">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m" onclick="searchTag.reset();">초기화</button>
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType: 1,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="board-head__cell" data-ref="rowNoneCheck">
+            <button class="base-btn type2__size-s" onclick="WAP_CONT_0240.show()">
+              <span class="base-icon icon-add__color1__size-s">등록</span>
+            </button>
+          </div>
+          <div class="board-head__cell" data-ref="rowCheck" style="display: none;">
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-down__color1__size-s">엑셀 다운로드</span>
+            </button>
+            <button class="base-btn type2__size-s point-color4">
+              <span class="base-icon icon-del__color4__size-s">삭제</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 56px;"/>
+                <col style="width: 100px;"/>
+                <col style="width: 100px;"/>
+                <col/>
+                <col style="width: 100px;"/>
+                <col style="width: 250px"/>
+                <col style="width: 250px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">NO</th>
+                  <th scope="col">척도코드</th>
+                  <th scope="col">척도구간</th>
+                  <th scope="col">척도명</th>
+                  <th scope="col">사용유무</th>
+                  <th scope="col">등록정보</th>
+                  <th scope="col">최종수정정보</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '6',
+                  '척도코드': '32',
+                  '척도구간': '3구간',
+                  '척도명': '고과등급',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '척도코드': '32',
+                  '척도구간': '5구간',
+                  '척도명': '매우 부적합/부적합/보통/적합/매우적합',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '척도코드': '32',
+                  '척도구간': '5구간',
+                  '척도명': '매우 부적합/부적합/보통/적합/매우적합',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '척도코드': '32',
+                  '척도구간': '5구간',
+                  '척도명': '매우 부적합/부적합/보통/적합/매우적합',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '척도코드': '32',
+                  '척도구간': '5구간',
+                  '척도명': '매우 부적합/부적합/보통/적합/매우적합',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '척도코드': '32',
+                  '척도구간': '5구간',
+                  '척도명': '매우 부적합/부적합/보통/적합/매우적합',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                }
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: 'NO' },
+                { data: '척도코드' },
+                { data: '척도구간' },
+                { data: '척도명',
+                  render: function(data) {
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '사용유무',
+                  render: function(data) {
+                    return `
+                      <label class="btn-toggle size-s">
+                        <input type="checkbox">
+                        <span>버튼</span>
+                      </label>
+                    `
+                  }
+                 },
+                { data: '등록정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                },
+                { data: '최종수정정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/corp/WAP-CONT-0240.html');
+  @@include('../html/corp/WAP-CONT-0250.html');
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_CONT_0240" : ()=>{WAP_CONT_0240.show()},
+      "WAP_CONT_0250" : ()=>{WAP_CONT_0250.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

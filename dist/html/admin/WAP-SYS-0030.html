@@ -1,0 +1,67 @@
+<div class="layer-popup type-modal" data-ref="WAP-SYS-0030">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">공지사항</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+
+      <div class="form-row">
+        <h4 class="title-sub2">공지사항명</h4>
+        <div class="form-inner">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="입력해주세요." oninput="inputValueChk()" value="23년 연말 개인 면담을 시작합니다.">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <h4 class="title-sub2">노출대상</h4>
+        <div class="form-inner">
+          <div class="dropdown" style="width: 100%;">
+            <button type="button" class="dropdown-btn size-s"
+              data-dropdown='{
+                "name": "targetDropdown",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "ORP관리자",
+                    "value": "ORP관리자",
+                    "disabled": false,
+                    "checked": true
+                  },
+                  {
+                    "name": "채용대행사",
+                    "value": "채용대행사",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "기업담당자",
+                    "value": "기업담당자",
+                    "disabled": false,
+                    "checked": false
+                  }
+                ]
+              }'
+            >조회수</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div style="display:flex;align-items:center;justify-content:center;height:344px;background:gainsboro;">에디터 영역</div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">등록</button>
+      <!-- 수정일 경우 버튼 명 저장
+        <button class="base-btn type1__size-m">저장</button>
+       -->
+    </div>
+    <button class="btn-close" onclick="WAP_SYS_0030.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_SYS_0030 = new LayerPopup({target: "WAP-SYS-0030"});
+</script>

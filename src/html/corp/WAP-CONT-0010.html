@@ -1,0 +1,229 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "4", dep2: "1"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">입사 지원서</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="base-tab tab-type1 content-mt6" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">양식 관리</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">약관 관리</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+        <div class="board-head content-mt5">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="board-head__cell">
+            <button class="base-btn type2__size-s" onclick="WAP_CONT_0020.show();">
+              <span class="base-icon icon-add__color1__size-s">등록</span>
+            </button>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px"/>
+                <col style="width: 100px"/>
+                <col style="width: 90px"/>
+                <col style="width: 90px"/>
+                <col style="width: 200px"/>
+                <col/>
+                <col style="width: 150px"/>
+                <col style="width: 240px"/>
+                <col style="width: 240px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col"><button type="button" class="btn-align-cell">NO</button></th>
+                  <th scope="col">상태</th>
+                  <th scope="col">구분</th>
+                  <th scope="col">코드</th>
+                  <th scope="col">지원서 양식명</th>
+                  <th scope="col">지원서 미리보기</th>
+                  <th scope="col">등록정보</th>
+                  <th scope="col">최종수정</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '24',
+                  '상태': '미사용',
+                  '구분' : '표준형',
+                  '코드' : '01-00000001',
+                  '지원서 양식명' : '지원서_테스트용 2',
+                  '지원서 미리보기' : '',
+                  '등록정보' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                },
+                {
+                  'NO': '24',
+                  '상태': '미사용',
+                  '구분' : '표준형',
+                  '코드' : '01-00000001',
+                  '지원서 양식명' : '지원서_테스트용 2',
+                  '지원서 미리보기' : '',
+                  '등록정보' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                },
+                {
+                  'NO': '24',
+                  '상태': '미사용',
+                  '구분' : '표준형',
+                  '코드' : '01-00000001',
+                  '지원서 양식명' : '지원서_테스트용 2',
+                  '지원서 미리보기' : '',
+                  '등록정보' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                },
+                {
+                  'NO': '24',
+                  '상태': '미사용',
+                  '구분' : '표준형',
+                  '코드' : '01-00000001',
+                  '지원서 양식명' : '지원서_테스트용 2',
+                  '지원서 미리보기' : '',
+                  '등록정보' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                }
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: 'NO' },
+                { data: '상태' },
+                { data: '구분' },
+                { data: '코드' },
+                { data: '지원서 양식명',
+                  render: function(data) {
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '지원서 미리보기',
+                  render: function(data) {
+                    return `<button type="button"><u>보기</u></button>`
+                  }
+                },
+                { data: '등록정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                },
+                { data: '최종수정',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+        
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/corp/WAP-CONT-0020.html');
+  
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_CONT_0020" : ()=>{WAP_CONT_0020.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

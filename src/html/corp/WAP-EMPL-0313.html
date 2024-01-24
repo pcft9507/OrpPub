@@ -1,0 +1,59 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0313">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">평가자화면</h3>
+    </div>
+    <div class="popup__contents" style="height: 485px;">
+      <div class="form-inner content-mt4">
+        <div class="input-box" style="flex: 1">
+          <input type="text" class="input-txt" placeholder="평가명/평가자명 입력" oninput="inputValueChk()">
+          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+        </div>
+        <button class="base-btn type1__size-m">검색</button>
+      </div>
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="popupTesterTable">
+            <colgroup>
+              <col style="width:50%;">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>평가명</th>
+                <th>평가자</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <script>
+          $('#popupTesterTable').DataTable({
+            data: [
+              {
+                '평가명': '면접 전형 1차-A면접',
+                '평가자': 'donggun.kom@orp/김동건'
+              }
+            ],
+            columns: [
+              { data: '평가명'},
+              { data: '평가자',
+                render: function(data) { 
+                  return `<span class="point-color">${data}</span>`
+                }
+              }
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          });
+        </script>
+      </div>
+    </div>
+
+    <button class="btn-close" onclick="WAP_EMPL_0313.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0313 = new LayerPopup({target: "WAP-EMPL-0313"});
+</script>

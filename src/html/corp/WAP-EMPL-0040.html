@@ -1,0 +1,523 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "3"})
+
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[ORP연구소] 2021년 하반기 인턴 채용</h2>
+        </div>
+        <div class="contents-header__btns">
+          <a href="#" class="btn">
+            <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-graph__size-m__color5">통계</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- contents navigation -->
+      <div class="contents-nav type2">
+        <div class="contents-nav__inner">
+          <div class="contents-nav__btn-box">
+            <button type="button" class="contents-nav--btn" data-target-btn="cont1">기본정보</button>
+            <button type="button" class="contents-nav--btn" data-target-btn="cont2">전형설계</button>
+            <button type="button" class="contents-nav--btn" data-target-btn="cont3">채용홈페이지</button>
+            <button type="button" class="contents-nav--btn" data-target-btn="cont4">입사지원 약관</button>
+          </div>
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type2__size-m">취소</button>
+            <button type="button" class="base-btn type1__size-m">저장</button>
+          </div>
+        </div>
+      </div>
+      <!-- //contents navigation -->
+
+      <!-- contents -->
+      <div class="contents">
+        <div class="page-title__wrap">
+          <h3 class="title-sub">채용공고문 수정</h3>
+          <div class="page-title__btn">
+            <button type="button" class="base-btn type-icon__color1">
+              <span class="base-icon icon-excel__size-s__color3">불러오기</span>
+            </button>
+          </div>
+        </div>
+
+        <section class="form-set__box" data-target-cont="cont1">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">기본정보</h4>
+            </div>
+          </div>
+          <div class="box-type1">
+  
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">채용명</div>
+              <div class="form-td" style="flex: 1;">
+                <div class="input-box" style="width: 100%;">
+                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="채용명을 입력해주세요." value="적성검사 개발 연구원채용">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+              </div>
+            </div>
+            <div class="form-row__flex">
+              <div class="form-th no-pd" style="width: 130px;">채용형태</div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <label class="input-chk">
+                    <input type="radio" name="radio" checked>
+                    <span>일반채용</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="radio" name="radio">
+                    <span>상시채용</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="radio" name="radio">
+                    <span>기타채용</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row__flex">
+              <div class="form-th no-pd" style="width: 130px;">공개여부</div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <label class="input-chk">
+                    <input type="radio" name="radio1" checked>
+                    <span>공개</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="radio" name="radio1">
+                    <span>비공개</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">채용분야</div>
+              <div class="form-td" style="flex: 1;">
+                <div class="input-box type-add" style="width: 100%;">
+                  <input type="text" class="input-txt" id="departmentName" oninput="inputValueChk()" placeholder="채용명을 입력해주세요.">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  <button type="button" class="btn-add" onclick="departmentTag.addTag(document.getElementById('departmentName').value)">추가</button>
+                </div>
+  
+                <div class="content-mt2" id="departmentTag" style="display: none;">
+                  <div class="tag__box">
+                  </div>
+                </div>
+  
+                <script>
+                  const departmentTag = new CreateTag({
+                    target: document.getElementById('departmentTag'),
+                    tagType: 2,
+                  });
+                </script>
+  
+              </div>
+            </div>
+            <div class="form-row__flex">
+              <div class="form-th no-pd" style="width: 130px;">채용분야 중복지원</div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <label class="input-chk">
+                    <input type="radio" name="radio2" checked>
+                    <span>허용</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="radio" name="radio2">
+                    <span>허용안함</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row__flex">
+              <div class="form-th no-pd" style="width: 130px;">채용공고 중복지원</div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <label class="input-chk">
+                    <input type="radio" name="radio3" checked>
+                    <span>허용</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="radio" name="radio3">
+                    <span>허용안함</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </section>
+  
+        <section class="form-set__box" data-target-cont="cont2">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">전형설계</h4>
+              <p class="alert-txt">채용 공고를 저장한 이후에는 전형 순서를 변경하거나 삭제할 수 없습니다. 마지막 전형 뒤에 신규 추가만 가능하니 신중하게 등록해 주세요.</p>
+            </div>
+          </div>
+          <div class="box-type1">
+  
+            <div class="form-row__flex">
+              <div class="form-th no-pd" style="width: 130px;">서류전형</div>
+              <div class="form-td" style="flex: 1;">
+                <label class="input-chk type2">
+                  <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                  <span>모두 사용</span>
+                </label>
+                <div class="box-type4 content-mt2">
+                  <p class="form-toggle-row">
+                    <span class="label">공통</span>
+                    <label class="btn-toggle">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span>버튼</span>
+                    </label>
+                  </p>
+                  <p class="form-toggle-row">
+                    <span class="label">사무지원</span>
+                    <label class="btn-toggle">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span>버튼</span>
+                    </label>
+                  </p>
+                  <p class="form-toggle-row">
+                    <span class="label">IT</span>
+                    <label class="btn-toggle">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span>버튼</span>
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-row__flex type3">
+              <div class="form-th no-pd" style="width: 130px;">필기전형</div>
+              <div class="form-td" style="flex: 1;">
+                <label class="input-chk type2">
+                  <input type="checkbox" value="chkAll" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
+                  <span>모두 사용</span>
+                </label>
+                <div class="box-type4 content-mt2">
+                  <p class="form-toggle-row">
+                    <span class="label">공통</span>
+                    <label class="btn-toggle">
+                      <input type="checkbox" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
+                      <span>버튼</span>
+                    </label>
+                  </p>
+                  <p class="form-toggle-row">
+                    <span class="label">사무지원</span>
+                    <label class="btn-toggle">
+                      <input type="checkbox" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
+                      <span>버튼</span>
+                    </label>
+                  </p>
+                  <p class="form-toggle-row">
+                    <span class="label">IT</span>
+                    <label class="btn-toggle">
+                      <input type="checkbox" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
+                      <span>버튼</span>
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-row__flex type3">
+              <div class="form-th no-pd" style="width: 130px;">면접전형</div>
+              <div class="form-td" style="flex: 1;">
+                <label class="input-chk type2">
+                  <input type="checkbox" value="chkAll" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                  <span>모두 사용</span>
+                </label>
+                <div class="box-type4 content-mt2">
+                  <p class="form-toggle-row">
+                    <span class="label">공통</span>
+                    <label class="btn-toggle">
+                      <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                      <span>버튼</span>
+                    </label>
+                  </p>
+                  <p class="form-toggle-row">
+                    <span class="label">사무지원</span>
+                    <label class="btn-toggle">
+                      <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                      <span>버튼</span>
+                    </label>
+                  </p>
+                  <p class="form-toggle-row">
+                    <span class="label">IT</span>
+                    <label class="btn-toggle">
+                      <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                      <span>버튼</span>
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-row__flex type3">
+              <div class="form-th" style="width: 130px;">전형 추가</div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <button class="base-btn type2__size-s">
+                    <span class="base-icon icon-add__color1__size-s">서류전형</span>
+                  </button>
+                  <button class="base-btn type2__size-s">
+                    <span class="base-icon icon-add__color1__size-s">필기전형</span>
+                  </button>
+                  <button class="base-btn type2__size-s">
+                    <span class="base-icon icon-add__color1__size-s">면접전형</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </section>
+  
+        <section class="form-set__box" data-target-cont="cont3">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">채용 홈페이지</h4>
+            </div>
+          </div>
+          <div class="box-type1">
+            <div class="form-row__flex type3">
+              <div class="form-th no-pd" style="width: 130px;">채용공고 탭</div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <label class="input-chk type2">
+                    <input type="checkbox">
+                    <span>전체</span>
+                  </label>
+                  <label class="input-chk type2">
+                    <input type="checkbox">
+                    <span>신입</span>
+                  </label>
+                  <label class="input-chk type2">
+                    <input type="checkbox">
+                    <span>경력</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row__flex type3">
+              <div class="form-th" style="width: 130px;">채용 일정</div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-cell">
+                    <div class="input-box type-calendar" style="width:138px;">
+                      <input type="text" class="input-txt" value="2023-07-03">
+                    </div>
+                    <div class="input-box type-time" style="width:101px;">
+                      <input type="text" class="input-txt" value="09:00" >
+                    </div>
+                  </div>
+                  <div class="form-cell">~</div>
+                  <div class="form-cell">
+                    <div class="input-box type-calendar" style="width:138px;">
+                      <input type="text" class="input-txt" value="2023-07-03">
+                    </div>
+                    <div class="input-box type-time" style="width:101px;">
+                      <input type="text" class="input-txt" value="09:00" >
+                    </div>
+                  </div>
+                  <label class="input-chk">
+                    <input type="checkbox" checked>
+                    <span>채용시까지</span>
+                  </label>
+                </div>
+                <p class="alert-txt">공고 게시일부터 최종 합격자 발표까지의 기간으로 설정해주시기 바랍니다.</p>
+              </div>
+            </div>
+  
+          </div>
+        </section>
+  
+        <section class="form-set__box" data-target-cont="cont4">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">입사지원 악관</h4>
+            </div>
+          </div>
+          <div class="box-type1">
+            <div class="form-row__flex type3">
+              <div class="form-th no-pd" style="width: 130px;">개인정보 수집 및<br> 이용수칙</div>
+              <div class="form-td" style="flex: 1;">
+                <label class="input-chk type2">
+                  <input type="checkbox">
+                  <span>사용</span>
+                </label>
+                <div class="box-type4 content-mt2">
+                  <p class="form-toggle-row type-mt2">
+                    <span class="label">공통</span>
+                    <span class="chk-group">
+                      <label class="input-chk">
+                        <input type="radio" name="radio10" checked>
+                        <span>필수</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="radio10">
+                        <span>선택</span>
+                      </label>
+                    </span>
+                  </p>
+                  <p class="form-toggle-row type-mt2">
+                    <span class="label">사무지원</span>
+                    <span class="chk-group">
+                      <label class="input-chk">
+                        <input type="radio" name="radio11" checked>
+                        <span>필수</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="radio11">
+                        <span>선택</span>
+                      </label>
+                    </span>
+                  </p>
+                  <p class="form-toggle-row type-mt2">
+                    <span class="label">IT</span>
+                    <span class="chk-group">
+                      <label class="input-chk">
+                        <input type="radio" name="radio12" checked>
+                        <span>필수</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="radio12">
+                        <span>선택</span>
+                      </label>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="form-row__flex type3">
+              <div class="form-th no-pd" style="width: 130px;">민감정보 수집 및<br> 이용</div>
+              <div class="form-td" style="flex: 1;">
+                <label class="input-chk type2">
+                  <input type="checkbox">
+                  <span>사용</span>
+                </label>
+                <div class="box-type4 content-mt2">
+                  <p class="form-toggle-row type-mt2">
+                    <span class="label">공통</span>
+                    <span class="chk-group">
+                      <label class="input-chk">
+                        <input type="radio" name="radio13" checked>
+                        <span>필수</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="radio14">
+                        <span>선택</span>
+                      </label>
+                    </span>
+                  </p>
+                  <p class="form-toggle-row type-mt2">
+                    <span class="label">사무지원</span>
+                    <span class="chk-group">
+                      <label class="input-chk">
+                        <input type="radio" name="radio15" checked>
+                        <span>필수</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="radio15">
+                        <span>선택</span>
+                      </label>
+                    </span>
+                  </p>
+                  <p class="form-toggle-row type-mt2">
+                    <span class="label">IT</span>
+                    <span class="chk-group">
+                      <label class="input-chk">
+                        <input type="radio" name="radio16" checked>
+                        <span>필수</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="radio16">
+                        <span>선택</span>
+                      </label>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="form-row__flex type3">
+              <div class="form-th no-pd" style="width: 130px;">개인/민감 정보의<br> 위탁 제공</div>
+              <div class="form-td" style="flex: 1;">
+                <label class="input-chk type2">
+                  <input type="checkbox">
+                  <span>사용</span>
+                </label>
+                <div class="box-type4 content-mt2">
+                  <p class="form-toggle-row type-mt2">
+                    <span class="label">공통</span>
+                    <span class="chk-group">
+                      <label class="input-chk">
+                        <input type="radio" name="radio17" checked>
+                        <span>필수</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="radio17">
+                        <span>선택</span>
+                      </label>
+                    </span>
+                  </p>
+                  <p class="form-toggle-row type-mt2">
+                    <span class="label">사무지원</span>
+                    <span class="chk-group">
+                      <label class="input-chk">
+                        <input type="radio" name="radio18" checked>
+                        <span>필수</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="radio18">
+                        <span>선택</span>
+                      </label>
+                    </span>
+                  </p>
+                  <p class="form-toggle-row type-mt2">
+                    <span class="label">IT</span>
+                    <span class="chk-group">
+                      <label class="input-chk">
+                        <input type="radio" name="radio19" checked>
+                        <span>필수</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="radio19">
+                        <span>선택</span>
+                      </label>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </section>
+        
+      </div>
+      <!-- //contents -->
+
+    </div>
+    <!-- //container -->
+    
+  </div>
+  <script>
+    const contentsNav = new ContentsNav();
+  </script>
+</body>
+</html>

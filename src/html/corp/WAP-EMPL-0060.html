@@ -1,0 +1,495 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "3"})
+
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[ORP연구소] 2021년 하반기 인턴 채용</h2>
+        </div>
+        <div class="contents-header__btns">
+          <a href="#" class="btn">
+            <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-graph__size-m__color5">통계</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">채용 목록</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "컨설턴트",
+                        "value": "컨설턴트",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업명",
+                        "value": "기업명",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고기간",
+                        "value": "공고기간",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "필기전형",
+                        "value": "필기전형",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고번호",
+                        "value": "공고번호",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <script>
+                const SAMPLE_DATA = [
+                  {"name": "키워드"},
+                  {"name": "키워드드"},
+                  {"name": "키워드드드"}
+                ]
+                dropdown.addItem({
+                  target: document.querySelector('[name="inputKeyword"]'),
+                  data: {
+                    "name": "inputKeyword",
+                    "type" : "input",
+                    "option": SAMPLE_DATA,
+                  }
+                });
+              </script>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
+            </div>
+          </div>
+
+          <div class="search-tag content-mt4" id="searchTag" style="display: none;">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m" onclick="searchTag.reset();">초기화</button>
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType: 1,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+
+            <div class="dropdown" style="width: 172px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "multi",
+                  "option": [
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "all": true,
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "관리자",
+                      "value": "관리자",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "기업명",
+                      "value": "기업명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용명",
+                      "value": "채용명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용기간",
+                      "value": "채용기간",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "지원자(채용분야)",
+                      "value": "지원자(채용분야)",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "진행상태",
+                      "value": "진행상태",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >
+                <span class="dropdown-btn__label">분야</span>
+                <span class="dropdown-btn__checked">전체</span>
+              </button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+          </div>
+          <div class="board-head__cell" data-ref="rowCheck" style="display: none;">
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-down__color1__size-s">출력/저장</span>
+            </button>
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-send__color1__size-s">발송</span>
+            </button>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 100px;"/>
+                <col/>
+                <col style="width: 200px"/>
+                <col style="width: 90px"/>
+                <col style="width: 150px"/>
+                <col style="width: 250px"/>
+                <col style="width: 80px"/>
+                <col style="width: 85px"/>
+                <col style="width: 120px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col"><button type="button" class="btn-align-cell">NO</button></th>
+                  <th scope="col">채용분야</th>
+                  <th scope="col">수험번호</th>
+                  <th scope="col">성명</th>
+                  <th scope="col">연락처</th>
+                  <th scope="col">이메일</th>
+                  <th scope="col">연령</th>
+                  <th scope="col">현주소</th>
+                  <th scope="col">
+                    결과
+                    <div class="th-sub">1차 서류전형</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>123</td>
+                  <td>적성검사 개발 연구원 채용</td>
+                  <td class="point-color">01-00000001</td>
+                  <td>홍길동</td>
+                  <td>010-9999-9999</td>
+                  <td>ts.hwang@wiselection.com</td>
+                  <td>28세</td>
+                  <td>서울특별시</td>
+                  <td>불합격</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>123</td>
+                  <td>적성검사 개발 연구원 채용</td>
+                  <td class="point-color">01-00000001</td>
+                  <td>홍길동</td>
+                  <td>010-9999-9999</td>
+                  <td>ts.hwang@wiselection.com</td>
+                  <td>28세</td>
+                  <td>서울특별시</td>
+                  <td class="point-color3">합격</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>123</td>
+                  <td>적성검사 개발 연구원 채용</td>
+                  <td class="point-color">01-00000001</td>
+                  <td>홍길동</td>
+                  <td>010-9999-9999</td>
+                  <td>ts.hwang@wiselection.com</td>
+                  <td>28세</td>
+                  <td>서울특별시</td>
+                  <td>불합격</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>123</td>
+                  <td>적성검사 개발 연구원 채용</td>
+                  <td class="point-color">01-00000001</td>
+                  <td>홍길동</td>
+                  <td>010-9999-9999</td>
+                  <td>ts.hwang@wiselection.com</td>
+                  <td>28세</td>
+                  <td>서울특별시</td>
+                  <td>불합격</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>123</td>
+                  <td>적성검사 개발 연구원 채용</td>
+                  <td class="point-color">01-00000001</td>
+                  <td>홍길동</td>
+                  <td>010-9999-9999</td>
+                  <td>ts.hwang@wiselection.com</td>
+                  <td>28세</td>
+                  <td>서울특별시</td>
+                  <td>불합격</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO' : '123',
+                  '채용분야' : '적성검사 개발 연구원 채용',
+                  '수험번호': '01-00000001',
+                  '성명': '홍길동',
+                  '연락처': '010-9999-9999',
+                  '이메일': 'ts.hwang@wiselection.com',
+                  '연령': '28세',
+                  '현주소': '서울특별시',
+                  '결과': '불합격',
+                },
+                {
+                  'NO' : '123',
+                  '채용분야' : '적성검사 개발 연구원 채용',
+                  '수험번호': '01-00000001',
+                  '성명': '홍길동',
+                  '연락처': '010-9999-9999',
+                  '이메일': 'ts.hwang@wiselection.com',
+                  '연령': '28세',
+                  '현주소': '서울특별시',
+                  '결과': '합격',
+                },
+                {
+                  'NO' : '123',
+                  '채용분야' : '적성검사 개발 연구원 채용',
+                  '수험번호': '01-00000001',
+                  '성명': '홍길동',
+                  '연락처': '010-9999-9999',
+                  '이메일': 'ts.hwang@wiselection.com',
+                  '연령': '28세',
+                  '현주소': '서울특별시',
+                  '결과': '불합격',
+                },
+                {
+                  'NO' : '123',
+                  '채용분야' : '적성검사 개발 연구원 채용',
+                  '수험번호': '01-00000001',
+                  '성명': '홍길동',
+                  '연락처': '010-9999-9999',
+                  '이메일': 'ts.hwang@wiselection.com',
+                  '연령': '28세',
+                  '현주소': '서울특별시',
+                  '결과': '합격',
+                },
+                {
+                  'NO' : '123',
+                  '채용분야' : '적성검사 개발 연구원 채용',
+                  '수험번호': '01-00000001',
+                  '성명': '홍길동',
+                  '연락처': '010-9999-9999',
+                  '이메일': 'ts.hwang@wiselection.com',
+                  '연령': '28세',
+                  '현주소': '서울특별시',
+                  '결과': '합격',
+                },
+                {
+                  'NO' : '123',
+                  '채용분야' : '적성검사 개발 연구원 채용',
+                  '수험번호': '01-00000001',
+                  '성명': '홍길동',
+                  '연락처': '010-9999-9999',
+                  '이메일': 'ts.hwang@wiselection.com',
+                  '연령': '28세',
+                  '현주소': '서울특별시',
+                  '결과': '불합격',
+                },
+                {
+                  'NO' : '123',
+                  '채용분야' : '적성검사 개발 연구원 채용',
+                  '수험번호': '01-00000001',
+                  '성명': '홍길동',
+                  '연락처': '010-9999-9999',
+                  '이메일': 'ts.hwang@wiselection.com',
+                  '연령': '28세',
+                  '현주소': '서울특별시',
+                  '결과': '합격',
+                }
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  },
+                },
+                { data: 'NO' },
+                { data: '채용분야' },
+                { data: '수험번호',
+                  render: function(data) { 
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '성명' },
+                { data: '연락처' },
+                { data: '이메일' },
+                { data: '연령' },
+                { data: '현주소' },
+                { data: '결과',
+                  render: function(data) {
+                    if(data === '합격') {
+                      return `<span class="point-color3">${data}</span>`
+                    } else {
+                      return data;
+                    }
+                  }
+                },
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            })
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

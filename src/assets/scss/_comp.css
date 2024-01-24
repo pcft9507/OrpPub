@@ -1,0 +1,108 @@
+.sch-comp__in {
+  display: flex;
+}
+
+.sch-comp .dropdown.full {
+  width: 100%;
+}
+
+.sch-comp .dropdown .dropdown-option {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 100%;
+}
+
+.sch-comp__select {
+  width: 136px;
+}
+
+.sch-comp__select + .sch-comp__inp-wrap {
+  width: calc(100% - 238px);
+  margin-left: 16px;
+}
+
+.sch-comp__select .dropdown {
+  width: 100%;
+}
+
+.sch-comp__inp-wrap {
+  width: 100%;
+}
+
+.sch-comp__inp-wrap .input-box {
+  width: 100%;
+}
+
+.sch-comp__inp {
+  display: none;
+  position: relative;
+}
+
+.sch-comp__inp.active {
+  display: block;
+}
+
+.sch-comp__ss {
+  display: none;
+  position: absolute;
+  top: 56px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.sch-comp__add {
+  width: 70px;
+  margin-left: 16px;
+}
+
+.sch-comp__add button {
+  width: 100%;
+}
+
+.sch-comp__result-list {
+  height: 147px;
+  overflow-y: auto;
+}
+
+.sch-comp__result-list .depth02 {
+  padding-left: 10px;
+}
+
+.sch-comp__result-list a {
+  display: block;
+  padding: 9px 8px;
+  color: #222631;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  border-radius: 6px;
+}
+
+.sch-comp__result-list a:hover {
+  background: #F0F8FC;
+}
+
+.sch-comp__col-row {
+  display: flex;
+}
+
+.sch-comp__col-row .cal-dash {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+.sch-comp .search-tag {
+  display: none;
+}
+
+.sch-comp .search-tag.active {
+  display: block;
+}

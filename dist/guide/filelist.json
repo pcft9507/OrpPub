@@ -1,0 +1,530 @@
+{
+  "_comment" : {
+    "dep1": "뎁1",
+    "dep2": "뎁2",
+    "dep3": "뎁3",
+    "url" : "url",
+    "status" : "완료일",
+    "update" : [
+      {
+        "date" : "수정 날짜",
+        "txt" : "내용"
+      },
+      {
+        "date" : "수정 날짜",
+        "txt" : "내용"
+      }
+    ],
+    "etc" : ["비고", "비고"]
+  },
+  "items" : [
+    {
+      "title" : "로그인",
+      "list" : [
+        {
+          "dep1" : "로그인",
+          "name" : "WAP-COM-0010",
+          "url" : "./html/login/WAP-COM-0010.html"
+        },
+        {
+          "dep2" : "popup - 아이디찾기",
+          "name" : "WAP-COM-0015",
+          "url" : "./html/login/WAP-COM-0010.html?popup=WAP_COM_0015"
+        }
+      ]
+    },
+    {
+      "title" : "관리자",
+      "list" : [
+        {
+          "dep1" : "기업관리",
+          "name" : "WAP-CORP-0010",
+          "url" : "./html/admin/WAP-CORP-0010.html"
+        },
+        {
+          "dep2" : "popup - 기업 등록",
+          "name" : "WAP-CORP-0020",
+          "url" : "./html/admin/WAP-CORP-0010.html?popup=WAP_CORP_0020"
+        },
+        {
+          "dep2" : "관리자",
+          "name" : "WAP-CORP-0030",
+          "url" : "./html/admin/WAP-CORP-0030.html"
+        },
+        {
+          "dep2" : "채용관리",
+          "name" : "WAP-CORP-0040",
+          "url" : "./html/admin/WAP-CORP-0040.html"
+        },
+        {
+          "dep1" : "콘텐츠 관리",
+          "dep2" : "입사 원서",
+          "dep3" : "양식 관리",
+          "name" : "WAP-CONT-0010",
+          "url" : "./html/admin/WAP-CONT-0010.html"
+        },
+        {
+          "dep3" : "popup - 양식등록/양식수정",
+          "name" : "WAP-CONT-0020",
+          "url" : "./html/admin/WAP-CONT-0010.html?popup=WAP_CONT_0020"
+        },
+        {
+          "dep3" : "약관 관리",
+          "name" : "WAP-CONT-0040",
+          "url" : "./html/admin/WAP-CONT-0040.html"
+        },
+        {
+          "dep3" : "popup - 양식보기",
+          "name" : "WAP-CONT-0050",
+          "url" : "./html/admin/WAP-CONT-0010.html?popup=WAP_CONT_0050"
+        },
+        {
+          "dep2" : "서류도구",
+          "name" : "WAP-CONT-0060",
+          "url" : "./html/admin/WAP-CONT-0060.html"
+        },
+        {
+          "dep3" : "popup - 평가요소 등록/수정",
+          "name" : "WAP-CONT-0070",
+          "url" : "./html/admin/WAP-CONT-0060.html?popup=WAP_CONT_0070",
+          "etc" : ["수정일 경우에 변경되야 할 부분은 주석처리 해두었습니다."]
+        },
+        {
+          "dep3" : "popup - 평가요소",
+          "name" : "WAP-CONT-0080",
+          "url" : "./html/admin/WAP-CONT-0060.html?popup=WAP_CONT_0080"
+        },
+        {
+          "dep2" : "필기도구",
+          "name" : "WAP-CONT-0110",
+          "url" : "./html/admin/WAP-CONT-0110.html"
+        },
+        {
+          "dep2" : "면접도구",
+          "name" : "WAP-CONT-0170",
+          "url" : "./html/admin/WAP-CONT-0170.html"
+        },
+        {
+          "dep3" : "popup - 면접도구 등록/수정",
+          "name" : "WAP-CONT-0180",
+          "url" : "./html/admin/WAP-CONT-0170.html?popup=WAP_CONT_0180",
+          "etc" : ["수정일 경우에 변경되야 할 부분은 주석처리 해두었습니다."]
+        },
+        {
+          "dep3" : "popup - 면접도구 보기",
+          "name" : "WAP-CONT-0190",
+          "url" : "./html/admin/WAP-CONT-0170.html?popup=WAP_CONT_0190"
+        },
+        {
+          "dep2" : "평가 척도",
+          "name" : "WAP-CONT-0230",
+          "url" : "./html/admin/WAP-CONT-0230.html"
+        },
+        {
+          "dep3" : "popup - 평가척도 등록/수정",
+          "name" : "WAP-CONT-0240",
+          "url" : "./html/admin/WAP-CONT-0230.html?popup=WAP_CONT_0240",
+          "etc" : ["수정일 경우에 변경되야 할 부분은 주석처리 해두었습니다."]
+        },
+        {
+          "dep3" : "popup - 평가척도 보기",
+          "name" : "WAP-CONT-0250",
+          "url" : "./html/admin/WAP-CONT-0230.html?popup=WAP_CONT_0250"
+        },
+        {
+          "dep1" : "시스템 관리",
+          "dep2" : "공지사항",
+          "name" : "WAP-SYS-0010",
+          "url" : "./html/admin/WAP-SYS-0010.html"
+        },
+        {
+          "dep3" : "popup - 공지사항 보기",
+          "name" : "WAP-SYS-0020",
+          "url" : "./html/admin/WAP-SYS-0010.html?popup=WAP_SYS_0020"
+        },
+        {
+          "dep3" : "popup - 공지사항 등록 / 수정",
+          "name" : "WAP-SYS-0030",
+          "url" : "./html/admin/WAP-SYS-0010.html?popup=WAP_SYS_0030",
+          "etc" : ["수정일 경우에 변경되야 할 부분은 주석처리 해두었습니다", "에디터 영역은 비워뒀습니다."]
+        },
+        {
+          "dep2" : "팝업",
+          "name" : "WAP-SYS-0050",
+          "url" : "./html/admin/WAP-SYS-0050.html"
+        },
+        {
+          "dep2" : "사용자",
+          "name" : "WAP-SYS-0090",
+          "url" : "./html/admin/WAP-SYS-0090.html"
+        },
+        {
+          "dep3" : "popup - 사용자등록",
+          "name" : "WAP-SYS-0100",
+          "url" : "./html/admin/WAP-SYS-0090.html?popup=WAP_SYS_0100",
+          "etc" : ["기본사항, 인적사항 포함 되어있습니다.", "버튼은 주석처리 돼있습니다."]
+        },
+        {
+          "dep2" : "권한 관리"
+        },
+        {
+          "dep2" : "메뉴얼 관리"
+        },
+        {
+          "dep2" : "접속 기록",
+          "name" : "WAP-SYS-0230",
+          "url" : "./html/admin/WAP-SYS-0230.html"
+        }
+      ]
+    },
+    {
+      "title" : "기업담당자",
+      "list" : [
+        {
+          "dep1" : "홈",
+          "name" : "WAP-HOM-0020",
+          "url" : "./html/corp/WAP-HOM-0020.html"
+        },
+        {
+          "dep1" : "채용등록",
+          "name" : "WAP-EMPL-0010",
+          "url" : "./html/corp/WAP-EMPL-0010.html"
+        },
+        {
+          "dep1" : "채용등록 > 공고 불러오기 팝업",
+          "name" : "WAP-EMPL-0011",
+          "url" : "./html/corp/WAP-EMPL-0010.html?popup=WAP_EMPL_0011"
+        },
+        {
+          "dep1" : "채용목록",
+          "name" : "WAP-EMPL-0020",
+          "url" : "./html/corp/WAP-EMPL-0020.html"
+        },
+        {
+          "dep1" : "전형관리",
+          "name" : "WAP-EMPL-0030",
+          "url" : "./html/corp/WAP-EMPL-0030.html"
+        },
+        {
+          "dep2" : "popup - 알림설정",
+          "name" : "WAP-EMPL-0031",
+          "url" : "./html/corp/WAP-EMPL-0030.html?popup=WAP_EMPL_0031"
+        },
+        {
+          "dep2" : "채용정보 수정",
+          "name" : "WAP-EMPL-0040",
+          "url" : "./html/corp/WAP-EMPL-0040.html"
+        },
+        {
+          "dep2" : "채용공고문 작성",
+          "name" : "WAP-EMPL-0050",
+          "url" : "./html/corp/WAP-EMPL-0050.html"
+        },
+        {
+          "dep2" : "전체지원자",
+          "name" : "WAP-EMPL-0060",
+          "url" : "./html/corp/WAP-EMPL-0060.html"
+        },
+        {
+          "dep2" : "서류전형",
+          "name" : "WAP-EMPL-0100",
+          "url" : "./html/corp/WAP-EMPL-0100.html"
+        },
+        {
+          "dep3" : "popup - 테스트",
+          "name" : "WAP-EMPL-0170",
+          "url" : "./html/corp/WAP-EMPL-0100.html?popup=WAP_EMPL_0170"
+        },
+        {
+          "dep3" : "입사지원서 설정",
+          "name" : "WAP-EMPL-0120",
+          "url" : "./html/corp/WAP-EMPL-0120.html"
+        },
+        {
+          "dep2" : "평가설정",
+          "dep3" : "적부평가",
+          "name" : "WAP-EMPL-0180",
+          "url" : "./html/corp/WAP-EMPL-0180.html"
+        },
+        {
+          "dep4" : "popup - 불러오기",
+          "name" : "WAP-EMPL-0190",
+          "url" : "./html/corp/WAP-EMPL-0180.html?popup=WAP_EMPL_0190"
+        },
+        {
+          "dep4" : "학력사항",
+          "name" : "WAP-EMPL-0192",
+          "url" : "./html/corp/WAP-EMPL-0192.html"
+        },
+        {
+          "dep4" : "교육사항",
+          "name" : "WAP-EMPL-0193",
+          "url" : "./html/corp/WAP-EMPL-0193.html"
+        },
+        {
+          "dep3" : "정량평가",
+          "name" : "WAP-EMPL-0200",
+          "url" : "./html/corp/WAP-EMPL-0200.html"
+        },
+        {
+          "dep4" : "popup - 불러오기",
+          "name" : "WAP-EMPL-0190",
+          "url" : "./html/corp/WAP-EMPL-0200.html?popup=WAP_EMPL_0190"
+        },
+        {
+          "dep4" : "학력사항",
+          "name" : "WAP-EMPL-0211",
+          "url" : "./html/corp/WAP-EMPL-0211.html"
+        },
+        {
+          "dep3" : "정성평가",
+          "dep4" : "평가요소",
+          "name" : "WAP-EMPL-0220",
+          "url" : "./html/corp/WAP-EMPL-0220.html"
+        },
+        {
+          "dep4" : "평가자",
+          "name" : "WAP-EMPL-0230",
+          "url" : "./html/corp/WAP-EMPL-0230.html"
+        },
+        {
+          "dep4" : "집계기준",
+          "name" : "WAP-EMPL-0240",
+          "url" : "./html/corp/WAP-EMPL-0240.html"
+        },
+        {
+          "dep4" : "평가시스템 설정",
+          "name" : "WAP-EMPL-0260",
+          "url" : "./html/corp/WAP-EMPL-0260.html"
+        },
+        {
+          "dep4" : "popup - 블라인드 설정",
+          "name" : "WAP-EMPL-0270",
+          "url" : "./html/corp/WAP-EMPL-0260.html?popup=WAP_EMPL_0270"
+        },
+        {
+          "dep2" : "면접전형",
+          "name" : "WAP-EMPL-0310",
+          "url" : "./html/corp/WAP-EMPL-0310.html"
+        },
+        {
+          "dep3" : "popup - 평가자화면",
+          "name" : "WAP-EMPL-0313",
+          "url" : "./html/corp/WAP-EMPL-0310.html?popup=WAP_EMPL_0313"
+        },
+        {
+          "dep3" : "popup - 면접기간 팝업",
+          "name" : "WAP-EMPL-0312",
+          "url" : "./html/corp/WAP-EMPL-0310.html?popup=WAP_EMPL_0312"
+        },
+        {
+          "dep3" : "면접도구",
+          "name" : "WAP-EMPL-0340",
+          "url" : "./html/corp/WAP-EMPL-0340.html"
+        },
+        {
+          "dep4" : "평가자",
+          "name" : "WAP-EMPL-0360",
+          "url" : "./html/corp/WAP-EMPL-0360.html"
+        },
+        {
+          "dep4" : "집계기준",
+          "name" : "WAP-EMPL-0370",
+          "url" : "./html/corp/WAP-EMPL-0370.html"
+        },
+        {
+          "dep4" : "등급",
+          "name" : "WAP-EMPL-0380",
+          "url" : "./html/corp/WAP-EMPL-0380.html"
+        },
+        {
+          "dep4" : "평가시스템 설정",
+          "name" : "WAP-EMPL-0390",
+          "url" : "./html/corp/WAP-EMPL-0390.html"
+        },
+        {
+          "dep4" : "최종결과",
+          "name" : "WAP-EMPL-0410",
+          "url" : "./html/corp/WAP-EMPL-0410.html"
+        },
+        {
+          "dep1" : "보관함",
+          "dep2" : "입사 지원서",
+          "dep3" : "양식 관리",
+          "name" : "WAP-CONT-0010",
+          "url" : "./html/corp/WAP-CONT-0010.html"
+        },
+        {
+          "dep3" : "약관관리",
+          "name" : "WAP-CONT-0040",
+          "url" : "./html/corp/WAP-CONT-0040.html"
+        },
+        {
+          "dep3" : "popup - 등록",
+          "name" : "WAP-CONT-0020",
+          "url" : "./html/corp/WAP-CONT-0010.html?popup=WAP_CONT_0020"
+        },
+        {
+          "dep2" : "서류도구",
+          "name" : "WAP-CONT-0060",
+          "url" : "./html/corp/WAP-CONT-0060.html"
+        },
+        {
+          "dep3" : "popup - 평가요소 등록/수정",
+          "name" : "WAP-CONT-0070",
+          "url" : "./html/corp/WAP-CONT-0060.html?popup=WAP_CONT_0070",
+          "etc" : ["수정일 경우에 변경되야 할 부분은 주석처리 해두었습니다."]
+        },
+        {
+          "dep3" : "popup - 평가요소",
+          "name" : "WAP-CONT-0080",
+          "url" : "./html/corp/WAP-CONT-0060.html?popup=WAP_CONT_0080"
+        },
+        {
+          "dep2" : "필기도구",
+          "name" : "WAP-CONT-0110",
+          "url" : "./html/corp/WAP-CONT-0110.html"
+        },
+        {
+          "dep2" : "면접도구",
+          "name" : "WAP-CONT-0170",
+          "url" : "./html/corp/WAP-CONT-0170.html"
+        },
+        {
+          "dep3" : "popup - 면접도구 등록/수정",
+          "name" : "WAP-CONT-0180",
+          "url" : "./html/corp/WAP-CONT-0170.html?popup=WAP_CONT_0180",
+          "etc" : ["수정일 경우에 변경되야 할 부분은 주석처리 해두었습니다."]
+        },
+        {
+          "dep3" : "popup - 면접도구 보기",
+          "name" : "WAP-CONT-0190",
+          "url" : "./html/corp/WAP-CONT-0170.html?popup=WAP_CONT_0190"
+        },
+        {
+          "dep2" : "평가 척도",
+          "name" : "WAP-CONT-0230",
+          "url" : "./html/corp/WAP-CONT-0230.html"
+        },
+        {
+          "dep3" : "popup - 평가척도 등록/수정",
+          "name" : "WAP-CONT-0240",
+          "url" : "./html/corp/WAP-CONT-0230.html?popup=WAP_CONT_0240",
+          "etc" : ["수정일 경우에 변경되야 할 부분은 주석처리 해두었습니다."]
+        },
+        {
+          "dep3" : "popup - 평가척도 보기",
+          "name" : "WAP-CONT-0250",
+          "url" : "./html/corp/WAP-CONT-0230.html?popup=WAP_CONT_0250"
+        },
+        {
+          "dep2" : "만족도조사",
+          "name" : "WAP-CONT-0270",
+          "url" : "./html/corp/WAP-CONT-0270.html"
+        },
+        {
+          "dep1" : "기업정보",
+          "name" : "WAP-CORP-0022",
+          "url" : "./html/corp/WAP-CORP-0022.html"
+        },
+        {
+          "dep2" : "popup - 기업정보 수정",
+          "name" : "WAP-SYS-0110",
+          "url" : "./html/corp/WAP-CORP-0022.html?popup=WAP_SYS_0110"
+        },
+        {
+          "dep2" : "사용자",
+          "name" : "WAP-SYS-0090",
+          "url" : "./html/corp/WAP-SYS-0090.html"
+        },
+        {
+          "dep3" : "popup - 사용자등록",
+          "name" : "WAP-SYS-0100",
+          "url" : "./html/corp/WAP-SYS-0090.html?popup=WAP_SYS_0100",
+          "etc" : ["기본사항, 인적사항 포함 되어있습니다.", "수정일 경우에 변경되야 할 부분은 주석처리 해두었습니다"]
+        },
+        {
+          "dep3" : "popup - 기업평가자",
+          "name" : "WAP-SYS-0101",
+          "url" : "./html/corp/WAP-SYS-0090.html?popup=WAP_SYS_0101"
+        },
+        {
+          "dep2" : "채용홈페이지",
+          "dep3" : "디자인",
+          "name" : "WAP-ETPR-0070",
+          "url" : "./html/corp/WAP-ETPR-0070.html"
+        },
+        {
+          "dep4" : "popup - 탬플릿 선택",
+          "name" : "WAP-ETPR-0080",
+          "url" : "./html/corp/WAP-ETPR-0070.html?popup=WAP_ETPR_0080"
+        },
+        {
+          "dep3" : "회사소개",
+          "name" : "WAP-ETPR-0102",
+          "url" : "./html/corp/WAP-ETPR-0102.html"
+        },
+        {
+          "dep3" : "공지사항",
+          "name" : "WAP-ETPR-0110",
+          "url" : "./html/corp/WAP-ETPR-0110.html"
+        },
+        {
+          "dep3" : "FAQ",
+          "name" : "WAP-ETPR-0120",
+          "url" : "./html/corp/WAP-ETPR-0120.html"
+        },
+        {
+          "dep4" : "popup - FAQ 자세히보기",
+          "name" : "WAP-ETPR-0121",
+          "url" : "./html/corp/WAP-ETPR-0120.html?popup=WAP_ETPR_0121"
+        },
+        {
+          "dep3" : "1:1 문의",
+          "name" : "WAP-ETPR-0130",
+          "url" : "./html/corp/WAP-ETPR-0130.html"
+        },
+        {
+          "dep4" : "popup - 상세보기",
+          "name" : "WAP-ETPR-0140",
+          "url" : "./html/corp/WAP-ETPR-0130.html?popup=WAP_ETPR_0140"
+        },
+        {
+          "dep4" : "popup - 답변달기",
+          "name" : "WAP-ETPR-0150",
+          "url" : "./html/corp/WAP-ETPR-0130.html?popup=WAP_ETPR_0150"
+        },
+        {
+          "dep4" : "popup - 알림설정",
+          "name" : "WAP-ETPR-0160",
+          "url" : "./html/corp/WAP-ETPR-0130.html?popup=WAP_ETPR_0160"
+        },
+        {
+          "dep3" : "팝업",
+          "name" : "WAP-ETPR-0170",
+          "url" : "./html/corp/WAP-ETPR-0170.html"
+        },
+        {
+          "dep4" : "팝업등록",
+          "name" : "WAP-ETPR-0180",
+          "url" : "./html/corp/WAP-ETPR-0180.html"
+        },
+        {
+          "dep2" : "개인정보 삭제기준",
+          "name" : "WAP-ETPR-0200",
+          "url" : "./html/corp/WAP-ETPR-0200.html"
+        },
+        {
+          "dep3" : "popup - 삭제기준 수정",
+          "name" : "WAP-ETPR-0201",
+          "url" : "./html/corp/WAP-ETPR-0200.html?popup=WAP_ETPR_0201"
+        },
+        {
+          "dep2" : "발송이력",
+          "name" : "WAP-ETPR-0210",
+          "url" : "./html/corp/WAP-ETPR-0210.html"
+        }
+      ]
+    }
+  ]
+}

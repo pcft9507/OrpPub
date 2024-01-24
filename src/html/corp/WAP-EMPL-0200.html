@@ -1,0 +1,219 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "3"})
+
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[ORP연구소] 2021년 하반기 인턴 채용</h2>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                data-dropdown='{
+                  "name": "headerDropdown",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "사무",
+                      "value": "사무",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                data-dropdown='{
+                  "name": "headerDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "서류전형",
+                      "value": "서류전형",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="contents-header__btns">
+          <a href="#" class="btn">
+            <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-graph__size-m__color5">통계</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">평가설정</h3>
+
+        <div class="base-tab tab-type1 content-mt6" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">적부평가</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">정량평가</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">정성평가</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+        <div class="box-type5 content-mt3 box-flex">
+          <p class="point-color6" style="flex: 1;">
+            시스템에서 평가기준을 설정하고 이를 바탕으로 자동으로 심사합니다.<br>
+            아래 입사 지원서 항목 별로 평가기준을 설정해주세요.
+          </p>
+          <div>
+            <button type="button" class="base-btn type2__size-s">
+              <span class="base-icon icon-down__size-s__color1">불러오기</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="board-body content-mt5">
+          <div class="table table-type1">
+            <table id="table" class="type-line">
+              <colgroup>
+                <col>
+                <col>
+                <col style="width: 114px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>입사지원서 항목</th>
+                  <th>최대배점</th>
+                  <th></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#table').DataTable({
+              rowGroup: {
+                className: 'table-group'
+              },
+              data: [
+                {
+                  '입사지원서 항목': '총점',
+                  '최대배점' : '6점'
+                },
+                {
+                  '입사지원서 항목': '학력사항',
+                  '최대배점' : '1점'
+                },
+                {
+                  '입사지원서 항목': '교육사항',
+                  '최대배점' : '1점'
+                },
+                {
+                  '입사지원서 항목': '자격증',
+                  '최대배점' : '1점'
+                },
+                {
+                  '입사지원서 항목': '어학사항',
+                  '최대배점' : '1점'
+                },
+                {
+                  '입사지원서 항목': '경력사항',
+                  '최대배점' : '1점'
+                },
+                {
+                  '입사지원서 항목': '경험사항',
+                  '최대배점' : '1점'
+                }
+              ],
+              columns: [
+                { data: '입사지원서 항목' },
+                { data: '최대배점' },
+                {
+                  data: '',
+                  render: function() {
+                    return `
+                      <button type="button">
+                        <span class="base-icon icon-setup__size-m__color3">
+                          <span class="isHidden">설정</span>
+                        </span>
+                      </button>
+                    `
+                  }
+                }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/corp/WAP-EMPL-0190.html');
+
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_EMPL_0190" : ()=>{WAP_EMPL_0190.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

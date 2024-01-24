@@ -1,0 +1,362 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "관리자", dep1: "2", dep2: "3"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">필기도구</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "컨설턴트",
+                        "value": "컨설턴트",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업명",
+                        "value": "기업명",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고기간",
+                        "value": "공고기간",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "필기전형",
+                        "value": "필기전형",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고번호",
+                        "value": "공고번호",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <script>
+                const SAMPLE_DATA = [
+                  {"name": "키워드"},
+                  {"name": "키워드드"},
+                  {"name": "키워드드드"}
+                ]
+                dropdown.addItem({
+                  target: document.querySelector('[name="inputKeyword"]'),
+                  data: {
+                    "name": "inputKeyword",
+                    "type" : "input",
+                    "option": SAMPLE_DATA,
+                  }
+                });
+              </script>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
+            </div>
+          </div>
+
+          <div class="search-tag content-mt4" id="searchTag" style="display: none;">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m" onclick="searchTag.reset();">초기화</button>
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType: 1,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 172px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "multi",
+                  "option": [
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "all": true,
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "관리자",
+                      "value": "관리자",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "기업명",
+                      "value": "기업명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용명",
+                      "value": "채용명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용기간",
+                      "value": "채용기간",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "지원자(채용분야)",
+                      "value": "지원자(채용분야)",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "진행상태",
+                      "value": "진행상태",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >
+                <span class="dropdown-btn__label">분야</span>
+                <span class="dropdown-btn__checked">전체</span>
+              </button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table>
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 56px;"/>
+                <col style="width: 90px;"/>
+                <col style="width: 80px;"/>
+                <col/>
+                <col style="width: 100px;"/>
+                <col style="width: 100px;"/>
+                <col style="width: 100px;"/>
+                <col style="width: 130px;"/>
+                <col style="width: 100px"/>
+                <col style="width: 180px"/>
+                <col style="width: 180px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">NO</th>
+                  <th scope="col">검사구분</th>
+                  <th scope="col">코드</th>
+                  <th scope="col">도구명</th>
+                  <th scope="col">정의</th>
+                  <th scope="col">총점</th>
+                  <th scope="col">백분위계산</th>
+                  <th scope="col">총점산출</th>
+                  <th scope="col">검사시간</th>
+                  <th scope="col">등록정보</th>
+                  <th scope="col">최종수정</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>6</td>
+                  <td>인성검사</td>
+                  <td class="point-color">P0050</td>
+                  <td>필기도구 인성검사 등록테스트</td>
+                  <td>2021 선발규준</td>
+                  <td>1.2</td>
+                  <td>규준 백분위</td>
+                  <td>백분위(원점수표기)</td>
+                  <td>전체(2분)</td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>6</td>
+                  <td>인성검사</td>
+                  <td class="point-color">P0050</td>
+                  <td>필기도구 인성검사 등록테스트</td>
+                  <td>2021 선발규준</td>
+                  <td>1.2</td>
+                  <td>규준 백분위</td>
+                  <td>백분위(원점수표기)</td>
+                  <td>전체(2분)</td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>6</td>
+                  <td>인성검사</td>
+                  <td class="point-color">P0050</td>
+                  <td>필기도구 인성검사 등록테스트</td>
+                  <td>2021 선발규준</td>
+                  <td>1.2</td>
+                  <td>규준 백분위</td>
+                  <td>백분위(원점수표기)</td>
+                  <td>전체(2분)</td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>6</td>
+                  <td>인성검사</td>
+                  <td class="point-color">P0050</td>
+                  <td>필기도구 인성검사 등록테스트</td>
+                  <td>2021 선발규준</td>
+                  <td>1.2</td>
+                  <td>규준 백분위</td>
+                  <td>백분위(원점수표기)</td>
+                  <td>전체(2분)</td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

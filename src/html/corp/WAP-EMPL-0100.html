@@ -1,0 +1,684 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "3"})
+
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[ORP연구소] 2021년 하반기 인턴 채용</h2>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                data-dropdown='{
+                  "name": "headerDropdown",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "사무",
+                      "value": "사무",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                data-dropdown='{
+                  "name": "headerDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "서류전형",
+                      "value": "서류전형",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="contents-header__btns">
+          <a href="#" class="btn">
+            <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-graph__size-m__color5">통계</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">서류전형</h3>
+        <div class="box-flex type-gap2">
+          <div class="box-type1" style="width: 40%;">
+            <h4 class="title-sub1">전형 정보</h4>
+            <div class="dashboard__emply-info">
+              <p class="info-item">
+                <strong class="key">채용공고기간</strong>
+                <span class="val">2023.07.01 ~ 2023.08.30</span>
+              </p>
+              <p class="info-item">
+                <strong class="key">접수기간</strong>
+                <span class="val">2023.07.01 ~ 2023.08.30</span>
+              </p>
+              <p class="info-item">
+                <strong class="key">평가기간</strong>
+                <span class="val">2023.07.01 ~ 2023.08.30</span>
+              </p>
+            </div>
+          </div>
+          <div class="box-type1" style="width: 30%;">
+            <h4 class="title-sub1">지원자 정보</h4>
+            <div class="dashboard__emply-info box-flex">
+              <p class="info-item2">
+                <span class="key">합격</span>
+                <strong class="val">15명</strong>
+              </p>
+              <p class="info-item2">
+                <span class="key">예비 합격</span>
+                <strong class="val">-</strong>
+              </p>
+              <p class="info-item2">
+                <span class="key">불합격</span>
+                <strong class="val">15명</strong>
+              </p>
+              <p class="info-item2">
+                <span class="key">미정</span>
+                <strong class="val">-</strong>
+              </p>
+            </div>
+          </div>
+          <div class="box-type1" style="width: 30%;">
+            <h4 class="title-sub1">설정</h4>
+            <div class="dashboard__emply-info">
+              <p class="info-btn">
+                <strong class="key">입사지원서</strong>
+                <span class="btn">
+                  <button type="button" class="base-btn type2__size-s">테스트</button>
+                  <button type="button" class="base-btn type2__size-s">
+                    <span class="base-icon icon-setup2__size-s__color1">설정</span>
+                  </button>
+                </span>
+              </p>
+              <p class="info-btn">
+                <strong class="key">평가</strong>
+                <span class="btn">
+                  <button type="button" class="base-btn type2__size-s">미리보기</button>
+                  <button type="button" class="base-btn type2__size-s">
+                    <span class="base-icon icon-setup2__size-s__color1">설정</span>
+                  </button>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-type1 content-mt3">
+          <div class="box-flex">
+            <div class="box-flex__cell">
+              <div class="dropdown" style="width: 136px;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "수험번호",
+                        "value": "수험번호",
+                        "disabled": false,
+                        "checked": true
+                      }
+                    ]
+                  }'
+                >수험번호</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="flex: 1;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <script>
+                const SAMPLE_DATA = [
+                  {"name": "키워드"},
+                  {"name": "키워드드"},
+                  {"name": "키워드드드"}
+                ]
+                dropdown.addItem({
+                  target: document.querySelector('[name="inputKeyword"]'),
+                  data: {
+                    "name": "inputKeyword",
+                    "type" : "input",
+                    "option": SAMPLE_DATA,
+                  }
+                });
+              </script>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
+            </div>
+          </div>
+
+          <div class="search-tag content-mt4" id="searchTag" style="display: none;">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m" onclick="searchTag.reset();">초기화</button>
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType: 1,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt2">
+          <div class="board-head__cell type-gap2">
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "옵션1",
+                      "value": "옵션1",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >Display</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown1",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown1',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 110px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "평가실",
+                      "value": "평가실",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 110px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown3",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "발송",
+                      "value": "발송",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown3',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 110px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown4",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "채점",
+                      "value": "채점",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown4',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 110px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown5",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "결과",
+                      "value": "결과",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown5',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 110px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown6",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "다운로드",
+                      "value": "다운로드",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown6',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 110px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown77",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "평가정보",
+                      "value": "평가정보",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown7',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+          </div>
+          <div class="board-head__cell type-gap2">
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-upload__color1__size-s">평가점수 업로드</span>
+            </button>
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-add__color1__size-s">지원자 등록</span>
+            </button>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 50px;"/>
+                <col style="width: 50px;"/>
+                <col style="width: 150px"/>
+                <col style="width: 100px"/>
+                <col style="width: 100px"/>
+                <col style="width: 100px"/>
+                <col style="width: 100px"/>
+                <col/>
+                <col style="width: 120px"/>
+                <col style="width: 120px"/>
+                <col style="width: 120px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">
+                    <span class="base-icon icon-mark__color1__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </th>
+                  <th scope="col">NO</th>
+                  <th scope="col"><button type="button" class="btn-align-cell">수험번호</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">성명</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">평가실</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">전형결과</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">연락처</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">이메일</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">비고1</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">비고2</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">비고3</button></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '24',
+                  '수험번호': '01-00000001',
+                  '성명' : '홍길동',
+                  '평가실' : '1실',
+                  '전형결과' : '합격',
+                  '연락처' : '01099999999',
+                  '이메일' : 'ts.hwang@wiselection.com',
+                  '비고1' : '오후 4시 45분',
+                  '비고2' : '-',
+                  '비고3' : '-',
+                },
+                {
+                  'NO': '24',
+                  '수험번호': '01-00000001',
+                  '성명' : '홍길동',
+                  '평가실' : '1실',
+                  '전형결과' : '불합격',
+                  '연락처' : '01099999999',
+                  '이메일' : 'ts.hwang@wiselection.com',
+                  '비고1' : '오후 4시 45분',
+                  '비고2' : '-',
+                  '비고3' : '-',
+                },
+                {
+                  'NO': '24',
+                  '수험번호': '01-00000001',
+                  '성명' : '홍길동',
+                  '평가실' : '1실',
+                  '전형결과' : '불합격',
+                  '연락처' : '01099999999',
+                  '이메일' : 'ts.hwang@wiselection.com',
+                  '비고1' : '오후 4시 45분',
+                  '비고2' : '-',
+                  '비고3' : '-',
+                },
+                {
+                  'NO': '24',
+                  '수험번호': '01-00000001',
+                  '성명' : '홍길동',
+                  '평가실' : '1실',
+                  '전형결과' : '불합격',
+                  '연락처' : '01099999999',
+                  '이메일' : 'ts.hwang@wiselection.com',
+                  '비고1' : '오후 4시 45분',
+                  '비고2' : '-',
+                  '비고3' : '-',
+                },
+                {
+                  'NO': '24',
+                  '수험번호': '01-00000001',
+                  '성명' : '홍길동',
+                  '평가실' : '1실',
+                  '전형결과' : '불합격',
+                  '연락처' : '01099999999',
+                  '이메일' : 'ts.hwang@wiselection.com',
+                  '비고1' : '오후 4시 45분',
+                  '비고2' : '-',
+                  '비고3' : '-',
+                },
+                {
+                  'NO': '24',
+                  '수험번호': '01-00000001',
+                  '성명' : '홍길동',
+                  '평가실' : '1실',
+                  '전형결과' : '불합격',
+                  '연락처' : '01099999999',
+                  '이메일' : 'ts.hwang@wiselection.com',
+                  '비고1' : '오후 4시 45분',
+                  '비고2' : '-',
+                  '비고3' : '-',
+                }
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  }
+                },
+                {
+                  data: '',
+                  render: function() {
+                    return `
+                      <label class="icon-chk type-mark">
+                        <input type="checkbox">
+                        <span>마크</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: 'NO'},
+                { data: '수험번호',
+                  render: function(data) { 
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '성명',
+                  render: function(data) { 
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '평가실' },
+                { data: '전형결과',
+                  render: function(data) {
+                    let temp;
+                    (data === '합격')
+                      ? temp = `<span class="point-color3">${data}</span>`
+                      : temp = data;
+                    return temp;
+                  }
+                },
+                { data: '연락처' },
+                { data: '이메일' },
+                { data: '비고1' },
+                { data: '비고2' },
+                { data: '비고3' }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/corp/WAP-EMPL-0170.html');
+
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_EMPL_0170" : ()=>{WAP_EMPL_0170.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

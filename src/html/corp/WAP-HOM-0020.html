@@ -1,0 +1,195 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "1"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <div class="box-flex type-gap2">
+          <div class="box-type1 dashboard__corp-box">
+            <div class="dashboard__corp-logo"><img src="../../assets/images/logo2x.png" alt=""></div>
+            <div class="dashboard__corp-cont">
+              <h3 class="dashboard__corp-title">ORP연구소</h3>
+              <p class="dashboard__corp-period">2020.11.01~ 2023.10.30</p>
+              <div class="dashboard__corp-info">
+                <p class="info-item">
+                  <span class="key">서비스 유형</span>
+                  <span class="val">Premium</span>
+                </p>
+                <p class="info-item">
+                  <span class="key">진행중인 채용</span>
+                  <span class="val">00건</span>
+                </p>
+                <p class="info-item">
+                  <span class="key">누적지원자 수</span>
+                  <span class="val">00명</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="box-type1 dashboard__corp-box2">
+            <h3 class="dashboard__corp-title">1:1 문의</h3>
+            <div class="dashboard__corp-info2">
+              <p class="info-item">
+                <span class="key">전체</span>
+                <span class="val point-color">25건</span>
+              </p>
+              <p class="info-item">
+                <span class="key">미응답 수</span>
+                <span class="val">5건</span>
+              </p>
+            </div>
+          </div>
+          <div class="box-type1 dashboard__corp-box2">
+            <h3 class="dashboard__corp-title">시스템 공지사항</h3>
+            <div class="dashboard__corp-info2">
+              <p class="info-item">
+                <span class="key">신규</span>
+                <span class="val point-color">25건</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="title-sub content-mt5">전체 채용</h3>
+        <div class="box-type2 employ-progress__box">
+          <div class="employ-progress__header">
+            <p class="employ-progress__title">
+              <strong class="state state1">진행중</strong>
+              <strong class="title">적성검사 개발 연구원채용 (~23.08.20)</strong>
+            </p>
+            <div class="employ-progress__header__cell">
+              <a href="#" class="base-btn type2__size-s2">자세히보기</a>
+            </div>
+          </div>
+          <div class="employ-progress__detail">
+            <div class="employ-progress__count">
+              <span class="key">지원자수</span>
+              <strong class="val">1,230명</strong>
+            </div>
+            <div class="employ-progress__bar">
+              <ol>
+                <li>
+                  <span class="txt">게시</span>
+                  <span class="date">23.07.01</span>
+                </li>
+                <li>
+                  <span class="txt">서류전형</span>
+                  <span class="date">23.08.01</span>
+                </li>
+                <li class="isCurrent">
+                  <span class="txt">면접전형</span>
+                  <span class="date">23.08.10</span>
+                </li>
+                <li>
+                  <span class="txt">종료</span>
+                  <span class="date">23.08.20</span>
+                  <span class="d-day">D-19</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        
+        <div class="box-type2 employ-progress__box">
+          <div class="employ-progress__header">
+            <p class="employ-progress__title">
+              <strong class="state state1">진행중</strong>
+              <strong class="title">적성검사 개발 연구원채용 (~23.08.20)</strong>
+            </p>
+            <div class="employ-progress__header__cell">
+              <a href="#" class="base-btn type2__size-s2">자세히보기</a>
+            </div>
+          </div>
+          <div class="employ-progress__detail">
+            <div class="employ-progress__count">
+              <span class="key">지원자수</span>
+              <strong class="val">0명</strong>
+            </div>
+            <div class="employ-progress__bar">
+              <ol>
+                <li class="isCurrent">
+                  <span class="txt">게시</span>
+                  <span class="date">23.07.01</span>
+                </li>
+                <li>
+                  <span class="txt">필기전형</span>
+                  <span class="date">23.08.01</span>
+                  <span class="d-day">D-9</span>
+                </li>
+                <li>
+                  <span class="txt">면접전형 1차</span>
+                  <span class="date">23.08.10</span>
+                  <span class="d-day">D-9</span>
+                </li>
+                <li>
+                  <span class="txt">면접전형 2차</span>
+                  <span class="date">23.08.10</span>
+                  <span class="d-day">D-9</span>
+                </li>
+                <li>
+                  <span class="txt">종료</span>
+                  <span class="date">23.08.20</span>
+                  <span class="d-day">D-19</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-type2 employ-progress__box">
+          <div class="employ-progress__header">
+            <p class="employ-progress__title">
+              <strong class="state state2">종료</strong>
+              <strong class="title">2023년 인턴 채용 (~23.04.30)</strong>
+            </p>
+            <div>
+              <a href="#" class="base-btn type2__size-s2">자세히보기</a>
+            </div>
+          </div>
+          <div class="employ-progress__detail">
+            <div class="employ-progress__count">
+              <span class="key">지원자수</span>
+              <strong class="val">1,230명</strong>
+            </div>
+            <div class="employ-progress__bar">
+              <ol>
+                <li>
+                  <span class="txt">게시</span>
+                  <span class="date">23.07.01</span>
+                </li>
+                <li>
+                  <span class="txt">필기전형</span>
+                  <span class="date">23.08.01</span>
+                </li>
+                <li>
+                  <span class="txt">면접전형 1차</span>
+                  <span class="date">23.08.10</span>
+                </li>
+                <li>
+                  <span class="txt">면접전형 2차</span>
+                  <span class="date">23.08.10</span>
+                </li>
+                <li>
+                  <span class="txt">종료</span>
+                  <span class="date">23.08.20</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

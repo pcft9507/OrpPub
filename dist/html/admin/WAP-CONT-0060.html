@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+          <div class="header__info__cell header__page-sort">
+            <span>관리자 페이지</span>
+          </div>
+          <ul class="header__info__cell header__list-count">
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">10건</span>
+            </li>
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">8건</span>
+            </li>
+            <li>
+              <span class="key">계약만료</span>
+              <span class="val point-color">2건</span>
+            </li>
+          </ul>
+          <div class="header__info__cell header__input-search">
+            <div class="input-box type-search">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
+            </div>
+          </div>
+        </div>
+        <div class="header__util">
+          <a href="#">홍길동님</a>
+          <a href="#">도움말</a>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+        <ul class="snb__menu">
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon1 has-child"
+              aria-expanded="false"
+              aria-controls="snbSubMenu1"
+            ><span>기업 관리</span></button>
+            <div id="snbSubMenu1" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CORP-0010.html">기업 관리</a></li>
+                <li><a href="WAP-CORP-0040.html">채용 관리</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="isCurrent">
+            <button
+              type="button"
+              class="snb__depth1--btn icon7 has-child"
+              aria-expanded="true"
+              aria-controls="snbSubMenu2"
+            ><span>콘텐츠 관리</span></button>
+            <div id="snbSubMenu2" class="snb__depth2 isOpen">
+              <ul>
+                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li class="isCurrent"><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon2 has-child"
+              aria-expanded="false"
+              aria-controls="snbSubMenu3"
+            ><span>시스템 관리</span></button>
+            <div id="snbSubMenu3" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-SYS-0010.html">공지사항</a></li>
+                <li><a href="WAP-SYS-0050.html">팝업</a></li>
+                <li><a href="WAP-SYS-0090.html" class="isMark">사용자</a></li>
+                <li><a href="WAP-SYS-0120.html" class="isMark">권한 관리</a></li>
+                <li><a href="WAP-SYS-0170.html" class="isMark">메뉴얼 관리</a></li>
+                <li><a href="WAP-SYS-0230.html" class="isMark">접속 기록</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">서류도구</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 172px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "multi",
+                  "option": [
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "all": true,
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "관리자",
+                      "value": "관리자",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "기업명",
+                      "value": "기업명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용명",
+                      "value": "채용명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용기간",
+                      "value": "채용기간",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "지원자(채용분야)",
+                      "value": "지원자(채용분야)",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "진행상태",
+                      "value": "진행상태",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >
+                <span class="dropdown-btn__label">분야</span>
+                <span class="dropdown-btn__checked">전체</span>
+              </button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="board-head__cell" data-ref="rowNoneCheck">
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-excel__color1__size-s">엑셀 업로드</span>
+            </button>
+            <button class="base-btn type2__size-s" onclick="WAP_CONT_0070.show()">
+              <span class="base-icon icon-add__color1__size-s">등록</span>
+            </button>
+          </div>
+          <div class="board-head__cell" data-ref="rowCheck" style="display: none;">
+            <button class="base-btn type2__size-s point-color4">
+              <span class="base-icon icon-del__color4__size-s">삭제</span>
+            </button>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table>
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 117px;"/>
+                <col/>
+                <col style="width: 127px"/>
+                <col style="width: 250px"/>
+                <col style="width: 250px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">코드</th>
+                  <th scope="col">평가요소명</th>
+                  <th scope="col">사용유무</th>
+                  <th scope="col">등록 정보</th>
+                  <th scope="col">최종수정</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td class="point-color">효율성추구</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td class="point-color">품질지향성</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td class="point-color">추진력</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td class="point-color">책임감</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td class="point-color">조직헌신</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td class="point-color">적극성</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  <div class="layer-popup type-modal" data-ref="WAP-CONT-0070">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">평가요소 등록</h3>
+      <!-- 수정일 경우 타이틀 명 평가요소 수정
+        <h3 class="popup__title">평가요소 수정</h3>
+       -->
+    </div>
+    <div class="popup__contents popup__scroll-view" style="max-height: 485px;">
+
+      <div class="form-row">
+        <h4 class="title-sub2">평가요소명</h4>
+        <div class="form-inner">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="입력해주세요." oninput="inputValueChk()" value="효율성 추구">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <label class="btn-toggle">
+            <input type="checkbox" checked>
+            <span>사용여부</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">정의</h4>
+        <div class="form-inner">
+          <textarea style="height:100px;" class="font-weight-s" placeholder="입력해주세요.">작은 자원을 투입하여 최대의 성과(산출)를 얻는 것을 중요하게 여기며, 그러한 방법을 지속적으로 탐색한다.
+          </textarea>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">하위요소</h4>
+        <div class="form-inner type-gap2">
+          <button type="button" class="btn-item--del" onclick="rowItemDel();">
+            <span>삭제</span>
+          </button>
+          <div class="input-box" style="width: 200px;">
+            <input type="text" class="input-txt font-weight-s" placeholder="하위요소명" oninput="inputValueChk()" value="투입 대비 성과 고려">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt font-weight-s" placeholder="하위요소설명" oninput="inputValueChk()" value="의사결정 시, 최소의 비용으로 최대의 성과를 낼 수 있는 효율성 특면을 우선적으로 고려한다">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+        <div class="form-inner type-gap2">
+          <button type="button" class="btn-item--del" onclick="rowItemDel();">
+            <span>삭제</span>
+          </button>
+          <div class="input-box" style="width: 200px;">
+            <input type="text" class="input-txt font-weight-s" placeholder="하위요소명" oninput="inputValueChk()" value="효과적 자원 활용">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt font-weight-s" placeholder="하위요소설명" oninput="inputValueChk()" value="업무 수행 과정에서 활용가능한 자원(사람, 자산, 자원 등)을 효율적으로 활용한다">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+        <div class="form-inner">
+          <button type="button" class="btn-item--add" onclick="rowItemAdd();">
+            <span>추가</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">메모</h4>
+        <div class="form-inner">
+          <textarea style="height:100px;" placeholder="입력해주세요."></textarea>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m" disabled>등록</button>
+      <!-- 수정일 경우 버튼 명 저장
+        <button class="base-btn type1__size-m">저장</button>
+       -->
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0070.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CONT_0070 = new LayerPopup({target: "WAP-CONT-0070"});
+</script>;
+  <div class="layer-popup type-modal" data-ref="WAP-CONT-0080">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">평가요소</h3>
+    </div>
+    <div class="popup__contents">
+
+      <div class="board-view__header">
+        <h3 class="title-sub">효율성 추구</h3>
+
+        <div class="board-view__info">
+          <div class="board-view__info__cell">
+            <span class="board-view__info--th">사용여부</span>
+            <span class="board-view__info--td point-color3">사용</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-view__cont popup__scroll-view" style="max-height: 364px">
+        <section>
+          <h4 class="title-sub2 type2">정의</h4>
+          <p>작은 자원을 투입하여 최대의 성과(산출)를 얻는 것을 중요하게 여기며, 그러한 방법을 지속적으로 탐색한다.</p>
+          <ul class="bullet-list content-mt3">
+            <li class="bullet-list--item">투입 대비 성과 고려: 의사결정 시, 최소의 비용으로 최대의 성과를 낼 수 있는 효율성 특면을 우선적으로 고려한다</li>
+            <li class="bullet-list--item">효과적 자원 활용: 업무 수행 과정에서 활용가능한 자원(사람, 자산, 자원 등)을 효율적으로 활용한다</li>
+            <li class="bullet-list--item">효율적 방법 제안: 기존 업무 수행의 비효율적인 부분을 점검하여 이를 개선할 수 있는 방법이나 프로세스를 제안한다.</li>
+            <li class="bullet-list--item">투입 대비 성과 고려: 의사결정 시, 최소의 비용으로 최대의 성과를 낼 수 있는 효율성 특면을 우선적으로 고려한다</li>
+            <li class="bullet-list--item">효과적 자원 활용: 업무 수행 과정에서 활용가능한 자원(사람, 자산, 자원 등)을 효율적으로 활용한다</li>
+            <li class="bullet-list--item">효율적 방법 제안: 기존 업무 수행의 비효율적인 부분을 점검하여 이를 개선할 수 있는 방법이나 프로세스를 제안한다.</li>
+          </ul>
+        </section>
+        <section class="content-mt4">
+          <h4 class="title-sub2 type2">메모</h4>
+          <p>효율성을 추구하는지 확인한다</p>
+        </section>
+      </div>
+      <div class="board-view__footer">
+        <p class="board-view--writer">2023.10.31 홍길동</p>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type2__size-m">수정</button>
+      <button class="base-btn type2__size-m">삭제</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0080.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CONT_0080 = new LayerPopup({target: "WAP-CONT-0080"});
+</script>;
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_CONT_0070" : ()=>{WAP_CONT_0070.show()},
+      "WAP_CONT_0080" : ()=>{WAP_CONT_0080.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

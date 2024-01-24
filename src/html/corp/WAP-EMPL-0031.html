@@ -1,0 +1,146 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0031">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">알림설정</h3>
+    </div>
+    <div class="popup__contents">
+
+      <div class="box-flex">
+        <div class="box-flex__cell">
+          <div class="dropdown" style="width: 112px;">
+            <button type="button" class="dropdown-btn" data-dropdown='{
+              "name": "alermSetSearchdropdown",
+              "type" : "single",
+              "option": [
+                {
+                  "name": "전체",
+                  "value": "val1",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "옵션2",
+                  "value": "val2",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "옵션3",
+                  "value": "val3",
+                  "disabled": false,
+                  "checked": false
+                }
+              ]
+            }'>전체</button> 
+          </div>
+        </div>
+        <div class="box-flex__cell" style="flex: 1;">
+          <div class="input-box type-search" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+        <div class="box-flex__cell">
+          <button class="base-btn type1__size-m">검색</button>
+        </div>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="popTable0031" class="type-s">
+            <colgroup>
+              <col style="width: 40px"/>
+              <col style="width: 70px"/>
+              <col style="width: 100px"/>
+              <col style="width: 70px"/>
+              <col/>
+              <col style="width: 100px"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">NO</th>
+                <th scope="col">성명</th>
+                <th scope="col">부서</th>
+                <th scope="col">직급</th>
+                <th scope="col">이메일</th>
+                <th scope="col">1:1문의 알림</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $('#popTable0031').DataTable({
+            data: [
+              {
+                'NO': '8',
+                '성명': '김보경',
+                '부서': 'AC센터사업팀',
+                '직급' : '선임',
+                '이메일' : 'asdfasdf@asdfdfd.com'
+              },
+              {
+                'NO': '8',
+                '성명': '김보경',
+                '부서': 'AC센터사업팀',
+                '직급' : '선임',
+                '이메일' : 'asdfasdf@asdfdfd.com'
+              },
+              {
+                'NO': '8',
+                '성명': '김보경',
+                '부서': 'AC센터사업팀',
+                '직급' : '선임',
+                '이메일' : 'asdfasdf@asdfdfd.com'
+              },
+              {
+                'NO': '8',
+                '성명': '김보경',
+                '부서': 'AC센터사업팀',
+                '직급' : '선임',
+                '이메일' : 'asdfasdf@asdfdfd.com'
+              },
+              {
+                'NO': '8',
+                '성명': '김보경',
+                '부서': 'AC센터사업팀',
+                '직급' : '선임',
+                '이메일' : 'asdfasdf@asdfdfd.com'
+              }
+            ],
+            columns: [
+              { data: 'NO' },
+              { data: '성명' },
+              { data: '부서' },
+              { data: '직급' },
+              { data: '이메일' },
+              { data: '1:1문의 알림',
+                render: function() {
+                  return `
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  `
+                }
+              }
+            ],
+            paging: true,
+            searching: false,
+            showing: false,
+            info: false
+          })
+        </script>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">저장</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0031.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0031 = new LayerPopup({target: "WAP-EMPL-0031"});
+</script>

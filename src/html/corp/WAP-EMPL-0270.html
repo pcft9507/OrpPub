@@ -1,0 +1,153 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0270">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">지원서 블라인드 설정</h3>
+    </div>
+    <div class="popup__contents">
+
+      <div class="table table-type1">
+        <table class="no-line">
+          <colgroup>
+            <col>
+            <col style="width: 150px;">
+          </colgroup>
+          <thead class="th-pd2">
+            <tr>
+              <th class="left">개인정보</th>
+              <th>
+                <label class="input-chk font-weight-s">
+                  <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                  <span>전체선택</span>
+                </label>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="td-pd2 left font-weight-s">
+            <tr>
+              <td colspan="2">
+                <div class="chk-group left">
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                    <span>성명(한글)</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                    <span>이메일</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                    <span>연락처</span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table table-type1 content-mt3">
+        <table class="no-line">
+          <colgroup>
+            <col>
+            <col style="width: 150px;">
+          </colgroup>
+          <thead class="th-pd2">
+            <tr>
+              <th class="left">병역사항</th>
+              <th>
+                <label class="input-chk font-weight-s">
+                  <input type="checkbox" value="chkAll" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
+                  <span>전체선택</span>
+                </label>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="td-pd2 left font-weight-s">
+            <tr>
+              <td colspan="2">
+                <div class="chk-group left">
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
+                    <span>병역구분</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
+                    <span>병역기간</span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table table-type1 content-mt3">
+        <table class="no-line">
+          <colgroup>
+            <col>
+            <col style="width: 150px;">
+          </colgroup>
+          <thead class="th-pd2">
+            <tr>
+              <th class="left">학력사항 (전문대학)</th>
+              <th>
+                <label class="input-chk font-weight-s">
+                  <input type="checkbox" value="chkAll" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                  <span>전체선택</span>
+                </label>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="td-pd2 left font-weight-s">
+            <tr>
+              <td colspan="2">
+                <div class="chk-group left">
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                    <span>학교명</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                    <span>재학기간</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                    <span>입학구분</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                    <span>졸업구분</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                    <span>전공</span>
+                  </label>
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                    <span>학점</span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div class="chk-group left">
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
+                    <span>부/복수전공</span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type2__size-m">초기화</button>
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0270.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0270 = new LayerPopup({target: "WAP-EMPL-0270"});
+</script>

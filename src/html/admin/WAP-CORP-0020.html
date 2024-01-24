@@ -1,0 +1,87 @@
+<div class="layer-popup type-modal" data-ref="WAP-CORP-0020">
+  <section class="popup__container popup__size-l">
+    <div class="popup__header">
+      <h3 class="popup__title">기업 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="height: 500px;">
+      <div class="box-flex type-gap2">
+        <div class="box-flex__cell" style="width: 180px;">
+
+          <h4 class="title-sub2">기업 로고 이미지</h4>
+          <div class="upload-img">
+            <div class="upload-img__thumb">
+              <!-- 이미지 샘플
+                <img src="../../assets/images/logo2x.png" alt="">
+              -->
+              <span class="upload-img--info">권장크기: 180*60px</span>
+            </div>
+            <label class="upload-img--btn input-file">
+              <input type="file">
+              <span>업로드</span>
+            </label>
+          </div>
+
+        </div>
+        <div class="box-flex__cell" style="flex: 1;">
+
+          <div class="form-row">
+            <h4 class="title-sub2">기업명<span class="required-mark">필수</span></h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="입력해주세요" oninput="inputValueChk()" required>
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <h4 class="title-sub2">주소<span class="required-mark">필수</span></h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 120px">
+                <input type="text" class="input-txt" placeholder="우편번호" readonly required>
+              </div>
+              <div class="input-box" style="flex: 1;">
+                <input type="text" class="input-txt" placeholder="주소를 검색하여 입력해주세요." readonly required>
+              </div>
+              <button class="base-btn type2__size-s">주소 검색</button>
+            </div>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="상세 주소를 입력하세요" oninput="inputValueChk()" required>
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <h4 class="title-sub2">대표번호<span class="required-mark">필수</span></h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="연락가능한 번호를 입력하세요" oninput="inputValueChk()" required>
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <h4 class="title-sub2">기업 홈페이지</h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="연락가능한 번호를 입력하세요" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m" disabled>등록</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CORP_0020.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CORP_0020 = new LayerPopup({target: "WAP-CORP-0020"});
+</script>

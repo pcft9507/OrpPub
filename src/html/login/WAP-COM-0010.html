@@ -1,0 +1,52 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="login-wrap">
+
+    <div class="login-wrap__box">
+      <h1 class="login-wrap__logo"><img src="../../assets/images/logo2x.png" alt="wiselection"></h1>
+      <div class="form-inner">
+        <div class="input-box" style="flex: 1;">
+          <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="아이디를 입력하세요">
+          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+        </div>
+      </div>
+      <div class="form-inner">
+        <div class="input-box" style="flex: 1;">
+          <input type="password" class="input-txt" oninput="inputValueChk()" placeholder="비밀번호를 입력하세요">
+          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+        </div>
+      </div>
+      <div class="form-inner">
+        <label class="input-chk">
+          <input type="checkbox">
+          <span>아이디저장</span>
+        </label>
+      </div>
+      <div class="content-mt5">
+        <button type="button" class="base-btn type1__size-m">관리자 로그인</button>
+      </div>
+      <p class="content-mt3 point-color1">
+        *본 사이트는 크롬(Chrome) 브라우저에 최적화 되어있습니다.*<br>
+        <a href="#"><u>크롬다운받기</u></a>
+      </p>
+    </div>
+    <p class="find-btn">
+      <button type="button">비밀번호 찾기</button>
+      <button type="button">아이디 찾기</button>
+    </p>
+    <p class="copyright">
+      <small>Copyright (C) ORP Institute. All Rights reserved.</small>
+    </p>
+  </div>
+  @@include('../html/login/WAP-COM-0015.html');
+  
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_COM_0015" : ()=>{WAP_COM_0015.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

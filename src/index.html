@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>HTML 가이드</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./assets/js/datepicker.min.js"></script>
+  <script src="./assets/js/ui.js"></script>
+  <link rel="stylesheet" href="./guide/src/style.css">
+  <link rel="stylesheet" href="./guide/src/github-dark.css">
+  <script src="./guide/src/ui.js"></script>
+  <script src="./guide/src/highlight.min.js"></script>
+</head>
+<body>
+  <header class="guide__header">
+    <h1 class="guide__header--logo"><a href="javascript:window.location.href = window.location.href.split('?')[0]">GUIDE</a></h1>
+    <nav class="guide__header__gnb">
+      <button type="button" data-page="guide_filelist">FILELIST</button>
+      <button type="button" data-page="guide_markup">MARKUP</button>
+      <button type="button" data-page="guide_js">JS</button>
+    </nav>
+  </header>
+  <div class="guide__container">
+
+    <div class="guide__table">
+      <table>
+        <tbody>
+          <tr>
+            <th scope="row">Lang</th>
+            <td>HTML5, CSS, JS</td>
+          </tr>
+          <tr>
+            <th scope="row">Design</th>
+            <td><u><a href="https://www.figma.com/file/kf8BZqwAgeSH28viUDMr03/%EC%9D%B4%EC%A7%80%EC%8A%A4-Guide?node-id=1%3A465&mode=dev" target="_blank">figma</a></u></td>
+          </tr>
+          <tr>
+            <th scope="row">Font</th>
+            <td>
+              <pre>
+                NotoSans
+                 &middot; 700
+                 &middot; 500 / default
+                 &middot; 400
+              </pre>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Color</th>
+            <td>
+              <p>컬러칩 클릭 시 컬러 변수 클립보드 복사</p>
+              <span class="colorChip">
+                <span style="background: #222631;" data-var="var(--black)"></span>
+                #222631
+              </span>
+              <span class="colorChip">
+                <span style="background: #292929;" data-var="var(--black2)"></span>
+                #292929
+              </span>
+              <span class="colorChip">
+                <span style="background: #353D50;" data-var="var(--black3)"></span>
+                #353D50
+              </span>
+              <span class="colorChip">
+                <span style="background: #ACACAC;" data-var="var(--gray)"></span>
+                #ACACAC
+              </span>
+              <span class="colorChip">
+                <span style="background: #BBBEC3;" data-var="var(--gray2)"></span>
+                #BBBEC3
+              </span>
+              <span class="colorChip">
+                <span style="background: #B8BEC3;" data-var="var(--gray3)"></span>
+                #B8BEC3
+              </span>
+              <span class="colorChip">
+                <span style="background: #DADDE5;" data-var="var(--gray4)"></span>
+                #DADDE5
+              </span>
+              <span class="colorChip">
+                <span style="background: #EAEDF3;" data-var="var(--gray5)"></span>
+                #EAEDF3
+              </span>
+              <span class="colorChip">
+                <span style="background: #E0E7ED;" data-var="var(--gray6)"></span>
+                #E0E7ED
+              </span>
+              <span class="colorChip">
+                <span style="background: #F4F6FA;" data-var="var(--gray7)"></span>
+                #F4F6FA
+              </span>
+              <span class="colorChip">
+                <span style="background: #F2F4F5;" data-var="var(--gray8)"></span>
+                #F2F4F5
+              </span>
+              <span class="colorChip">
+                <span style="background: #707070;" data-var="var(--gray9)"></span>
+                #707070
+              </span>
+              <span class="colorChip">
+                <span style="background: #D9D9D9;" data-var="var(--gray10)"></span>
+                #D9D9D9
+              </span>
+              <span class="colorChip">
+                <span style="background: #E3E4E5;" data-var="var(--gray11)"></span>
+                #E3E4E5
+              </span>
+              <span class="colorChip">
+                <span style="background: #fff;" data-var="var(--white)"></span>
+                #fff
+              </span>
+              <br>
+              <span class="colorChip">
+                <span style="background: #029ED0;" data-var="var(--primary)"></span>
+                #029ED0
+              </span>
+              <span class="colorChip">
+                <span style="background: #F0F8FC;" data-var="var(--primary-light)"></span>
+                #F0F8FC
+              </span>
+              <br>
+              <span class="colorChip">
+                <span style="background: #0C72D0;" data-var="var(--blue)"></span>
+                #0C72D0
+              </span>
+              <span class="colorChip">
+                <span style="background: #FF6060;" data-var="var(--red)"></span>
+                #FF6060
+              </span>
+              <span class="colorChip">
+                <span style="background: #FFDEDE;" data-var="var(--red2)"></span>
+                #FFDEDE
+              </span>
+              <span class="colorChip">
+                <span style="background: #ED8A34;" data-var="var(--orange)"></span>
+                #ED8A34
+              </span>
+              <span class="colorChip">
+                <span style="background: #FDF3EB;" data-var="var(--orange2)"></span>
+                #FDF3EB
+              </span>
+              <span class="colorChip">
+                <span style="background: #00BA6C;" data-var="var(--green)"></span>
+                #00BA6C
+              </span>
+              <span class="colorChip">
+                <span style="background: #E2FCEF;" data-var="var(--green2)"></span>
+                #E2FCEF
+              </span>
+              <br>
+              <span class="colorChip">
+                <span style="background: rgba(0, 0, 0, 0.30);" data-var="var(--dim)"></span>
+                rgba(0, 0, 0, 0.30)
+              </span>
+              <span class="colorChip">
+                <span style="background: rgba(46, 54, 58, 0.10);" data-var="var(--shadow)"></span>
+                rgba(46, 54, 58, 0.10)
+              </span>
+              <br><br>
+              <p>Font</p>
+              <span class="colorChip">
+                <span style="background: #222631;" data-var="var(--font-color)"></span>
+                #222631
+              </span>
+              <span class="colorChip">
+                <span style="background: #fff;" data-var="var(--font-color1)"></span>
+                #fff
+              </span>
+              <span class="colorChip">
+                <span style="background: #353D50;" data-var="var(--font-color2)"></span>
+                #353D50
+              </span>
+              <span class="colorChip">
+                <span style="background: #707070;" data-var="var(--font-color3)"></span>
+                #707070
+              </span>
+              <span class="colorChip">
+                <span style="background: #ACACAC;" data-var="var(--font-color4)"></span>
+                #ACACAC
+              </span>
+              <span class="colorChip">
+                <span style="background: #B8BEC3;" data-var="var(--font-color5)"></span>
+                #B8BEC3
+              </span>
+              <span class="colorChip">
+                <span style="background: #BBBEC3;" data-var="var(--font-color6)"></span>
+                #BBBEC3
+              </span>
+              <br><br>
+              <p>공통 클래스로 설정된 폰트</p>
+              <span class="colorChip">
+                <span style="background: #029ED0;" data-var="var(--point-color)"></span>
+                #029ED0
+              </span>
+              <span class="colorChip">
+                <span style="background: #ED8A34;" data-var="var(--point-color1)"></span>
+                #ED8A34
+              </span>
+              <span class="colorChip">
+                <span style="background: #0C72D0;" data-var="var(--point-color2)"></span>
+                #0C72D0
+              </span>
+              <span class="colorChip">
+                <span style="background: #00BA6C;" data-var="var(--point-color3)"></span>
+                #00BA6C
+              </span>
+              <span class="colorChip">
+                <span style="background: #FF6060;" data-var="var(--point-color4)"></span>
+                #FF6060
+              </span>
+              <span class="colorChip">
+                <span style="background: #ACACAC;" data-var="var(--point-color5)"></span>
+                #ACACAC
+              </span>
+              <span class="colorChip">
+                <span style="background: #707070;" data-var="var(--point-color6)"></span>
+                #707070
+              </span>
+              <br><br>
+              <p>icon</p>
+              <span class="colorChip">
+                <span style="background: #029ED0;" data-var="var(--icon-color)"></span>
+                #029ED0
+              </span>
+              <span class="colorChip">
+                <span style="background: #222631;" data-var="var(--icon-color1)"></span>
+                #222631
+              </span>
+              <span class="colorChip">
+                <span style="background: #707070;" data-var="var(--icon-color2)"></span>
+                #707070
+              </span>
+              <span class="colorChip">
+                <span style="background: #BBBEC3;" data-var="var(--icon-color3)"></span>
+                #BBBEC3
+              </span>
+              <span class="colorChip">
+                <span style="background: #FF6060;" data-var="var(--icon-color4)"></span>
+                #FF6060
+              </span>
+              <span class="colorChip">
+                <span style="background: #FFF;" data-var="var(--icon-color5)"></span>
+                #FFF
+              </span>
+              <br><br>
+              <p>bg</p>
+              <span class="colorChip">
+                <span style="background: #F4F6FA;" data-var="var(--bg-color)"></span>
+                #F4F6FA
+              </span>
+              <span class="colorChip">
+                <span style="background: #BBBEC3;" data-var="var(--bg-color1)"></span>
+                #BBBEC3
+              </span>
+              <span class="colorChip">
+                <span style="background: #FFF;" data-var="var(--bg-color2)"></span>
+                #FFF
+              </span>
+              <span class="colorChip">
+                <span style="background: #D9D9D9;" data-var="var(--bg-color3)"></span>
+                #D9D9D9
+              </span>
+              <span class="colorChip">
+                <span style="background: #B8BEC3;" data-var="var(--bg-color4)"></span>
+                #B8BEC3
+              </span>
+              <span class="colorChip">
+                <span style="background: #EAEDF3;" data-var="var(--bg-color5)"></span>
+                #EAEDF3
+              </span>
+              <span class="colorChip">
+                <span style="background: #ACACAC;" data-var="var(--bg-color6)"></span>
+                #ACACAC
+              </span>
+              <span class="colorChip">
+                <span style="background: #F0F8FC;" data-var="var(--bg-color7)"></span>
+                #F0F8FC
+              </span>
+              <span class="colorChip">
+                <span style="background: #E2FCEF;" data-var="var(--bg-color8)"></span>
+                #E2FCEF
+              </span>
+              <span class="colorChip">
+                <span style="background: #FDF3EB;" data-var="var(--bg-color9)"></span>
+                #FDF3EB
+              </span>
+              <span class="colorChip">
+                <span style="background: #DADDE5;" data-var="var(--bg-color10)"></span>
+                #DADDE5
+              </span>
+              <br><br>
+              <p>border</p>
+              <span class="colorChip">
+                <span style="background: #DADDE5;" data-var="var(--border-color)"></span>
+                #DADDE5
+              </span>
+              <span class="colorChip">
+                <span style="background: #BBBEC3;" data-var="var(--border-color1)"></span>
+                #BBBEC3
+              </span>
+              <span class="colorChip">
+                <span style="background: #707070;" data-var="var(--border-color2)"></span>
+                #707070
+              </span>
+              <span class="colorChip">
+                <span style="background: #E3E4E5;" data-var="var(--border-color3)"></span>
+                #E3E4E5
+              </span>
+              <span class="colorChip">
+                <span style="background: #B8BEC3;" data-var="var(--border-color4)"></span>
+                #B8BEC3
+              </span>
+              <span class="colorChip">
+                <span style="background: #E0E7ED;" data-var="var(--border-color5)"></span>
+                #E0E7ED
+              </span>
+              <span class="colorChip">
+                <span style="background: #F2F4F5;" data-var="var(--border-color6)"></span>
+                #F2F4F5
+              </span>
+            </td>
+          </tr>
+          <!-- <tr>
+            <th scope="row">Mixin, Function</th>
+            <td>
+              <pre>
+                //svg 컬러 변경
+                @include svgfill($c: color, $img: src);
+                
+                //font
+                @include font($s: size, $w: weight, $c: color, $a: align, $f: famliy, $l: line-height);
+
+                //ellipsis
+                @incude ellipsis;
+                @incude ellipsis(2); -- 두 줄 이상
+
+                //포지션
+                @include pos($p: 속성, $t: top, $l: left, $r: right, $b: bottom, $a: 전체, $z: z-index)
+              </pre>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    fetch('./guide/filelist.json', {
+      method: 'GET',
+    })
+    .then(response => response.json())
+    .then(data => {
+      new GuideFunc(data.items);
+    });
+  </script>
+
+</body>
+</html>

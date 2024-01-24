@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+          <div class="header__info__cell header__page-sort">
+            <span>관리자 페이지</span>
+          </div>
+          <ul class="header__info__cell header__list-count">
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">10건</span>
+            </li>
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">8건</span>
+            </li>
+            <li>
+              <span class="key">계약만료</span>
+              <span class="val point-color">2건</span>
+            </li>
+          </ul>
+          <div class="header__info__cell header__input-search">
+            <div class="input-box type-search">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
+            </div>
+          </div>
+        </div>
+        <div class="header__util">
+          <a href="#">홍길동님</a>
+          <a href="#">도움말</a>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+        
+        <ul class="snb__menu">
+          <li><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
+          <li><a href="WAP-EMPL-0010.html" class="snb__depth1--btn icon4">채용등록</a></li>
+          <li><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon7">채용목록</a></li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon5"
+              aria-expanded="false"
+              aria-controls="snbSubMenu1"
+            ><span>보관함</span></button>
+            <div id="snbSubMenu1" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
+                <li><a href="WAP-CONT-0270.html">만족도조사</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="isCurrent">
+            <button
+              type="button"
+              class="snb__depth1--btn icon6"
+              aria-expanded="true"
+              aria-controls="snbSubMenu2"
+            ><span>기업정보</span></button>
+            <div id="snbSubMenu2" class="snb__depth2 isOpen">
+              <ul>
+                <li><a href="WAP-CORP-0022.html">기업정보</a></li>
+                <li><a href="WAP-SYS-0090.html">사용자</a></li>
+                <li class="isCurrent"><a href="WAP-ETPR-0070.html">채용홈페이지</a></li>
+                <li><a href="WAP-ETPR-0200.html">개인정보 삭제기준</a></li>
+                <li><a href="WAP-ETPR-0210.html">발송이력</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <!-- contents -->
+      <div class="contents">
+        <h3 class="title-sub">채용홈페이지</h3>
+        <div class="base-tab tab-type1 content-mt4" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">디자인</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">회사소개</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">공지사항</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">FAQ</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">1:1 문의</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">팝업</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+        <div class="box-type1 content-mt5">
+          <div class="box-flex align-center">
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn"
+                data-dropdown='{
+                  "name": "searchDropdown",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "옵션1",
+                      "value": "옵션1",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+            <div class="input-box type-calendar" style="width:150px;">
+              <input type="text" id="calendar1" class="input-txt" placeholder="기간 선택">
+              <script>
+                const calendar1 = new Datepicker(document.getElementById('calendar1'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
+            </div>
+            <div>~</div>
+            <div class="input-box type-calendar" style="width:150px;">
+              <input type="text" id="calendar2" class="input-txt" placeholder="기간 선택">
+              <script>
+                const calendar2 = new Datepicker(document.getElementById('calendar2'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
+            </div>
+            <div class="input-box type-search" style="flex: 1;">
+              <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="검색어를 입력하세요.">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <button class="base-btn type1__size-m">검색</button>
+          </div>
+        </div>
+
+        <div class="board-head content-mt5">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="board-head__cell">
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-add__color1__size-s">등록</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table" class="type-line">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 108px;"/>
+                <col/>
+                <col style="width: 125px;"/>
+                <col style="width: 400px;"/>
+                <col style="width: 400px;"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col"><button type="button" class="btn-align-cell">NO</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">제목</button></th>
+                  <th scope="col">조회수</th>
+                  <th scope="col">등록정보</th>
+                  <th scope="col">최종수정정보</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '1',
+                  '제목' : 'ed',
+                  '조회수' : '0',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '1',
+                  '제목' : 'ed',
+                  '조회수' : '0',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '1',
+                  '제목' : 'ed',
+                  '조회수' : '0',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '1',
+                  '제목' : 'ed',
+                  '조회수' : '0',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                }
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: 'NO' },
+                { data: '제목', 
+                  render: function(data) {
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '조회수' },
+                { data: '등록정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                },
+                { data: '최종수정정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

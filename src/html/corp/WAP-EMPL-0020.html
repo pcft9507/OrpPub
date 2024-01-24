@@ -1,0 +1,411 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "3"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">채용 목록</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "컨설턴트",
+                        "value": "컨설턴트",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업명",
+                        "value": "기업명",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고기간",
+                        "value": "공고기간",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "필기전형",
+                        "value": "필기전형",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고번호",
+                        "value": "공고번호",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <script>
+                const SAMPLE_DATA = [
+                  {"name": "키워드"},
+                  {"name": "키워드드"},
+                  {"name": "키워드드드"}
+                ]
+                dropdown.addItem({
+                  target: document.querySelector('[name="inputKeyword"]'),
+                  data: {
+                    "name": "inputKeyword",
+                    "type" : "input",
+                    "option": SAMPLE_DATA,
+                  }
+                });
+              </script>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
+            </div>
+          </div>
+
+          <div class="search-tag content-mt4" id="searchTag" style="display: none;">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m" onclick="searchTag.reset();">초기화</button>
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType: 1,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 56px;"/>
+                <col style="width: 80px"/>
+                <col style="width: 160px"/>
+                <col style="width: 100px"/>
+                <col/>
+                <col style="width: 200px"/>
+                <col style="width: 100px"/>
+                <col style="width: 180px"/>
+                <col style="width: 180px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">NO</th>
+                  <th scope="col">
+                    <span class="base-icon icon-mark__color1__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </th>
+                  <th scope="col">기업명</th>
+                  <th scope="col">코드</th>
+                  <th scope="col">면접도구명</th>
+                  <th scope="col">채용기간</th>
+                  <th scope="col">채용공고문</th>
+                  <th scope="col">지원자</th>
+                  <th scope="col">진행상태</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '123',
+                  '기업명': '구글코리아',
+                  '코드': '609',
+                  '면접도구명' : '채용공고_테스트명',
+                  '채용기간' : '2023.09.01~2033.12.31',
+                  '채용공고문' : '보기',
+                  '지원자' : ['1명', '(2개 분야)'],
+                  '진행상태' : {
+                    'state' : 1,
+                    'data' : ['면접전형 1차마감', 'd-213']
+                  },
+                },
+                {
+                  'NO': '123',
+                  '기업명': '구글코리아',
+                  '코드': '609',
+                  '면접도구명' : '채용공고_테스트명',
+                  '채용기간' : '2023.09.01~2033.12.31',
+                  '채용공고문' : '보기',
+                  '지원자' : ['1명', '(2개 분야)'],
+                  '진행상태' : {
+                    'state' : 2,
+                    'data' : ['면접전형 1차마감', 'd-213']
+                  },
+                },
+                {
+                  'NO': '123',
+                  '기업명': '구글코리아',
+                  '코드': '609',
+                  '면접도구명' : '채용공고_테스트명',
+                  '채용기간' : '2023.09.01~2033.12.31',
+                  '채용공고문' : '보기',
+                  '지원자' : ['1명', '(2개 분야)'],
+                  '진행상태' : {
+                    'state' : 3,
+                    'data' : ['면접전형 1차마감', 'd-213']
+                  },
+                },
+                {
+                  'NO': '123',
+                  '기업명': '구글코리아',
+                  '코드': '609',
+                  '면접도구명' : '채용공고_테스트명',
+                  '채용기간' : '2023.09.01~2033.12.31',
+                  '채용공고문' : '보기',
+                  '지원자' : ['1명', '(2개 분야)'],
+                  '진행상태' : {
+                    'state' : 4
+                  },
+                },
+                {
+                  'NO': '123',
+                  '기업명': '구글코리아',
+                  '코드': '609',
+                  '면접도구명' : '채용공고_테스트명',
+                  '채용기간' : '2023.09.01~2033.12.31',
+                  '채용공고문' : '보기',
+                  '지원자' : ['1명', '(2개 분야)'],
+                  '진행상태' : {
+                    'state' : 4
+                  },
+                },
+                {
+                  'NO': '123',
+                  '기업명': '구글코리아',
+                  '코드': '609',
+                  '면접도구명' : '채용공고_테스트명',
+                  '채용기간' : '2023.09.01~2033.12.31',
+                  '채용공고문' : '보기',
+                  '지원자' : ['1명', '(2개 분야)'],
+                  '진행상태' : {
+                    'state' : 1,
+                    'data' : ['면접전형 1차마감', 'd-213']
+                  },
+                },
+                {
+                  'NO': '123',
+                  '기업명': '구글코리아',
+                  '코드': '609',
+                  '면접도구명' : '채용공고_테스트명',
+                  '채용기간' : '2023.09.01~2033.12.31',
+                  '채용공고문' : '보기',
+                  '지원자' : ['1명', '(2개 분야)'],
+                  '진행상태' : {
+                    'state' : 2,
+                    'data' : ['면접전형 1차마감', 'd-213']
+                  },
+                },
+                {
+                  'NO': '123',
+                  '기업명': '구글코리아',
+                  '코드': '609',
+                  '면접도구명' : '채용공고_테스트명',
+                  '채용기간' : '2023.09.01~2033.12.31',
+                  '채용공고문' : '보기',
+                  '지원자' : ['1명', '(2개 분야)'],
+                  '진행상태' : {
+                    'state' : 3,
+                    'data' : ['면접전형 1차마감', 'd-213']
+                  },
+                },
+                {
+                  'NO': '123',
+                  '기업명': '구글코리아',
+                  '코드': '609',
+                  '면접도구명' : '채용공고_테스트명',
+                  '채용기간' : '2023.09.01~2033.12.31',
+                  '채용공고문' : '보기',
+                  '지원자' : ['1명', '(2개 분야)'],
+                  '진행상태' : {
+                    'state' : 4
+                  },
+                },
+                {
+                  'NO': '123',
+                  '기업명': '구글코리아',
+                  '코드': '609',
+                  '면접도구명' : '채용공고_테스트명',
+                  '채용기간' : '2023.09.01~2033.12.31',
+                  '채용공고문' : '보기',
+                  '지원자' : ['1명', '(2개 분야)'],
+                  '진행상태' : {
+                    'state' : 4
+                  },
+                }
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: 'NO' },
+                {
+                  data: '',
+                  render: function() {
+                    return `
+                      <label class="icon-chk type-mark">
+                        <input type="checkbox">
+                        <span>마크</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: '기업명'},
+                { data: '코드'},
+                { data: '면접도구명',
+                  render: function(data) { 
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '채용기간'},
+                { data: '채용공고문',
+                  render: function(data) {
+                    return `<u><a href="#">${data}</a></u>`
+                  }
+                },
+                { data: '지원자',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                },
+                { data: '진행상태',
+                  render: function(data) {
+                    let className;
+                    let template;
+                    switch(data.state) {
+                      case 1 : {
+                        className = 'point-color3';
+                        break;
+                      }
+                      case 2 : {
+                        className = 'point-color2';
+                        break;
+                      }
+                      case 3 : {
+                        className = 'point-color4';
+                        break;
+                      }
+                      default : {
+                        break;
+                      }
+                    }
+                    if(data.state == 4) {
+                      template = ` <div class="point-color5">전형 기간 미등록</div>`
+                    } else {
+                      template = `
+                        <div>${data.data[0]}</div>
+                        <div class="${className}">${data.data[1]}</div>
+                      `
+                    }
+                    return template;
+                  }
+                }
+              ],
+              paging: true,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

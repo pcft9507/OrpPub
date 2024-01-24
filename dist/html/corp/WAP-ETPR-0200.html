@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+          <div class="header__info__cell header__page-sort">
+            <span>관리자 페이지</span>
+          </div>
+          <ul class="header__info__cell header__list-count">
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">10건</span>
+            </li>
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">8건</span>
+            </li>
+            <li>
+              <span class="key">계약만료</span>
+              <span class="val point-color">2건</span>
+            </li>
+          </ul>
+          <div class="header__info__cell header__input-search">
+            <div class="input-box type-search">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
+            </div>
+          </div>
+        </div>
+        <div class="header__util">
+          <a href="#">홍길동님</a>
+          <a href="#">도움말</a>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+        
+        <ul class="snb__menu">
+          <li><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
+          <li><a href="WAP-EMPL-0010.html" class="snb__depth1--btn icon4">채용등록</a></li>
+          <li><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon7">채용목록</a></li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon5"
+              aria-expanded="false"
+              aria-controls="snbSubMenu1"
+            ><span>보관함</span></button>
+            <div id="snbSubMenu1" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
+                <li><a href="WAP-CONT-0270.html">만족도조사</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="isCurrent">
+            <button
+              type="button"
+              class="snb__depth1--btn icon6"
+              aria-expanded="true"
+              aria-controls="snbSubMenu2"
+            ><span>기업정보</span></button>
+            <div id="snbSubMenu2" class="snb__depth2 isOpen">
+              <ul>
+                <li><a href="WAP-CORP-0022.html">기업정보</a></li>
+                <li><a href="WAP-SYS-0090.html">사용자</a></li>
+                <li><a href="WAP-ETPR-0070.html">채용홈페이지</a></li>
+                <li class="isCurrent"><a href="WAP-ETPR-0200.html">개인정보 삭제기준</a></li>
+                <li><a href="WAP-ETPR-0210.html">발송이력</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <!-- contents -->
+      <div class="contents">
+        <h3 class="title-sub">개인정보삭제기준</h3>
+        
+        <div class="box-type1 relative-box">
+          <h4 class="title-sub4">삭제기준</h4>
+          <div class="dashboard__corp-info3">
+            <p class="info-item">
+              <span class="key">날짜기준</span>
+              <span class="val">채용종료 후 180일 경과</span>
+            </p>
+            <p class="info-item">
+              <span class="key">대상자</span>
+              <span class="val">비대상자, 불합격자</span>
+            </p>
+            <p class="info-item">
+              <span class="key">삭제항목</span>
+              <span class="val">생년월일</span>
+            </p>
+          </div>
+          <div class="relative-box__pos1">
+            <button type="button" class="base-btn type-icon__color1">
+              <span class="base-icon icon-mod__size-s__fix"><b>수정</b></span>
+            </button>
+          </div>
+          <div class="box-flex content-mt4">
+            <div class="input-box type-search" style="flex: 1;">
+              <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="채용명을 입력하세요">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-with-txt">
+              <input type="text" class="input-txt" style="width: 150px;" value="180"> <strong>일</strong>
+            </div>
+            <div class="input-with-txt">
+              <input type="text" class="input-txt" style="width: 150px;" placeholder="삭제대상자 수 입력"> <strong>명</strong>
+            </div>
+            <button class="base-btn type1__size-m">검색</button>
+          </div>
+        </div>
+
+        <div class="board-head content-mt5">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px"/>
+                <col style="width: 80px"/>
+                <col/>
+                <col style="width: 100px"/>
+                <col style="width: 110px"/>
+                <col style="width: 120px"/>
+                <col style="width: 120px"/>
+                <col style="width: 120px"/>
+                <col style="width: 120px"/>
+                <col style="width: 120px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1" rowspan="2">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col" rowspan="2">NO</th>
+                  <th scope="col" rowspan="2">채용명</th>
+                  <th scope="col" rowspan="2">종료경과일</th>
+                  <th scope="col" rowspan="2">삭제대상자(명)</th>
+                  <th scope="colgroup" class="colgroup" colspan="5">등록정보</th>
+                </tr>
+                <tr>
+                  <th scope="col" class="colgroup-sub">예비합격</th>
+                  <th scope="col" class="colgroup-sub">합격</th>
+                  <th scope="col" class="colgroup-sub">불합격</th>
+                  <th scope="col" class="colgroup-sub">미정</th>
+                  <th scope="col" class="colgroup-sub">비대상</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '24',
+                  '채용명': '고과등급',
+                  '종료경과일': '180일',
+                  '삭제대상자(명)' : '320명',
+                  '예비합격': '10',
+                  '합격': '30',
+                  '불합격': '1,234',
+                  '미정': '900',
+                  '비대상': '-'
+                },
+                {
+                  'NO': '24',
+                  '채용명': '고과등급',
+                  '종료경과일': '180일',
+                  '삭제대상자(명)' : '320명',
+                  '예비합격': '10',
+                  '합격': '30',
+                  '불합격': '1,234',
+                  '미정': '900',
+                  '비대상': '-'
+                },
+                {
+                  'NO': '24',
+                  '채용명': '고과등급',
+                  '종료경과일': '180일',
+                  '삭제대상자(명)' : '320명',
+                  '예비합격': '10',
+                  '합격': '30',
+                  '불합격': '1,234',
+                  '미정': '900',
+                  '비대상': '-'
+                },
+                {
+                  'NO': '24',
+                  '채용명': '고과등급',
+                  '종료경과일': '180일',
+                  '삭제대상자(명)' : '320명',
+                  '예비합격': '10',
+                  '합격': '30',
+                  '불합격': '1,234',
+                  '미정': '900',
+                  '비대상': '-'
+                },
+                {
+                  'NO': '24',
+                  '채용명': '고과등급',
+                  '종료경과일': '180일',
+                  '삭제대상자(명)' : '320명',
+                  '예비합격': '10',
+                  '합격': '30',
+                  '불합격': '1,234',
+                  '미정': '900',
+                  '비대상': '-'
+                }
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: 'NO'},
+                { data: '채용명',
+                  render: function(data) { 
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '종료경과일'},
+                { data: '삭제대상자(명)'},
+                { data: '예비합격' },
+                { data: '합격' },
+                { data: '불합격' },
+                { data: '미정' },
+                { data: '비대상' }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  <div class="layer-popup type-modal" data-ref="WAP-ETPR-0201">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">삭제기준</h3>
+    </div>
+    <div class="popup__contents" style="height:485px;">
+
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 131px;">날짜기준</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-with-txt">
+              <input type="text" class="input-txt" value="180">
+              일
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex">
+        <div class="form-th no-pd" style="width: 131px;">대상자</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="chk-group">
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>불합격자</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>미정</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>예비합격자</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>합격자</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex">
+        <div class="form-th no-pd" style="width: 131px;">삭제항목</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="chk-group">
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>성명</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>연락처</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>이메일</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>사진</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>생년월일</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>비상연락처</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>현주소</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>기타주소</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>응시정보</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_ETPR_0201.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ETPR_0201 = new LayerPopup({target: "WAP-ETPR-0201"});
+</script>;
+  
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_ETPR_0201" : ()=>{WAP_ETPR_0201.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

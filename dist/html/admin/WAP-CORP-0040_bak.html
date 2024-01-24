@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+          <div class="header__info__cell header__page-sort">
+            <span>관리자 페이지</span>
+          </div>
+          <ul class="header__info__cell header__list-count">
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">10건</span>
+            </li>
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">8건</span>
+            </li>
+            <li>
+              <span class="key">계약만료</span>
+              <span class="val point-color">2건</span>
+            </li>
+          </ul>
+          <div class="header__info__cell header__input-search">
+            <div class="input-box type-search">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
+            </div>
+          </div>
+        </div>
+        <div class="header__util">
+          <a href="#">홍길동님</a>
+          <a href="#">도움말</a>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+        <ul class="snb__menu">
+          <li class="isCurrent">
+            <button
+              type="button"
+              class="snb__depth1--btn icon1 has-child"
+              aria-expanded="true"
+              aria-controls="snbSubMenu1"
+            ><span>기업 관리</span></button>
+            <div id="snbSubMenu1" class="snb__depth2 isOpen">
+              <ul>
+                <li><a href="WAP-CORP-0010.html">기업 관리</a></li>
+                <li class="isCurrent"><a href="WAP-CORP-0040.html">채용 관리</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon7 has-child"
+              aria-expanded="false"
+              aria-controls="snbSubMenu2"
+            ><span>콘텐츠 관리</span></button>
+            <div id="snbSubMenu2" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon2 has-child"
+              aria-expanded="false"
+              aria-controls="snbSubMenu3"
+            ><span>시스템 관리</span></button>
+            <div id="snbSubMenu3" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-SYS-0010.html">공지사항</a></li>
+                <li><a href="WAP-SYS-0050.html">팝업</a></li>
+                <li><a href="WAP-SYS-0090.html" class="isMark">사용자</a></li>
+                <li><a href="WAP-SYS-0120.html" class="isMark">권한 관리</a></li>
+                <li><a href="WAP-SYS-0170.html" class="isMark">메뉴얼 관리</a></li>
+                <li><a href="WAP-SYS-0230.html" class="isMark">접속 기록</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">채용 관리</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "컨설턴트",
+                        "value": "컨설턴트",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업명",
+                        "value": "기업명",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고기간",
+                        "value": "공고기간",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "필기전형",
+                        "value": "필기전형",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고번호",
+                        "value": "공고번호",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <script>
+                const SAMPLE_DATA = [
+                  {"name": "키워드"},
+                  {"name": "키워드드"},
+                  {"name": "키워드드드"}
+                ]
+                dropdown.addItem({
+                  target: document.querySelector('[name="inputKeyword"]'),
+                  data: {
+                    "name": "inputKeyword",
+                    "type" : "input",
+                    "option": SAMPLE_DATA,
+                  }
+                });
+              </script>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
+            </div>
+          </div>
+
+          <div class="search-tag content-mt4" id="searchTag" style="display: none;">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m" onclick="searchTag.reset();">초기화</button>
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType: 1,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+
+            <div class="dropdown" style="width: 172px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "multi",
+                  "option": [
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "all": true,
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "관리자",
+                      "value": "관리자",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "기업명",
+                      "value": "기업명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용명",
+                      "value": "채용명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용기간",
+                      "value": "채용기간",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "지원자(채용분야)",
+                      "value": "지원자(채용분야)",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "진행상태",
+                      "value": "진행상태",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >
+                <span class="dropdown-btn__label">분야</span>
+                <span class="dropdown-btn__checked">전체</span>
+              </button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1" data-ref="checkTarget">
+            <table>
+              <colgroup>
+                <col style="width: 56px"/>
+                <col style="width: 50px"/>
+                <col style="width: 40px"/>
+                <col style="width: 106px"/>
+                <col style="width: 180px"/>
+                <col style="width: 100px"/>
+                <col/>
+                <col style="width: 200px"/>
+                <col style="width: 140px"/>
+                <col style="width: 140px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" value="chkAll" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">NO</th>
+                  <th scope="col">
+                    <span class="base-icon icon-mark__color1__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </th>
+                  <th scope="col">관리자</th>
+                  <th scope="col">기업명</th>
+                  <th scope="col">공고번호</th>
+                  <th scope="col">채용명</th>
+                  <th scope="col">채용 기간</th>
+                  <th scope="col">지원자(채용분야)</th>
+                  <th scope="col">진행상태</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>면접전형 1차마감</div>
+                    <div class="point-color2">d-213</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>필기전형 1차마감</div>
+                    <div class="point-color3">d-2</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>필기전형 1차마감</div>
+                    <div class="point-color4">d-2</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div class="point-color5">전형 기간 미등록</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>면접전형 1차마감</div>
+                    <div class="point-color2">d-213</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>필기전형 1차마감</div>
+                    <div class="point-color3">d-2</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>필기전형 1차마감</div>
+                    <div class="point-color4">d-2</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div class="point-color5">전형 기간 미등록</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>필기전형 1차마감</div>
+                    <div class="point-color4">d-2</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div class="point-color5">전형 기간 미등록</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="pagination">
+          <button type="button" class="pagination__nav-prev" disabled>이전</button>
+          <div class="pagination__number">
+            <button type="button" class="pagination__nav-btn" disabled>1</button>
+            <button type="button" class="pagination__nav-btn">2</button>
+            <button type="button" class="pagination__nav-btn">3</button>
+            <button type="button" class="pagination__nav-btn">4</button>
+            <button type="button" class="pagination__nav-btn">5</button>
+          </div>
+          <button type="button" class="pagination__nav-next">다음</button>
+        </div>
+        
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  <div class="layer-popup type-modal" data-ref="WAP-CORP-0020">
+  <section class="popup__container popup__size-l">
+    <div class="popup__header">
+      <h3 class="popup__title">기업 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="height: 500px;">
+      <div class="box-flex type-gap2">
+        <div class="box-flex__cell" style="width: 180px;">
+
+          <h4 class="title-sub2">기업 로고 이미지</h4>
+          <div class="upload-img">
+            <div class="upload-img__thumb">
+              <!-- 이미지 샘플
+                <img src="../../assets/images/logo2x.png" alt="">
+              -->
+              <span class="upload-img--info">권장크기: 180*60px</span>
+            </div>
+            <label class="upload-img--btn input-file">
+              <input type="file">
+              <span>업로드</span>
+            </label>
+          </div>
+
+        </div>
+        <div class="box-flex__cell" style="flex: 1;">
+
+          <div class="form-row">
+            <h4 class="title-sub2">기업명<span class="required-mark">필수</span></h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="입력해주세요" oninput="inputValueChk()" required>
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <h4 class="title-sub2">주소<span class="required-mark">필수</span></h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 120px">
+                <input type="text" class="input-txt" placeholder="우편번호" readonly required>
+              </div>
+              <div class="input-box" style="flex: 1;">
+                <input type="text" class="input-txt" placeholder="주소를 검색하여 입력해주세요." readonly required>
+              </div>
+              <button class="base-btn type2__size-s">주소 검색</button>
+            </div>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="상세 주소를 입력하세요" oninput="inputValueChk()" required>
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <h4 class="title-sub2">대표번호<span class="required-mark">필수</span></h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="연락가능한 번호를 입력하세요" oninput="inputValueChk()" required>
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <h4 class="title-sub2">기업 홈페이지</h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="연락가능한 번호를 입력하세요" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m" disabled>등록</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CORP_0020.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CORP_0020 = new LayerPopup({target: "WAP-CORP-0020"});
+</script>;
+
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_CORP_0020" : ()=>{WAP_CORP_0020.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

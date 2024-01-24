@@ -1,0 +1,55 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0312">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">면접기간</h3>
+    </div>
+    <div class="popup__contents" style="height: 485px;">
+      <div class="form-inner">
+        <div class="input-box type-calendar" style="flex:1">
+          <input type="text" class="input-txt" id="calendar2_1" placeholder="시작 일자 선택" oninput="inputValueChk()">
+          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          <script>
+            const calendar2_1 = new Datepicker(document.getElementById('calendar2_1'), {
+              ...CALENDAR_DEFAULT_OPTION,
+              ...{
+                "minDate": "2023.12.06",
+                "maxDate": "2023.12.20"
+              }
+            });
+          </script>
+        </div>
+        <div class="input-box">
+          <input type="text" class="input-txt" placeholder="시간 입력" oninput="inputValueChk()">
+          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+        </div>
+      </div>
+      <div class="form-inner">
+        <div class="input-box type-calendar" style="flex:1">
+          <input type="text" class="input-txt" id="calendar2_2" placeholder="일자 선택" oninput="inputValueChk()">
+          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          <script>
+            const calendar2_2 = new Datepicker(document.getElementById('calendar2_2'), {
+              ...CALENDAR_DEFAULT_OPTION,
+              ...{
+                "minDate": "2023.12.06",
+                "maxDate": "2023.12.20"
+              }
+            });
+          </script>
+        </div>
+        <div class="input-box">
+          <input type="text" class="input-txt" placeholder="시간 입력" oninput="inputValueChk()">
+          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">등록</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0312.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0312 = new LayerPopup({target: "WAP-EMPL-0312"});
+</script>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+          <div class="header__info__cell header__page-sort">
+            <span>관리자 페이지</span>
+          </div>
+          <ul class="header__info__cell header__list-count">
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">10건</span>
+            </li>
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">8건</span>
+            </li>
+            <li>
+              <span class="key">계약만료</span>
+              <span class="val point-color">2건</span>
+            </li>
+          </ul>
+          <div class="header__info__cell header__input-search">
+            <div class="input-box type-search">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
+            </div>
+          </div>
+        </div>
+        <div class="header__util">
+          <a href="#">홍길동님</a>
+          <a href="#">도움말</a>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+        
+        <ul class="snb__menu">
+          <li class="isCurrent"><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
+          <li><a href="WAP-EMPL-0010.html" class="snb__depth1--btn icon4">채용등록</a></li>
+          <li><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon7">채용목록</a></li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon5"
+              aria-expanded="false"
+              aria-controls="snbSubMenu1"
+            ><span>보관함</span></button>
+            <div id="snbSubMenu1" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
+                <li><a href="WAP-CONT-0270.html">만족도조사</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon6"
+              aria-expanded="false"
+              aria-controls="snbSubMenu2"
+            ><span>기업정보</span></button>
+            <div id="snbSubMenu2" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CORP-0022.html">기업정보</a></li>
+                <li><a href="WAP-SYS-0090.html">사용자</a></li>
+                <li><a href="WAP-ETPR-0070.html">채용홈페이지</a></li>
+                <li><a href="WAP-ETPR-0200.html">개인정보 삭제기준</a></li>
+                <li><a href="WAP-ETPR-0210.html">발송이력</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <!-- contents -->
+      <div class="contents">
+
+        <div class="box-flex type-gap2">
+          <div class="box-type1 dashboard__corp-box">
+            <div class="dashboard__corp-logo"><img src="../../assets/images/logo2x.png" alt=""></div>
+            <div class="dashboard__corp-cont">
+              <h3 class="dashboard__corp-title">ORP연구소</h3>
+              <p class="dashboard__corp-period">2020.11.01~ 2023.10.30</p>
+              <div class="dashboard__corp-info">
+                <p class="info-item">
+                  <span class="key">서비스 유형</span>
+                  <span class="val">Premium</span>
+                </p>
+                <p class="info-item">
+                  <span class="key">진행중인 채용</span>
+                  <span class="val">00건</span>
+                </p>
+                <p class="info-item">
+                  <span class="key">누적지원자 수</span>
+                  <span class="val">00명</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="box-type1 dashboard__corp-box2">
+            <h3 class="dashboard__corp-title">1:1 문의</h3>
+            <div class="dashboard__corp-info2">
+              <p class="info-item">
+                <span class="key">전체</span>
+                <span class="val point-color">25건</span>
+              </p>
+              <p class="info-item">
+                <span class="key">미응답 수</span>
+                <span class="val">5건</span>
+              </p>
+            </div>
+          </div>
+          <div class="box-type1 dashboard__corp-box2">
+            <h3 class="dashboard__corp-title">시스템 공지사항</h3>
+            <div class="dashboard__corp-info2">
+              <p class="info-item">
+                <span class="key">신규</span>
+                <span class="val point-color">25건</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="title-sub content-mt5">전체 채용</h3>
+        <div class="box-type2 employ-progress__box">
+          <div class="employ-progress__header">
+            <p class="employ-progress__title">
+              <strong class="state state1">진행중</strong>
+              <strong class="title">적성검사 개발 연구원채용 (~23.08.20)</strong>
+            </p>
+            <div class="employ-progress__header__cell">
+              <a href="#" class="base-btn type2__size-s2">자세히보기</a>
+            </div>
+          </div>
+          <div class="employ-progress__detail">
+            <div class="employ-progress__count">
+              <span class="key">지원자수</span>
+              <strong class="val">1,230명</strong>
+            </div>
+            <div class="employ-progress__bar">
+              <ol>
+                <li>
+                  <span class="txt">게시</span>
+                  <span class="date">23.07.01</span>
+                </li>
+                <li>
+                  <span class="txt">서류전형</span>
+                  <span class="date">23.08.01</span>
+                </li>
+                <li class="isCurrent">
+                  <span class="txt">면접전형</span>
+                  <span class="date">23.08.10</span>
+                </li>
+                <li>
+                  <span class="txt">종료</span>
+                  <span class="date">23.08.20</span>
+                  <span class="d-day">D-19</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        
+        <div class="box-type2 employ-progress__box">
+          <div class="employ-progress__header">
+            <p class="employ-progress__title">
+              <strong class="state state1">진행중</strong>
+              <strong class="title">적성검사 개발 연구원채용 (~23.08.20)</strong>
+            </p>
+            <div class="employ-progress__header__cell">
+              <a href="#" class="base-btn type2__size-s2">자세히보기</a>
+            </div>
+          </div>
+          <div class="employ-progress__detail">
+            <div class="employ-progress__count">
+              <span class="key">지원자수</span>
+              <strong class="val">0명</strong>
+            </div>
+            <div class="employ-progress__bar">
+              <ol>
+                <li class="isCurrent">
+                  <span class="txt">게시</span>
+                  <span class="date">23.07.01</span>
+                </li>
+                <li>
+                  <span class="txt">필기전형</span>
+                  <span class="date">23.08.01</span>
+                  <span class="d-day">D-9</span>
+                </li>
+                <li>
+                  <span class="txt">면접전형 1차</span>
+                  <span class="date">23.08.10</span>
+                  <span class="d-day">D-9</span>
+                </li>
+                <li>
+                  <span class="txt">면접전형 2차</span>
+                  <span class="date">23.08.10</span>
+                  <span class="d-day">D-9</span>
+                </li>
+                <li>
+                  <span class="txt">종료</span>
+                  <span class="date">23.08.20</span>
+                  <span class="d-day">D-19</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-type2 employ-progress__box">
+          <div class="employ-progress__header">
+            <p class="employ-progress__title">
+              <strong class="state state2">종료</strong>
+              <strong class="title">2023년 인턴 채용 (~23.04.30)</strong>
+            </p>
+            <div>
+              <a href="#" class="base-btn type2__size-s2">자세히보기</a>
+            </div>
+          </div>
+          <div class="employ-progress__detail">
+            <div class="employ-progress__count">
+              <span class="key">지원자수</span>
+              <strong class="val">1,230명</strong>
+            </div>
+            <div class="employ-progress__bar">
+              <ol>
+                <li>
+                  <span class="txt">게시</span>
+                  <span class="date">23.07.01</span>
+                </li>
+                <li>
+                  <span class="txt">필기전형</span>
+                  <span class="date">23.08.01</span>
+                </li>
+                <li>
+                  <span class="txt">면접전형 1차</span>
+                  <span class="date">23.08.10</span>
+                </li>
+                <li>
+                  <span class="txt">면접전형 2차</span>
+                  <span class="date">23.08.10</span>
+                </li>
+                <li>
+                  <span class="txt">종료</span>
+                  <span class="date">23.08.20</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

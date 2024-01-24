@@ -1,0 +1,152 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0170">
+  <section class="popup__container popup__size-l">
+    <div class="popup__header">
+      <h3 class="popup__title">기업 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="height: 500px;">
+      <div class="box-flex type-gap2">
+        <div class="box-flex__cell" style="width: 180px;">
+
+          <div class="upload-img">
+            <div class="upload-img__thumb isDisabled">
+
+            </div>
+          </div>
+
+        </div>
+        <div class="box-flex__cell" style="flex: 1;">
+
+          <div class="form-row">
+            <h4 class="title-sub2">성명(한글)<span class="required-mark">필수</span></h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="입력해주세요" oninput="inputValueChk()" value="입사지원서" disabled>
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <h4 class="title-sub2">성명(한글)<span class="required-mark">필수</span></h4>
+            <div class="form-inner">
+              <div class="dropdown" style="flex: 1;">
+                <button type="button" class="dropdown-btn" data-dropdown='{
+                  "name": "birthYear",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "옵션1",
+                      "value": "val1",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "val2",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "옵션3",
+                      "value": "val3",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'>2009</button> 
+              </div>
+              <div class="dropdown" style="flex: 1;">
+                <button type="button" class="dropdown-btn" data-dropdown='{
+                  "name": "birthMonth",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "옵션1",
+                      "value": "val1",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "val2",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "옵션3",
+                      "value": "val3",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'>03</button> 
+              </div>
+              <div class="dropdown" style="flex: 1;">
+                <button type="button" class="dropdown-btn" data-dropdown='{
+                  "name": "birthDate",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "옵션1",
+                      "value": "val1",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "val2",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "옵션3",
+                      "value": "val3",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'>04</button> 
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <h4 class="title-sub2">이메일<span class="required-mark">필수</span></h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="입력해주세요." oninput="inputValueChk()" value="test@test.com" disabled>
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <h4 class="title-sub2">주소<span class="required-mark">필수</span></h4>
+            <div class="form-inner">
+              <div class="input-box" style="width: 120px">
+                <input type="text" class="input-txt" placeholder="우편번호" value="12345" disabled>
+              </div>
+              <div class="input-box" style="flex: 1;">
+                <input type="text" class="input-txt" placeholder="주소를 검색하여 입력해주세요." value="서울특별시 서초구 서초대로 67 (방배동)" disabled>
+              </div>
+            </div>
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%">
+                <input type="text" class="input-txt" placeholder="상세 주소를 입력하세요" oninput="inputValueChk()" disabled>
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">등록</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0170.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0170 = new LayerPopup({target: "WAP-EMPL-0170"});
+</script>

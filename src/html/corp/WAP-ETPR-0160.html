@@ -1,0 +1,118 @@
+<div class="layer-popup type-modal" data-ref="WAP-ETPR-0160">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">알림설정</h3>
+    </div>
+    <div class="popup__contents" style="height: 485px;">
+
+      <div class="box-flex align-center">
+        <div class="box-flex__cell" style="width: 64px;">
+          <strong>수신자</strong>
+        </div>
+        <div class="box-flex__cell" style="flex: 1;">
+          <div class="dropdown" style="width: 100%;">
+            <button type="button" class="dropdown-btn" data-dropdown='{
+              "name": "alermSetSearchdropdown",
+              "type" : "single",
+              "option": [
+                {
+                  "name": "옵션1",
+                  "value": "val1",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "옵션2",
+                  "value": "val2",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "옵션3",
+                  "value": "val3",
+                  "disabled": false,
+                  "checked": false
+                }
+              ]
+            }'>담당자를 추가해주세요</button> 
+          </div>
+        </div>
+        <div class="box-flex__cell">
+          <button class="base-btn type1__size-m">추가</button>
+        </div>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="popTable0160" class="type-s">
+            <colgroup>
+              <col style="width: 100px"/>
+              <col style="width: 177px"/>
+              <col style="width: 177px"/>
+              <col style="width: 80px"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">성명</th>
+                <th scope="col">ID</th>
+                <th scope="col">이메일</th>
+                <th scope="col">삭제</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $('#popTable0160').DataTable({
+            data: [
+              {
+                '성명': '김보경',
+                'ID': 'taeyulkim',
+                '이메일' : 'asdfasdf@asdfdfd.com'
+              },
+              {
+                '성명': '김보경',
+                'ID': 'taeyulkim',
+                '이메일' : 'asdfasdf@asdfdfd.com'
+              },
+              {
+                '성명': '김보경',
+                'ID': 'taeyulkim',
+                '이메일' : 'asdfasdf@asdfdfd.com'
+              }
+            ],
+            columns: [
+              { data: '성명' },
+              { data: 'ID' },
+              { data: '이메일' },
+              { data: '삭제',
+                render: function() {
+                  return `
+                    <button class="base-icon icon-trash__color3__size-m">
+                      <span class="isHidden">
+                        알림설정
+                      </span>
+                    </button>
+                  `
+                }
+              }
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          })
+        </script>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">저장</button>
+    </div>
+    <button class="btn-close" onclick="WAP_ETPR_0160.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ETPR_0160 = new LayerPopup({target: "WAP-ETPR-0160"});
+</script>

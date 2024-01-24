@@ -1,0 +1,340 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "관리자", dep1: "3", dep2: "6"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">접속기록</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "컨설턴트",
+                        "value": "컨설턴트",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업명",
+                        "value": "기업명",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고기간",
+                        "value": "공고기간",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "필기전형",
+                        "value": "필기전형",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고번호",
+                        "value": "공고번호",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <script>
+                const SAMPLE_DATA = [
+                  {"name": "키워드"},
+                  {"name": "키워드드"},
+                  {"name": "키워드드드"}
+                ]
+                dropdown.addItem({
+                  target: document.querySelector('[name="inputKeyword"]'),
+                  data: {
+                    "name": "inputKeyword",
+                    "type" : "input",
+                    "option": SAMPLE_DATA,
+                  }
+                });
+              </script>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 150px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "구분",
+                      "value": "구분",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "사용자",
+                      "value": "사용자",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "아이피",
+                      "value": "아이피",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "접근횟수",
+                      "value": "접근횟수",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "접근 URL",
+                      "value": "접근 URL",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "유입 URL",
+                      "value": "유입 URL",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "접근 파라미터",
+                      "value": "접근 파라미터",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "접근 세션정보",
+                      "value": "접근 세션정보",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "날짜",
+                      "value": "날짜",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >구분</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table>
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 150px;"/>
+                <col style="width: 150px;"/>
+                <col style="width: 150px;"/>
+                <col/>
+                <col style="width: 200px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col"><button type="button" class="btn-align-cell">NO</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">아이피</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">접근횟수</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">접근url</button></th>
+                  <th scope="col">날짜</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td>0:0:0:0:0:0:1</td>
+                  <td>2</td>
+                  <td>https://www.naver.com/</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td>0:0:0:0:0:0:1</td>
+                  <td>2</td>
+                  <td>https://www.naver.com/</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td>0:0:0:0:0:0:1</td>
+                  <td>2</td>
+                  <td>https://www.naver.com/</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td>0:0:0:0:0:0:1</td>
+                  <td>2</td>
+                  <td>https://www.naver.com/</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td>0:0:0:0:0:0:1</td>
+                  <td>2</td>
+                  <td>https://www.naver.com/</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td>0:0:0:0:0:0:1</td>
+                  <td>2</td>
+                  <td>https://www.naver.com/</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td>0:0:0:0:0:0:1</td>
+                  <td>2</td>
+                  <td>https://www.naver.com/</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td>0:0:0:0:0:0:1</td>
+                  <td>2</td>
+                  <td>https://www.naver.com/</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td>0:0:0:0:0:0:1</td>
+                  <td>2</td>
+                  <td>https://www.naver.com/</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td>0:0:0:0:0:0:1</td>
+                  <td>2</td>
+                  <td>https://www.naver.com/</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

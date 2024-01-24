@@ -1,0 +1,425 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "관리자", dep1: "1", dep2: "1"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">기업 관리</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "컨설턴트",
+                        "value": "컨설턴트",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업명",
+                        "value": "기업명",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고기간",
+                        "value": "공고기간",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "필기전형",
+                        "value": "필기전형",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고번호",
+                        "value": "공고번호",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <script>
+                const SAMPLE_DATA = [
+                  {"name": "키워드"},
+                  {"name": "키워드드"},
+                  {"name": "키워드드드"}
+                ]
+                dropdown.addItem({
+                  target: document.querySelector('[name="inputKeyword"]'),
+                  data: {
+                    "name": "inputKeyword",
+                    "type" : "input",
+                    "option": SAMPLE_DATA,
+                  }
+                });
+              </script>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
+            </div>
+          </div>
+
+          <div class="search-tag content-mt4" id="searchTag" style="display: none;">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m" onclick="searchTag.reset();">초기화</button>
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType: 1,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+
+            <div class="dropdown" style="width: 172px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "multi",
+                  "option": [
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "all": true,
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "계약상태",
+                      "value": "계약상태",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "계약기간",
+                      "value": "계약기간",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용공고",
+                      "value": "채용공고",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용사이트",
+                      "value": "채용사이트",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "기업주소",
+                      "value": "기업주소",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >
+                <span class="dropdown-btn__label">분야</span>
+                <span class="dropdown-btn__checked">전체</span>
+              </button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+          </div>
+          <div class="board-head__cell">
+
+            <a href="../admin/WAP-CORP-0030.html" class="base-btn type2__size-s">관리자</a>
+            <button type="button" class="base-btn type2__size-s">
+              <span class="base-icon icon-del__color1__size-s">삭제</span>
+            </button>
+            <button type="button" class="base-btn type2__size-s" onclick="WAP_CORP_0020.show();">
+              <span class="base-icon icon-add__color1__size-s">등록</span>
+            </button>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table>
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 90px;"/>
+                <col style="width: 156px"/>
+                <col/>
+                <col style="width: 169px"/>
+                <col style="width: 325px"/>
+                <col style="width: 168px"/>
+                <col style="width: 168px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">
+                    <span class="base-icon icon-mark__color1__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </th>
+                  <th scope="col">
+                    <div class="dropdown" style="width: 100%;">
+                      <button type="button" class="dropdown-btn type2"
+                        data-dropdown='{
+                          "name": "boardDropdown3",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "관리자",
+                              "value": "관리자",
+                              "disabled": false,
+                              "checked": true
+                            },
+                            {
+                              "name": "그룹사",
+                              "value": "그룹사",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'
+                      >관리자</button>
+                      <script>
+                        dropdown.init('dropdown', {
+                          name: 'boardDropdown3',
+                          onChange: _this=>{
+                            console.log(_this.value);
+                          }
+                        });
+                      </script>
+                    </div>
+                  </th>
+                  <th scope="col">기업명</th>
+                  <th scope="col">서비스 유형</th>
+                  <th scope="col">계약기간</th>
+                  <th scope="col">채용</th>
+                  <th scope="col">기업이동</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>그룹사</td>
+                  <td class="point-color">테스트기업_아던트</td>
+                  <td class="point-color">Premeum</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>1건</td>
+                  <td><u><a href="#">이동</a></u></td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>그룹사</td>
+                  <td class="point-color">테스트기업_아던트</td>
+                  <td class="point-color">Standard</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>1건</td>
+                  <td><u><a href="#">이동</a></u></td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>그룹사</td>
+                  <td class="point-color">테스트기업_아던트</td>
+                  <td class="point-color">-</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>1건</td>
+                  <td><u><a href="#">이동</a></u></td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>그룹사</td>
+                  <td class="point-color">테스트기업_아던트</td>
+                  <td class="point-color">-</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>1건</td>
+                  <td><u><a href="#">이동</a></u></td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>그룹사</td>
+                  <td class="point-color">테스트기업_아던트</td>
+                  <td class="point-color">-</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>1건</td>
+                  <td><u><a href="#">이동</a></u></td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="icon-chk type-mark">
+                      <input type="checkbox">
+                      <span>마크</span>
+                    </label>
+                  </td>
+                  <td>그룹사</td>
+                  <td class="point-color">테스트기업_아던트</td>
+                  <td class="point-color">-</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>1건</td>
+                  <td><u><a href="#">이동</a></u></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/admin/WAP-CORP-0020.html');
+
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_CORP_0020" : ()=>{WAP_CORP_0020.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

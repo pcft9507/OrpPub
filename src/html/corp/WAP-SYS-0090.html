@@ -1,0 +1,358 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "5", dep2: "1"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">사용자</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "컨설턴트",
+                        "value": "컨설턴트",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업명",
+                        "value": "기업명",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고기간",
+                        "value": "공고기간",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "필기전형",
+                        "value": "필기전형",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고번호",
+                        "value": "공고번호",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-head content-mt5">
+          <div class="board-head__cell">
+            <div class="board-head__count">총 22건</div>
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 134px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "옵션1",
+                      "value": "옵션1",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >발송</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+            <div class="dropdown" style="width: 134px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown3",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "옵션1",
+                      "value": "옵션1",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >사용자 구분</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown3',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-add__color1__size-s">사용자 등록</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 60px;"/>
+                <col style="width: 70px;"/>
+                <col style="width: 100px;"/>
+                <col/>
+                <col style="width: 162px;"/>
+                <col style="width: 120px;"/>
+                <col style="width: 120px;"/>
+                <col style="width: 120px;"/>
+                <col style="width: 100px"/>
+                <col style="width: 165px"/>
+                <col style="width: 165px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col"><button type="button" class="btn-align-cell">NO</button></th>
+                  <th scope="col">사용여부</th>
+                  <th scope="col">성명</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">부서</th>
+                  <th scope="col">직급</th>
+                  <th scope="col">회사전화번호</th>
+                  <th scope="col">핸드폰</th>
+                  <th scope="col">사용자권한</th>
+                  <th scope="col">등록정보</th>
+                  <th scope="col">최종수정정보</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '6',
+                  '사용여부' : '사용',
+                  '성명': '박현준',
+                  'ID': 'asdfads@adsfa.com',
+                  '부서' : '선발/채용검사부문',
+                  '직급' : '선임',
+                  '회사전화번호' : '0123456789',
+                  '핸드폰' : '010-9999-9999',
+                  '사용자권한' : '담당자',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '사용여부' : '사용',
+                  '성명': '박현준',
+                  'ID': 'asdfads@adsfa.com',
+                  '부서' : '선발/채용검사부문',
+                  '직급' : '선임',
+                  '회사전화번호' : '0123456789',
+                  '핸드폰' : '010-9999-9999',
+                  '사용자권한' : '담당자',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '사용여부' : '사용',
+                  '성명': '박현준',
+                  'ID': 'asdfads@adsfa.com',
+                  '부서' : '선발/채용검사부문',
+                  '직급' : '선임',
+                  '회사전화번호' : '0123456789',
+                  '핸드폰' : '010-9999-9999',
+                  '사용자권한' : '담당자',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '사용여부' : '사용',
+                  '성명': '박현준',
+                  'ID': 'asdfads@adsfa.com',
+                  '부서' : '선발/채용검사부문',
+                  '직급' : '선임',
+                  '회사전화번호' : '0123456789',
+                  '핸드폰' : '010-9999-9999',
+                  '사용자권한' : '담당자',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '사용여부' : '사용',
+                  '성명': '박현준',
+                  'ID': 'asdfads@adsfa.com',
+                  '부서' : '선발/채용검사부문',
+                  '직급' : '선임',
+                  '회사전화번호' : '0123456789',
+                  '핸드폰' : '010-9999-9999',
+                  '사용자권한' : '담당자',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                }
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: 'NO' },
+                { data: '사용여부' },
+                { data: '성명',
+                  render: function(data) {
+                    return `<u class="point-color">${data}</u>`
+                  }
+                },
+                { data: 'ID' },
+                { data: '부서' },
+                { data: '직급' },
+                { data: '회사전화번호' },
+                { data: '핸드폰' },
+                { data: '사용자권한' },
+                { data: '등록정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                },
+                { data: '최종수정정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/corp/WAP-SYS-0100.html');
+  @@include('../html/corp/WAP-SYS-0101.html');
+  
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_SYS_0100" : ()=>{WAP_SYS_0100.show()},
+      "WAP_SYS_0101" : ()=>{WAP_SYS_0101.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

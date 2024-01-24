@@ -1,0 +1,50 @@
+<div class="layer-popup type-modal" data-ref="WAP-CONT-0020">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">양식 등록</h3>
+    </div>
+    <div class="popup__contents">
+
+      <div class="form-row">
+        <h4 class="title-sub2">구분</h4>
+        <div class="form-inner">
+          <div class="dropdown" style="width: 100%;">
+            <button type="button" class="dropdown-btn size-s"
+              data-dropdown='{
+                "name": "formSetDropdown",
+                "type" : "sigle",
+                "option": [
+                  {
+                    "name": "표준형",
+                    "value": "표준형",
+                    "disabled": false,
+                    "checked": false
+                  }
+                ]
+              }'
+            >선택</button>
+          </div>
+          <label class="btn-toggle">
+            <input type="checkbox">
+            <span>사용여부</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">양식명</h4>
+        <div class="form-inner">
+          <textarea style="height:286px;"></textarea>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">저장</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0020.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CONT_0020 = new LayerPopup({target: "WAP-CONT-0020"});
+</script>

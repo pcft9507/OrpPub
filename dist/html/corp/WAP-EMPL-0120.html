@@ -1,0 +1,3948 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+          <div class="header__info__cell header__page-sort">
+            <span>관리자 페이지</span>
+          </div>
+          <ul class="header__info__cell header__list-count">
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">10건</span>
+            </li>
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">8건</span>
+            </li>
+            <li>
+              <span class="key">계약만료</span>
+              <span class="val point-color">2건</span>
+            </li>
+          </ul>
+          <div class="header__info__cell header__input-search">
+            <div class="input-box type-search">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
+            </div>
+          </div>
+        </div>
+        <div class="header__util">
+          <a href="#">홍길동님</a>
+          <a href="#">도움말</a>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+        
+        <ul class="snb__menu">
+          <li><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
+          <li><a href="WAP-EMPL-0010.html" class="snb__depth1--btn icon4">채용등록</a></li>
+          <li class="isCurrent"><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon7">채용목록</a></li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon5"
+              aria-expanded="false"
+              aria-controls="snbSubMenu1"
+            ><span>보관함</span></button>
+            <div id="snbSubMenu1" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
+                <li><a href="WAP-CONT-0270.html">만족도조사</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon6"
+              aria-expanded="false"
+              aria-controls="snbSubMenu2"
+            ><span>기업정보</span></button>
+            <div id="snbSubMenu2" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CORP-0022.html">기업정보</a></li>
+                <li><a href="WAP-SYS-0090.html">사용자</a></li>
+                <li><a href="WAP-ETPR-0070.html">채용홈페이지</a></li>
+                <li><a href="WAP-ETPR-0200.html">개인정보 삭제기준</a></li>
+                <li><a href="WAP-ETPR-0210.html">발송이력</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[ORP연구소] 2021년 하반기 인턴 채용</h2>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                data-dropdown='{
+                  "name": "headerDropdown",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "사무",
+                      "value": "사무",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                data-dropdown='{
+                  "name": "headerDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "서류전형",
+                      "value": "서류전형",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="contents-header__btns">
+          <a href="#" class="btn">
+            <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-graph__size-m__color5">통계</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- contents navigation -->
+      <div class="contents-nav type2">
+        <div class="contents-nav__inner">
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type2__size-m">초기화</button>
+          </div>
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type2__size-m">취소</button>
+            <button type="button" class="base-btn type1__size-m">저장</button>
+          </div>
+        </div>
+      </div>
+      <!-- //contents navigation -->
+
+      <div class="categori-control">
+        <div class="categori-control__inner">
+          <h3 class="title-sub">지원서 항목</h3>
+          <ul>
+            <li class="categori-control__item">
+              <span class="key">구분</span>
+              <label class="btn-toggle">
+                <input type="checkbox">
+                <span>버튼</span>
+              </label>
+            </li>
+            <li class="categori-control__item">
+              <span class="key">인적사항</span>
+              <label class="btn-toggle">
+                <input type="checkbox">
+                <span>버튼</span>
+              </label>
+            </li>
+            <li class="categori-control__item">
+              <span class="key">학력사항</span>
+              <label class="btn-toggle">
+                <input type="checkbox">
+                <span>버튼</span>
+              </label>
+            </li>
+            <li class="categori-control__item">
+              <span class="key">교육사항</span>
+              <label class="btn-toggle">
+                <input type="checkbox">
+                <span>버튼</span>
+              </label>
+            </li>
+            <li class="categori-control__item">
+              <span class="key">자격증</span>
+              <label class="btn-toggle">
+                <input type="checkbox">
+                <span>버튼</span>
+              </label>
+            </li>
+            <li class="categori-control__item">
+              <span class="key">어학사항</span>
+              <label class="btn-toggle">
+                <input type="checkbox">
+                <span>버튼</span>
+              </label>
+            </li>
+            <li class="categori-control__item">
+              <span class="key">경력사항</span>
+              <label class="btn-toggle">
+                <input type="checkbox">
+                <span>버튼</span>
+              </label>
+            </li>
+            <li class="categori-control__item">
+              <span class="key">활동사항</span>
+              <label class="btn-toggle">
+                <input type="checkbox">
+                <span>버튼</span>
+              </label>
+            </li>
+            <li class="categori-control__item">
+              <span class="key">기타사항</span>
+              <label class="btn-toggle">
+                <input type="checkbox">
+                <span>버튼</span>
+              </label>
+            </li>
+            <li class="categori-control__item">
+              <span class="key">기술서</span>
+              <label class="btn-toggle">
+                <input type="checkbox">
+                <span>버튼</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- contents -->
+      <div class="contents">
+
+        <div class="page-title__wrap type-mt2">
+          <h3 class="title-sub">입사지원서 설정</h3>
+          <div class="page-title__btn">
+            <button type="button" class="base-btn type-icon__color1">
+              <span class="base-icon icon-reset__size-s__color3">초기화</span>
+            </button>
+            <button type="button" class="base-btn type-icon__color1">
+              <span class="base-icon icon-excel__size-s__color3">불러오기</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 기본 항목 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub" contenteditable="true">기본 항목</h4>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <!-- 구분 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;" contenteditable="true">구분</div>
+              <div class="form-td" style="flex: 1;">
+                <div class="dropdown" style="width: 136px;">
+                  <button type="button" class="dropdown-btn size-s" data-dropdown='{
+                    "name": "dropdown1",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "옵션1",
+                        "value": "val1",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "옵션2",
+                        "value": "val2",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "옵션3",
+                        "value": "val3",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'>선택하세요</button> 
+                </div>
+              </div>
+            </div>
+            <!-- //구분 -->
+
+            <!-- 희망연봉 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">희망연봉</div>
+              <div class="form-td" style="flex: 1;">
+
+                <div class="input-box" style="width: 136px;">
+                  <input type="number" class="input-txt" oninput="inputValueChk()" value="0">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+                <strong style="margin-left: 8px;">만원</strong>
+
+              </div>
+            </div>
+            <!-- //희망연봉 -->
+
+          </div>
+        </section>
+        <!-- //기본항목 -->
+
+        <!-- 개인정보 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">개인정보</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <!-- 증명사진 -->
+            <div class="form-row__flex">
+              <div class="form-th no-pd" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                증명사진
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner align-top">
+                  <div style="flex: 1">
+                    <div class="form-picture__box">
+                      <div class="form-picture__thumb">증명사진</div>
+                      <div class="form-picture__radio">
+                        <div class="cell">
+                          <label class="input-chk type2">
+                            <input type="radio" name="picturePosition" checked>
+                            <span>왼쪽 배치</span>
+                          </label>
+                        </div>
+                        <div class="cell">
+                          <label class="input-chk type2">
+                            <input type="radio" name="picturePosition">
+                            <span>오른쪽 배치</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+    
+                    <label class="toggle-show" style="margin-top: 4px;">
+                      <input type="checkbox">
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명사진 -->
+
+            <!-- 성명 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                성명
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner type-gap3" style="flex: 1;">
+                    <div class="form-cell">
+                      <div class="input-box" style="width: 140px;">
+                        <input type="text" class="input-txt" placeholder="한글명" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-cell toggle-cell">
+                      <button type="button" class="btn-item--del" onclick="this.closest('.form-cell').classList.add('isInputHidden');">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box" style="width: 140px;">
+                        <input type="text" class="input-txt" placeholder="영문명" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <button type="button" class="btn-item--add" onclick="this.closest('.form-cell').classList.remove('isInputHidden');">
+                        <span>영문명</span>
+                      </button>
+                    </div>
+                    <div class="form-cell toggle-cell isInputHidden">
+                      <button type="button" class="btn-item--del" onclick="this.closest('.form-cell').classList.add('isInputHidden');">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box" style="width: 140px;">
+                        <input type="text" class="input-txt" placeholder="한자명" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <button type="button" class="btn-item--add" onclick="this.closest('.form-cell').classList.remove('isInputHidden');">
+                        <span>한자명</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+    
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+                </div>
+            </div>
+            <!-- //성명 -->
+
+            <!-- 국적 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                국적
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div style="flex:1">
+                    <div class="dropdown" style="width: 136px;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown1_1",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //국적 -->
+
+            <!-- 성별 -->
+            <div class="form-row__flex">
+              <div class="form-th no-pd" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                성별
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="chk-group" style="flex: 1;">
+                    <label class="input-chk">
+                      <input type="radio" name="gender" checked>
+                      <span>남성</span>
+                    </label>
+                    <label class="input-chk">
+                      <input type="radio" name="gender">
+                      <span>여성</span>
+                    </label>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+    
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //성별 -->
+
+            <!-- 생년월일 -->
+            <div class="form-row__flex">
+              <div class="form-th pd-no" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                생년월일
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex: 1;">
+                    <div class="dropdown" style="width: 136px;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "birthYear",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>년</button> 
+                    </div>
+                    <div class="dropdown" style="width: 136px;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "birthMonth",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>월</button> 
+                    </div>
+                    <div class="dropdown" style="width: 136px;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "birthDate",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>일</button> 
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+    
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //생년월일 -->
+
+            <!-- 이메일 -->
+            <div class="form-row__flex">
+              <div class="form-th pd-no" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                이메일
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="input-box" style="flex: 1;">
+                    <input type="text" class="input-txt" placeholder="로그인 ID 자동 입력" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+    
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //이메일 -->
+
+            <!-- 연락처 -->
+            <div class="form-row__flex">
+              <div class="form-th pd-no" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                연락처
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="input-box" style="flex: 1;">
+                    <input type="text" class="input-txt" placeholder="연락처 자동 입력" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+    
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //연락처 -->
+
+            <!-- 비상 연락처 -->
+            <div class="form-row__flex">
+              <div class="form-th pd-no" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                비상 연락처
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="input-box" style="flex: 1;">
+                    <input type="text" class="input-txt" placeholder="연락처 자동 입력" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+    
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //비상 연락처 -->
+
+            <!-- 현주소 -->
+            <div class="form-row__flex">
+              <div class="form-th pd-no" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                현주소
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex: 1;">
+                    <div class="input-box" style="width: 285px;">
+                      <input type="text" class="input-txt" placeholder="우편번호" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div class="input-box" style="width: 285px;">
+                      <input type="text" class="input-txt" placeholder="주소" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div style="flex: 1;">
+                      <button class="base-btn type2__size-s">
+                        <span class="base-icon icon-search__size-m__color1">주소 검색</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-inner">
+                  <div class="input-box" style="width: 100%;">
+                    <input type="text" class="input-txt" placeholder="상세주소 입력" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //현주소 -->
+
+            <!-- 기타주소 -->
+            <div class="form-row__flex">
+              <div class="form-th pd-no" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                기타주소
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex: 1;">
+                    <div class="input-box" style="width: 285px;">
+                      <input type="text" class="input-txt" placeholder="우편번호" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div class="input-box" style="width: 285px;">
+                      <input type="text" class="input-txt" placeholder="주소" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div style="flex: 1;">
+                      <button class="base-btn type2__size-s">
+                        <span class="base-icon icon-search__size-m__color1">주소 검색</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-inner">
+                  <div class="input-box" style="width: 100%;">
+                    <input type="text" class="input-txt" placeholder="상세주소 입력" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //기타주소 -->
+
+          </div>
+        </section>
+        <!-- //개인정보 -->
+
+        <!-- 병역사항 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">병역사항</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <!-- 병역구분 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                병역구분
+                <span class="required-mark">필수</span>
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div style="flex:1">
+                    <div class="dropdown" style="width: 100%;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown2_1",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //병역구분 -->
+
+            <!-- 제대계급 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                제대계급
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div style="flex:1">
+                    <div class="dropdown" style="width: 100%;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown2_2",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //제대계급 -->
+
+            <!-- 병역기간 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                병역기간
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex:1">
+                    <div class="input-box type-calendar" style="flex:1">
+                      <input type="text" class="input-txt" id="calendar1_1" placeholder="일자 선택" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      <script>
+                        const calendar1_1 = new Datepicker(document.getElementById('calendar1_1'), {
+                          ...CALENDAR_DEFAULT_OPTION,
+                          ...{
+                            "minDate": "2023.12.06",
+                            "maxDate": "2023.12.20"
+                          }
+                        });
+                      </script>
+                    </div>
+                    <div> ~ </div>
+                    <div class="input-box type-calendar" style="flex:1">
+                      <input type="text" class="input-txt" id="calendar1_2" placeholder="일자 선택" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      <script>
+                        const calendar1_2 = new Datepicker(document.getElementById('calendar1_2'), {
+                          ...CALENDAR_DEFAULT_OPTION,
+                          ...{
+                            "minDate": "2023.12.06",
+                            "maxDate": "2023.12.20"
+                          }
+                        });
+                      </script>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //병역기간 -->
+
+            <!-- 면제사유 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                면제사유
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div style="flex:1">
+                    <div class="input-box" style="width: 100%;">
+                      <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //면제사유 -->
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                증명서
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div style="flex: 1;">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //병역사항 -->
+
+        <!-- 보훈사항 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">보훈사항</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <div class="form-row__flex">
+              <!-- 보훈여부 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  보훈여부
+                  <span class="required-mark">필수</span>
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown3_1",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //보훈여부 -->
+
+              <!-- 구분 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  구분
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요." oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //구분 -->
+            </div>
+
+            <div class="form-row__flex">
+              <!-- 관계 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  관계
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown3_2",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //관계 -->
+
+              <!-- 보훈번호 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  보훈번호
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown3_3",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //보훈번호 -->
+
+            </div>
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  증명서
+                </div>
+                <div class="form-td">
+                  <div class="form-inner">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //보훈사항 -->
+
+        <!-- 장애사항 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">장애사항</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <div class="form-row__flex">
+              <!-- 장애여부 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  장애여부
+                  <span class="required-mark">필수</span>
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown4_1",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //장애여부 -->
+
+              <!-- 장애등급 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  장애등급
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown4_2",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //장애등급 -->
+            </div>
+
+            <div class="form-row__flex">
+              <!-- 장애내용 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  장애내용
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown4_3",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //장애내용 -->
+
+              <!-- 장애등록일 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  장애등록일
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown4_4",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //장애등록일 -->
+            </div>
+
+            <!-- 장애등록번호 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                장애등록번호
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div style="flex:1">
+                    <div class="input-box" style="width: 100%;">
+                      <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //장애등록번호 -->
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  증명서
+                </div>
+                <div class="form-td">
+                  <div class="form-inner">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //장애사항 -->
+
+        <!-- 지역인재 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">지역인재</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <div class="form-row__flex">
+              <!-- 해당여부 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  해당여부
+                  <span class="required-mark">필수</span>
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown5_1",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //해당여부 -->
+
+              <!-- 해당지역 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  해당지역
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown5_2",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //해당지역 -->
+            </div>
+
+            <!-- 구분 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                구분
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex: 1;">
+                    <div class="dropdown" style="width: 100%;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown5_3",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 구분 -->
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  증명서
+                </div>
+                <div class="form-td">
+                  <div class="form-inner">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //지역인재 -->
+
+        <!-- 대학교 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">대학교</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <!-- 학교명 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                학교명
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex: 1;">
+                    <div class="input-box" style="width: 100%;">
+                      <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    
+                    <button class="base-btn type2__size-s">
+                      <span class="base-icon icon-search__size-m__color1">학교 검색</span>
+                    </button>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //학교명 -->
+
+            <!-- 재학기간 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                재학기간
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex:1">
+                    <div class="input-box type-calendar" style="flex:1">
+                      <input type="text" class="input-txt" id="calendar2_1" placeholder="일자 선택" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      <script>
+                        const calendar2_1 = new Datepicker(document.getElementById('calendar2_1'), {
+                          ...CALENDAR_DEFAULT_OPTION,
+                          ...{
+                            "minDate": "2023.12.06",
+                            "maxDate": "2023.12.20"
+                          }
+                        });
+                      </script>
+                    </div>
+                    <div> ~ </div>
+                    <div class="input-box type-calendar" style="flex:1">
+                      <input type="text" class="input-txt" id="calendar2_2" placeholder="일자 선택" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      <script>
+                        const calendar2_2 = new Datepicker(document.getElementById('calendar2_2'), {
+                          ...CALENDAR_DEFAULT_OPTION,
+                          ...{
+                            "minDate": "2023.12.06",
+                            "maxDate": "2023.12.20"
+                          }
+                        });
+                      </script>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //재학기간 -->
+
+            <div class="form-row__flex">
+              <!-- 입학구분 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  입학구분
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown6_1",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //입학구분 -->
+
+              <!-- 졸업구분 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  졸업구분
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown6_2",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //졸업구분 -->
+            </div>
+
+            <!-- 전공 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                전공
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex:1">
+                    <div class="dropdown" style="width: 242px;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown6_3",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                    <div class="input-box" style="flex:1;">
+                      <input type="text" class="input-txt" placeholder="전공명 입력" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //전공 -->
+
+            <!-- 학점 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                학점
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner type-gap2" style="flex:1">
+                    <div class="input-box" style="width: 150px;">
+                      <input type="text" class="input-txt" placeholder="학점 입력" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div>/</div>
+                    <div class="dropdown" style="width: 150px;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown6_4",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //학점 -->
+
+            <!-- 부/복수 전공 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                부/복수 전공
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner type-gap2" style="flex:1">
+                    <div class="dropdown" style="flex:1">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown6_5",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                    <div class="dropdown" style="flex:1">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown6_6",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                    <div class="input-box" style="flex:1">
+                      <input type="text" class="input-txt" placeholder="전공명 입력" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //부/복수 전공 -->
+
+            <!-- 논문제목 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                논문제목
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="input-box" style="flex:1">
+                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //논문제목 -->
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  증명서
+                </div>
+                <div class="form-td">
+                  <div class="form-inner">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //대학교 -->
+
+        <!-- 교육사항 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">교육사항</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <!-- 교육구분 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                교육구분
+                <span class="required-mark">필수</span>
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="dropdown" style="flex: 1;">
+                    <button type="button" class="dropdown-btn" data-dropdown='{
+                      "name": "dropdown7_1",
+                      "type" : "single",
+                      "option": [
+                        {
+                          "name": "옵션1",
+                          "value": "val1",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "옵션2",
+                          "value": "val2",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "옵션3",
+                          "value": "val3",
+                          "disabled": false,
+                          "checked": false
+                        }
+                      ]
+                    }'>선택하세요</button> 
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //교육구분 -->
+
+            <div class="form-row__flex">
+              <!-- 교육명 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  교육명
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //교육명 -->
+
+              <!-- 교육기관 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  교육기관
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //교육기관 -->
+            </div>
+
+            <!-- 과목분류 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                과목분류
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div style="flex:1">
+                    <div class="dropdown" style="width: 100%;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown7_2",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //과목분류 -->
+
+            <!-- 교육내용 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                교육내용
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div style="flex:1">
+                    <div class="input-box" style="width: 100%;">
+                      <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //교육내용 -->
+
+            <div class="form-row__flex">
+              <!-- 이수학점 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  이수학점
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //이수학점 -->
+
+              <!-- 교육시간 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  교육시간
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //교육시간 -->
+            </div>
+
+            <!-- 성적 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                성적
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner type-gap2" style="flex:1">
+                    <div class="input-box" style="width: 150px;">
+                      <input type="text" class="input-txt" placeholder="성적 입력" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div>/</div>
+                    <div class="dropdown" style="width: 150px;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown6_4",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //성적 -->
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  증명서
+                </div>
+                <div class="form-td">
+                  <div class="form-inner">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //교육사항 -->
+
+        <!-- 자격증 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">자격증</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <!-- 자격증명 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                자격증명
+                <span class="required-mark">필수</span>
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="input-box type-search" style="flex: 1;">
+                    <input type="text" class="input-txt" placeholder="자격증 검색" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //자격증명 -->
+
+            <div class="form-row__flex">
+              <!-- 취득일 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  취득일
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner"  style="flex: 1;">
+                      <div class="input-box type-calendar" style="flex:1">
+                        <input type="text" class="input-txt" id="calendar3_1" placeholder="일자 선택" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        <script>
+                          const calendar3_1 = new Datepicker(document.getElementById('calendar3_1'), {
+                            ...CALENDAR_DEFAULT_OPTION,
+                            ...{
+                              "minDate": "2023.12.06",
+                              "maxDate": "2023.12.20"
+                            }
+                          });
+                        </script>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //취득일 -->
+
+              <!-- 만료일 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  만료일
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="input-box type-calendar" style="flex:1">
+                        <input type="text" class="input-txt" id="calendar3_2" placeholder="일자 선택" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        <script>
+                          const calendar3_2 = new Datepicker(document.getElementById('calendar3_2'), {
+                            ...CALENDAR_DEFAULT_OPTION,
+                            ...{
+                              "minDate": "2023.12.06",
+                              "maxDate": "2023.12.20"
+                            }
+                          });
+                        </script>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //만료일 -->
+            </div>
+
+            <div class="form-row__flex">
+              <!-- 자격증번호 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  자격증번호
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //자격증번호 -->
+
+              <!-- 발행처 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  발행처
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //발행처 -->
+            </div>
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  증명서
+                </div>
+                <div class="form-td">
+                  <div class="form-inner">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //자격증 -->
+
+        <!-- 어학사항 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">어학사항</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <!-- 어학시험명 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                어학시험명
+                <span class="required-mark">필수</span>
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="input-box type-search" style="flex: 1;">
+                    <input type="text" class="input-txt" placeholder="어학시험명 검색" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //어학시험명 -->
+
+            <!-- 점수 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                점수
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner type-gap2" style="flex:1">
+                    <div class="input-box" style="width: 150px;">
+                      <input type="text" class="input-txt" placeholder="점수 입력" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div>or</div>
+                    <div class="dropdown" style="width: 150px;">
+                      <button type="button" class="dropdown-btn" data-dropdown='{
+                        "name": "dropdown8_1",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          },
+                          {
+                            "name": "옵션3",
+                            "value": "val3",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                    <div>등급</div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //점수 -->
+
+            <div class="form-row__flex">
+              <!-- 취득일 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  취득일
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner"  style="flex: 1;">
+                      <div class="input-box type-calendar" style="flex:1">
+                        <input type="text" class="input-txt" id="calendar4_1" placeholder="일자 선택" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        <script>
+                          const calendar4_1 = new Datepicker(document.getElementById('calendar4_1'), {
+                            ...CALENDAR_DEFAULT_OPTION,
+                            ...{
+                              "minDate": "2023.12.06",
+                              "maxDate": "2023.12.20"
+                            }
+                          });
+                        </script>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //취득일 -->
+
+              <!-- 만료일 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  만료일
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div class="form-inner" style="flex: 1;">
+                      <div class="input-box type-calendar" style="flex:1">
+                        <input type="text" class="input-txt" id="calendar4_2" placeholder="일자 선택" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        <script>
+                          const calendar4_2 = new Datepicker(document.getElementById('calendar4_2'), {
+                            ...CALENDAR_DEFAULT_OPTION,
+                            ...{
+                              "minDate": "2023.12.06",
+                              "maxDate": "2023.12.20"
+                            }
+                          });
+                        </script>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //만료일 -->
+            </div>
+
+            <!-- 등록번호 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                등록번호
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="input-box type-search" style="flex: 1;">
+                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //등록번호 -->
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  증명서
+                </div>
+                <div class="form-td">
+                  <div class="form-inner">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //어학사항 -->
+
+        <!-- 경력사항 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">경력사항</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <div class="form-row__flex">
+              <!-- 회사명 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  회사명
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //회사명 -->
+
+              <!-- 부서명 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  부서명
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //부서명 -->
+            </div>
+
+            <div class="form-row__flex">
+              <!-- 직급/직책 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  직급/직책
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //직급/직책 -->
+
+              <!-- 담당업무 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  담당업무
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //담당업무 -->
+            </div>
+
+            <!-- 근무기간 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                근무기간
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex:1">
+                    <div class="input-box type-calendar" style="flex:1">
+                      <input type="text" class="input-txt" id="calendar5_1" placeholder="일자 선택" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      <script>
+                        const calendar5_1 = new Datepicker(document.getElementById('calendar5_1'), {
+                          ...CALENDAR_DEFAULT_OPTION,
+                          ...{
+                            "minDate": "2023.12.06",
+                            "maxDate": "2023.12.20"
+                          }
+                        });
+                      </script>
+                    </div>
+                    <div> ~ </div>
+                    <div class="input-box type-calendar" style="flex:1">
+                      <input type="text" class="input-txt" id="calendar5_2" placeholder="일자 선택" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      <script>
+                        const calendar5_2 = new Datepicker(document.getElementById('calendar5_2'), {
+                          ...CALENDAR_DEFAULT_OPTION,
+                          ...{
+                            "minDate": "2023.12.06",
+                            "maxDate": "2023.12.20"
+                          }
+                        });
+                      </script>
+                    </div>
+                    <div style="width: 100px">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>재직중</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //근무기간 -->
+
+            <div class="form-row__flex">
+              <!-- 고용형태 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  고용형태
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="dropdown" style="width: 100%;">
+                        <button type="button" class="dropdown-btn" data-dropdown='{
+                          "name": "dropdown9_1",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button> 
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //고용형태 -->
+
+              <!-- 소재지 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  소재지
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //소재지 -->
+            </div>
+
+            <!-- 연봉 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                연봉
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex:1">
+                    <div class="input-box" style="width: 242px;">
+                      <input type="text" class="input-txt" placeholder="입력하세요." oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div>만원</div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //연봉 -->
+
+            <!-- 퇴직사유 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                퇴직사유
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="input-box" style="flex: 1;">
+                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //퇴직사유 -->
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  증명서
+                </div>
+                <div class="form-td">
+                  <div class="form-inner">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //경력사항 -->
+
+        <!-- 경험사항 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">경험사항</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <div class="form-row__flex">
+              <!-- 소속단체 -->
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  소속단체
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //소속단체 -->
+
+              <!-- 직급/직책 -->
+              <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  직급/직책
+                </div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="form-inner">
+                    <div style="flex: 1;">
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //직급/직책 -->
+            </div>
+
+            <!-- 활동기간 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                활동기간
+              </div>
+
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="form-inner" style="flex:1">
+                    <div class="input-box type-calendar" style="flex:1">
+                      <input type="text" class="input-txt" id="calendar6_1" placeholder="일자 선택" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      <script>
+                        const calendar6_1 = new Datepicker(document.getElementById('calendar6_1'), {
+                          ...CALENDAR_DEFAULT_OPTION,
+                          ...{
+                            "minDate": "2023.12.06",
+                            "maxDate": "2023.12.20"
+                          }
+                        });
+                      </script>
+                    </div>
+                    <div> ~ </div>
+                    <div class="input-box type-calendar" style="flex:1">
+                      <input type="text" class="input-txt" id="calendar6_2" placeholder="일자 선택" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      <script>
+                        const calendar6_2 = new Datepicker(document.getElementById('calendar6_2'), {
+                          ...CALENDAR_DEFAULT_OPTION,
+                          ...{
+                            "minDate": "2023.12.06",
+                            "maxDate": "2023.12.20"
+                          }
+                        });
+                      </script>
+                    </div>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //활동기간 -->
+
+            <!-- 퇴직사유 -->
+            <div class="form-row__flex">
+              <div class="form-th" style="width: 130px;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                  <span>삭제</span>
+                </button>
+                퇴직사유
+              </div>
+              <div class="form-td" style="flex: 1;">
+                <div class="form-inner">
+                  <div class="input-box" style="flex: 1;">
+                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  <div class="form-row__option">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>필수</span>
+                    </label>
+                    <label class="toggle-show">
+                      <input type="checkbox" checked>
+                      <span>체크</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //퇴직사유 -->
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  증명서
+                </div>
+                <div class="form-td">
+                  <div class="form-inner">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //경험사항 -->
+
+        <!-- 기타사항1 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">기타사항1</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <div class="form-row">
+
+              <div class="form-inner">
+                <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                  <span>삭제</span>
+                </button>
+                <div class="input-box" style="width: 108px;">
+                  <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+                <div class="input-box" style="flex: 1;">
+                  <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+                <div class="form-row__option">
+                  <label class="input-chk type2">
+                    <input type="checkbox">
+                    <span>필수</span>
+                  </label>
+                  <label class="toggle-show">
+                    <input type="checkbox" checked>
+                    <span>체크</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-inner type-mt3">
+                <button type="button" class="btn-item--add type-mr2" onclick="rowItemAdd(2);">
+                  <span>항목 추가</span>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- 증명서 -->
+            <div class="form-row__flex">
+              <div class="form-cell type-gap2" style="flex: 1;">
+                <div class="form-th" style="width: 130px;">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                    <span>삭제</span>
+                  </button>
+                  증명서
+                </div>
+                <div class="form-td">
+                  <div class="form-inner">
+                    <label class="input-file base-btn type2__size-s">
+                      <input type="file">
+                      <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
+                    </label>
+                    <div class="form-row__option">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show">
+                        <input type="checkbox" checked>
+                        <span>체크</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //증명서 -->
+
+          </div>
+        </section>
+        <!-- //기타사항1 -->
+
+        <!-- 기술서 -->
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">기술서</h4>
+            </div>
+            <div class="form-set__cell form-set__btn">
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-reset__size-s__color3">초기화</span>
+              </button>
+              <button type="button" class="base-btn type-icon__color1">
+                <span class="base-icon icon-setup2__size-s__color3">설정</span>
+              </button>
+            </div>
+          </div>
+          <div class="box-type1">
+
+            <div class="form-inner">
+              <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                <span>삭제</span>
+              </button>
+              <div class="input-box" style="flex: 1;">
+                <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+              <div class="form-row__option">
+                <label class="input-chk type2">
+                  <input type="checkbox">
+                  <span>필수</span>
+                </label>
+                <label class="toggle-show">
+                  <input type="checkbox" checked>
+                  <span>체크</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-inner type-mt3">
+              <button type="button" class="btn-item--add type-mr2" onclick="rowItemAdd(3);">
+                <span>기술서 추가</span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+        <!-- //기술서 -->
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

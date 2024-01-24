@@ -1,0 +1,62 @@
+@mixin svgfill($c: null, $img: null, $pos: null) {
+  background-color: $c;
+  mask-image: $img;
+  mask-repeat: no-repeat;
+  mask-position: $pos;
+}
+
+@mixin font($s: null, $w: null, $c: null, $a: null, $f: null, $l: null) {
+  font-size: $s;
+  font-weight: $w;
+  font-family: $f;
+  color: $c;
+  text-align: $a;
+  line-height: 1.5;
+}
+
+@mixin ellipsis($l: null) {
+  @if $l == null {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $l;
+  }
+}
+
+@mixin pos($p: null, $t: null, $l: null, $r: null, $b: null, $a: null, $z: null) {
+  position: $p;
+  z-index: $z;
+  @if($a) {
+    top: $a;
+    right: $a;
+    bottom: $a;
+    left: $a;
+  } @else {
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+  }
+}
+
+@mixin arrow($dir: null, $w: null, $h: null, $c: null) {
+  border: calc($w/2) solid transparent;
+  @if $dir == down {
+    border-top: $h solid $c;
+    border-bottom: 0;
+  } @else if $dir == up {
+    border-bottom: $h solid $c;
+    border-top: 0;
+  } @else if $dir == left {
+    border-right: $h solid $c;
+    border-left: 0;
+  } @else if $dir == right {
+    border-left: $h solid $c;
+    border-right: 0;
+  }
+}

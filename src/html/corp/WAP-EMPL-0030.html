@@ -1,0 +1,220 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "3"})
+
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[ORP연구소] 2021년 하반기 인턴 채용</h2>
+        </div>
+        <div class="contents-header__btns">
+          <a href="#" class="btn">
+            <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-graph__size-m__color5">통계</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">전형관리</h3>
+        <div class="box-type1">
+          <div class="empoly-mng__cont1">
+            <div class="empoly-mng__cont1__header">
+              <h4 class="header-title">적성검사 개발 연구원채용</h4>
+              <a href="#" class="base-btn type-icon__color1">
+                <strong class="base-icon icon-mod__size-s__fix">채용정보 수정</strong>
+              </a>
+              <div class="header-btn">
+                <button type="button" class="base-btn type-icon__color1" onclick="WAP_EMPL_0031.show();">
+                  <strong class="base-icon icon-setup__size-m__color3">알림설정</strong>
+                </button>
+              </div>
+            </div>
+            <p class="empoly-mng__cont1__link">
+              <span class="link-url">
+                <strong class="title">공고문 URL</strong>
+                <a href="#" class="link">www.asdlfkjasdlfkjl.com/asldkfa12</a>
+              </span>
+              <span class="link-write">
+                <a href="#" class="base-btn type-icon__color">
+                  <strong class="base-icon icon-add__size-s__color">채용공고문 작성</strong>
+                </a>
+              </span>
+            </p>
+          </div>
+
+          <div class="box-flex content-mt3">
+            <div class="box-flex__cell box-type3 empoly-mng__cont1__info" style="width: 33.33%;">
+              <p class="title">게시기간</p>
+              <p class="txt">2023.07.01<br>~2023.10.10</p>
+              <div class="util">
+                <label class="btn-toggle size-s">
+                  <input type="checkbox">
+                  <span>버튼</span>
+                </label>
+              </div>
+            </div>
+            <div class="box-flex__cell box-type3 empoly-mng__cont1__info" style="width: 33.33%;">
+              <p class="title">진행상황</p>
+              <p class="txt">서류 접수 중</p>
+              <p class="txt2">23.07.01~23.07.30</p>
+            </div>
+            <div class="box-flex__cell box-type3 empoly-mng__cont1__info" style="width: 33.33%;">
+              <p class="title">전체 지원자</p>
+              <p class="txt">99,999 명</p>
+              <div class="util">
+                <button type="button">
+                  <span class="base-icon icon-share__size-m__color3"><span class="isHidden">공유</span></span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table>
+              <colgroup>
+                <col/>
+                <col style="width: 13%"/>
+                <col style="width: 13%"/>
+                <col style="width: 13%"/>
+                <col style="width: 13%"/>
+                <col style="width: 13%"/>
+                <col style="width: 13%"/>
+                <col/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">
+                    채용분야
+                    <div class="th-sub">전형기간</div>
+                  </th>
+                  <th scope="col">
+                    1차 서류전형
+                    <div class="th-sub">23.07.01~23.07.30</div>
+                  </th>
+                  <th scope="col">
+                    1차 필기전형
+                    <div class="th-sub">23.08.01</div>
+                  </th>
+                  <th scope="col">
+                    1차 면접전형
+                    <div class="th-sub">-</div>
+                  </th>
+                  <th scope="col">
+                    2차 서류전형
+                    <div class="th-sub">-</div>
+                  </th>
+                  <th scope="col">
+                    2차 필기전형
+                    <div class="th-sub">23.08.01</div>
+                  </th>
+                  <th scope="col">
+                    2차 면접전형
+                    <div class="th-sub">23.08.01</div>
+                  </th>
+                  <th scope="col">최종결과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>사무</strong></td>
+                  <td><span class="point-color">0</span>/0 (0%)</td>
+                  <td><span class="point-color">0</span>/1 (0%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td><span class="point-color">1</span>/1 (100%)</td>
+                  <td><span>0</span>/0 (0%)</td>
+                  <td><span>0</span>/0 (0.00%)</td>
+                </tr>
+                <tr>
+                  <td><strong>기계</strong></td>
+                  <td><span class="point-color">0</span>/0 (0%)</td>
+                  <td><span class="point-color">0</span>/1 (0%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td><span class="point-color">1</span>/1 (100%)</td>
+                  <td><span>0</span>/0 (0%)</td>
+                  <td><span>0</span>/0 (0.00%)</td>
+                </tr>
+                <tr>
+                  <td><strong>종합</strong></td>
+                  <td><span class="point-color">0</span>/0 (0%)</td>
+                  <td><span class="point-color">0</span>/1 (0%)</td>
+                  <td><span class="point-color">0</span>/1 (0%)</td>
+                  <td><span class="point-color">0</span>/1 (0%)</td>
+                  <td><span class="point-color">1</span>/1 (100%)</td>
+                  <td><span>0</span>/0 (0%)</td>
+                  <td><span>0</span>/0 (0.00%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/corp/WAP-EMPL-0031.html');
+  
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_EMPL_0031" : ()=>{WAP_EMPL_0031.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

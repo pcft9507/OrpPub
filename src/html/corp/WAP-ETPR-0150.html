@@ -1,0 +1,60 @@
+<div class="layer-popup type-modal" data-ref="WAP-ETPR-0150">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">1:1문의</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="height: 485px;">
+
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 100px;">
+          이메일
+          <span class="required-mark">필수</span>
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()" required>
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-row__flex type2">
+        <div class="form-th" style="width: 100px;">
+          연락처
+          <span class="required-mark">필수</span>
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()" required>
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-row__flex type2">
+        <div class="form-th" style="width: 100px;">
+          제목
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-row type2">
+        <h4 class="title-sub2">내용</h4>
+        <div class="form-inner">
+          <textarea style="height:286px;" placeholder="입력하세요"></textarea>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m" disabled>등록</button>
+    </div>
+    <button class="btn-close" onclick="WAP_ETPR_0150.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ETPR_0150 = new LayerPopup({target: "WAP-ETPR-0150"});
+</script>

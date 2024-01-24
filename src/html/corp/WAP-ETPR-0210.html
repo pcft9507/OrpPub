@@ -1,0 +1,221 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "5", dep2: "4"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <div class="box-type1">
+          <div>
+            <p class="dashboard__title">SMS 사용 건수</p>
+            <p class="dashboard__count">
+              <strong class="val">60건</strong> / 1,000건
+            </p>
+          </div>
+
+          <div class="progress__box content-mt4">
+            <div class="progress__bg">
+              <div class="progress__bar" style="width:16%"></div>
+            </div>
+            <p class="progress__val">(840건 남음)</p>
+          </div>
+        </div>
+
+        <h3 class="title-sub content-mt6">발송이력</h3>
+        <div class="base-tab tab-type1 content-mt3" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">전체</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">E-mail</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">SMS</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+        <div class="board-head form-inner content-mt3">
+          <div class="dropdown" style="width: 136px;">
+            <button type="button" class="dropdown-btn"
+              data-dropdown='{
+                "name": "boardDropdown2",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "옵션1",
+                    "value": "옵션1",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "옵션2",
+                    "value": "옵션2",
+                    "disabled": false,
+                    "checked": false
+                  }
+                ]
+              }'
+            >선택</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'boardDropdown2',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+          <div class="input-box type-calendar" style="width:150px;">
+            <input type="text" id="calendar1" class="input-txt" placeholder="기간 선택">
+            <script>
+              const calendar1 = new Datepicker(document.getElementById('calendar1'), {
+                ...CALENDAR_DEFAULT_OPTION,
+                ...{
+                  "minDate": "2023.12.06",
+                  "maxDate": "2023.12.20"
+                }
+              });
+            </script>
+          </div>
+          <div>~</div>
+          <div class="input-box type-calendar" style="width:150px;">
+            <input type="text" id="calendar2" class="input-txt" placeholder="기간 선택">
+            <script>
+              const calendar2 = new Datepicker(document.getElementById('calendar2'), {
+                ...CALENDAR_DEFAULT_OPTION,
+                ...{
+                  "minDate": "2023.12.06",
+                  "maxDate": "2023.12.20"
+                }
+              });
+            </script>
+          </div>
+          <div class="input-box type-search" style="flex: 1;">
+            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="내용을 입력해주세요.">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <button class="base-btn type1__size-m">검색</button>
+        </div>
+
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 80px;"/>
+                <col/>
+                <col style="width: 150px;"/>
+                <col style="width: 150px;"/>
+                <col/>
+                <col/>
+                <col style="width: 90px;"/>
+                <col style="width: 90px;"/>
+                <col style="width: 90px;"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">NO</th>
+                  <th scope="col">구분</th>
+                  <th scope="col">발송자(ID)</th>
+                  <th scope="col">발송번호</th>
+                  <th scope="col">발송시각</th>
+                  <th scope="col">메세지</th>
+                  <th scope="col">발송위치</th>
+                  <th scope="col">발송성공</th>
+                  <th scope="col">실패</th>
+                  <th></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '10',
+                  '구분': 'Email',
+                  '발송자(ID)': '엄설영(seolyoung.eom@orp.co.kr)',
+                  '발송번호': '123123123',
+                  '발송시각': '2023.08.10 14:50:12',
+                  '메세지': '[ORP연구소] 채용홈페이지에서 합격자 발표를 확인하시기 바랍니다.',
+                  '발송위치': 'http://cumgt.wiselection.com',
+                  '발송성공': '1/7',
+                  '실패': '7'
+                },
+                {
+                  'NO': '9',
+                  '구분': 'SMS',
+                  '발송자(ID)': '엄설영(seolyoung.eom@orp.co.kr)',
+                  '발송번호': '123123123',
+                  '발송시각': '2023.08.10 14:50:12',
+                  '메세지': '[ORP연구소] 채용홈페이지에서 합격자 발표를 확인하시기 바랍니다.',
+                  '발송위치': 'http://cumgt.wiselection.com',
+                  '발송성공': '1/7',
+                  '실패': '7'
+                }
+              ],
+              columns: [
+                { data: 'NO' },
+                { data: '구분' },
+                { data: '발송자(ID)',
+                  render: function(data) {
+                    return `
+                      <div class="ellipsis">${data}</div>
+                    `
+                  }
+                },
+                { data: '발송번호' },
+                { data: '발송시각' },
+                { data: '메세지',
+                  render: function(data) {
+                    return `
+                      <div class="ellipsis">${data}</div>
+                    `
+                  }
+                },
+                { data: '발송위치',
+                  render: function(data) {
+                    return `
+                      <div class="ellipsis">${data}</div>
+                    `
+                  }
+                },
+                { data: '발송성공' },
+                { data: '실패' },
+                {
+                  data: '',
+                  render: function() {
+                    return `
+                      <button type="button" class="base-icon icon-down__size-s__color3"><span class="isHidden">다운로드</span></button>
+                    `
+                  }
+                }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

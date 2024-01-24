@@ -1,0 +1,97 @@
+<div class="layer-popup type-modal" data-ref="WAP-ETPR-0201">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">삭제기준</h3>
+    </div>
+    <div class="popup__contents" style="height:485px;">
+
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 131px;">날짜기준</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-with-txt">
+              <input type="text" class="input-txt" value="180">
+              일
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex">
+        <div class="form-th no-pd" style="width: 131px;">대상자</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="chk-group">
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>불합격자</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>미정</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>예비합격자</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>합격자</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex">
+        <div class="form-th no-pd" style="width: 131px;">삭제항목</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="chk-group">
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>성명</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>연락처</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>이메일</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>사진</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>생년월일</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>비상연락처</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>현주소</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>기타주소</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox">
+              <span>응시정보</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_ETPR_0201.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ETPR_0201 = new LayerPopup({target: "WAP-ETPR-0201"});
+</script>

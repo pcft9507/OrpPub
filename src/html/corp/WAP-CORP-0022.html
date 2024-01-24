@@ -1,0 +1,112 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "5", dep2: "5"})
+
+      <!-- contents -->
+      <div class="contents">
+        <h3 class="title-sub">기업정보</h3>
+
+        <div class="box-type1 relative-box">
+          <div class="box-flex type-gap3">
+            <div class="dashboard__corp-logo type2">
+              <img src="../../assets/images/logo2x.png" alt="">
+            </div>
+            <div class="dashboard__corp-info3">
+              <p class="info-item">
+                <span class="key">기업명</span>
+                <span class="val">ORP연구소</span>
+              </p>
+              <p class="info-item">
+                <span class="key">사업자 등록번호</span>
+                <span class="val">114-86-21814</span>
+              </p>
+              <p class="info-item">
+                <span class="key">주소</span>
+                <span class="val">
+                  [06571] 서울특별시 서초구 서초대로 67(방배동)<br>
+                  3층
+                </span>
+              </p>
+              <p class="info-item">
+                <span class="key">대표번호</span>
+                <span class="val">02-3473-2206</span>
+              </p>
+              <p class="info-item">
+                <span class="key">기업 홈페이지</span>
+                <span class="val">www.orp.co.kr</span>
+              </p>
+            </div>
+          </div>
+          <div class="relative-box__pos1">
+            <button type="button" class="base-btn type-icon__color1">
+              <span class="base-icon icon-mod__size-s__fix"><b>수정</b></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="box-flex content-mt4 type-gap2">
+          <div class="corp-class type-premium">
+            <span class="title">서비스 유형</span>
+            <strong class="class">Premium</strong>
+            <a href="#" class="link"><u>자세히보기 ></u></a>
+          </div>
+          <div class="box-type1 box-flex2" style="flex: 1;">
+            <div>
+              <p class="dashboard__title">계약기간</p>
+              <p class="dashboard__corp-period2">
+                2021.08.09<br>
+                ~2023.12.31
+              </p>
+            </div>
+
+            <div class="progress__box">
+              <div class="progress__bg">
+                <div class="progress__bar" style="width:50%"></div>
+              </div>
+              <p class="progress__val">(2664일 남음)</p>
+            </div>
+
+          </div>
+          <div class="box-type1 box-flex2" style="flex: 1;">
+            <div>
+              <p class="dashboard__title">SMS 사용 건수</p>
+              <p class="dashboard__count">
+                <strong class="val">60건</strong> / 1,000건
+              </p>
+              <p class="content-mt1"><a href="#" class="point-color"><u>사용내역 보기</u></a></p>
+            </div>
+
+            <div class="progress__box">
+              <div class="progress__bg">
+                <div class="progress__bar" style="width:16%"></div>
+              </div>
+              <p class="progress__val">(840건 남음)</p>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/corp/WAP-SYS-0110.html');
+  
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_SYS_0110" : ()=>{WAP_SYS_0110.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

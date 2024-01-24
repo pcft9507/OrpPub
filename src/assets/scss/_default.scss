@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'NotoSans';
+  font-weight: 400;
+  font-display: swap;
+  src: local('Noto Sans KR Regular'),
+       url('../fonts/NotoSansKR-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'NotoSans';
+  font-weight: 500;
+  font-display: swap;
+  src: local('Noto Sans KR Medium'),
+       url('../fonts/NotoSansKR-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'NotoSans';
+  font-weight: 700;
+  font-display: swap;
+  src: local('Noto Sans KR Bold'),
+       url('../fonts/NotoSansKR-Bold.woff2') format('woff2');
+}
+*,
+*:before,
+*:after {box-sizing: border-box;}
+
+body {
+  -webkit-text-size-adjust: none;
+  min-width: var(--minWidth);
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--font-color);
+  font-family: 'NotoSans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", Arial, sans-serif;
+  @include font(14px, $w: 500);
+  &.isScrollLock,
+  &.isLayerShow,
+  &.isLoading {overflow: hidden;}
+}
+h1,h2,h3,h4,h5,h6,p,figure,ul,ol,dl,dd,fieldset,pre {margin: 0;}
+ol, ul, td, fieldset {padding: 0;}
+input, select, textarea, button, pre, a, code {
+  font : {
+    family: inherit;
+    size: inherit;
+    weight: inherit;
+  }
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+li {list-style: none;}
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 0;
+}
+fieldset, img {border: 0;}
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+label, td img {vertical-align: middle;}
+h1,h2,h3,h4,h5,strong,b,th {font-weight: 700;}
+legend, caption {display: none;}
+address, em {font-style: normal;}
+button {
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+pre {white-space: pre-line;}
+
+*::-webkit-scrollbar {
+	width: 14px; height: 14px;
+	background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+	background: rgba(#ACACAC, 0.36);
+	background-clip: padding-box;
+	border: 4px solid transparent;
+	border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+	background: rgba(#ACACAC, 0.7);
+	background-clip: padding-box;
+	border: 4px solid transparent;
+	border-radius: 10px;
+}
+*::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+.point-color {
+  color: var(--point-color);
+}

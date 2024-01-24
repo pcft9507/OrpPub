@@ -1,0 +1,125 @@
+<div class="layer-popup type-modal" data-ref="WAP-SYS-0101">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">기업 평가자</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="max-height: 485px;">
+
+      <div class="form-row__flex">
+        <div class="form-th no-pd" style="width: 116px;">
+          사용여부
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <label class="btn-toggle">
+            <input type="checkbox">
+            <span>버튼</span>
+          </label>
+        </div>
+      </div>
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">
+          기업명
+          <span class="required-mark">필수</span>
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box" style="width: 100%;">
+              <input type="text" class="input-txt" oninput="inputValueChk()" value="ORP 연구소" disabled>
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">
+          ID
+          <span class="required-mark">필수</span>
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box" style="width: 100%;">
+              <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요." required>
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+
+            <button class="base-btn type2__size-m2">중복확인</button>
+          </div>
+          <p class="form-help-txt">*영문, 숫자, 특수문자(_@.)를 사용하여 4-50자 이내</p>
+        </div>
+      </div>
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">
+          PW
+          <span class="required-mark">필수</span>
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <button class="base-btn type2__size-m2">비밀번호 취소</button>
+          <label class="input-chk user-pw__chk content-mt2">
+            <input type="radio" name="addUserAuthRadio" checked>
+            <span class="user-pw__box" style="align-items: center;">
+              <span class="user-pw__cont">
+                <strong>임시비밀번호 발급</strong>
+                <span class="user-pw__cont--txt">사용자 등록이 완료되면 이메일로 발송합니다.</span>
+              </span>
+            </span>
+          </label>
+          <label class="input-chk user-pw__chk">
+            <input type="radio" name="addUserAuthRadio">
+            <span class="user-pw__box">
+              <span class="user-pw__cont">
+                <strong>직접 입력</strong>
+                <div class="input-box" style="width: 100%;">
+                  <input type="password" class="input-txt" oninput="inputValueChk()" placeholder="영문, 숫자, 특수 문자 사용하여 4-12자 이내">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+              </span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">권한</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 100%;">
+            <button type="button" class="dropdown-btn"
+              data-dropdown='{
+                "name": "addUserAuthDropdown2",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "권한1",
+                    "value": "권한1",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "권한2",
+                    "value": "권한2",
+                    "disabled": false,
+                    "checked": false
+                  }
+                ]
+              }'
+            >선택</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'addUserAuthDropdown',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m" disabled>다음</button>
+    </div>
+    <button class="btn-close" onclick="WAP_SYS_0101.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_SYS_0101 = new LayerPopup({target: "WAP-SYS-0101"});
+</script>

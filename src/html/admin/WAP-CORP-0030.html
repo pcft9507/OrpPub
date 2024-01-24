@@ -1,0 +1,255 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "관리자", dep1: "1", dep2: "1"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">관리자</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "관리자",
+                        "value": "관리자",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업",
+                        "value": "기업",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+        </div>
+        <div class="box-flex content-mt6 type-gap2">
+          <!-- 관리자 -->
+          <div class="box-flex__cell" style="width: 50%;">
+            <div class="board-head">
+              <div class="board-head__cell">
+                <h3 class="title-sub">관리자</h3>
+              </div>
+              <div class="board-head__cell">
+                <div class="input-search-toggle">
+                  <button type="button" class="base-icon icon-search__color2__size-m" onclick="inputSearchToggle();">
+                    <span class="isHidden">검색</span>
+                  </button>
+                  <div class="input-box toggle-target">
+                    <input type="text" class="input-txt" placeholder="검색어를 입력하세요." oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="board-body">
+              <div class="table table-type1">
+                <table>
+                  <colgroup>
+                    <col/>
+                    <col style="width: 220px"/>
+                    <col style="width: 100px;"/>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">관리자</th>
+                      <th scope="col">등록/수정일자</th>
+                      <th scope="col">삭제</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><button type="button">롯데정보통신</button></td>
+                      <td>2023-09-15 11:13</td>
+                      <td>
+                        <button type="button"
+                          class="base-icon icon-trash__color3__size-m"
+                          onclick="confirm({
+                            msg:'삭제 하시겠습니까?',
+                            onConfirm: ()=>{console.log('confirm')},
+                            onCancel: ()=>{console.log('cancel')},
+                          })"
+                        >
+                          <span class="isHidden">삭제</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="pagination">
+              <button type="button" class="pagination__nav-prev" disabled>이전</button>
+              <div class="pagination__number">
+                <button type="button" class="pagination__nav-btn" disabled>1</button>
+                <button type="button" class="pagination__nav-btn">2</button>
+                <button type="button" class="pagination__nav-btn">3</button>
+                <button type="button" class="pagination__nav-btn">4</button>
+                <button type="button" class="pagination__nav-btn">5</button>
+              </div>
+              <button type="button" class="pagination__nav-next">다음</button>
+            </div>
+
+          </div>
+          <!-- //관리자 -->
+          <!-- 기업명 -->
+          <div class="box-flex__cell" style="width: 50%;">
+            <h3 class="title-sub">기업명</h3>
+            <div class="board-body">
+              <div class="table table-type1">
+                <table>
+                  <colgroup>
+                    <col style="width: 100px;"/>
+                    <col/>
+                    <col style="width: 220px"/>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">NO</th>
+                      <th scope="col">기업명</th>
+                      <th scope="col">관리자</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>251</td>
+                      <td class="point-color">테스트기업_아던트</td>
+                      <td>관리자명</td>
+                    </tr>
+                    <tr>
+                      <td>251</td>
+                      <td class="point-color">테스트기업_아던트</td>
+                      <td>관리자명</td>
+                    </tr>
+                    <tr>
+                      <td>251</td>
+                      <td class="point-color">테스트기업_아던트</td>
+                      <td>관리자명</td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- //기업명 -->
+        </div>
+        
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

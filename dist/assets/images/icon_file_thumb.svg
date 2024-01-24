@@ -1,0 +1,14 @@
+<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="img/photo">
+<rect id="Rectangle 90" y="0.5" width="32" height="32" rx="5.33333" fill="#F4F6FA"/>
+<mask id="mask0_686_378" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="33">
+<rect id="Rectangle 91" y="0.5" width="32" height="32" rx="5.33333" fill="#F4F6FA"/>
+</mask>
+<g mask="url(#mask0_686_378)">
+<g id="Group 2856">
+<path id="Vector 84" d="M16.0003 11.1666L-6.66634 33.8332H38.667L16.0003 11.1666Z" fill="#C7CCD6"/>
+<rect id="Rectangle 89" x="5.71582" y="7.16656" width="4" height="4" rx="2" fill="#C7CCD6"/>
+</g>
+</g>
+</g>
+</svg>

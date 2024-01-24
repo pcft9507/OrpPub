@@ -1,0 +1,102 @@
+<!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        @@if (type == '관리자'){
+        <ul class="snb__menu">
+          <li@@if (dep1 == '1'){ class="isCurrent"}>
+            <button
+              type="button"
+              class="snb__depth1--btn icon1 has-child"
+              @@if (dep1 == '1'){aria-expanded="true"}@@if (dep1 != '1'){aria-expanded="false"}
+              aria-controls="snbSubMenu1"
+            ><span>기업 관리</span></button>
+            <div id="snbSubMenu1" @@if (dep1 == '1'){class="snb__depth2 isOpen"}@@if (dep1 !== '1'){class="snb__depth2"}>
+              <ul>
+                <li@@if (dep1 == '1' && dep2 == '1'){ class="isCurrent"}><a href="WAP-CORP-0010.html">기업 관리</a></li>
+                <li@@if (dep1 == '1' && dep2 == '2'){ class="isCurrent"}><a href="WAP-CORP-0040.html">채용 관리</a></li>
+              </ul>
+            </div>
+          </li>
+          <li@@if (dep1 == '2'){ class="isCurrent"}>
+            <button
+              type="button"
+              class="snb__depth1--btn icon7 has-child"
+              @@if (dep1 == '2'){aria-expanded="true"}@@if (dep1 != '2'){aria-expanded="false"}
+              aria-controls="snbSubMenu2"
+            ><span>콘텐츠 관리</span></button>
+            <div id="snbSubMenu2" @@if (dep1 == '2'){class="snb__depth2 isOpen"}@@if (dep1 !== '2'){class="snb__depth2"}>
+              <ul>
+                <li@@if (dep1 == '2' && dep2 == '1'){ class="isCurrent"}><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li@@if (dep1 == '2' && dep2 == '2'){ class="isCurrent"}><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li@@if (dep1 == '2' && dep2 == '3'){ class="isCurrent"}><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li@@if (dep1 == '2' && dep2 == '4'){ class="isCurrent"}><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li@@if (dep1 == '2' && dep2 == '5'){ class="isCurrent"}><a href="WAP-CONT-0230.html">평가 척도</a></li>
+              </ul>
+            </div>
+          </li>
+          <li@@if (dep1 == '3'){ class="isCurrent"}>
+            <button
+              type="button"
+              class="snb__depth1--btn icon2 has-child"
+              @@if (dep1 == '3'){aria-expanded="true"}@@if (dep1 != '3'){aria-expanded="false"}
+              aria-controls="snbSubMenu3"
+            ><span>시스템 관리</span></button>
+            <div id="snbSubMenu3" @@if (dep1 == '3'){class="snb__depth2 isOpen"}@@if (dep1 !== '3'){class="snb__depth2"}>
+              <ul>
+                <li@@if (dep1 == '3' && dep2 == '1'){ class="isCurrent"}><a href="WAP-SYS-0010.html">공지사항</a></li>
+                <li@@if (dep1 == '3' && dep2 == '2'){ class="isCurrent"}><a href="WAP-SYS-0050.html">팝업</a></li>
+                <li@@if (dep1 == '3' && dep2 == '3'){ class="isCurrent"}><a href="WAP-SYS-0090.html" class="isMark">사용자</a></li>
+                <li@@if (dep1 == '3' && dep2 == '4'){ class="isCurrent"}><a href="WAP-SYS-0120.html" class="isMark">권한 관리</a></li>
+                <li@@if (dep1 == '3' && dep2 == '5'){ class="isCurrent"}><a href="WAP-SYS-0170.html" class="isMark">메뉴얼 관리</a></li>
+                <li@@if (dep1 == '3' && dep2 == '6'){ class="isCurrent"}><a href="WAP-SYS-0230.html" class="isMark">접속 기록</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>}
+        @@if (type == '기업담당자'){
+        <ul class="snb__menu">
+          <li@@if (dep1 == '1'){ class="isCurrent"}><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
+          <li@@if (dep1 == '2'){ class="isCurrent"}><a href="WAP-EMPL-0010.html" class="snb__depth1--btn icon4">채용등록</a></li>
+          <li@@if (dep1 == '3'){ class="isCurrent"}><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon7">채용목록</a></li>
+          <li@@if (dep1 == '4'){ class="isCurrent"}>
+            <button
+              type="button"
+              class="snb__depth1--btn icon5"
+              @@if (dep1 == '4'){aria-expanded="true"}@@if (dep1 != '4'){aria-expanded="false"}
+              aria-controls="snbSubMenu1"
+            ><span>보관함</span></button>
+            <div id="snbSubMenu1" @@if (dep1 == '4'){class="snb__depth2 isOpen"}@@if (dep1 !== '4'){class="snb__depth2"}>
+              <ul>
+                <li@@if (dep1 == '4' && dep2 == '1'){ class="isCurrent"}><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li@@if (dep1 == '4' && dep2 == '2'){ class="isCurrent"}><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li@@if (dep1 == '4' && dep2 == '3'){ class="isCurrent"}><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li@@if (dep1 == '4' && dep2 == '4'){ class="isCurrent"}><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li@@if (dep1 == '4' && dep2 == '5'){ class="isCurrent"}><a href="WAP-CONT-0230.html">평가 척도</a></li>
+                <li@@if (dep1 == '4' && dep2 == '6'){ class="isCurrent"}><a href="WAP-CONT-0270.html">만족도조사</a></li>
+              </ul>
+            </div>
+          </li>
+          <li@@if (dep1 == '5'){ class="isCurrent"}>
+            <button
+              type="button"
+              class="snb__depth1--btn icon6"
+              @@if (dep1 == '5'){aria-expanded="true"}@@if (dep1 != '5'){aria-expanded="false"}
+              aria-controls="snbSubMenu2"
+            ><span>기업정보</span></button>
+            <div id="snbSubMenu2" @@if (dep1 == '5'){class="snb__depth2 isOpen"}@@if (dep1 !== '5'){class="snb__depth2"}>
+              <ul>
+                <li@@if (dep1 == '5' && dep2 == '5'){ class="isCurrent"}><a href="WAP-CORP-0022.html">기업정보</a></li>
+                <li@@if (dep1 == '5' && dep2 == '1'){ class="isCurrent"}><a href="WAP-SYS-0090.html">사용자</a></li>
+                <li@@if (dep1 == '5' && dep2 == '2'){ class="isCurrent"}><a href="WAP-ETPR-0070.html">채용홈페이지</a></li>
+                <li@@if (dep1 == '5' && dep2 == '3'){ class="isCurrent"}><a href="WAP-ETPR-0200.html">개인정보 삭제기준</a></li>
+                <li@@if (dep1 == '5' && dep2 == '4'){ class="isCurrent"}><a href="WAP-ETPR-0210.html">발송이력</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        }
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->

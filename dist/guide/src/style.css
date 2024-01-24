@@ -1,0 +1,149 @@
+body {
+  min-width: 0;
+	text-shadow: rgba(0,0,0,.1) 0 0 0.45px !important;
+	background: #0d1117 !important;
+  font-weight: 400;
+}
+.guide__header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+	display: flex;
+	align-items: center;
+	background: #161b22;
+	color: #f0f6fc;
+}
+.guide__header .guide__header--logo {padding: 15px 30px 15px 20px;}
+.guide__header .guide__header__gnb button {
+	position: relative;
+	display: inline-block;
+	margin-right: 20px;
+}
+.guide__header .guide__header__gnb button.active:after {
+	content: "";
+	position: absolute;
+	right: 0; bottom: 0; left:0;
+	border-bottom: 1px solid;
+}
+.guide__container {
+  padding: 30px;
+	color: #c9d1d9;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 540px) {
+  .guide__container {padding: 10px;}
+}
+.guide__container > section ~ section {margin-top: 25px;}
+
+.guide__section ~ .guide__section {margin-top: 25px;}
+.guide__section pre {
+  background: #161b22;
+	white-space: pre;
+}
+
+.guide__table {
+  margin-top: -1px;
+	border-top: 1px solid #30363d;
+	text-align: left;
+}
+.guide__table th, .guide__table td {
+	padding: 5px 10px;
+	border-bottom: 1px solid #30363d;
+  word-break: break-all;
+}
+.guide__table th {background: #21262d;}
+.guide__table thead th {text-align: center;}
+.guide__table tbody th {width: 200px;}
+@media screen and (max-width: 540px) {
+  .guide__table tbody th {width: 30%;}
+  .guide__table col:nth-of-type(4) ~ col,
+  .guide__table th:nth-of-type(4) ~ th,
+  .guide__table td:nth-of-type(4) ~ td {display: none;}
+}
+.guide__table tbody tr:hover {background: #161b22;}
+.guide__table td img {
+	display: none;
+	position: fixed;
+	left: 20px; bottom: 20px;
+  z-index: 10;
+}
+.guide__table td:hover img {display: block;}
+.guide__table td dl {display: none;}
+.guide__table td ul li {list-style-type: disc;}
+@media screen and (max-width: 540px) {
+  .guide__table td:hover img {display: none;}
+}
+
+.guide__table .colorChip {
+	display: inline-block;
+	width: 60px;
+	vertical-align: top;
+  text-align: center;
+}
+.guide__table .colorChip span {
+	display: block; height: 50px;
+	border: 1px solid #30363d;
+}
+
+.guide__subTit {
+	position: relative;
+	padding: 10px 0;
+	color: #f0f6fc;
+  border-bottom: 1px solid #30363d;
+}
+.guide__subTit .btnFold {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	font-size: 0;
+}
+.guide__subTit .btnFold:after {
+	content: "";
+	position: absolute;
+	top: 10px; right: 10px;
+	border-top: 8px solid #fff;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+}
+.guide__container .fold .guide__table,
+.guide__container .fold .guide__code-view,
+.guide__container .fold pre {display: none;}
+.guide__container .fold .btnFold:after {transform: rotate(180deg);}
+
+.guide__layer__update {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0d1117;
+	border: 1px solid #30363d;
+  min-width: 300px;
+  padding: 20px;
+}
+.guide__layer__update .btnClose {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 24px; height: 24px;
+  background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.75 3.75012L20.2497 20.25' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M3.75 20.2498L20.2498 3.75002' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E%0A") no-repeat;
+  font-size: 0;
+}
+.guide__layer__update dl dd {margin: 5px 0 0;}
+.guide__layer__update dl dt ~ dt {margin-top: 10px;}
+
+.guide__dialog {
+  position: fixed;
+  bottom: 100px; left: 50%;
+  padding: 5px 20px;
+  transform: translateX(-50%);
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 15px;
+  color: #f0f6fc;
+}
+.guide__code-view {
+  padding: 10px;
+  background: #f5f5f5;
+  color: #222631;
+  font-size: 14px;
+  line-height: 18px;
+}

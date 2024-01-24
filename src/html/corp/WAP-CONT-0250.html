@@ -1,0 +1,51 @@
+<div class="layer-popup type-modal" data-ref="WAP-CONT-0250">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">평가척도</h3>
+    </div>
+    <div class="popup__contents">
+
+      <div class="board-view__header">
+        <h3 class="title-sub">고과등급</h3>
+
+        <div class="board-view__info">
+          <div class="board-view__info__cell">
+            <span class="board-view__info--th">척도 구분</span>
+            <span class="board-view__info--td">3 구간</span>
+          </div>
+          <div class="board-view__info__cell">
+            <span class="board-view__info--th">사용여부</span>
+            <span class="board-view__info--td point-color3">사용</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-view__cont popup__scroll-view" style="max-height: 364px">
+        <section>
+          <h4 class="title-sub2 type2">1점: 미흡</h4>
+          <p>평가지표의 증거가 거의 드러나지 않음</p>
+        </section>
+        <section class="content-mt4">
+          <h4 class="title-sub2 type2">2점: 양호</h4>
+          <p>평가지표의 증거가 중간정도 드러남</p>
+        </section>
+        <section class="content-mt4">
+          <h4 class="title-sub2 type2">3점: 탁월</h4>
+          <p>평가지표의 증거가 매우 많이 드러남</p>
+        </section>
+      </div>
+      <div class="board-view__footer">
+        <p class="board-view--writer">2023.10.31 홍길동</p>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type2__size-m">수정</button>
+      <button class="base-btn type2__size-m">삭제</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0250.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CONT_0250 = new LayerPopup({target: "WAP-CONT-0250"});
+</script>

@@ -1,0 +1,322 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "관리자", dep1: "3", dep2: "1"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">공지사항</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell">
+              <div class="dropdown" style="width: 136px;">
+                <button type="button" class="dropdown-btn size-s"
+                  data-dropdown='{
+                    "name": "searchDropdown",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "제목",
+                        "value": "제목",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "내용",
+                        "value": "내용",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "제목+내용",
+                        "value": "제목+내용",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "작성자",
+                        "value": "작성자",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "수정자",
+                        "value": "수정자",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >조회수</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "조회수",
+                      "value": "조회수",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "등록정보",
+                      "value": "등록정보",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "최종수정 정보",
+                      "value": "최종수정 정보",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >조회수</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="board-head__cell" data-ref="rowNoneCheck">
+            <button class="base-btn type2__size-s" onclick="WAP_SYS_0030.show()">
+              <span class="base-icon icon-add__color1__size-s">등록</span>
+            </button>
+          </div>
+          <div class="board-head__cell" data-ref="rowCheck" style="display: none;">
+            <button class="base-btn type2__size-s point-color4">
+              <span class="base-icon icon-del__color4__size-s">삭제</span>
+            </button>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table>
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 150px;"/>
+                <col/>
+                <col style="width: 150px;"/>
+                <col style="width: 150px"/>
+                <col style="width: 200px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col"><button type="button" class="btn-align-cell">NO</button></th>
+                  <th scope="col"><button type="button" class="btn-align-cell">제목</button></th>
+                  <th scope="col">조회수</th>
+                  <th scope="col">등록자</th>
+                  <th scope="col">최종수정정보</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>24</td>
+                  <td class="point-color"><button type="button" onclick="WAP_SYS_0020.show()">23년 연말 개인 면담을 시작합니다.</button></td>
+                  <td>2</td>
+                  <td>테스터001</td>
+                  <td>2023.11.07 09:09</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/admin/WAP-SYS-0020.html');
+  @@include('../html/admin/WAP-SYS-0030.html');
+  
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_SYS_0020" : ()=>{WAP_SYS_0020.show()},
+      "WAP_SYS_0030" : ()=>{WAP_SYS_0030.show()},
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>
