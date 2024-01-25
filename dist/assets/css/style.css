@@ -1954,6 +1954,18 @@ textarea {
 .table-type1 td {
   padding: 24px 8px;
 }
+.table.ph4 thead th:first-child {
+  padding-left: 32px;
+}
+.table.ph4 thead th:last-child {
+  padding-right: 32px;
+}
+.table.ph4 tbody td:first-child {
+  padding-left: 32px;
+}
+.table.ph4 tbody td:last-child {
+  padding-right: 32px;
+}
 .table .type-s th {
   padding: 20px 4px 19px;
 }
@@ -2121,6 +2133,9 @@ textarea {
 .table .isShow .btn-toggle-show {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+.table a:hover {
+  text-decoration: underline;
 }
 
 .pagination {
@@ -2421,7 +2436,7 @@ textarea {
   display: -ms-flexbox;
   display: flex;
 }
-.d-flex .row-col .has-gap {
+.d-flex .row-col.has-gap {
   gap: 0 8px;
 }
 .d-flex .title-sub {
@@ -2467,13 +2482,12 @@ textarea {
   color: #707070;
   font-weight: 500;
   font-size: 14px;
+  cursor: pointer;
 }
 .dataTables_paginate .fg-button.ui-state-disabled {
   color: #222631;
   border-radius: 16px;
   background: #FFF;
-  -webkit-box-shadow: 0px 0px 8px 0px rgba(46, 54, 58, 0.1);
-          box-shadow: 0px 0px 8px 0px rgba(46, 54, 58, 0.1);
 }
 .dataTables_paginate .fg-button.first {
   background: url("../images/ico-page-first.png");
@@ -2517,6 +2531,10 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.dataTables_paginate span .ui-state-disabled {
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(46, 54, 58, 0.1);
+          box-shadow: 0px 0px 8px 0px rgba(46, 54, 58, 0.1);
 }
 
 .header {
