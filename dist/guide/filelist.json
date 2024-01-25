@@ -47,6 +47,16 @@
           "url" : "./html/admin/WAP-CORP-0010.html?popup=WAP_CORP_0020"
         },
         {
+          "dep2" : "기업 정보 조회",
+          "name" : "WAP-CORP-0022",
+          "url" : "./html/admin/WAP-CORP-0022.html"
+        },
+        {
+          "dep2" : "popup - 기업정보 수정",
+          "name" : "WAP-SYS-0110",
+          "url" : "./html/corp/WAP-CORP-0022.html?popup=WAP_SYS_0110"
+        },
+        {
           "dep2" : "관리자",
           "name" : "WAP-CORP-0030",
           "url" : "./html/admin/WAP-CORP-0030.html"

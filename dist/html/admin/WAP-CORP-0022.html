@@ -107,12 +107,25 @@
 
       <!-- contents -->
       <div class="contents">
-        <h3 class="title-sub">기업정보</h3>
+        <div class="title d-flex jc-sb ai-c">
+          <h3 class="title-sub">기업정보</h3>
+          <div class="row-col has-gap">
+            <button class="base-btn type2__size-s">
+              <span>개인정보관리</span>
+            </button>
+            <button class="base-btn type2__size-s">
+              <span>계약정보</span>
+            </button>
+            <button class="base-btn type2__size-s">
+              <span>채용 홈페이지 정보</span>
+            </button>
+          </div>
+        </div>
 
         <div class="box-type1 relative-box">
           <div class="box-flex type-gap3">
             <div class="dashboard__corp-logo type2">
-              <img src="../../assets/images/logo2x.png" alt="">
+              <img src="../../assets/images/logo-orp-institute.png" alt="orp institute">
             </div>
             <div class="dashboard__corp-info3">
               <p class="info-item">
@@ -277,11 +290,41 @@
                   <th scope="col">부서</th>
                   <th scope="col">직급</th>
                   <th scope="col">회사전화번호</th>
+                  <th scope="col">핸드폰</th>
+                  <th scope="col">사용자권한</th>
+                  <th scope="col">등록정보</th>
+                  <th scope="col">최종수정정보</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="pd-type1">
+                  <td>
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td>사용</td>
+                  <td><a href="#">박현준</a></td>
+                  <td class="point-color">매우 부적합/부적합/보통/적합/매우적합</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
                     <label class="input-chk">
                       <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>
@@ -307,7 +350,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="pd-type1">
+                  <td>
                     <label class="input-chk">
                       <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>
@@ -333,7 +376,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="pd-type1">
+                  <td>
                     <label class="input-chk">
                       <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>
@@ -359,7 +402,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="pd-type1">
+                  <td>
                     <label class="input-chk">
                       <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>
@@ -385,33 +428,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="pd-type1">
-                    <label class="input-chk">
-                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>9999</td>
-                  <td>32</td>
-                  <td>3 구간</td>
-                  <td class="point-color">매우 부적합/부적합/보통/적합/매우적합</td>
                   <td>
-                    <label class="btn-toggle size-s">
-                      <input type="checkbox">
-                      <span>버튼</span>
-                    </label>
-                  </td>
-                  <td>
-                    <div>2023.09.01</div>
-                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
-                  </td>
-                  <td>
-                    <div>2023.09.01</div>
-                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="pd-type1">
                     <label class="input-chk">
                       <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>

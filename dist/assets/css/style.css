@@ -1463,7 +1463,7 @@ textarea {
   height: 48px;
   padding: 0 40px 0 14px;
   background: var(--bg-color2);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color1);
   border-radius: var(--radius1);
   text-align: left;
   font-weight: 500;
@@ -1523,6 +1523,9 @@ textarea {
 .dropdown-btn.type3:after {
   right: 0;
   background-color: var(--icon-color5);
+}
+.dropdown-btn:hover {
+  border-color: #acacac;
 }
 .dropdown-option {
   display: none;
@@ -2409,6 +2412,20 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.d-flex.title {
+  margin-bottom: 16px;
+}
+.d-flex .row-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.d-flex .row-col .has-gap {
+  gap: 0 8px;
+}
+.d-flex .title-sub {
+  margin-bottom: 0;
 }
 
 .agree-toggle-row {

@@ -1,118 +1,34 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="../../assets/css/style.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <script src="../../assets/js/ui.js"></script>
-</head>
+@@include('./head.html', {title: ""})
 <body>
   <div class="wrap">
 
-    <!-- header -->
-    <header class="header">
-      <div class="header__inner">
-        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
-        <div class="header__info">
-          <div class="header__info__cell header__page-sort">
-            <span>관리자 페이지</span>
-          </div>
-          <ul class="header__info__cell header__list-count">
-            <li>
-              <span class="key">전체</span>
-              <span class="val point-color">10건</span>
-            </li>
-            <li>
-              <span class="key">전체</span>
-              <span class="val point-color">8건</span>
-            </li>
-            <li>
-              <span class="key">계약만료</span>
-              <span class="val point-color">2건</span>
-            </li>
-          </ul>
-          <div class="header__info__cell header__input-search">
-            <div class="input-box type-search">
-              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
-            </div>
-          </div>
-        </div>
-        <div class="header__util">
-          <a href="#">홍길동님</a>
-          <a href="#">도움말</a>
-          <a href="#">로그아웃</a>
-        </div>
-      </div>
-    </header>
-    <!-- //header -->
+    @@include('./header.html')
     
     <!-- container -->
     <div class="container">
-      <!-- snb -->
-      <nav class="snb" data-ref="sideNav">
-        
-        
-        <ul class="snb__menu">
-          <li><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
-          <li><a href="WAP-EMPL-0010.html" class="snb__depth1--btn icon4">채용등록</a></li>
-          <li><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon7">채용목록</a></li>
-          <li>
-            <button
-              type="button"
-              class="snb__depth1--btn icon5"
-              aria-expanded="false"
-              aria-controls="snbSubMenu1"
-            ><span>보관함</span></button>
-            <div id="snbSubMenu1" class="snb__depth2">
-              <ul>
-                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
-                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
-                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
-                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
-                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
-                <li><a href="WAP-CONT-0270.html">만족도조사</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="isCurrent">
-            <button
-              type="button"
-              class="snb__depth1--btn icon6"
-              aria-expanded="true"
-              aria-controls="snbSubMenu2"
-            ><span>기업정보</span></button>
-            <div id="snbSubMenu2" class="snb__depth2 isOpen">
-              <ul>
-                <li class="isCurrent"><a href="WAP-CORP-0022.html">기업정보</a></li>
-                <li><a href="WAP-SYS-0090.html">사용자</a></li>
-                <li><a href="WAP-ETPR-0070.html">채용홈페이지</a></li>
-                <li><a href="WAP-ETPR-0200.html">개인정보 삭제기준</a></li>
-                <li><a href="WAP-ETPR-0210.html">발송이력</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-        
-        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
-      </nav>
-      <script>
-        const sideNav = new SideNav({target: "sideNav"});
-      </script>
-      <!-- //snb -->
+      @@include('./snb.html', {type: "기업담당자", dep1: "5", dep2: "5"})
 
       <!-- contents -->
       <div class="contents">
-        <h3 class="title-sub">기업정보</h3>
+        <div class="title d-flex jc-sb ai-c">
+          <h3 class="title-sub">기업정보</h3>
+          <div class="row-col has-gap">
+            <button class="base-btn type2__size-s">
+              <span>개인정보관리</span>
+            </button>
+            <button class="base-btn type2__size-s">
+              <span>계약정보</span>
+            </button>
+            <button class="base-btn type2__size-s">
+              <span>채용 홈페이지 정보</span>
+            </button>
+          </div>
+        </div>
 
         <div class="box-type1 relative-box">
           <div class="box-flex type-gap3">
             <div class="dashboard__corp-logo type2">
-              <img src="../../assets/images/logo2x.png" alt="">
+              <img src="../../assets/images/logo-orp-institute.png" alt="orp institute">
             </div>
             <div class="dashboard__corp-info3">
               <p class="info-item">
@@ -277,11 +193,41 @@
                   <th scope="col">부서</th>
                   <th scope="col">직급</th>
                   <th scope="col">회사전화번호</th>
+                  <th scope="col">핸드폰</th>
+                  <th scope="col">사용자권한</th>
+                  <th scope="col">등록정보</th>
+                  <th scope="col">최종수정정보</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="pd-type1">
+                  <td>
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>9999</td>
+                  <td>사용</td>
+                  <td><a href="#">박현준</a></td>
+                  <td class="point-color">매우 부적합/부적합/보통/적합/매우적합</td>
+                  <td>
+                    <label class="btn-toggle size-s">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                  <td>
+                    <div>2023.09.01</div>
+                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
                     <label class="input-chk">
                       <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>
@@ -307,7 +253,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="pd-type1">
+                  <td>
                     <label class="input-chk">
                       <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>
@@ -333,7 +279,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="pd-type1">
+                  <td>
                     <label class="input-chk">
                       <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>
@@ -359,7 +305,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="pd-type1">
+                  <td>
                     <label class="input-chk">
                       <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>
@@ -385,33 +331,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="pd-type1">
-                    <label class="input-chk">
-                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>9999</td>
-                  <td>32</td>
-                  <td>3 구간</td>
-                  <td class="point-color">매우 부적합/부적합/보통/적합/매우적합</td>
                   <td>
-                    <label class="btn-toggle size-s">
-                      <input type="checkbox">
-                      <span>버튼</span>
-                    </label>
-                  </td>
-                  <td>
-                    <div>2023.09.01</div>
-                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
-                  </td>
-                  <td>
-                    <div>2023.09.01</div>
-                    <div class="font-size-s">dayun.kim@orpinsitute.com</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="pd-type1">
                     <label class="input-chk">
                       <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>
@@ -447,81 +367,7 @@
     <!-- //container -->
     
   </div>
-  <div class="layer-popup type-modal" data-ref="WAP-SYS-0110">
-  <section class="popup__container popup__size-m">
-    <div class="popup__header">
-      <h3 class="popup__title">기업 등록</h3>
-    </div>
-    <div class="popup__contents popup__scroll-view" style="height: 500px;">
-      <div class="form-row">
-        <h4 class="title-sub2">기업명<span class="required-mark">필수</span></h4>
-        <div class="form-inner">
-          <div class="input-box" style="width: 100%">
-            <input type="text" class="input-txt" placeholder="입력해주세요" oninput="inputValueChk()" required value="ORP연구소">
-            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <h4 class="title-sub2">사업자등록번호<span class="required-mark">필수</span></h4>
-        <div class="form-inner">
-          <div class="input-box" style="width: 100%">
-            <input type="text" class="input-txt" placeholder="입력해주세요" oninput="inputValueChk()" required value="114-86-21814">
-            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <h4 class="title-sub2">주소<span class="required-mark">필수</span></h4>
-        <div class="form-inner">
-          <div class="input-box" style="width: 120px">
-            <input type="text" class="input-txt" placeholder="우편번호" readonly required value="000000">
-          </div>
-          <div class="input-box" style="flex: 1;">
-            <input type="text" class="input-txt" placeholder="주소를 검색하여 입력해주세요." readonly required value="서울특별시 서초구 서초대로 67(방배동)">
-          </div>
-          <button class="base-btn type2__size-s">검색</button>
-        </div>
-        <div class="form-inner">
-          <div class="input-box" style="width: 100%">
-            <input type="text" class="input-txt" placeholder="상세 주소를 입력하세요" oninput="inputValueChk()" required value="3층">
-            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <h4 class="title-sub2">대표번호<span class="required-mark">필수</span></h4>
-        <div class="form-inner">
-          <div class="input-box" style="width: 100%">
-            <input type="text" class="input-txt" placeholder="연락가능한 번호를 입력하세요" oninput="inputValueChk()" required value="012312031">
-            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <h4 class="title-sub2">기업 홈페이지</h4>
-        <div class="form-inner">
-          <div class="input-box" style="width: 100%">
-            <input type="text" class="input-txt" placeholder="연락가능한 번호를 입력하세요" oninput="inputValueChk()">
-            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="popup__btn-wrap">
-      <button class="base-btn type1__size-m">저장</button>
-    </div>
-    <button class="btn-close" onclick="WAP_SYS_0110.hide()">닫기</button>
-  </section>
-</div>
-<script>
-  const WAP_SYS_0110 = new LayerPopup({target: "WAP-SYS-0110"});
-</script>;
+  @@include('../html/corp/WAP-SYS-0110.html');
   
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>

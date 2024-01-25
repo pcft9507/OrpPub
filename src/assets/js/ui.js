@@ -1656,9 +1656,10 @@ $.fn.searchList = function (options) {
       const currentValue = $(this).text();
       const inpHidden = onlySelect.find('.sch-data');
       inpHidden.val(currentValue)
-      sBtn.removeClass('active')
+      sBtn.removeClass('active').text(currentValue)
       sDropOpt.removeClass('active')
-      btnAdd.click()
+      sDropOptBtn.removeClass('isChecked')
+      $(this).addClass('isChecked')
     })
 
     // 필기전형 포커스 아웃
