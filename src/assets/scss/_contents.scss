@@ -100,6 +100,10 @@
       width: 240px; height: 240px;
       img {max-width: 132px;}
     }
+    &.type3 {
+      width: 160px; height: 160px;
+      img {max-width: 88px;}
+    }
   }
   &__corp-cont {
     flex: 1;
@@ -162,6 +166,57 @@
     .key {
       width: 139px;
       font-weight: 400;
+    }
+  }
+  &__corp-info4 {
+    position: relative;
+    flex: 1;
+    -ms-flex: 1;
+
+    .info-box {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #E0E7ED;
+
+      &:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .info-row {
+        display: flex;
+        padding-top: 16px;
+
+        &:first-child {
+          padding-top: 0;
+        }
+      }
+
+      .ir-head {
+        width: 140px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .ir-data {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+      }
+    }
+
+    .progress__box {
+      gap: 0 16px;
+      margin-top: 16px;
+    }
+
+    .progress__bg {
+      width: 322px;
+    }
+
+    .progress__val {
+      margin-top: 0;
     }
   }
   &__emply-info {

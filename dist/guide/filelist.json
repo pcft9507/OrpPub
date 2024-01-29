@@ -67,6 +67,11 @@
           "url" : "./html/admin/WAP-CORP-0040.html"
         },
         {
+          "dep2" : "계약 정보",
+          "name" : "WAP-CORP-0050",
+          "url" : "./html/admin/WAP-CORP-0050.html"
+        },
+        {
           "dep1" : "콘텐츠 관리",
           "dep2" : "입사 원서",
           "dep3" : "양식 관리",

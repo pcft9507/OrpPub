@@ -608,6 +608,12 @@ hr {
   left: 20px;
 }
 
+.btn-down span:before {
+  position: relative;
+  top: -1px;
+  margin-right: 2px;
+}
+
 .toggle-show {
   cursor: pointer;
   display: inline-block;
@@ -1018,7 +1024,7 @@ input[type=radio] {
      -moz-appearance: none;
           appearance: none;
   background: var(--bg-color2);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color1);
   border-radius: var(--radius1);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1063,6 +1069,7 @@ textarea {
 }
 
 .input-txt {
+  height: 48px;
   padding: 13px 15px 12px;
   caret-color: var(--form-caret);
 }
@@ -1076,6 +1083,7 @@ textarea {
   color: var(--font-color3);
 }
 .input-txt.size-s {
+  height: 44px;
   padding: 7px 12px;
   font-size: 12px;
   font-weight: 400;
@@ -1166,6 +1174,9 @@ textarea {
 }
 .input-box.type-calendar .input-txt {
   padding: 13px 15px 12px 46px;
+}
+.input-box.type-calendar.bo-head .input-txt {
+  width: 170px;
 }
 .input-box.type-time:before {
   content: "";
@@ -1959,6 +1970,9 @@ textarea {
 }
 .table.ph4 thead th:last-child {
   padding-right: 32px;
+}
+.table.ph4 tbody tr {
+  border-bottom: 1px solid var(--border-color5);
 }
 .table.ph4 tbody td:first-child {
   padding-left: 32px;
@@ -3113,6 +3127,13 @@ textarea {
 .dashboard__corp-logo.type2 img {
   max-width: 132px;
 }
+.dashboard__corp-logo.type3 {
+  width: 160px;
+  height: 160px;
+}
+.dashboard__corp-logo.type3 img {
+  max-width: 88px;
+}
 .dashboard__corp-cont {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -3213,6 +3234,51 @@ textarea {
 .dashboard__corp-info3 .key {
   width: 139px;
   font-weight: 400;
+}
+.dashboard__corp-info4 {
+  position: relative;
+  -webkit-box-flex: 1;
+          flex: 1;
+  -ms-flex: 1;
+}
+.dashboard__corp-info4 .info-box {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #E0E7ED;
+}
+.dashboard__corp-info4 .info-box:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.dashboard__corp-info4 .info-box .info-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 16px;
+}
+.dashboard__corp-info4 .info-box .info-row:first-child {
+  padding-top: 0;
+}
+.dashboard__corp-info4 .info-box .ir-head {
+  width: 140px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.dashboard__corp-info4 .info-box .ir-data {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.dashboard__corp-info4 .progress__box {
+  gap: 0 16px;
+  margin-top: 16px;
+}
+.dashboard__corp-info4 .progress__bg {
+  width: 322px;
+}
+.dashboard__corp-info4 .progress__val {
+  margin-top: 0;
 }
 .dashboard__emply-info {
   margin-top: var(--content-margin3);
@@ -3750,11 +3816,11 @@ textarea {
   border-radius: 6px;
   background: #fff;
 }
-.sch-comp__add {
+.sch-comp__sch {
   width: 70px;
   margin-left: 16px;
 }
-.sch-comp__add button {
+.sch-comp__sch button {
   width: 100%;
 }
 .sch-comp__result-list {

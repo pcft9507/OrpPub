@@ -1,0 +1,960 @@
+@@include('./head.html', {title: ""})
+
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "관리자", dep1: "1", dep2: "2"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">채용 관리</h3>
+        
+        <!-- 좌측 콤보박스(dropdown first)와 우측 입력의(sch-comp__inp)의 data-type을 맞춰주셔야 합니다. -->
+        <div class="sch-comp box-type1" data-type="text">
+          <div class="sch-comp__in">
+            <div class="sch-comp__select">
+              <div class="dropdown first" tabindex="0">
+                <button type="button" class="dropdown-btn">전체</button>
+
+                <div class="dropdown-option">
+                  <div class="inner">
+                    <!-- D:전체 텍스트 입력 -->
+                    <button data-type="text" class="isChecked">전체</button>
+                    <!-- D:전체 텍스트 입력 -->
+                    <button data-type="search-select">기업명</button>
+                    <!-- D:전체 텍스트 입력 -->
+                    <button data-type="date-picker">공고기간</button>
+                    <!-- D:전체 텍스트 입력 -->
+                    <button data-type="select">필기전형</button>
+                    <!-- D:전체 텍스트 입력 -->
+                    <button data-type="number">공고번호</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sch-comp__inp-wrap">
+
+              <!-- D:전체 텍스트 입력 -->
+              <div class="sch-comp__inp active" data-type="text">
+                <div class="input-box type-search">
+                  <input type="text" class="input-txt sch-data" placeholder="검색어를 입력해주세요" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                </div>
+              </div>
+              <!-- // D: 전체 텍스트 입력 -->
+
+              <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+              <div class="sch-comp__inp" data-type="search-select">
+                <button class="sch-comp__ss-btn dropdown-btn">선택</button>
+                <div class="sch-comp__ss">
+                  <div class="input-box type-search">
+                    <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                  </div>
+                  <div class="sch-comp__ss-result">
+                    <input type="hidden" class="sch-data">
+                    <ul class="sch-comp__result-list">
+                      <li data-value="1"><a href="#" class="sch-comp__btn-result">지방공기업평가원</a></li>
+                      <li data-value="167" class="depth02"><a href="#" class="sch-comp__btn-result">케이티아이에스4</a></li>
+                      <li data-value="204" class="depth02"><a href="#" class="sch-comp__btn-result">포스코</a></li>
+                      <li data-value="297" class="depth02"><a href="#" class="sch-comp__btn-result">테스트기업입니다</a></li>
+                      <li data-value="331" class="depth02"><a href="#" class="sch-comp__btn-result">test</a></li>
+                      <li data-value="1000" class="depth02"><a href="#" class="sch-comp__btn-result">test</a></li>
+                      <li data-value="1023" class="depth02"><a href="#" class="sch-comp__btn-result">잘나가는기업</a></li>
+                      <li data-value="1024" class="depth02"><a href="#" class="sch-comp__btn-result">양갈비</a></li>
+                      <li data-value="1033" class="depth02"><a href="#" class="sch-comp__btn-result">스위트회사</a></li>
+                      <li data-value="1060" class="depth02"><a href="#" class="sch-comp__btn-result">지방공기업평가원222</a></li>
+                      <li data-value="1103" class="depth02"><a href="#">채용을 그리다</a></li>
+                      <li data-value="1127" class="depth02"><a href="#">testCompany</a></li>
+                      <li data-value="10"><a href="#">한국수자원공사</a></li>
+                      <li data-value="252" class="depth02"><a href="#">asdasd</a></li>
+                      <li data-value="263" class="depth02"><a href="#">약관1.</a></li>
+                      <li data-value="295" class="depth02"><a href="#">(주)물펑펑</a></li>
+                      <li data-value="1004" class="depth02"><a href="#">testt5asdasd</a></li>
+                      <li data-value="1074" class="depth02"><a href="#">수자원 신규신규</a></li>
+                      <li data-value="11"><a href="#">국민건강보험공단123</a></li>
+                      <li data-value="251" class="depth02"><a href="#">asdasdasd</a></li>
+                      <li data-value="302" class="depth02"><a href="#">bnp21</a></li>
+                      <li data-value="1118" class="depth02"><a href="#">testco</a></li>
+                      <li data-value="12"><a href="#">Guest</a></li>
+                      <li data-value="101" class="depth02"><a href="#">전남대병원 Test</a></li>
+                      <li data-value="257" class="depth02"><a href="#">시도군구테스트</a></li>
+                      <li data-value="296" class="depth02"><a href="#">(주)테스트</a></li>
+                      <li data-value="1059" class="depth02"><a href="#">게스트</a></li>
+                      <li data-value="16"><a href="#">한국도로공사</a></li>
+                      <li data-value="65" class="depth02"><a href="#">강원본부</a></li>
+                      <li data-value="66" class="depth02"><a href="#">수도권본부</a></li>
+                      <li data-value="67" class="depth02"><a href="#">충북본부</a></li>
+                      <li data-value="68" class="depth02"><a href="#">대전충남본부</a></li>
+                      <li data-value="69" class="depth02"><a href="#">전북본부</a></li>
+                      <li data-value="70" class="depth02"><a href="#">광주전남본부</a></li>
+                      <li data-value="71" class="depth02"><a href="#">대구경북본부</a></li>
+                      <li data-value="72" class="depth02"><a href="#">부산경남본부</a></li>
+                      <li data-value="198" class="depth02"><a href="#">한국도로공사서비스</a></li>
+                      <li data-value="18"><a href="#">대한무역투자진흥공사</a></li>
+                      <li data-value="156" class="depth02"><a href="#">카카오페이지</a></li>
+                      <li data-value="20"><a href="#">서울대학교</a></li>
+                      <li data-value="151" class="depth02"><a href="#">-인성450-수시</a></li>
+                      <li data-value="21"><a href="#">롯데그룹</a></li>
+                      <li data-value="23" class="depth02"><a href="#">롯데칠성음료</a></li>
+                      <li data-value="24" class="depth02"><a href="#">롯데글로벌로지스(주)</a></li>
+                      <li data-value="25" class="depth02"><a href="#">롯데제과</a></li>
+                      <li data-value="26" class="depth02"><a href="#">롯데하이마트</a></li>
+                      <li data-value="27" class="depth02"><a href="#">롯데마트</a></li>
+                      <li data-value="30" class="depth02"><a href="#">롯데지알에스</a></li>
+                      <li data-value="31" class="depth02"><a href="#">롯데면세점</a></li>
+                      <li data-value="32" class="depth02"><a href="#">롯데비피화학</a></li>
+                      <li data-value="33" class="depth02"><a href="#">롯데손해보험</a></li>
+                      <li data-value="34" class="depth02"><a href="#">롯데아사히주류</a></li>
+                      <li data-value="35" class="depth02"><a href="#">롯데e커머스</a></li>
+                      <li data-value="36" class="depth02"><a href="#">롯데캐논코리아</a></li>
+                      <li data-value="37" class="depth02"><a href="#">롯데케미칼</a></li>
+                      <li data-value="38" class="depth02"><a href="#">롯데케미칼(연구소)</a></li>
+                      <li data-value="39" class="depth02"><a href="#">롯데케미칼(여수공장)</a></li>
+                      <li data-value="40" class="depth02"><a href="#">롯데케미칼(울산공장)</a></li>
+                      <li data-value="41" class="depth02"><a href="#">롯데첨단소재</a></li>
+                      <li data-value="42" class="depth02"><a href="#">롯데푸드</a></li>
+                      <li data-value="43" class="depth02"><a href="#">롯데홈쇼핑</a></li>
+                      <li data-value="44" class="depth02"><a href="#">롯데주류</a></li>
+                      <li data-value="45" class="depth02"><a href="#">롯데자산개발</a></li>
+                      <li data-value="46" class="depth02"><a href="#">롯데건설</a></li>
+                      <li data-value="47" class="depth02"><a href="#">롯데닷컴</a></li>
+                      <li data-value="48" class="depth02"><a href="#">롯데알미늄</a></li>
+                      <li data-value="49" class="depth02"><a href="#">롯데정밀화학</a></li>
+                      <li data-value="50" class="depth02"><a href="#">롯데캐피탈</a></li>
+                      <li data-value="51" class="depth02"><a href="#">롯데정보통신</a></li>
+                      <li data-value="52" class="depth02"><a href="#">한국후지필름</a></li>
+                      <li data-value="53" class="depth02"><a href="#">롯데마이비</a></li>
+                      <li data-value="54" class="depth02"><a href="#">롯데리조트</a></li>
+                      <li data-value="55" class="depth02"><a href="#">롯데리조트(부여)</a></li>
+                      <li data-value="56" class="depth02"><a href="#">롯데리조트(속초)</a></li>
+                      <li data-value="57" class="depth02"><a href="#">롯데스카이힐(김해CC)</a></li>
+                      <li data-value="58" class="depth02"><a href="#">롯데스카이힐(제주CC)</a></li>
+                      <li data-value="59" class="depth02"><a href="#">롯데스카이힐(부여CC)</a></li>
+                      <li data-value="61" class="depth02"><a href="#">롯데 아트빌라스</a></li>
+                      <li data-value="100" class="depth02"><a href="#">롯데글로벌로지스(주)</a></li>
+                      <li data-value="123" class="depth02"><a href="#">롯데코리아세븐</a></li>
+                      <li data-value="125" class="depth02"><a href="#">롯데한페이시스</a></li>
+                      <li data-value="149" class="depth02"><a href="#">롯데중앙연구소</a></li>
+                      <li data-value="62"><a href="#">매일유업</a></li>
+                      <li data-value="119" class="depth02"><a href="#">매일유업 평택공장</a></li>
+                      <li data-value="120" class="depth02"><a href="#">매일유업 경산공장</a></li>
+                      <li data-value="124" class="depth02"><a href="#">매일유업 상하공장</a></li>
+                      <li data-value="139" class="depth02"><a href="#">매일유업 영동공장</a></li>
+                      <li data-value="140" class="depth02"><a href="#">매일유업 청양공장</a></li>
+                      <li data-value="146" class="depth02"><a href="#">매일유업 아산공장</a></li>
+                      <li data-value="192" class="depth02"><a href="#">매일유업 광주공장</a></li>
+                      <li data-value="206" class="depth02"><a href="#">매일유업 본사</a></li>
+                      <li data-value="1058" class="depth02"><a href="#">매일매일</a></li>
+                      <li data-value="73"><a href="#">한국도로공사(필기)</a></li>
+                      <li data-value="142" class="depth02"><a href="#">한국도로공사 법무실</a></li>
+                      <li data-value="82"><a href="#">주식회사삼호</a></li>
+                      <li data-value="84"><a href="#">고려개발</a></li>
+                      <li data-value="85"><a href="#">테스트기업</a></li>
+                      <li data-value="86"><a href="#">삼화페인트</a></li>
+                      <li data-value="87"><a href="#">대우건설</a></li>
+                      <li data-value="89"><a href="#">쎄트렉아이</a></li>
+                      <li data-value="90"><a href="#">Guest</a></li>
+                      <li data-value="91"><a href="#">Wiselection</a></li>
+                      <li data-value="92"><a href="#">한국수자원공사ㅂ</a></li>
+                      <li data-value="93"><a href="#">동화청과</a></li>
+                      <li data-value="94"><a href="#">에이플러스디</a></li>
+                      <li data-value="95"><a href="#">대림산업 석유화학사업부</a></li>
+                      <li data-value="96"><a href="#">대림AMC</a></li>
+                      <li data-value="98"><a href="#">써모피셔사이언티픽코리아</a></li>
+                      <li data-value="99"><a href="#">한국타이어</a></li>
+                      <li data-value="188" class="depth02"><a href="#">한국네트웍스</a></li>
+                      <li data-value="200" class="depth02"><a href="#">TNA</a></li>
+                      <li data-value="102"><a href="#">세미크론</a></li>
+                      <li data-value="103"><a href="#">한국광기술원</a></li>
+                      <li data-value="104"><a href="#">테스트기업2</a></li>
+                      <li data-value="253" class="depth02"><a href="#">기업 수정</a></li>
+                      <li data-value="106"><a href="#">세아제강</a></li>
+                      <li data-value="107"><a href="#">정보통신산업진흥원</a></li>
+                      <li data-value="108"><a href="#">GS EPS</a></li>
+                      <li data-value="109"><a href="#">근로복지공단</a></li>
+                      <li data-value="122" class="depth02"><a href="#">ㅇㅇ병원</a></li>
+                      <li data-value="126" class="depth02"><a href="#">근로복지공단 인천병원</a></li>
+                      <li data-value="127" class="depth02"><a href="#">근로복지공단 안산병원</a></li>
+                      <li data-value="128" class="depth02"><a href="#">근로복지공단 창원병원</a></li>
+                      <li data-value="130" class="depth02"><a href="#">근로복지공단 대구병원</a></li>
+                      <li data-value="131" class="depth02"><a href="#">근로복지공단 순천병원</a></li>
+                      <li data-value="132" class="depth02"><a href="#">근로복지공단 대전병원</a></li>
+                      <li data-value="133" class="depth02"><a href="#">근로복지공단 태백병원</a></li>
+                      <li data-value="134" class="depth02"><a href="#">근로복지공단 동해병원</a></li>
+                      <li data-value="135" class="depth02"><a href="#">근로복지공단 정선병원</a></li>
+                      <li data-value="136" class="depth02"><a href="#">근로복지공단 경기요양병원</a></li>
+                      <li data-value="137" class="depth02"><a href="#">근로복지공단 본부</a></li>
+                      <li data-value="196" class="depth02"><a href="#">근로복지공단 재활공학연구소</a></li>
+                      <li data-value="110"><a href="#">쌍용건설</a></li>
+                      <li data-value="112"><a href="#">테스트건설기업</a></li>
+                      <li data-value="113"><a href="#">A기업</a></li>
+                      <li data-value="114"><a href="#">테스트황</a></li>
+                      <li data-value="115"><a href="#">테스트기업2232323</a></li>
+                      <li data-value="116"><a href="#">남동발전</a></li>
+                      <li data-value="117"><a href="#">test</a></li>
+                      <li data-value="118"><a href="#">근로복지공단 면접전형</a></li>
+                      <li data-value="121"><a href="#">NCS_450_직업기초능력평가</a></li>
+                      <li data-value="129"><a href="#">근로복지공단 대구병원</a></li>
+                      <li data-value="138"><a href="#">한국남동발전</a></li>
+                      <li data-value="141"><a href="#">한국도로공사 수시채용 전용</a></li>
+                      <li data-value="143"><a href="#">캠코시설관리</a></li>
+                      <li data-value="144"><a href="#">국립국제교육원</a></li>
+                      <li data-value="145"><a href="#">충남테크노파크</a></li>
+                      <li data-value="147"><a href="#">임시기업</a></li>
+                      <li data-value="148"><a href="#">한국동그라미파트너스</a></li>
+                      <li data-value="150"><a href="#">LS오토모티브</a></li>
+                      <li data-value="152"><a href="#">국립해양박물관</a></li>
+                      <li data-value="153"><a href="#">국제개발협력민간협의회</a></li>
+                      <li data-value="154"><a href="#">케이던스코리아</a></li>
+                      <li data-value="155"><a href="#">E1</a></li>
+                      <li data-value="157"><a href="#">한국동그라미파트너스</a></li>
+                      <li data-value="158"><a href="#">과학기술일자리진흥원</a></li>
+                      <li data-value="159"><a href="#">Test Institute</a></li>
+                      <li data-value="160"><a href="#">한국오바라</a></li>
+                      <li data-value="161"><a href="#">(주)나우테크</a></li>
+                      <li data-value="162"><a href="#">케이티아이에스</a></li>
+                      <li data-value="163"><a href="#">(주)워터웨이플러스</a></li>
+                      <li data-value="164"><a href="#">케이티아이에스2</a></li>
+                      <li data-value="165"><a href="#">케이티아이에스3</a></li>
+                      <li data-value="166"><a href="#">고양상공회의소</a></li>
+                      <li data-value="168"><a href="#">케이티아이에스5</a></li>
+                      <li data-value="169"><a href="#">국가평생교육진흥원</a></li>
+                      <li data-value="170"><a href="#">케이티아이에스6</a></li>
+                      <li data-value="171"><a href="#">케이티아이에스7</a></li>
+                      <li data-value="172"><a href="#">남양공업</a></li>
+                      <li data-value="173"><a href="#">판알피나코리아</a></li>
+                      <li data-value="174"><a href="#">노루케미칼</a></li>
+                      <li data-value="175"><a href="#">포항테크노파크</a></li>
+                      <li data-value="176"><a href="#">에이스병원</a></li>
+                      <li data-value="177"><a href="#">한국법제연구원</a></li>
+                      <li data-value="178"><a href="#">올제텍(주)</a></li>
+                      <li data-value="179"><a href="#">(주)워터웨이플러스2</a></li>
+                      <li data-value="180"><a href="#">국가평생교육진흥원2</a></li>
+                      <li data-value="181"><a href="#">한국국방연구원</a></li>
+                      <li data-value="182"><a href="#">코캄(Kokam)</a></li>
+                      <li data-value="183"><a href="#">주식회사 공항철도</a></li>
+                      <li data-value="184"><a href="#">LS전선</a></li>
+                      <li data-value="185"><a href="#">한국시설안전공단</a></li>
+                      <li data-value="186"><a href="#">Texas Instruments Korea</a></li>
+                      <li data-value="187"><a href="#">서울산업진흥원</a></li>
+                      <li data-value="189"><a href="#">KDB산업은행</a></li>
+                      <li data-value="190"><a href="#">TORAY BSF KOREA(도레이)</a></li>
+                      <li data-value="191"><a href="#">농업기술실용화재단</a></li>
+                      <li data-value="193"><a href="#">한국승강기안전공단</a></li>
+                      <li data-value="194"><a href="#">원텍</a></li>
+                      <li data-value="195"><a href="#">쿡앱스</a></li>
+                      <li data-value="197"><a href="#">MBC플러스</a></li>
+                      <li data-value="199"><a href="#">한국도로공사서비스</a></li>
+                      <li data-value="205" class="depth02"><a href="#">한국도로공사서비스 승진평가</a></li>
+                      <li data-value="201"><a href="#">한국도로공사시설관리주식회사</a></li>
+                      <li data-value="202"><a href="#">KCFT</a></li>
+                      <li data-value="207"><a href="#">LS엠트론 전주사업장</a></li>
+                      <li data-value="208"><a href="#">한국선원복지고용센터</a></li>
+                      <li data-value="209"><a href="#">비어케이</a></li>
+                      <li data-value="210"><a href="#">서울시복지재단</a></li>
+                      <li data-value="211"><a href="#">한국콘텐츠진흥원</a></li>
+                      <li data-value="212"><a href="#">서울문화재단</a></li>
+                      <li data-value="213"><a href="#">한국산업기술진흥원</a></li>
+                      <li data-value="214"><a href="#">한국로봇산업진흥원</a></li>
+                      <li data-value="215"><a href="#">포스코건설</a></li>
+                      <li data-value="216"><a href="#">산업연구원</a></li>
+                      <li data-value="217"><a href="#">LS글로벌</a></li>
+                      <li data-value="218"><a href="#">딥스터디코리아</a></li>
+                      <li data-value="219"><a href="#">제주특별자치도개발공사(인크루트)</a></li>
+                      <li data-value="220"><a href="#">테스트를 위한 기업</a></li>
+                      <li data-value="221"><a href="#">SPC그룹</a></li>
+                      <li data-value="222"><a href="#">한국노인인력개발원</a></li>
+                      <li data-value="223"><a href="#">소상공인시장진흥공단</a></li>
+                      <li data-value="224"><a href="#">수출입은행</a></li>
+                      <li data-value="225"><a href="#">나노종합기술원</a></li>
+                      <li data-value="226"><a href="#">포스코_생산기술직</a></li>
+                      <li data-value="227"><a href="#">스포츠윤리센터</a></li>
+                      <li data-value="228"><a href="#">개발 테스트</a></li>
+                      <li data-value="1116" class="depth02"><a href="#">(주)황토방</a></li>
+                      <li data-value="229"><a href="#">개발</a></li>
+                      <li data-value="235" class="depth02"><a href="#">bnp21(기업정보 수정)</a></li>
+                      <li data-value="230"><a href="#">테스트</a></li>
+                      <li data-value="1095" class="depth02"><a href="#">루이비홍</a></li>
+                      <li data-value="232"><a href="#">테스트 232</a></li>
+                      <li data-value="233"><a href="#">테스트 0623</a></li>
+                      <li data-value="234"><a href="#">ㅈㄷㄱㄷ</a></li>
+                      <li data-value="236"><a href="#">테스트_0625</a></li>
+                      <li data-value="237"><a href="#">ㅁㄴㅇㅁㄴㅇ</a></li>
+                      <li data-value="240"><a href="#">asdad</a></li>
+                      <li data-value="241"><a href="#">asdad</a></li>
+                      <li data-value="242"><a href="#">asdad</a></li>
+                      <li data-value="247"><a href="#">신규그룹사111</a></li>
+                      <li data-value="248"><a href="#">테스트1</a></li>
+                      <li data-value="249"><a href="#">테스트1</a></li>
+                      <li data-value="250"><a href="#">test</a></li>
+                      <li data-value="254"><a href="#">칠성전자</a></li>
+                      <li data-value="256"><a href="#">칠성전자1</a></li>
+                      <li data-value="14" class="depth02"><a href="#">LH 한국토지주택공사</a></li>
+                      <li data-value="258"><a href="#">fdbdfshadfhasdfh</a></li>
+                      <li data-value="262"><a href="#">약관</a></li>
+                      <li data-value="265"><a href="#">팔성전자</a></li>
+                      <li data-value="266"><a href="#">지방공기업평가원 하위</a></li>
+                      <li data-value="268"><a href="#">개인정보관리 테스트 기업</a></li>
+                      <li data-value="270"><a href="#">위즈컨1123</a></li>
+                      <li data-value="269" class="depth02"><a href="#">vfhsdfgadfasdf</a></li>
+                      <li data-value="271" class="depth02"><a href="#">test111111</a></li>
+                      <li data-value="274"><a href="#">1112</a></li>
+                      <li data-value="275"><a href="#">YES물산</a></li>
+                      <li data-value="279" class="depth02"><a href="#">YES I&amp;C</a></li>
+                      <li data-value="276"><a href="#">test1111111111</a></li>
+                      <li data-value="278"><a href="#">계열사 신규등록테스트</a></li>
+                      <li data-value="280"><a href="#">신규기업_1</a></li>
+                      <li data-value="281"><a href="#">사성전자21</a></li>
+                      <li data-value="282"><a href="#">테스트용</a></li>
+                      <li data-value="283"><a href="#">채용공고탭 테스트</a></li>
+                      <li data-value="284"><a href="#">test1111</a></li>
+                      <li data-value="285"><a href="#">SK테스트 기업</a></li>
+                      <li data-value="286"><a href="#">1111</a></li>
+                      <li data-value="287"><a href="#">111211111</a></li>
+                      <li data-value="288"><a href="#">11111</a></li>
+                      <li data-value="289"><a href="#">11111</a></li>
+                      <li data-value="290"><a href="#">333</a></li>
+                      <li data-value="291"><a href="#">1</a></li>
+                      <li data-value="292"><a href="#">테스트14</a></li>
+                      <li data-value="293" class="depth02"><a href="#">전융기업</a></li>
+                      <li data-value="294"><a href="#">제이케이인터네셔널인더스트리inc</a></li>
+                      <li data-value="298"><a href="#">테스트기업16</a></li>
+                      <li data-value="299"><a href="#">테스트 17</a></li>
+                      <li data-value="300"><a href="#">121212121</a></li>
+                      <li data-value="301"><a href="#">test_company_1117</a></li>
+                      <li data-value="303"><a href="#">A뮬류</a></li>
+                      <li data-value="332"><a href="#">123qwer</a></li>
+                      <li data-value="74" class="depth02"><a href="#">현대하이라이프</a></li>
+                      <li data-value="333"><a href="#">와이즈셀렉션_SY테스트(수정)</a></li>
+                      <li data-value="22" class="depth02"><a href="#">김해도시개발공사</a></li>
+                      <li data-value="335"><a href="#">11111111111111111</a></li>
+                      <li data-value="13" class="depth02"><a href="#">한국영상자료원</a></li>
+                      <li data-value="19" class="depth02"><a href="#">서울대학교</a></li>
+                      <li data-value="336"><a href="#">TESTTESTTEST</a></li>
+                      <li data-value="340"><a href="#">진갈비</a></li>
+                      <li data-value="341"><a href="#">진갈비</a></li>
+                      <li data-value="342"><a href="#">진갈비</a></li>
+                      <li data-value="343"><a href="#">진갈비</a></li>
+                      <li data-value="344"><a href="#">진갈비</a></li>
+                      <li data-value="345"><a href="#">진갈비</a></li>
+                      <li data-value="346"><a href="#">테스트주식회사</a></li>
+                      <li data-value="338" class="depth02"><a href="#">진갈비</a></li>
+                      <li data-value="347"><a href="#">채용홈페이지 테스트</a></li>
+                      <li data-value="348"><a href="#">12121212121212121212121212121</a></li>
+                      <li data-value="1002"><a href="#">테스트주식회사2</a></li>
+                      <li data-value="1120" class="depth02"><a href="#">Ardent_corp_test_lim</a></li>
+                      <li data-value="1003"><a href="#">진갈비1111</a></li>
+                      <li data-value="1005"><a href="#">Guest</a></li>
+                      <li data-value="1006"><a href="#">11111111</a></li>
+                      <li data-value="1007"><a href="#">사이버펑크닷컴</a></li>
+                      <li data-value="1008"><a href="#">사성전자1216</a></li>
+                      <li data-value="1009"><a href="#">사성전자1218</a></li>
+                      <li data-value="1016"><a href="#">1</a></li>
+                      <li data-value="1017"><a href="#">진갈비</a></li>
+                      <li data-value="1018"><a href="#">(주)GUEST</a></li>
+                      <li data-value="337" class="depth02"><a href="#">진갈비</a></li>
+                      <li data-value="339" class="depth02"><a href="#">진갈비</a></li>
+                      <li data-value="1019"><a href="#">test_1228_수정</a></li>
+                      <li data-value="75" class="depth02"><a href="#">한국수자원공사</a></li>
+                      <li data-value="1021"><a href="#">토트넘 홋스퍼 FC</a></li>
+                      <li data-value="1102" class="depth02"><a href="#">토트넘2군</a></li>
+                      <li data-value="1022"><a href="#">약관.</a></li>
+                      <li data-value="1026"><a href="#">111q</a></li>
+                      <li data-value="1030"><a href="#">주식회사 NCS</a></li>
+                      <li data-value="1031"><a href="#">주식회사 파트투</a></li>
+                      <li data-value="1032"><a href="#">주식회사 파트원</a></li>
+                      <li data-value="1034"><a href="#">주식회사 R&amp;D</a></li>
+                      <li data-value="1037"><a href="#">테스트트트</a></li>
+                      <li data-value="17" class="depth02"><a href="#">한국전력거래소</a></li>
+                      <li data-value="63" class="depth02"><a href="#">DSV</a></li>
+                      <li data-value="76" class="depth02"><a href="#">HDC신라면세점</a></li>
+                      <li data-value="77" class="depth02"><a href="#">대한송유관공사</a></li>
+                      <li data-value="105" class="depth02"><a href="#">엠서클</a></li>
+                      <li data-value="1041"><a href="#">주식회사 기획파트</a></li>
+                      <li data-value="1044" class="depth02"><a href="#">기획파트 계열사</a></li>
+                      <li data-value="1052" class="depth02"><a href="#">기획파트 관계사 2</a></li>
+                      <li data-value="1043"><a href="#">ORP연구소(1차)</a></li>
+                      <li data-value="1047"><a href="#">ㅂㅈㄷㄱ</a></li>
+                      <li data-value="1048"><a href="#">이미지 기업</a></li>
+                      <li data-value="1050"><a href="#">고양이</a></li>
+                      <li data-value="1053"><a href="#">이미지기업</a></li>
+                      <li data-value="1054"><a href="#">CI테스트</a></li>
+                      <li data-value="1055"><a href="#">11w11</a></li>
+                      <li data-value="1056"><a href="#">dsdssd</a></li>
+                      <li data-value="1061"><a href="#">테스트를 위한 기업</a></li>
+                      <li data-value="1065"><a href="#">연속클릭 테스트2</a></li>
+                      <li data-value="1066"><a href="#">연속클릭 테스트2</a></li>
+                      <li data-value="1067"><a href="#">ㅎㅎㅎㅎㅎㅎㅎ</a></li>
+                      <li data-value="1068"><a href="#">연속클릭 테스트</a></li>
+                      <li data-value="1069"><a href="#">연속클릭 테스트</a></li>
+                      <li data-value="1070"><a href="#">연속클릭 테스트</a></li>
+                      <li data-value="1071"><a href="#">연속클릭 테스트</a></li>
+                      <li data-value="1072"><a href="#">연속클릭 테스트</a></li>
+                      <li data-value="1073"><a href="#">신규신규</a></li>
+                      <li data-value="1075"><a href="#">연속</a></li>
+                      <li data-value="1076"><a href="#">연속1</a></li>
+                      <li data-value="1077"><a href="#">연속2</a></li>
+                      <li data-value="1078"><a href="#">연속3</a></li>
+                      <li data-value="1079"><a href="#">연속5</a></li>
+                      <li data-value="1080"><a href="#">연속11</a></li>
+                      <li data-value="1081"><a href="#">orp연속클릭테스트1</a></li>
+                      <li data-value="1082"><a href="#">orp연속클릭2</a></li>
+                      <li data-value="1083"><a href="#">noimg</a></li>
+                      <li data-value="1084"><a href="#">img__</a></li>
+                      <li data-value="1085"><a href="#">기획파트3</a></li>
+                      <li data-value="1086"><a href="#">ORP연구소</a></li>
+                      <li data-value="1087"><a href="#">이미지</a></li>
+                      <li data-value="1088"><a href="#">이미지222</a></li>
+                      <li data-value="81" class="depth02"><a href="#">현대C&amp;R</a></li>
+                      <li data-value="1089"><a href="#">test11</a></li>
+                      <li data-value="1090"><a href="#">opmgt</a></li>
+                      <li data-value="1091"><a href="#">preview</a></li>
+                      <li data-value="1093"><a href="#">3D테크</a></li>
+                      <li data-value="1096"><a href="#">꽃게잼~봉</a></li>
+                      <li data-value="1097"><a href="#">에르미성</a></li>
+                      <li data-value="1098"><a href="#">쟐쥬는 기업</a></li>
+                      <li data-value="1099"><a href="#">김우연</a></li>
+                      <li data-value="1100"><a href="#">늘봄커피테스트</a></li>
+                      <li data-value="64" class="depth02"><a href="#">한국도로공사</a></li>
+                      <li data-value="1101"><a href="#">아동권리보장원_test</a></li>
+                      <li data-value="1105"><a href="#">한국수목원정원관리원(테스트)</a></li>
+                      <li data-value="1106"><a href="#">고수쌀국수</a></li>
+                      <li data-value="1107"><a href="#">io기업</a></li>
+                      <li data-value="1108" class="depth02"><a href="#">io기업_관계사</a></li>
+                      <li data-value="1109" class="depth02"><a href="#">io관계사_p</a></li>
+                      <li data-value="1113" class="depth02"><a href="#">테스트 기업 iosys.</a></li>
+                      <li data-value="1110"><a href="#">테스트_io_기업 신규[]</a></li>
+                      <li data-value="1111"><a href="#">테스트 등록번호</a></li>
+                      <li data-value="78" class="depth02"><a href="#">마리오아울렛</a></li>
+                      <li data-value="88" class="depth02"><a href="#">천일식품</a></li>
+                      <li data-value="1112"><a href="#">123</a></li>
+                      <li data-value="80" class="depth02"><a href="#">대한송유관공사</a></li>
+                      <li data-value="1114"><a href="#">iosys_0009</a></li>
+                      <li data-value="1115"><a href="#">홍길동</a></li>
+                      <li data-value="111" class="depth02"><a href="#">테스트기업2</a></li>
+                      <li data-value="1117" class="depth02"><a href="#">홍길동계열사</a></li>
+                      <li data-value="1119"><a href="#">TEST안녕1</a></li>
+                      <li data-value="1121"><a href="#">아던트_그룹2</a></li>
+                      <li data-value="1135" class="depth02"><a href="#">아던트_계열사test</a></li>
+                      <li data-value="1123"><a href="#">sagongsaTest</a></li>
+                      <li data-value="1128"><a href="#">아던트_그룹1</a></li>
+                      <li data-value="1122" class="depth02"><a href="#">아던트_계열사7</a></li>
+                      <li data-value="1124" class="depth02"><a href="#">아던트_계열사1</a></li>
+                      <li data-value="1125" class="depth02"><a href="#">아던트_계열사2</a></li>
+                      <li data-value="1131" class="depth02"><a href="#">아던트_계열사3</a></li>
+                      <li data-value="1132" class="depth02"><a href="#">아던트_계열사4</a></li>
+                      <li data-value="1133" class="depth02"><a href="#">아던트_계열사5</a></li>
+                      <li data-value="1134" class="depth02"><a href="#">아던트_계열사6</a></li>
+                      <li data-value="1129"><a href="#">테스트기업_아던트_Standard</a></li>
+                      <li data-value="1130"><a href="#">테스트기업_아던트_Primeum</a></li>
+                      <li data-value="83" class="depth02"><a href="#">롯데정보통신</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+
+              <!-- D:기간 입력 -->
+              <div class="sch-comp__inp" data-type="date-picker">
+                <div class="sch-comp__col-row">
+                  <div class="input-box type-calendar">
+                    <input type="text" class="input-txt datepicker-input datepicker-input1" id="calendar1_1" placeholder="일자 선택">
+                  </div>
+                  <span class="cal-dash">-</span>
+                  <div class="input-box type-calendar">
+                    <input type="text" class="input-txt datepicker-input datepicker-input2" id="calendar1_2" placeholder="일자 선택">
+                  </div>
+                </div>
+              </div>
+              <!-- // D:기간 입력 -->
+
+              <!-- D:선택 -->
+              <div class="sch-comp__inp" data-type="select">
+                <input type="hidden" class="sch-data">
+                <div class="dropdown full">
+                  <button class="sch-comp__s-btn dropdown-btn">선택</button>
+                  <div class="dropdown-option">
+                    <div class="inner">
+                      <button class="isChecked">인성검사</button>
+                      <button>적성검사</button>
+                      <button>기타검사</button>
+                      <button>K-TEST</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- // D:선택 -->
+
+              <!-- D:숫자만 입력 -->
+              <div class="sch-comp__inp" data-type="number">
+                <div class="input-box">
+                  <input type="text" class="input-txt a-num sch-data" placeholder="공고번호 입력" oninput="inputNumber();">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                </div>
+              </div>
+              <!-- // D:숫자만 입력 -->
+
+            </div>
+
+            <!-- // D:추가 버튼 -->
+            <div class="sch-comp__add">
+              <button class="btn-add base-btn type1__size-m">추가</button>
+            </div>
+            <!-- // D:추가 버튼 -->
+          </div>
+
+          <div class="search-tag content-mt4" id="searchTag">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m js-reset">초기화</button>
+              <button class="base-btn type1__size-m js-go">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType: 1,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+
+            <div class="dropdown" style="width: 172px;">
+              <button type="button" class="dropdown-btn size-s" data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "multi",
+                  "option": [
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "all": true,
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "관리자",
+                      "value": "관리자",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "기업명",
+                      "value": "기업명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용명",
+                      "value": "채용명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "채용기간",
+                      "value": "채용기간",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "지원자(채용분야)",
+                      "value": "지원자(채용분야)",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "진행상태",
+                      "value": "진행상태",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'>
+                <span class="dropdown-btn__label">분야</span>
+                <span class="dropdown-btn__checked">전체</span>
+              </button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this => {
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s" data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'>10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this => {
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1" data-ref="checkTarget">
+            <table>
+              <colgroup>
+                <col style="width: 56px" />
+                <col style="width: 50px" />
+                <col style="width: 40px" />
+                <col style="width: 106px" />
+                <col style="width: 180px" />
+                <col style="width: 100px" />
+                <col />
+                <col style="width: 200px" />
+                <col style="width: 140px" />
+                <col style="width: 140px" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" value="chkAll" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">NO</th>
+                  <th scope="col">
+                    <span class="base-icon icon-mark__color1__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </th>
+                  <th scope="col">관리자</th>
+                  <th scope="col">기업명</th>
+                  <th scope="col">공고번호</th>
+                  <th scope="col">채용명</th>
+                  <th scope="col">채용 기간</th>
+                  <th scope="col">지원자(채용분야)</th>
+                  <th scope="col">진행상태</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color1__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>면접전형 1차마감</div>
+                    <div class="point-color2">d-213</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>필기전형 1차마감</div>
+                    <div class="point-color3">d-2</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>필기전형 1차마감</div>
+                    <div class="point-color4">d-2</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div class="point-color5">전형 기간 미등록</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>면접전형 1차마감</div>
+                    <div class="point-color2">d-213</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>필기전형 1차마감</div>
+                    <div class="point-color3">d-2</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>필기전형 1차마감</div>
+                    <div class="point-color4">d-2</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div class="point-color5">전형 기간 미등록</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div>필기전형 1차마감</div>
+                    <div class="point-color4">d-2</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('checkTarget')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td>
+                    <span class="base-icon icon-mark__color3__size-m">
+                      <span class="isHidden">마크</span>
+                    </span>
+                  </td>
+                  <td>그룹사</td>
+                  <td>테스트기업_아던트</td>
+                  <td>621</td>
+                  <td class="point-color">[김준영] 평가 flow 확인 공고명</td>
+                  <td>2023.09.01~2033.12.31</td>
+                  <td>2명(2개 분야)</td>
+                  <td>
+                    <div class="point-color5">전형 기간 미등록</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="pagination">
+          <button type="button" class="pagination__nav-prev" disabled>이전</button>
+          <div class="pagination__number">
+            <button type="button" class="pagination__nav-btn" disabled>1</button>
+            <button type="button" class="pagination__nav-btn">2</button>
+            <button type="button" class="pagination__nav-btn">3</button>
+            <button type="button" class="pagination__nav-btn">4</button>
+            <button type="button" class="pagination__nav-btn">5</button>
+          </div>
+          <button type="button" class="pagination__nav-next">다음</button>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+
+  </div>
+  @@include('../html/admin/WAP-CORP-0020.html');
+
+  <script>
+    // 데이트 피커
+    const datepicker1_1 = document.getElementById('calendar1_1');
+    const calendar1_1 = new Datepicker(datepicker1_1, {
+      ...CALENDAR_DEFAULT_OPTION,
+      ...{
+        "minDate": "2023.12.06",
+        "maxDate": "2023.12.20",
+      }
+    });
+
+    // 날짜가 선택될 때 이벤트 리스너 추가
+    datepicker1_1.addEventListener('changeDate', function() {
+      calendar1_1.hide(); // 달력을 숨김
+    });
+
+    const datepicker1_2 = document.getElementById('calendar1_2');
+    const calendar1_2 = new Datepicker(datepicker1_2, {
+      ...CALENDAR_DEFAULT_OPTION,
+      ...{
+        "minDate": "2023.12.06",
+        "maxDate": "2023.12.20",
+      }
+    });
+
+    // 날짜가 선택될 때 이벤트 리스너 추가
+    datepicker1_2.addEventListener('changeDate', function() {
+      calendar1_2.hide(); // 달력을 숨김
+    });
+
+    // 리스트 조건 검색
+    $('.sch-comp').searchList();
+  </script>
+</body>
+</html>

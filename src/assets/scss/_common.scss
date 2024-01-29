@@ -277,6 +277,17 @@ hr {
     input[type="checkbox"]:checked ~ span:before {left: 20px;}
   }
 }
+.btn-down {
+  
+  span {
+
+    &:before {
+      position: relative;
+      top: -1px;
+      margin-right: 2px;
+    }
+  }
+}
 .toggle-show {
   cursor: pointer;
   display: inline-block;
@@ -592,7 +603,7 @@ input[type="radio"] {
   margin: 0;
   appearance: none;
   background: var(--bg-color2);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color1);
   border-radius: var(--radius1);
   box-sizing: border-box;
   vertical-align: top;
@@ -611,6 +622,7 @@ textarea {
   padding: 12px 15px;
 }
 .input-txt {
+  height: 48px;
   padding: 13px 15px 12px;
   caret-color: var(--form-caret);
   &:focus {
@@ -623,6 +635,7 @@ textarea {
     color: var(--font-color3);
   }
   &.size-s {
+    height: 44px;
     padding: 7px 12px;
     @include font(12px, 400);
   }
@@ -687,7 +700,15 @@ textarea {
       margin-top: -12px;
       @include svgfill( var(--icon-color1), var(--icon-url), -96px -72px );
     }
-    .input-txt {padding: 13px 15px 12px 46px;}
+    .input-txt {
+      padding: 13px 15px 12px 46px;
+    }
+    &.bo-head {
+
+      .input-txt {
+        width: 170px;
+      }
+    }
   }
   &.type-time {
     &:before {
@@ -918,7 +939,8 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; height: 48px;
+    width: 100%; 
+    height: 48px;
     padding: 0 40px 0 14px;
     background: var(--bg-color2);
     border: 1px solid var(--border-color1);
@@ -1310,6 +1332,10 @@ textarea {
     }
 
     tbody {
+
+      tr {
+        border-bottom: 1px solid var(--border-color5);
+      }
 
       td:first-child {
         padding-left: 32px;

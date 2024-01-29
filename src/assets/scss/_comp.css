@@ -56,12 +56,12 @@
   background: #fff;
 }
 
-.sch-comp__add {
+.sch-comp__sch {
   width: 70px;
   margin-left: 16px;
 }
 
-.sch-comp__add button {
+.sch-comp__sch button {
   width: 100%;
 }
 
