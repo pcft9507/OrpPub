@@ -520,16 +520,20 @@ class DropDown {
 	}
 	setInitialValue() {
 		// 모든 옵션의 checked를 초기화
-    this.data.option.forEach((opt) => opt.checked = false);
+		this.data.option.forEach((opt) => opt.checked = false);
 
-    // initial 값이 제공되었고, 일치하는 value를 가진 옵션이 있는 경우 해당 옵션을 선택
-    if (this.initial !== null) {
-      const matchingOption = this.data.option.find(opt => opt.value === this.initial);
-      if (matchingOption) {
-        matchingOption.checked = true;
-      }
-    }
+		// initial 값이 제공되었고, 일치하는 value를 가진 옵션이 있는 경우 해당 옵션을 선택
+		if (this.initial !== null) {
+			const matchingOption = this.data.option.find(opt => opt.value === this.initial);
+			if (matchingOption) {
+				matchingOption.checked = true;
+			}
+		}
 	}
+	updateInitial(newInitial) {
+	    this.initial = newInitial;
+	    this.setInitialValue();
+  	}
 }
 
 class GlobalSetObj {
@@ -547,13 +551,20 @@ class GlobalSetObj {
 		};
 		this.init(this.componentName);
 	}
-	init(componentName, params) {
+	init(componentName, params = {}) {
 		const item = document.querySelectorAll(`[data-${componentName}]`);
 		item.forEach(btnEl => {
 			const data = JSON.parse(btnEl.dataset[componentName]);
-			if (componentName === 'dropdown' && !this.items.hasOwnProperty(data.name)) {
-				const initial = params && params.initial ? params.initial : 0;
-				this.addDropdown(btnEl, data, initial);
+			if (componentName === 'dropdown') {
+				if (!this.items.hasOwnProperty(data.name)) {
+					// Dropdown 인스턴스가 아직 없는 경우 새로 생성
+					const initial = params.initial || 0;
+					this.addDropdown(btnEl, data, initial);
+				} else {
+					// 이미 생성된 Dropdown 인스턴스가 있는 경우 상태 업데이트
+					const initial = params.initial || 0;
+					this.items[data.name].updateInitial(initial);
+				}
 			}
 		});
 		if (params && this.items[params.name] && typeof params.onChange === 'function') {
@@ -772,6 +783,7 @@ const inputCheckAll = target => {
 		}
 	}
 }
+
 class LayerPopup {
 	/**
 	 * 레이어팝업

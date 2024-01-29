@@ -14,7 +14,8 @@
 
         <h3 class="title-sub">채용 관리</h3>
         
-        <!-- 좌측 콤보박스(dropdown first)와 우측 입력의(sch-comp__inp)의 data-type을 맞춰주셔야 합니다. -->
+        <!-- 검색영역 -->
+        <!-- D: 좌측 콤보박스 index값 받아서 우측 입력영역 표시 -->
         <div class="sch-comp box-type1">
           <div class="sch-comp__in">
             <div class="sch-comp__select">
@@ -219,6 +220,7 @@
             <!-- // D:검색 버튼 -->
           </div>
         </div>
+        <!-- 검색영역 -->
 
         <div class="base-tab tab-type1 content-mt6" data-ref="tabContents1">
           <ul class="tab__list" role="tablist">
@@ -662,9 +664,6 @@
     datepicker1_2.addEventListener('changeDate', function() {
       calendar1_2.hide(); // 달력을 숨김
     });
-
-    // 리스트 조건 검색
-    //$('.sch-comp').searchList();
   </script>
 </body>
 </html>
