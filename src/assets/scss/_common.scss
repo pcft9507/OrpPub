@@ -373,8 +373,8 @@ hr {
   &-inner {
     display: flex;
     align-items: center;
-    gap: var(--content-margin);
-    &.type-gap2 {gap: var(--content-margin1);}
+    &.type-gap1 {gap: var(--content-margin1);}
+    &.type-gap2 {gap: var(--content-margin2);}
     &.type-gap3 {gap: var(--content-margin3);}
     &.align-top {align-items: flex-start;}
 
@@ -1723,6 +1723,12 @@ textarea {
   
   .title-sub {
     margin-bottom: 0;
+  }
+
+  .wave {
+    display: flex;
+    justify-content: center;
+    width: 42px;
   }
 }
 

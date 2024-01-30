@@ -727,10 +727,12 @@ hr {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: var(--content-margin);
+}
+.form-inner.type-gap1 {
+  gap: var(--content-margin1);
 }
 .form-inner.type-gap2 {
-  gap: var(--content-margin1);
+  gap: var(--content-margin2);
 }
 .form-inner.type-gap3 {
   gap: var(--content-margin3);
@@ -2468,6 +2470,15 @@ textarea {
 .d-flex .title-sub {
   margin-bottom: 0;
 }
+.d-flex .wave {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 42px;
+}
 
 .agree-toggle-row {
   display: -webkit-box;
@@ -3809,7 +3820,7 @@ textarea {
           justify-content: space-between;
 }
 .find-addr .addr-list li .result-col1 {
-  width: calc(100% - 120px);
+  width: calc(100% - 150px);
 }
 .find-addr .addr-list li .result-col2 {
   width: 120px;
