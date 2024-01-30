@@ -373,10 +373,14 @@ hr {
   &-inner {
     display: flex;
     align-items: center;
-    gap: var(--content-margin2);
+    gap: var(--content-margin);
     &.type-gap2 {gap: var(--content-margin1);}
     &.type-gap3 {gap: var(--content-margin3);}
     &.align-top {align-items: flex-start;}
+
+    & + .pop-guide-txt {
+      margin-top: var(--content-margin2);
+    }
   }
   &-inner ~ &-inner {margin-top: var(--content-margin2);}
   &-inner ~ &-inner.type-mt2 {margin-top: var(--content-margin1);}
@@ -644,6 +648,18 @@ textarea {
   position: relative;
   display: inline-block;
   vertical-align: middle;
+
+  &.h-full {
+    width: 100%;
+  }
+
+  &.after-btn {
+    width: calc(100% - 96px);
+
+    & + .base-btn {
+      width: 88px;
+    }
+  }
   .input-txt {
     padding-right: 44px;
   }
@@ -1795,4 +1811,9 @@ textarea {
       box-shadow: 0px 0px 8px 0px rgba(46, 54, 58, 0.10);
     }
   }
+}
+
+.pop-guide-txt {
+  color: #707070;
+  font-size: 14px;
 }

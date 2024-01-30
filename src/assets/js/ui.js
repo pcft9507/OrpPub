@@ -1557,6 +1557,67 @@ $.fn.dropdownBtn = function () {
 	})
 }
 
+// 목록 페이징 
+function paging(totalCnt, dataSize, pageSize, pageNo) {
+	totalCnt = parseInt(totalCnt); // 전체레코드수 
+	dataSize = parseInt(dataSize); // 페이지당 보여줄 데이타수 
+	pageSize = parseInt(pageSize); // 페이지 그룹 범위 1 2 3 5 6 7 8 9 10 
+	pageNo = parseInt(pageNo); // 현재페이지 
+	
+	var html = new Array();
+	if (totalCnt == 0) {
+		return "";
+	} // 페이지 카운트 
+	var pageCnt = totalCnt % dataSize;
+	if (pageCnt == 0) {
+		pageCnt = parseInt(totalCnt / dataSize);
+	} else {
+		pageCnt = parseInt(totalCnt / dataSize) + 1;
+	}
+	var pRCnt = parseInt(pageNo / pageSize);
+	if (pageNo % pageSize == 0) {
+		pRCnt = parseInt(pageNo / pageSize) - 1;
+	} //이전 화살표 
+	
+	html.push("<a href='javascript:goPaging(\""+1+"\")' class='btnFirst fg-button first'>첫 페이지</a>");
+	if (pageNo > pageSize) {
+		var s2;
+		if (pageNo % pageSize == 0) {
+			s2 = pageNo - pageSize;
+		} else {
+			s2 = pageNo - pageNo % pageSize;
+		}
+		
+		html.push("<a href='javascript:goPaging(\""+s2+"\")' class='btnPrev fg-button previous'>이전 페이지</a>");
+		
+	} else {
+		//html.push("<a href='' class='btnPrev 2'>이전 페이지</a>");
+	}
+	//paging Bar 
+	//html.push("<div class='page'>");
+	for (var index = pRCnt * pageSize + 1; index < (pRCnt + 1) * pageSize + 1; index++) {
+		if (index == pageNo) {
+			html.push("<span><strong class='fg-button ui-state-disabled'>"+ index + "</strong></span>");
+		} else {
+			html.push("<a href='javascript:goPaging(\""+index+"\")' class='fg-button'>"+ index +"</a>");
+		}
+		if (index == pageCnt) {
+			break;
+		}
+	} //다음 화살표 
+	html.push("</div>");
+	
+	if (pageCnt > (pRCnt + 1) * pageSize) {
+		var nextPage = (pRCnt + 1) * pageSize + 1; 
+		html.push("<a href='javascript:goPaging(\""+nextPage+"\")' class='btnNext fg-button next'>다음 페이지</a>");
+	} else {
+		//html.push("<a href='' class='btnNext'>다음 페이지</a>");
+	}
+	//pageCnt
+	html.push("<a href='javascript:goPaging(\""+pageCnt+"\")' class='btnLast fg-button last'>마지막 페이지</a>");
+	return html.join("");
+}
+
 // 문서 로드 후 처리
 $(document).ready(function () {
 	// 검색 버튼 공통

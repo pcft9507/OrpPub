@@ -1,0 +1,193 @@
+<form name="form" id="form" method="post">
+  <input type="hidden" id="pageIndex" name="currentPage" value="1"> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
+  <input type="hidden" name="countPerPage" value="10"><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) -->
+  <input type="hidden" name="resultType" value="json"> <!-- 요청 변수 설정 (검색결과형식 설정, json) --> 
+  <input type="hidden" id="keyword" name="keyword" value="시흥대로595"> <!-- 요청 변수 설정 (검색결과형식 설정, json) --> 
+  <input type="hidden" name="confmKey" value="U01TX0FVVEgyMDIwMDYyMzExNDUyNDEwOTg5NDU="><!-- 요청 변수 설정 (승인키) -->
+</form>
+
+<div class="layer-popup type-modal" data-ref="WAP-CORP-0025">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">우편번호 검색</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+
+      <div class="find-addr">
+        <div class="form-row">
+          <div class="form-inner type-gap2">
+            <div class="input-box h-full after-btn">
+              <input type="text" id="searchKeyword" class="input-txt" placeholder="주소를 입력하세요" oninput="inputValueChk();enterSearch()" onkeydown="enterSearch()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <button class="base-btn type2__size-m" onclick="getAddr()">검색</button>
+          </div>
+        
+          <p class="pop-guide-txt">
+            ※ 정확한 주소를 모르시는 경우 시/군/구+도로명, 동명 또는 건물명 예) 동해시 중앙로, 여수 중앙동, 대전 현대아파트<br>
+            ※ 정확한 주소를 아시는 경우 도로명 + 건물번호 예) 도움5로 19 읍/면/동/리 + 지번 예) 어진동 307-19
+          </p>
+        
+          <div class="postnum-result">
+            <h4 class="title-sub1">검색결과</h4>
+
+            <!-- addr-list -->
+            <ul class="addr-list"></ul>
+            <!--// addr-list -->
+
+            <!-- no-data -->
+            <div class="no-data">
+              <p class="no-data__txt">검색결과가 없습니다.<br>직접 입력을 원하신다면, 아래 형식에 맞춰 작성 하여 등록 해주세요.</p>
+              <div class="form-inner no-data__addr-row type-gap2">
+                <div class="input-box no-data__addr1">
+                  <input type="text" class="input-txt a-num" id="RESS005C_direct_zipno" placeholder="우편번호 입력" maxlength="5" oninput="inputNumber()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+                <div class="input-box no-data__addr2">
+                  <input type="text" class="input-txt" id="RESS005C_direct_addr" placeholder="지번, 도로명+건물명 입력" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+              </div>
+            </div>
+            <!--// no-data -->
+
+            <!-- dataTables_paginate -->
+            <div class="dataTables_paginate"></div>
+            <!--// dataTables_paginate -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m" onclick="setDirectAddr()">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CORP_0025.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CORP_0025 = new LayerPopup({target: "WAP-CORP-0025"});
+
+	function checkSearchedWord(obj){
+		if ($(obj).val().length > 0){
+			//특수문자 제거
+			var expText = /[%=><]/ ;
+			if(expText.test($(obj).val()) == true){
+				alert("특수문자를 입력 할수 없습니다.") ;
+				obj.value = obj.value.split(expText).join(""); 
+				return false;
+			}
+			
+			//특정문자열(sql예약어의 앞뒤공백포함) 제거
+			var sqlArray = new Array(
+				//sql 예약어
+				"OR", "SELECT", "INSERT", "DELETE", "UPDATE", "CREATE", "DROP", "EXEC", "UNION",  "FETCH", "DECLARE", "TRUNCATE" 
+			);
+			
+			var regex;
+			for (var i=0; i<sqlArray.length; i++){
+				regex = new RegExp( sqlArray[i] ,"gi");
+				if (regex.test($(obj).val())) {
+				    alert("\"" + sqlArray[i]+"\"와(과) 같은 특정문자로 검색할 수 없습니다.");
+				    $(obj).val() = $(obj).val().replace(regex, "");
+					return false;
+				}
+			}
+		}
+		return true ;
+	};  
+
+  function enterSearch() {
+		var evt_code = (window.netscape) ? ev.which : event.keyCode;
+		if (evt_code == 13) {    
+			event.keyCode = 0;  
+			getAddr(); 
+		} 
+	};
+
+  function getAddr(){
+		// 적용예 (api 호출 전에 검색어 체크) 
+		var keyword = $("#searchKeyword").val();
+		$("#keyword").val(keyword);
+		if (!checkSearchedWord($("#keyword"))) {
+			return ;
+		}
+		
+		$.ajax({
+			method:"POST",
+			url: "http://www.juso.go.kr/addrlink/addrLinkApiJsonp.do",
+      crossDomain:true,
+      data: $("#form").serialize(),
+      dataType : "jsonp",
+      success: function(data){
+        var errorCode = data.results.common.errorCode;
+        var totalCount = data.results.common.totalCount;
+        var countPerPage = data.results.common.countPerPage;
+        var currentPage = data.results.common.currentPage;
+  
+        if (totalCount > 0){
+          $(".no-data").hide();
+    
+          var resultHtml = "";
+          $(data.results.juso).each(function(index, item){
+            resultHtml += "<li>";
+            resultHtml += "	<a href='javascript:setAddr(\""+item.zipNo+"\", \"" + item.roadAddr + "\", \"" + item.admCd + "\")'>";
+            resultHtml += "		<div class='result-col1'>";
+            resultHtml += "		  <p class='road'><span class='label'>도로명</span> "+ item.roadAddr +"</p>";
+            resultHtml += "		  <p class='num'><span class='label'>지번</span> "+ item.jibunAddr +"</p>";
+            resultHtml += "		  <p class='en'><span class='label'>영문</span> "+ item.engAddr +"</p>";
+            resultHtml += "		</div>";
+            resultHtml += "		<div class='result-col2'>";
+            resultHtml += "		  <span class='num'>[우편번호 "+ item.zipNo +"]</span>";
+            resultHtml += "		</div>";
+            resultHtml += "	</a>";
+            resultHtml += "</li>";
+          })	
+          
+          $(".addr-list").html(resultHtml);
+
+          console.log('success', totalCount)
+
+          // *목록 페이징* ui.js
+          $(".dataTables_paginate").html(paging(totalCount, countPerPage, 10, currentPage))
+          
+        } else {
+          $(".addr-list").empty();
+          $(".dataTables_paginate").empty();
+          $(".no-data").show();
+        }
+  
+      },
+      error: function(data){
+        $(".addr-list").empty();
+        $(".dataTables_paginate").empty();
+        $(".no-data").show();
+      }
+    });
+  };
+ 
+  function setAddr(zipNo, roadAddr, admCd){
+		$("#zip_no").val(zipNo);
+		$("#addr").val(roadAddr);
+		$("#admCd").val(admCd);
+		WAP_CORP_0025.hide();
+	};
+	
+	function setDirectAddr(){
+		var zipNo = $("#RESS005C_direct_zipno").val();
+		var addr = $("#RESS005C_direct_addr").val();
+		var admCd = "";
+		
+		if (zipNo == "" || addr == ""){
+			alert("주소를 입력해 주세요.");
+			return;
+		} 
+		
+		setAddr(zipNo, addr, admCd);
+	};
+	
+	function goPaging(index){
+		$("#pageIndex").val(index);
+		getAddr();
+	};
+</script>

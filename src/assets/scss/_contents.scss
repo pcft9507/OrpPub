@@ -582,3 +582,69 @@
     }
   }
 }
+
+.find-addr {
+
+  .postnum-result {
+    margin-top: 32px;
+  }
+
+  .addr-list {
+
+    li {
+      padding: 16px 8px;
+      border-bottom: 1px solid #E0E7ED;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &:hover {
+        background: #F0F8FC;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .result-col1 {
+        width: calc(100% - 120px);
+      }
+
+      .result-col2 {
+        width: 120px;
+      }
+
+      .num, 
+      .en {
+        color: #707070;
+      }
+    }
+  }
+
+  .no-data {
+    display: none;
+    padding: 48px 24px;
+    background: #F4F6FA;
+
+    &__txt {
+      color: #707070;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    &__addr-row {
+      margin-top: var(--content-margin3);
+    }
+
+    &__addr1 {
+      width: 180px;
+    }
+
+    &__addr2 {
+      width: 324px;
+    }
+  }
+}

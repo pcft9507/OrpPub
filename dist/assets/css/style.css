@@ -727,7 +727,7 @@ hr {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: var(--content-margin2);
+  gap: var(--content-margin);
 }
 .form-inner.type-gap2 {
   gap: var(--content-margin1);
@@ -739,6 +739,9 @@ hr {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+.form-inner + .pop-guide-txt {
+  margin-top: var(--content-margin2);
 }
 .form-inner ~ .form-inner {
   margin-top: var(--content-margin2);
@@ -1094,6 +1097,15 @@ textarea {
   position: relative;
   display: inline-block;
   vertical-align: middle;
+}
+.input-box.h-full {
+  width: 100%;
+}
+.input-box.after-btn {
+  width: calc(100% - 96px);
+}
+.input-box.after-btn + .base-btn {
+  width: 88px;
 }
 .input-box .input-txt {
   padding-right: 44px;
@@ -2551,6 +2563,11 @@ textarea {
           box-shadow: 0px 0px 8px 0px rgba(46, 54, 58, 0.1);
 }
 
+.pop-guide-txt {
+  color: #707070;
+  font-size: 14px;
+}
+
 .header {
   position: sticky;
   z-index: 60;
@@ -3765,6 +3782,60 @@ textarea {
   background: url("../images/icon-doc-black.png") 0/16px no-repeat;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+.find-addr .postnum-result {
+  margin-top: 32px;
+}
+.find-addr .addr-list li {
+  padding: 16px 8px;
+  border-bottom: 1px solid #E0E7ED;
+}
+.find-addr .addr-list li:last-child {
+  border-bottom: 0;
+}
+.find-addr .addr-list li:hover {
+  background: #F0F8FC;
+}
+.find-addr .addr-list li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.find-addr .addr-list li .result-col1 {
+  width: calc(100% - 120px);
+}
+.find-addr .addr-list li .result-col2 {
+  width: 120px;
+}
+.find-addr .addr-list li .num,
+.find-addr .addr-list li .en {
+  color: #707070;
+}
+.find-addr .no-data {
+  display: none;
+  padding: 48px 24px;
+  background: #F4F6FA;
+}
+.find-addr .no-data__txt {
+  color: #707070;
+  font-size: 14px;
+  text-align: center;
+}
+.find-addr .no-data__addr-row {
+  margin-top: var(--content-margin3);
+}
+.find-addr .no-data__addr1 {
+  width: 180px;
+}
+.find-addr .no-data__addr2 {
+  width: 324px;
 }
 
 .sch-comp__in {
