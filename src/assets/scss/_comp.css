@@ -106,3 +106,41 @@
 .sch-comp .search-tag.active {
   display: block;
 }
+
+.dropbtn {
+  position: relative;
+}
+
+.dropbtn__list {
+  display: none;
+  position: absolute;
+  top: 52px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #DADDE5;
+  border-radius: 6px;
+}
+
+.dropbtn__item {
+  margin-bottom: 8px;
+}
+
+.dropbtn__item:last-child {
+  margin-bottom: 0;
+}
+
+.dropbtn__btn {
+  width: 100%;
+}
+
+.dropbtn__btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.dropbtn__btn:hover span {
+  color: #fff;
+}

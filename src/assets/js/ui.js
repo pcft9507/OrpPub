@@ -573,7 +573,6 @@ class GlobalSetObj {
 		return this.items;
 	}
 	addDropdown(el, data, initial) {
-		console.log("Adding dropdown with initial value:", initial); // 값 확인
 		// initial 값을 DropDown 생성자에 전달
 		this.items[data.name] = new DropDown({ target: el, data: data, initial: initial });
 		this.items[data.name].globalSet.open = item => {
@@ -1539,3 +1538,29 @@ function inputNumber() {
 	var input = document.querySelector('.a-num');
 	input.value = input.value.replace(/[^0-9]/g, '');
 }
+
+// 발송버튼 드롭다운
+$.fn.dropdownBtn = function () {
+	let dropdownBtnBody = [];
+	return this.each(function (i) {
+		dropdownBtnBody[i] = $(this)
+		console.log(dropdownBtnBody[i])
+		const bodyBtn = dropdownBtnBody[i].find('.js-btn')
+		const list = dropdownBtnBody[i].find('.dropbtn__list')
+		const listBtn = dropdownBtnBody[i].find('.dropbtn__btn')
+		bodyBtn.on('click', function () {
+			list.stop().slideToggle(200)
+		})
+		listBtn.on('click', function () {
+			list.stop().slideUp(200)
+		})
+	})
+}
+
+// 문서 로드 후 처리
+$(document).ready(function () {
+	// 검색 버튼 공통
+	$('.sch-comp .btn-sch').on('click', function () {
+		console.log('검색하기')
+	});	
+})

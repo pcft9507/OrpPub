@@ -1,4 +1,3 @@
-
 .sch-comp {
 
   &__in {
@@ -110,6 +109,44 @@
 
     &.active {
       display: block;
+    }
+  }
+}
+
+.dropbtn {
+  position: relative;
+
+  &__list {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #DADDE5;
+    border-radius: 6px;
+  }
+  
+  &__item {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+
+    &:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+
+      span {
+        color: #fff;
+      }
     }
   }
 }

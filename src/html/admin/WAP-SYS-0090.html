@@ -12,85 +12,214 @@
       <div class="contents">
 
         <h3 class="title-sub">사용자</h3>
-        <div class="box-type1">
-          <div class="box-flex">
-            <div class="box-flex__cell" style="width: 136px;">
-              <div class="dropdown" style="width: 100%;">
+
+        <!-- 검색영역 -->
+        <!-- D: 좌측 콤보박스 index값 받아서 우측 입력영역 표시 -->
+        <div class="sch-comp box-type1">
+          <div class="sch-comp__in">
+            <div class="sch-comp__select">
+              <div class="dropdown first" tabindex="0">
                 <button type="button" class="dropdown-btn"
                   data-dropdown='{
-                    "name": "selCate",
+                    "name": "searchDropdown",
                     "type" : "single",
                     "option": [
                       {
                         "name": "전체",
                         "value": "전체",
                         "disabled": false,
-                        "checked": true
-                      },
-                      {
-                        "name": "컨설턴트",
-                        "value": "컨설턴트",
-                        "disabled": false,
-                        "checked": false
+                        "checked": false,
+                        "schtype": "text",
+                        "data-index": 1
                       },
                       {
                         "name": "기업명",
                         "value": "기업명",
                         "disabled": false,
-                        "checked": false
+                        "checked": false,
+                        "schtype": "select",
+                        "data-index": 2
                       },
                       {
                         "name": "공고기간",
                         "value": "공고기간",
                         "disabled": false,
-                        "checked": false
+                        "checked": false,
+                        "schtype": "date",
+                        "data-index": 3
                       },
                       {
                         "name": "필기전형",
                         "value": "필기전형",
                         "disabled": false,
-                        "checked": false
+                        "checked": false,
+                        "schtype": "select",
+                        "data-index": 4
+                      },
+                      {
+                        "name": "필기전형2",
+                        "value": "필기전형2",
+                        "disabled": false,
+                        "checked": false,
+                        "schtype": "select",
+                        "data-index": 5
                       },
                       {
                         "name": "공고번호",
                         "value": "공고번호",
                         "disabled": false,
-                        "checked": false
+                        "checked": false,
+                        "schtype": "num",
+                        "data-index": 6
                       }
                     ]
                   }'
                 >전체</button>
               </div>
-            </div>
-            <div class="box-flex__cell" style="width: 100%;">
-              <div class="input-box type-search" style="width: 100%;">
-                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
-                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-              </div>
               <script>
-                const SAMPLE_DATA = [
-                  {"name": "키워드"},
-                  {"name": "키워드드"},
-                  {"name": "키워드드드"}
-                ]
-                dropdown.addItem({
-                  target: document.querySelector('[name="inputKeyword"]'),
-                  data: {
-                    "name": "inputKeyword",
-                    "type" : "input",
-                    "option": SAMPLE_DATA,
+                dropdown.init('dropdown', {
+                  initial: '전체',
+                  name: 'searchDropdown',
+                  onChange: _this => {
+                    const curidx = event.target.getAttribute('data-index')-1
+                    console.log('after on change', _this.data.option[curidx].schtype, 'current index', curidx)
+                    $('.sch-comp__inp').hide().eq(curidx).show()
                   }
                 });
               </script>
             </div>
-            <div class="box-flex__cell">
-              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
-                dropdown.items.selCate.value,
-                dropdown.items.inputKeyword.target.value
-              );">추가</button>
+            <div class="sch-comp__inp-wrap">
+
+              <!-- D:전체 텍스트 입력 -->
+              <div class="sch-comp__inp active">
+                <div class="input-box type-search">
+                  <input type="text" class="input-txt sch-data" placeholder="검색어를 입력해주세요" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                </div>
+              </div>
+              <!-- // D: 전체 텍스트 입력 -->
+
+              <!-- D:전체 텍스트 입력 -->
+              <div class="sch-comp__inp">
+                <div class="input-box type-search">
+                  <input type="text" class="input-txt sch-data" placeholder="기업명을 입력해주세요" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                </div>
+              </div>
+              <!-- // D: 전체 텍스트 입력 -->
+
+              <!-- D:기간 입력 -->
+              <div class="sch-comp__inp">
+                <div class="sch-comp__col-row">
+                  <div class="input-box type-calendar">
+                    <input type="text" class="input-txt datepicker-input datepicker-input1" id="calendar1_1" placeholder="일자 선택">
+                  </div>
+                  <span class="cal-dash">-</span>
+                  <div class="input-box type-calendar">
+                    <input type="text" class="input-txt datepicker-input datepicker-input2" id="calendar1_2" placeholder="일자 선택">
+                  </div>
+                </div>
+              </div>
+              <!-- // D:기간 입력 -->
+
+              <!-- D:선택 -->
+              <div class="sch-comp__inp">
+                <div class="dropdown full">
+                  <button type="button" class="dropdown-btn"
+                    data-dropdown='{
+                      "name": "typecheck1",
+                      "type" : "single",
+                      "option": [
+                        {
+                          "name": "인성검사",
+                          "value": "인성검사"
+                        },
+                        {
+                          "name": "적성검사",
+                          "value": "적성검사"
+                        },
+                        {
+                          "name": "기타검사",
+                          "value": "기타검사"
+                        },
+                        {
+                          "name": "K-TEST",
+                          "value": "K-TEST"
+                        }
+                      ]
+                    }'
+                  >선택</button>
+                </div>
+
+                <script>
+                  dropdown.init('dropdown', {
+                    name: 'typecheck1',
+                    onChange: _this => {
+                      console.log('after on change', _this)
+                    }
+                  });
+                </script>
+              </div>
+              <!-- // D:선택 -->
+
+              <!-- D:선택 -->
+              <div class="sch-comp__inp">
+                <div class="dropdown full">
+                  <button type="button" class="dropdown-btn"
+                    data-dropdown='{
+                      "name": "typecheck2",
+                      "type" : "single",
+                      "option": [
+                        {
+                          "name": "인성검사2",
+                          "value": "인성검사2"
+                        },
+                        {
+                          "name": "적성검사2",
+                          "value": "적성검사2"
+                        },
+                        {
+                          "name": "기타검사2",
+                          "value": "기타검사2"
+                        },
+                        {
+                          "name": "K-TEST2",
+                          "value": "K-TEST2"
+                        }
+                      ]
+                    }'
+                  >선택</button>
+                </div>
+
+                <script>
+                  dropdown.init('dropdown', {
+                    name: 'typecheck2',
+                    onChange: _this => {
+                      console.log('after on change', _this)
+                    }
+                  });
+                </script>
+              </div>
+              <!-- // D:선택 -->
+
+              <!-- D:숫자만 입력 -->
+              <div class="sch-comp__inp">
+                <div class="input-box">
+                  <input type="text" class="input-txt a-num sch-data" placeholder="공고번호 입력" oninput="inputNumber();">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                </div>
+              </div>
+              <!-- // D:숫자만 입력 -->
             </div>
+
+            <!-- // D:검색 버튼 -->
+            <div class="sch-comp__sch">
+              <button class="btn-sch base-btn type1__size-m">검색</button>
+            </div>
+            <!-- // D:검색 버튼 -->
           </div>
         </div>
+        <!-- 검색영역 -->
 
         <div class="board-head content-mt6">
           <div class="board-head__cell">
@@ -169,35 +298,20 @@
 
           </div>
           <div class="board-head__cell" data-ref="rowNoneCheck">
-            <div class="dropdown" style="width: 136px;">
-              <button type="button" class="dropdown-btn size-s"
-                data-dropdown='{
-                  "name": "sendDropdown",
-                  "type" : "single",
-                  "option": [
-                    {
-                      "name": "SMS 발송",
-                      "value": "SMS 발송",
-                      "disabled": false,
-                      "checked": false
-                    },
-                    {
-                      "name": "E-mail 발송",
-                      "value": "E-mail 발송",
-                      "disabled": false,
-                      "checked": false
-                    }
-                  ]
-                }'
-              >발송</button>
-              <script>
-                dropdown.init('dropdown', {
-                  name: 'sendDropdown',
-                  onChange: _this=>{
-                    console.log(_this.value);
-                  }
-                });
-              </script>
+            <div class="dropbtn" style="width: 136px;">
+              <button class="dropdown-btn main-btn size-s js-btn">발송</button>
+              <ul class="dropbtn__list">
+                <li class="dropbtn__item">
+                  <button class="dropbtn__btn base-btn type2__size-s" onclick="console.log('sms발송')">
+                    <span class="">SMS발송</span>
+                  </button>
+                </li>
+                <li class="dropbtn__item">
+                  <button class="dropbtn__btn base-btn type2__size-s" onclick="console.log('이메일발송')">
+                    <span class="">이메일발송</span>
+                  </button>                  
+                </li>
+              </ul>
             </div>
             <button class="base-btn type2__size-s" onclick="WAP_SYS_0100.show()">
               <span class="base-icon icon-add__color1__size-s">등록</span>
@@ -377,6 +491,39 @@
     
   </div>
   @@include('../html/admin/WAP-SYS-0100.html');
+  <script>
+    // 데이트 피커
+    const datepicker1_1 = document.getElementById('calendar1_1');
+    const calendar1_1 = new Datepicker(datepicker1_1, {
+      ...CALENDAR_DEFAULT_OPTION,
+      ...{
+        "minDate": "2023.12.06",
+        "maxDate": "2023.12.20",
+      }
+    });
+
+    // 날짜가 선택될 때 이벤트 리스너 추가
+    datepicker1_1.addEventListener('changeDate', function() {
+      calendar1_1.hide(); // 달력을 숨김
+    });
+
+    const datepicker1_2 = document.getElementById('calendar1_2');
+    const calendar1_2 = new Datepicker(datepicker1_2, {
+      ...CALENDAR_DEFAULT_OPTION,
+      ...{
+        "minDate": "2023.12.06",
+        "maxDate": "2023.12.20",
+      }
+    });
+
+    // 날짜가 선택될 때 이벤트 리스너 추가
+    datepicker1_2.addEventListener('changeDate', function() {
+      calendar1_2.hide(); // 달력을 숨김
+    });    
+    
+    // 발송 드롭다운
+    $('.dropbtn').dropdownBtn();
+  </script>
   
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
