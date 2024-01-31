@@ -2042,6 +2042,9 @@ textarea {
   padding: 16px 4px;
   border-top: 1px solid var(--border-color5);
 }
+.table .type-line td.bdt0 {
+  border-top: 0;
+}
 .table .center {
   text-align: center;
 }
@@ -2487,6 +2490,9 @@ textarea {
 }
 .d-flex.title {
   margin-bottom: 16px;
+}
+.d-flex.w-full {
+  width: 100%;
 }
 .d-flex .row-col {
   display: -webkit-box;
@@ -3888,6 +3894,25 @@ textarea {
 .set-box .form-th .has-placeholder.empty:after {
   content: attr(placeholder);
   color: #aaa;
+}
+
+.q-evaluation .point-wrap .point-sub {
+  display: none;
+}
+.q-evaluation .point-wrap .point-sub.active {
+  display: block;
+}
+.q-evaluation .type-select {
+  display: none;
+}
+.q-evaluation .type-select.active {
+  display: block;
+}
+.q-evaluation .type-free-style {
+  display: none;
+}
+.q-evaluation .type-free-style.active {
+  display: block;
 }
 
 .sch-comp__in {

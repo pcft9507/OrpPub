@@ -671,3 +671,33 @@
     }
   }
 }
+
+.q-evaluation {
+
+  .point-wrap {
+
+    .point-sub {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .type-select {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .type-free-style {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}

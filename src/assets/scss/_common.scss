@@ -1407,6 +1407,10 @@ textarea {
   .type-line td {
     padding: 16px 4px;
     border-top: 1px solid var(--border-color5);
+
+    &.bdt0 {
+      border-top: 0;
+    }
   }
   .center {text-align: center;}
   .left {text-align: left;}
@@ -1740,6 +1744,10 @@ textarea {
 
   &.title {
     margin-bottom: 16px;
+  }
+
+  &.w-full {
+    width: 100%;
   }
 
   .row-col {
