@@ -373,6 +373,7 @@ hr {
   &-inner {
     display: flex;
     align-items: center;
+    gap: var(--content-margin1);
     &.type-gap1 {gap: var(--content-margin1);}
     &.type-gap2 {gap: var(--content-margin2);}
     &.type-gap3 {gap: var(--content-margin3);}
@@ -795,7 +796,26 @@ textarea {
     mask-repeat: no-repeat;
     vertical-align: middle;
   }
+  &.after {
+
+    &:after {
+      content: "";
+      display: inline-block;
+      mask-image: var(--icon-url);
+      mask-repeat: no-repeat;
+      vertical-align: middle;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
   &[class*="__fix"]:before {
+    content: "";
+    mask: unset;
+    background: var(--icon-url) no-repeat;
+  }
+  &[class*="__fix"]:after {
     content: "";
     mask: unset;
     background: var(--icon-url) no-repeat;
@@ -876,7 +896,16 @@ textarea {
   &[class*="icon-mod__"]:before {
     background-position: -96px -200px;
   }
+  &[class*="icon-mod-after__"]:after {
+    background-position: -96px -200px;
+  }
   &[class*="__size-s"]:before {
+    width: 16px; height: 16px;
+  }
+  &[class*="after__size-s"]:before {
+    display: none;
+  }
+  &[class*="after__size-s"]:after {
     width: 16px; height: 16px;
   }
   &[class*="__size-m"]:before {

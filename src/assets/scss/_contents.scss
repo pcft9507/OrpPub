@@ -648,3 +648,26 @@
     }
   }
 }
+
+.set-box {
+
+  [contenteditable="true"] {
+    cursor: pointer;
+    padding-right: 3px;
+  }
+
+  .form-th {
+    width: 155px;
+
+    .has-placeholder {
+
+      &.empty {
+
+        &:after {
+          content: attr(placeholder);
+          color: #aaa;
+        }
+      }
+    }
+  }
+}

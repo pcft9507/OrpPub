@@ -1450,6 +1450,7 @@ Datepicker.locales.ko = {
 	titleFormat: "y년 mm월",
 	weekStart: 0,
 };
+
 const CALENDAR_DEFAULT_OPTION = {
 	language: 'ko',
 	todayHighlight: true,

@@ -39,8 +39,8 @@
               </button>
             </div>
           </div>
+
           <div class="box-type1">
-        
             <div class="form-row__flex">
               <div class="form-th" style="width: 130px;">채용명</div>
               <div class="form-td" style="flex: 1;">
@@ -130,107 +130,8 @@
               <p class="alert-txt">채용 공고를 저장한 이후에는 전형 순서를 변경하거나 삭제할 수 없습니다. 마지막 전형 뒤에 신규 추가만 가능하니 신중하게 등록해 주세요.</p>
             </div>
           </div>
+
           <div class="box-type1" id="addSelection">
-        
-            <!-- <div class="form-row__flex">
-              <div class="form-th no-pd" style="width: 130px;">서류전형</div>
-              <div class="form-td" style="flex: 1;">
-                <label class="input-chk type2">
-                  <input type="checkbox" value="chkAll" data-ref="chkItem">
-                  <span>모두 사용</span>
-                </label>
-                <div class="box-type4 content-mt2">
-                  <p class="form-toggle-row">
-                    <span class="label">공통</span>
-                    <label class="btn-toggle">
-                      <input type="checkbox" data-ref="chkItem">
-                      <span>버튼</span>
-                    </label>
-                  </p>
-                  <p class="form-toggle-row">
-                    <span class="label">사무지원</span>
-                    <label class="btn-toggle">
-                      <input type="checkbox" data-ref="chkItem">
-                      <span>버튼</span>
-                    </label>
-                  </p>
-                  <p class="form-toggle-row">
-                    <span class="label">IT</span>
-                    <label class="btn-toggle">
-                      <input type="checkbox" data-ref="chkItem">
-                      <span>버튼</span>
-                    </label>
-                  </p>
-                </div>
-              </div>
-            </div>
-        
-            <div class="form-row__flex type3">
-              <div class="form-th no-pd" style="width: 130px;">필기전형</div>
-              <div class="form-td" style="flex: 1;">
-                <label class="input-chk type2">
-                  <input type="checkbox" value="chkAll" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
-                  <span>모두 사용</span>
-                </label>
-                <div class="box-type4 content-mt2">
-                  <p class="form-toggle-row">
-                    <span class="label">공통</span>
-                    <label class="btn-toggle">
-                      <input type="checkbox" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
-                      <span>버튼</span>
-                    </label>
-                  </p>
-                  <p class="form-toggle-row">
-                    <span class="label">사무지원</span>
-                    <label class="btn-toggle">
-                      <input type="checkbox" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
-                      <span>버튼</span>
-                    </label>
-                  </p>
-                  <p class="form-toggle-row">
-                    <span class="label">IT</span>
-                    <label class="btn-toggle">
-                      <input type="checkbox" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
-                      <span>버튼</span>
-                    </label>
-                  </p>
-                </div>
-              </div>
-            </div>
-        
-            <div class="form-row__flex type3">
-              <div class="form-th no-pd" style="width: 130px;">면접전형</div>
-              <div class="form-td" style="flex: 1;">
-                <label class="input-chk type2">
-                  <input type="checkbox" value="chkAll" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
-                  <span>모두 사용</span>
-                </label>
-                <div class="box-type4 content-mt2">
-                  <p class="form-toggle-row">
-                    <span class="label">공통</span>
-                    <label class="btn-toggle">
-                      <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
-                      <span>버튼</span>
-                    </label>
-                  </p>
-                  <p class="form-toggle-row">
-                    <span class="label">사무지원</span>
-                    <label class="btn-toggle">
-                      <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
-                      <span>버튼</span>
-                    </label>
-                  </p>
-                  <p class="form-toggle-row">
-                    <span class="label">IT</span>
-                    <label class="btn-toggle">
-                      <input type="checkbox" data-ref="chkItem3" onchange="inputCheckAll('chkItem3')">
-                      <span>버튼</span>
-                    </label>
-                  </p>
-                </div>
-              </div>
-            </div> -->
-        
             <div class="form-row__flex type3">
               <div class="form-th" style="width: 130px;">전형 추가</div>
               <div class="form-td" style="flex: 1;">
@@ -247,7 +148,6 @@
                 </div>
               </div>
             </div>
-        
           </div>
         </section>
         
@@ -548,6 +448,7 @@
   <script>
     const contentsNav = new ContentsNav();
 
+    // 전형 차수 추가 시작
     let documentSelectionCount = 0; // 서류전형 차수 추적
     let writtenTestSelectionCount = 0; // 필기전형 차수 추적
     let interviewSelectionCount = 0; // 면접전형 차수 추적
@@ -616,7 +517,7 @@
 
       $('#addSelection').append(template);
     };
-
+    
     // 전형별로 "모두 사용" 체크박스 상태 업데이트
     function updateAllCheckbox(type, selectionCount) {
       const allCheckboxes = document.querySelectorAll(`[data-ref="${type}${selectionCount}"]:not([value="${type}${selectionCount}"])`);
@@ -652,6 +553,7 @@
         }
       }
     });
+    // 전형 차수 추가 끝
 
     // 입사지원 악관 체크박스, 라디오 **ui.js - class CheckboxManager**
     CheckboxManager.initializeCheckboxManagers([

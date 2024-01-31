@@ -727,6 +727,7 @@ hr {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: var(--content-margin1);
 }
 .form-inner.type-gap1 {
   gap: var(--content-margin1);
@@ -1259,7 +1260,25 @@ textarea {
           mask-repeat: no-repeat;
   vertical-align: middle;
 }
+.base-icon.after:after {
+  content: "";
+  display: inline-block;
+  -webkit-mask-image: var(--icon-url);
+          mask-image: var(--icon-url);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  vertical-align: middle;
+}
+.base-icon.after:before {
+  display: none;
+}
 .base-icon[class*=__fix]:before {
+  content: "";
+  -webkit-mask: unset;
+          mask: unset;
+  background: var(--icon-url) no-repeat;
+}
+.base-icon[class*=__fix]:after {
   content: "";
   -webkit-mask: unset;
           mask: unset;
@@ -1365,7 +1384,17 @@ textarea {
 .base-icon[class*=icon-mod__]:before {
   background-position: -96px -200px;
 }
+.base-icon[class*=icon-mod-after__]:after {
+  background-position: -96px -200px;
+}
 .base-icon[class*=__size-s]:before {
+  width: 16px;
+  height: 16px;
+}
+.base-icon[class*=after__size-s]:before {
+  display: none;
+}
+.base-icon[class*=after__size-s]:after {
   width: 16px;
   height: 16px;
 }
@@ -3847,6 +3876,18 @@ textarea {
 }
 .find-addr .no-data__addr2 {
   width: 324px;
+}
+
+.set-box [contenteditable=true] {
+  cursor: pointer;
+  padding-right: 3px;
+}
+.set-box .form-th {
+  width: 155px;
+}
+.set-box .form-th .has-placeholder.empty:after {
+  content: attr(placeholder);
+  color: #aaa;
 }
 
 .sch-comp__in {
