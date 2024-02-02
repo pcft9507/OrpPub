@@ -150,3 +150,40 @@
     }
   }
 }
+
+.chip {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 20px;
+  background: #F4F6FA;
+
+  .chip-txt {
+    position: relative;
+    padding-left: 28px;
+    color: #707070;
+    font-size: 14px;
+    line-height: 22px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      background: url($image-url + 'ico-chip-check.png') 0/100%;
+    }
+  }
+
+  &.checked {
+
+    .chip-txt {
+  
+      &:before {
+        background-image: url($image-url + 'ico-chip-checked.png');
+      }
+    }
+  }
+}

@@ -25,4 +25,96 @@
       }
     }
   }
+
+  &.send-sms {
+
+    #phoneNum {
+      display: none;
+      position: relative;
+      height: 37px;
+      overflow: hidden;
+      padding-right: 32px;
+
+      &.is-show {
+        display: block;
+        height: auto;
+
+        .tag__dropdown-btn {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    #selectCont {
+      gap: 0 8px;
+
+      span {
+        width: 92px;
+      }
+
+      .chips {
+        display: flex;
+        width: calc(100% - 100px);
+        overflow-x: auto;
+        gap: 0 8px;
+      }
+    }
+
+    .textarea {
+      height: 220px;
+      padding: 16px;
+      border: 1px solid #BBBEC3;
+      border-radius: 6px;
+    }
+
+    .templit-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+
+      .temp-col {
+        display: flex;
+      }
+
+      .temp-col1 {
+        width: 294px;
+      }
+
+      .temp-col2 {
+        gap: 0 8px;
+        width: calc(100% - 294px);
+      }
+
+      p {
+        color: #707070;
+
+        strong {
+          display: block;
+        }
+      }
+
+      .input-txt {
+        width: 136px;
+      }
+    }
+
+    .popup__btn-wrap {
+      align-items: center;
+      justify-content: space-between;
+
+      .col-left {
+        display: flex;
+        align-items: center;
+        gap: 0 8px;
+      }
+
+      .input-txt {
+        width: 130px;
+      }
+
+      .btn-send {
+        width: 200px;
+      }
+    }
+  }
 }

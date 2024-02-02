@@ -1631,6 +1631,8 @@ textarea {
 }
 
 .tag {
+  position: relative;
+
   &__box {
     display: flex;
     flex-wrap: wrap;
@@ -1661,6 +1663,23 @@ textarea {
   }
   &__item--type2 {
     border-radius: 37px;
+  }
+  &__dropdown-btn {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background-color: var(--icon-color1);
+    -webkit-mask-image: var(--icon-url);
+    mask-image: var(--icon-url);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: -48px -48px;
+    mask-position: -48px -48px;
   }
 }
 

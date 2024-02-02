@@ -146,6 +146,300 @@
     <!-- //container -->
     
   </div>
+  <div class="layer-popup type-modal send-sms" data-ref="WAP-COM-0050">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">SMS 발송</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+
+      <div class="form-row">
+        <h4 class="title-sub2">보내는 사람 번호</h4>
+        <div class="form-inner type-gap2">
+          <div class="input-box h-full">
+            <input type="text" class="input-txt" title="보내는 사람 번호" readonly value="010-1234-1234">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">받는 사람 번호</h4>
+        <div class="form-inner type-gap2">
+          <div class="input-box h-full after-btn">
+            <input type="text" id="recipientNumber" class="input-txt a-num" maxlength="11" placeholder="‘-’없이 입력" oninput="inputNumber()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <button class="base-btn type2__size-m" onclick="phoneAddTag()">추가</button>
+        </div>
+      </div>
+
+      <div id="phoneNum" class="tag content-mt2">
+        <div class="tag__box"></div>
+        <button type="button" class="tag__dropdown-btn" onclick="togglePhoneNum();"></button>
+      </div>
+
+      <script>
+        const phoneNum2 = new CreateTag({
+          target: document.getElementById('phoneNum'),
+          tagType: 3,
+        });
+      </script>
+
+      <div class="form-row">
+        <h4 class="title-sub2">템플릿 선택</h4>
+        <button type="button" class="dropdown-btn" data-dropdown='{
+          "name": "dropdownSingle",
+          "type" : "single",
+          "option" : [
+            {
+              "name": "기업명",
+              "value": "val1",
+              "disabled": false,
+              "checked": true
+            },
+            {
+              "name": "채용공고",
+              "value": "val2",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "채용분야",
+              "value": "val3",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "수험번호",
+              "value": "val4",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "성명",
+              "value": "val5",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "이메일",
+              "value": "val6",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "비고",
+              "value": "val7",
+              "disabled": false,
+              "checked": false
+            }
+          ]
+        }'>선택</button>
+        <div id="selectCont" class="d-flex ai-c content-mt2">
+          <span class="point-color6">자주쓰는내용</span>
+
+          <div class="chips">
+            <button class="chip">
+              <span class="chip-txt">기업명</span>
+            </button>
+            <button class="chip">
+              <span class="chip-txt">채용공고</span>
+            </button>
+            <button class="chip">
+              <span class="chip-txt">채용분야</span>
+            </button>
+            <button class="chip">
+              <span class="chip-txt">수험번호</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">내용</h4>
+
+        <textarea class="textarea" name="" id="" title="내용입력 하기" placeholder="입력하세요"></textarea>
+
+        <div class="templit-info">
+          <div class="temp-col temp-col1">
+            <p><strong>현재 내용을 템플릿으로 저장하고 싶나요?</strong>템플릿 명을 작성 후 저장 버튼을 클릭 해주세요.</p>
+          </div>
+          <div class="temp-col temp-col2">
+            <div class="input-box">
+              <input type="text" class="input-txt size-s" placeholder="템플릿명">
+            </div>
+            <button class="base-btn type2__size-s">
+              <span>템플릿 저장</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <div class="col-left">
+        <label class="input-chk">
+          <input type="checkbox">
+          <span><strong>예약</strong></span>
+        </label>
+        
+        <div class="input-box type-calendar">
+          <input type="text" id="calendar" class="input-txt" placeholder="예약 날짜">
+          <script>
+            const calendar = new Datepicker(document.getElementById('calendar'), {
+              ...CALENDAR_DEFAULT_OPTION,
+              ...{
+                "minDate": "2023.12.06",
+                "maxDate": "2023.12.20"
+              }
+            });
+          </script>
+        </div>
+        
+        <div class="input-box">
+          <input type="text" class="input-txt" placeholder="예약 시간" oninput="inputValueChk()">
+          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+        </div>
+      </div>
+
+      <button class="base-btn btn-send type1__size-m">발송</button>
+    </div>
+    <button class="btn-close" onclick="WAP_COM_0050.hide()">닫기</button>
+  </section>
+</div>
+<script>
+
+  // // 받는 사람 번호 입력칸
+  // const recipientNumber = document.querySelector('#recipientNumber')
+  // const phoneNumTagWrap = document.querySelector('#phoneNum')
+
+  // 받는 사람 번호 추가
+  function phoneAddTag() {
+    phoneNumTagWrap.addTag(recipientNumber.value);
+    recipientNumber.value = '';
+  }
+
+  // 받는 사람 번호 드롭다운을 위한 toggleClass
+  function togglePhoneNum() {
+    phoneNumTagWrap.classList.toggle('is-show')
+  }
+
+  // 자주 쓰는 내용
+  $.fn.checkChip = function () {
+    return this.each(function () {
+      const chipBody = $(this)
+      chipBody.on('click', function (){
+        $(this).toggleClass('checked')
+      })
+    })
+  }
+  $('.chip').checkChip();
+
+  const WAP_COM_0050 = new LayerPopup({target: "WAP-COM-0050"});
+</script>;
+  <div class="layer-popup type-modal send-sms" data-ref="WAP-COM-0060">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">E-Mail 발송</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+
+      <div class="form-row">
+        <h4 class="title-sub2">보내는 메일 주소</h4>
+        <div class="form-inner type-gap2">
+          <div class="input-box h-full">
+            <input type="text" class="input-txt" title="보내는 사람 번호" readonly value="jinny@test.com">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">받는 메일 주소</h4>
+        <div class="form-inner type-gap2">
+          <div class="input-box h-full after-btn">
+            <input type="text" id="recipientNumber" class="input-txt a-num" maxlength="11" placeholder="메일 주소 입력" oninput="inputNumber()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <button class="base-btn type2__size-m" onclick="phoneAddTag()">추가</button>
+        </div>
+      </div>
+      </script>
+
+      <div class="form-row">
+        <h4 class="title-sub2">메일 내용</h4>
+        <div class="form-inner type-gap2">
+          <div class="input-box h-full">
+            <input type="text" class="input-txt" title="메일 내용 입력하기" placeholder="제목을 입력하세요">
+          </div>
+        </div>
+
+        <div id="selectCont" class="d-flex ai-c content-mt2">
+          <span class="point-color6">자주쓰는내용</span>
+
+          <div class="chips">
+            <button class="chip">
+              <span class="chip-txt">기업명</span>
+            </button>
+            <button class="chip">
+              <span class="chip-txt">아이디</span>
+            </button>
+            <button class="chip">
+              <span class="chip-txt">성명</span>
+            </button>
+            <button class="chip">
+              <span class="chip-txt">부서</span>
+            </button>
+            <button class="chip">
+              <span class="chip-txt">직함</span>
+            </button>
+            <button class="chip">
+              <span class="chip-txt">수험번호</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <textarea class="textarea" name="" id="" title="내용입력 하기" placeholder="입력하세요"></textarea>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">발송</button>
+    </div>
+    <button class="btn-close" onclick="WAP_COM_0060.hide()">닫기</button>
+  </section>
+</div>
+<script>
+
+  // 받는 사람 번호 입력칸
+  const recipientNumber = document.querySelector('#recipientNumber')
+  const phoneNumTagWrap = document.querySelector('#phoneNum')
+
+  // 받는 사람 번호 추가
+  function phoneAddTag() {
+    phoneNum.addTag(recipientNumber.value);
+    recipientNumber.value = '';
+  }
+
+  // 받는 사람 번호 드롭다운을 위한 toggleClass
+  function togglePhoneNum() {
+    phoneNumTagWrap.classList.toggle('is-show')
+  }
+
+  // 자주 쓰는 내용
+  $.fn.checkChip = function () {
+    return this.each(function () {
+      const chipBody = $(this)
+      chipBody.on('click', function (){
+        $(this).toggleClass('checked')
+      })
+    })
+  }
+  $('.chip').checkChip();
+
+  const WAP_COM_0060 = new LayerPopup({target: "WAP-COM-0060"});
+</script>;
   <form name="form" id="form" method="post">
   <input type="hidden" id="pageIndex" name="currentPage" value="1"> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
   <input type="hidden" name="countPerPage" value="10"><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) -->
@@ -343,6 +637,8 @@
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
+      "WAP_COM_0050" : ()=>{WAP_COM_0050.show()},
+      "WAP_COM_0060" : ()=>{WAP_COM_0060.show()},
       "WAP_CORP_0025" : ()=>{WAP_CORP_0025.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();

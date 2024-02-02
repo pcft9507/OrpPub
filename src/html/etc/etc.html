@@ -49,11 +49,15 @@
     <!-- //container -->
     
   </div>
+  @@include('../html/etc/WAP-COM-0050.html');
+  @@include('../html/etc/WAP-COM-0060.html');
   @@include('../html/etc/WAP-CORP-0025.html');
   
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
+      "WAP_COM_0050" : ()=>{WAP_COM_0050.show()},
+      "WAP_COM_0060" : ()=>{WAP_COM_0060.show()},
       "WAP_CORP_0025" : ()=>{WAP_CORP_0025.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();

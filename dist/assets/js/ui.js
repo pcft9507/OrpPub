@@ -965,6 +965,11 @@ class CreateTag {
 				tagItem.classList.add('tag__item--type2');
 				break;
 			}
+			case 3: {
+				txt = `<span class="txt">${val1}</span>`;
+				tagItem.classList.add('tag__item--type1');
+				break;
+			}
 			default: break;
 		}
 		tagItem.insertAdjacentHTML('beforeend', txt);
@@ -1005,6 +1010,10 @@ class CreateTag {
 				break;
 			}
 			case 2: {
+				if (val1.length) this.showWrap(val1);
+				break;
+			}
+			case 3: {
 				if (val1.length) this.showWrap(val1);
 				break;
 			}
@@ -1712,9 +1721,11 @@ function initializeCheckboxManagers(checkboxGroups) {
 
 // 숫자만 입력
 function inputNumber() {
-	inputValueChk();
-	var input = document.querySelector('.a-num');
-	input.value = input.value.replace(/[^0-9]/g, '');
+  inputValueChk();
+  var inputs = document.querySelectorAll('.a-num'); // 모든 .a-num 클래스를 가진 요소를 찾습니다.
+  inputs.forEach(function(input) { // 찾은 요소 각각에 대해 함수를 실행합니다.
+    input.value = input.value.replace(/[^0-9]/g, ''); // 숫자가 아닌 문자를 제거합니다.
+  });
 }
 
 // 발송버튼 드롭다운

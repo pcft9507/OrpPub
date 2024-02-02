@@ -14,3 +14,92 @@
 .layer-popup.pop-interview-tools .ee-info.active {
   display: block;
 }
+
+.layer-popup.send-sms #phoneNum {
+  display: none;
+  position: relative;
+  height: 37px;
+  overflow: hidden;
+  padding-right: 32px;
+}
+
+.layer-popup.send-sms #phoneNum.is-show {
+  display: block;
+  height: auto;
+}
+
+.layer-popup.send-sms #phoneNum.is-show .tag__dropdown-btn {
+  transform: rotate(180deg);
+}
+
+.layer-popup.send-sms #selectCont {
+  gap: 0 8px;
+}
+
+.layer-popup.send-sms #selectCont span {
+  width: 92px;
+}
+
+.layer-popup.send-sms #selectCont .chips {
+  display: flex;
+  width: calc(100% - 100px);
+  overflow-x: auto;
+  gap: 0 8px;
+}
+
+.layer-popup.send-sms .textarea {
+  height: 220px;
+  padding: 16px;
+  border: 1px solid #BBBEC3;
+  border-radius: 6px;
+}
+
+.layer-popup.send-sms .templit-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.layer-popup.send-sms .templit-info .temp-col {
+  display: flex;
+}
+
+.layer-popup.send-sms .templit-info .temp-col1 {
+  width: 294px;
+}
+
+.layer-popup.send-sms .templit-info .temp-col2 {
+  gap: 0 8px;
+  width: calc(100% - 294px);
+}
+
+.layer-popup.send-sms .templit-info p {
+  color: #707070;
+}
+
+.layer-popup.send-sms .templit-info p strong {
+  display: block;
+}
+
+.layer-popup.send-sms .templit-info .input-txt {
+  width: 136px;
+}
+
+.layer-popup.send-sms .popup__btn-wrap {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.layer-popup.send-sms .popup__btn-wrap .col-left {
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+}
+
+.layer-popup.send-sms .popup__btn-wrap .input-txt {
+  width: 130px;
+}
+
+.layer-popup.send-sms .popup__btn-wrap .btn-send {
+  width: 200px;
+}
