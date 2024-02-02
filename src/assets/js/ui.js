@@ -1033,6 +1033,14 @@ const rowItemDel = (num) => {
 			target = _this.closest('.form-cell');
 			break;
 		}
+		case 3: {
+			target = _this.closest('.q-templit .form-row');
+			break;
+		}
+		case 4: {
+			target = _this.closest('.main-q__inner');
+			break;
+		}
 		default: {
 			target = _this.closest('.form-inner');
 		}
@@ -1219,6 +1227,175 @@ const rowItemAdd = (num, targetEl) => {
             </span>
           </button>
         </div>
+      `
+			break;
+		}
+		case 9: {
+			template = `
+				<div class="form-inner type-mt2 type-gap2">
+					<button type="button" class="btn-item--del" onclick="rowItemDel();">
+						<span>삭제</span>
+					</button>
+					<div class="with-txt">
+						<input type="text" class="input-txt size-s center" placeholder="하위요소명">
+					</div>
+					<div class="input-box" style="flex: 1;">
+						<input type="text" class="input-txt size-s" placeholder="하위요소 설명" oninput="inputValueChk()">
+						<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+					</div>
+					<button type="button" onclick="rowItemUp('.form-inner')">
+						<span class="base-icon icon-up__size-m__color3">
+							<span class="isHidden">위로</span>
+						</span>
+					</button>
+					<button type="button" onclick="rowItemDown('.form-inner')">
+						<span class="base-icon icon-down2__size-m__color3">
+							<span class="isHidden">아래로</span>
+						</span>
+					</button>
+				</div>
+      `
+			break;
+		}
+		case 10: {
+			template = `
+				<div class="form-row box-type7">
+					<div class="d-flex ai-c jc-sb">
+						<h5 class="title-sub2 fz-inherit">질문주제</h5>
+
+						<div class="col">
+							<button type="button" onclick="rowItemUp('.q-templit .form-row')">
+								<span class="base-icon icon-up__size-m__color3">
+									<span class="isHidden">위로</span>
+								</span>
+							</button>
+							<button type="button" onclick="rowItemDown('.q-templit .form-row')">
+								<span class="base-icon icon-down2__size-m__color3">
+									<span class="isHidden">아래로</span>
+								</span>
+							</button>
+							<button type="button" onclick="rowItemDel(3)">
+								<span class="base-icon icon-trash__size-m__color3 point-color5">삭제</span>
+							</button>
+						</div>
+					</div>
+
+					<div class="form-inner">
+						<div class="input-box h-full">
+							<input type="text" class="input-txt" placeholder="질문주제" oninput="inputValueChk()">
+							<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+						</div>
+					</div>
+
+					<div class="main-q content-mt3">
+						<h5 class="title-sub2 fz-inherit">주질문</h5>
+
+						<div class="add-target" data-ref="addTarget">
+							<div class="main-q__inner">
+								<div class="form-inner type-mt2 type-gap2">
+									<button type="button" class="btn-item--del" onclick="rowItemDel(4);">
+										<span>삭제</span>
+									</button>
+									<div class="with-txt">
+										<input type="text" class="input-txt size-s center" placeholder="주질문">
+									</div>
+									<div class="input-box" style="flex: 1;">
+										<input type="text" class="input-txt size-s" placeholder="주질문 설명" oninput="inputValueChk()">
+										<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+									</div>
+								</div>
+
+								<div class="main-q__sub add-target">
+									<div class="main-q__sub2" data-ref="addTarget2">
+										<div class="form-inner type-mt2 type-gap2">
+											<button type="button" class="btn-item--del" onclick="rowItemDel();">
+												<span>삭제</span>
+											</button>
+											<div class="with-txt">
+												<input type="text" class="input-txt size-s center" placeholder="추가질문">
+											</div>
+											<div class="input-box" style="flex: 1;">
+												<input type="text" class="input-txt size-s" placeholder="추가질문 설명" oninput="inputValueChk()">
+												<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="content-mt2">
+										<button type="button" class="btn-item--add" onclick="rowItemAdd(12, event.target.closest('.add-target').querySelector('[data-ref=addTarget2]'));">
+											<span>추가질문 추가</span>
+										</button>
+									</div>                    
+								</div>
+							</div>
+						</div>                     
+
+						<div class="content-mt2">
+							<button type="button" class="btn-item--add" onclick="rowItemAdd(11, event.target.closest('.form-row').querySelector('[data-ref=addTarget]'));">
+								<span>주질문 추가</span>
+							</button>
+						</div>
+					</div>
+				</div>
+      `
+			break;
+		}
+		case 11: {
+			template = `
+				<div class="main-q__inner">
+					<div class="form-inner type-mt2 type-gap2">
+						<button type="button" class="btn-item--del" onclick="rowItemDel(4);">
+							<span>삭제</span>
+						</button>
+						<div class="with-txt">
+							<input type="text" class="input-txt size-s center" placeholder="주질문">
+						</div>
+						<div class="input-box" style="flex: 1;">
+							<input type="text" class="input-txt size-s" placeholder="주질문 설명" oninput="inputValueChk()">
+							<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+						</div>
+					</div>
+
+					<div class="main-q__sub add-target">
+						<div class="main-q__sub2" data-ref="addTarget2">
+							<div class="form-inner type-mt2 type-gap2">
+								<button type="button" class="btn-item--del" onclick="rowItemDel();">
+									<span>삭제</span>
+								</button>
+								<div class="with-txt">
+									<input type="text" class="input-txt size-s center" placeholder="추가질문">
+								</div>
+								<div class="input-box" style="flex: 1;">
+									<input type="text" class="input-txt size-s" placeholder="추가질문 설명" oninput="inputValueChk()">
+									<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="content-mt2">
+							<button type="button" class="btn-item--add" onclick="rowItemAdd(12, event.target.closest('.add-target').querySelector('[data-ref=addTarget2]'));">
+								<span>추가질문 추가</span>
+							</button>
+						</div>                    
+					</div>
+				</div>
+      `
+			break;
+		}
+		case 12: {
+			template = `
+				<div class="form-inner type-mt2 type-gap2">
+					<button type="button" class="btn-item--del" onclick="rowItemDel();">
+						<span>삭제</span>
+					</button>
+					<div class="with-txt">
+						<input type="text" class="input-txt size-s center" placeholder="추가질문">
+					</div>
+					<div class="input-box" style="flex: 1;">
+						<input type="text" class="input-txt size-s" placeholder="추가질문 설명" oninput="inputValueChk()">
+						<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+					</div>
+				</div>
       `
 			break;
 		}

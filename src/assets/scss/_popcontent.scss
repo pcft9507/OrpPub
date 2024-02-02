@@ -1,0 +1,28 @@
+.layer-popup {
+
+  &.pop-interview-tools {
+
+    .main-q {
+
+      &__sub {
+        margin-top: 16px;
+        padding-left: 32px;
+      }
+    }
+    
+    .main-q__inner {
+
+      & + .main-q__inner {
+        margin-top: 16px;
+      }
+    }
+
+    .ee-info {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

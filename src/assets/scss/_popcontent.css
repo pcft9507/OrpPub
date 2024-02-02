@@ -1,0 +1,16 @@
+.layer-popup.pop-interview-tools .main-q__sub {
+  margin-top: 16px;
+  padding-left: 32px;
+}
+
+.layer-popup.pop-interview-tools .main-q__inner + .main-q__inner {
+  margin-top: 16px;
+}
+
+.layer-popup.pop-interview-tools .ee-info {
+  display: none;
+}
+
+.layer-popup.pop-interview-tools .ee-info.active {
+  display: block;
+}

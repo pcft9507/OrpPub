@@ -24,6 +24,13 @@
 .font-weight-s {
   font-weight: 400;
 }
+.fz-inherit {
+  font-size:  inherit;
+}
+
+.tar {
+  text-align: right !important;
+}
 
 hr {
   margin: var(--content-margin4) 0;
@@ -127,6 +134,11 @@ hr {
     padding: 24px;
     border-radius: var(--radius3);
     background: var(--bg-color7)
+  }
+  &-type7 {
+    padding: 16px;
+    border-radius: var(--radius3);
+    background: var(--gray7)
   }
 }
 
@@ -663,6 +675,10 @@ textarea {
   }
   .input-txt {
     padding-right: 44px;
+
+    &[readonly] {
+      background: #EAEDF3;
+    }
   }
   .btn-del {
     display: none;
@@ -757,6 +773,10 @@ textarea {
     border: 0;
     background: none;
     vertical-align: middle;
+
+    &.h-s {
+      height: 30px;
+    }
   }
 }
 
@@ -979,6 +999,10 @@ textarea {
   display: inline-block;
   position: relative;
   vertical-align: middle;
+
+  &.h-full {
+    width: 100%;
+  }
   &-btn {
     position: relative;
     display: flex;
@@ -992,6 +1016,12 @@ textarea {
     border-radius: var(--radius1);
     text-align: left;
     font-weight: 500;
+    &.ellipsis {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
     &.size-s {height: 44px;}
     &:focus,
     &.isOpen {
@@ -1514,6 +1544,16 @@ textarea {
       text-decoration: underline;
     }
   }
+
+  tbody {
+
+    tr {
+
+      &.selected-row {
+        background: #dadde5;
+      }
+    }
+  }
 }
 
 // .dataTables_paginate {
@@ -1859,4 +1899,11 @@ textarea {
 .pop-guide-txt {
   color: #707070;
   font-size: 14px;
+}
+
+.authBtn {
+
+  &.is-show {
+    display: block;
+  }
 }
