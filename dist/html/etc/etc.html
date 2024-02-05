@@ -106,8 +106,18 @@
       <!-- //snb -->
 
       <div class="contents">
+        <h3 class="title-sub1">팝업</h3>
+        
+        <div class="form-inner type-gap2">
+          <button type="button" class="base-btn type2__size-m" onclick="WAP_COM_0050.show()">SMS 발송팝업</button>
+          <button type="button" class="base-btn type2__size-m" onclick="WAP_COM_0055.show()">이메일 발송팝업</button>
+          <button type="button" class="base-btn type2__size-m" onclick="WAP_CONT_0100.show()">
+            <span class="base-icon icon-upload__size-s__color1">엑셀업로드</span>
+          </button>
+        </div>
+          
         <!-- 주소입력 테스트 -->
-        <h3 class="title-sub1">주소입력 테스트</h3>
+        <h3 class="title-sub1 content-mt6">주소입력 테스트</h3>
         
         <p style="margin-bottom: 16px">아이디값 확인 필수</p>
         
@@ -127,6 +137,7 @@
           </div>
         </div>
         <!--// 주소입력 테스트 -->
+        
       </div>
 
 
@@ -175,7 +186,7 @@
 
       <div id="phoneNum" class="tag content-mt2">
         <div class="tag__box"></div>
-        <button type="button" class="tag__dropdown-btn" onclick="togglePhoneNum();"></button>
+        <button type="button" class="tag__dropdown-btn" onclick="togglePhoneNum();"><span class="is-hidden">토글</span></button>
       </div>
 
       <script>
@@ -308,14 +319,13 @@
   </section>
 </div>
 <script>
-
-  // // 받는 사람 번호 입력칸
-  // const recipientNumber = document.querySelector('#recipientNumber')
-  // const phoneNumTagWrap = document.querySelector('#phoneNum')
+  // 받는 사람 번호 입력칸
+  const recipientNumber = document.querySelector('#recipientNumber')
+  const phoneNumTagWrap = document.querySelector('#phoneNum')
 
   // 받는 사람 번호 추가
   function phoneAddTag() {
-    phoneNumTagWrap.addTag(recipientNumber.value);
+    phoneNum2.addTag(recipientNumber.value);
     recipientNumber.value = '';
   }
 
@@ -337,7 +347,7 @@
 
   const WAP_COM_0050 = new LayerPopup({target: "WAP-COM-0050"});
 </script>;
-  <div class="layer-popup type-modal send-sms" data-ref="WAP-COM-0060">
+  <div class="layer-popup type-modal send-sms" data-ref="WAP-COM-0055">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
       <h3 class="popup__title">E-Mail 발송</h3>
@@ -357,12 +367,23 @@
         <h4 class="title-sub2">받는 메일 주소</h4>
         <div class="form-inner type-gap2">
           <div class="input-box h-full after-btn">
-            <input type="text" id="recipientNumber" class="input-txt a-num" maxlength="11" placeholder="메일 주소 입력" oninput="inputNumber()">
+            <input type="text" id="emailaddr" class="input-txt a-num" placeholder="메일 주소 입력" oninput="inputValueChk()">
             <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
           </div>
-          <button class="base-btn type2__size-m" onclick="phoneAddTag()">추가</button>
+          <button class="base-btn type2__size-m" onclick="emailAddTag()">추가</button>
         </div>
       </div>
+
+      <div id="emailTag" class="tag content-mt2">
+        <div class="tag__box"></div>
+        <button type="button" class="tag__dropdown-btn" onclick="toggleEmail();"><span class="is-hidden">토글</span></button>
+      </div>
+
+      <script>
+        const emailAdd = new CreateTag({
+          target: document.getElementById('emailTag'),
+          tagType: 3,
+        });
       </script>
 
       <div class="form-row">
@@ -407,24 +428,23 @@
     <div class="popup__btn-wrap">
       <button class="base-btn type1__size-m">발송</button>
     </div>
-    <button class="btn-close" onclick="WAP_COM_0060.hide()">닫기</button>
+    <button class="btn-close" onclick="WAP_COM_0055.hide()">닫기</button>
   </section>
 </div>
 <script>
+  // 받는 사람 메일 입력칸
+  const emailaddr = document.querySelector('#emailaddr')
+  const emailTag = document.querySelector('#emailTag')
 
-  // 받는 사람 번호 입력칸
-  const recipientNumber = document.querySelector('#recipientNumber')
-  const phoneNumTagWrap = document.querySelector('#phoneNum')
-
-  // 받는 사람 번호 추가
-  function phoneAddTag() {
-    phoneNum.addTag(recipientNumber.value);
-    recipientNumber.value = '';
+  // 받는 사람 메일 추가
+  function emailAddTag() {
+    emailAdd.addTag(emailaddr.value);
+    emailaddr.value = '';
   }
 
-  // 받는 사람 번호 드롭다운을 위한 toggleClass
-  function togglePhoneNum() {
-    phoneNumTagWrap.classList.toggle('is-show')
+  // 받는 사람 메일 드롭다운을 위한 toggleClass
+  function toggleEmail() {
+    emailTag.classList.toggle('is-show')
   }
 
   // 자주 쓰는 내용
@@ -438,7 +458,7 @@
   }
   $('.chip').checkChip();
 
-  const WAP_COM_0060 = new LayerPopup({target: "WAP-COM-0060"});
+  const WAP_COM_0055 = new LayerPopup({target: "WAP-COM-0055"});
 </script>;
   <form name="form" id="form" method="post">
   <input type="hidden" id="pageIndex" name="currentPage" value="1"> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
@@ -633,13 +653,126 @@
 		getAddr();
 	};
 </script>;
+  <div class="layer-popup type-modal upload-excel" data-ref="WAP-CONT-0100">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">엑셀 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      
+      <input id="excelUpload" type="file" name="files" title="파일 업로드" multiple>
+
+      <div class="upload-area">
+        <p class="ua-txt">파일을 끌어서 첨부할 수 있습니다.</p>
+        <button class="btn-upload base-btn type2__size-s">파일 직접 선택</button>
+      </div>
+
+      <div class="file-list"></div>
+
+      <p class="guide-download">엑셀 등록을 위해서는 샘플 양식에 맞춰 엑셀을 등록해야합니다. <a href="#">샘플양식 다운로드</a></p>
+    </div>
+    
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">저장</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0100.hide()">닫기</button>
+  </section>
+</div>
+
+<script>
+  // 드래그앤 드롭
+  var uploadExcel = document.querySelector('.upload-excel');
+  var btnUpload = uploadExcel.querySelector('.btn-upload');
+  var inputFile = uploadExcel.querySelector('#excelUpload');
+  var uploadBox = uploadExcel.querySelector('.upload-area');
+  var fileList = uploadExcel.querySelector('.file-list'); // 파일 목록을 표시할 ul 요소
+
+  console.log(btnUpload)
+
+  /* 박스 안에 Drag를 하고 있을 때 */
+  uploadBox.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    console.log('dragover');
+    var vaild = e.dataTransfer.types.indexOf('Files') >= 0;
+  });
+  
+  /* 박스 밖으로 Drag가 나갈 때 */
+  uploadBox.addEventListener('dragleave', function(e) {});
+  
+  /* 박스 안에서 Drag를 Drop했을 때 */
+  uploadBox.addEventListener('drop', function(e) {
+    e.preventDefault(); // 기본 이벤트 방지
+
+    var files = e.dataTransfer.files; // 드롭한 파일들
+
+    // 파일 리스트 초기화
+    fileList.innerHTML = '';
+
+    // 드롭한 파일 각각에 대해 처리
+    Array.from(files).forEach(function(file) {
+      var createdEl = document.createElement('div'); // 요소 생성
+      createdEl.textContent = file.name; // 파일 이름으로 요소의 텍스트 설정
+      fileList.appendChild(createdEl); // 생성된 요소를 fileList에 추가
+    });
+  });
+  
+  btnUpload.addEventListener('click', function () {
+    excelUpload.click();
+  });
+
+  // inputFile에도 동일하게 적용하여 파일 선택 시 목록을 업데이트하도록 합니다.
+  inputFile.addEventListener('change', function(e) {
+    var files = e.target.files; // 선택한 파일들
+
+    // 파일 리스트 초기화
+    fileList.innerHTML = '';
+
+    // 선택한 파일 각각에 대해 처리
+    Array.from(files).forEach(function(file) {
+      var createdEl = document.createElement('div'); // 요소 생성
+      createdEl.textContent = file.name; // 파일 이름으로 요소의 텍스트 설정
+      fileList.appendChild(createdEl); // 생성된 요소를 fileList에 추가
+    });
+  });
+
+  // 파일 유효성 검사 함수
+  function isValid(data){
+		
+		//파일인지 유효성 검사
+		if(data.types.indexOf('Files') < 0)
+			return false;
+		
+		//이미지인지 유효성 검사
+		if(data.files[0].type.indexOf('image') < 0){
+			alert('이미지 파일만 업로드 가능합니다.');
+			return false;
+		}
+		
+		//파일의 개수는 1개씩만 가능하도록 유효성 검사
+		if(data.files.length > 1){
+			alert('파일은 하나씩 전송이 가능합니다.');
+			return false;
+		}
+		
+		//파일의 사이즈는 50MB 미만
+		if(data.files[0].size >= 1024 * 1024 * 50){
+			alert('50MB 이상인 파일은 업로드할 수 없습니다.');
+			return false;
+		}
+		
+		return true;
+	}
+
+  const WAP_CONT_0100 = new LayerPopup({target: "WAP-CONT-0100"});
+</script>;
   
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
       "WAP_COM_0050" : ()=>{WAP_COM_0050.show()},
-      "WAP_COM_0060" : ()=>{WAP_COM_0060.show()},
-      "WAP_CORP_0025" : ()=>{WAP_CORP_0025.show()}
+      "WAP_COM_0055" : ()=>{WAP_COM_0055.show()},
+      "WAP_CORP_0025" : ()=>{WAP_CORP_0025.show()},
+      "WAP_CONT_0100" : ()=>{WAP_CONT_0100.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

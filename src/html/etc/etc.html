@@ -9,8 +9,18 @@
       @@include('./snb.html', {type: "기업담당자", dep1: "5", dep2: "2"})
 
       <div class="contents">
+        <h3 class="title-sub1">팝업</h3>
+        
+        <div class="form-inner type-gap2">
+          <button type="button" class="base-btn type2__size-m" onclick="WAP_COM_0050.show()">SMS 발송팝업</button>
+          <button type="button" class="base-btn type2__size-m" onclick="WAP_COM_0055.show()">이메일 발송팝업</button>
+          <button type="button" class="base-btn type2__size-m" onclick="WAP_CONT_0100.show()">
+            <span class="base-icon icon-upload__size-s__color1">엑셀업로드</span>
+          </button>
+        </div>
+          
         <!-- 주소입력 테스트 -->
-        <h3 class="title-sub1">주소입력 테스트</h3>
+        <h3 class="title-sub1 content-mt6">주소입력 테스트</h3>
         
         <p style="margin-bottom: 16px">아이디값 확인 필수</p>
         
@@ -30,6 +40,7 @@
           </div>
         </div>
         <!--// 주소입력 테스트 -->
+        
       </div>
 
 
@@ -50,15 +61,17 @@
     
   </div>
   @@include('../html/etc/WAP-COM-0050.html');
-  @@include('../html/etc/WAP-COM-0060.html');
+  @@include('../html/etc/WAP-COM-0055.html');
   @@include('../html/etc/WAP-CORP-0025.html');
+  @@include('../html/corp/WAP-CONT-0100.html');
   
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
       "WAP_COM_0050" : ()=>{WAP_COM_0050.show()},
-      "WAP_COM_0060" : ()=>{WAP_COM_0060.show()},
-      "WAP_CORP_0025" : ()=>{WAP_CORP_0025.show()}
+      "WAP_COM_0055" : ()=>{WAP_COM_0055.show()},
+      "WAP_CORP_0025" : ()=>{WAP_CORP_0025.show()},
+      "WAP_CONT_0100" : ()=>{WAP_CONT_0100.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

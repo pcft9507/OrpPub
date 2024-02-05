@@ -27,7 +27,7 @@
 
       <div id="phoneNum" class="tag content-mt2">
         <div class="tag__box"></div>
-        <button type="button" class="tag__dropdown-btn" onclick="togglePhoneNum();"></button>
+        <button type="button" class="tag__dropdown-btn" onclick="togglePhoneNum();"><span class="is-hidden">토글</span></button>
       </div>
 
       <script>
@@ -160,14 +160,13 @@
   </section>
 </div>
 <script>
-
-  // // 받는 사람 번호 입력칸
-  // const recipientNumber = document.querySelector('#recipientNumber')
-  // const phoneNumTagWrap = document.querySelector('#phoneNum')
+  // 받는 사람 번호 입력칸
+  const recipientNumber = document.querySelector('#recipientNumber')
+  const phoneNumTagWrap = document.querySelector('#phoneNum')
 
   // 받는 사람 번호 추가
   function phoneAddTag() {
-    phoneNumTagWrap.addTag(recipientNumber.value);
+    phoneNum2.addTag(recipientNumber.value);
     recipientNumber.value = '';
   }
 

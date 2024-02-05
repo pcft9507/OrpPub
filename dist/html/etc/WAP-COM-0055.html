@@ -1,4 +1,4 @@
-<div class="layer-popup type-modal send-sms" data-ref="WAP-COM-0060">
+<div class="layer-popup type-modal send-sms" data-ref="WAP-COM-0055">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
       <h3 class="popup__title">E-Mail 발송</h3>
@@ -18,12 +18,23 @@
         <h4 class="title-sub2">받는 메일 주소</h4>
         <div class="form-inner type-gap2">
           <div class="input-box h-full after-btn">
-            <input type="text" id="recipientNumber" class="input-txt a-num" maxlength="11" placeholder="메일 주소 입력" oninput="inputNumber()">
+            <input type="text" id="emailaddr" class="input-txt a-num" placeholder="메일 주소 입력" oninput="inputValueChk()">
             <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
           </div>
-          <button class="base-btn type2__size-m" onclick="phoneAddTag()">추가</button>
+          <button class="base-btn type2__size-m" onclick="emailAddTag()">추가</button>
         </div>
       </div>
+
+      <div id="emailTag" class="tag content-mt2">
+        <div class="tag__box"></div>
+        <button type="button" class="tag__dropdown-btn" onclick="toggleEmail();"><span class="is-hidden">토글</span></button>
+      </div>
+
+      <script>
+        const emailAdd = new CreateTag({
+          target: document.getElementById('emailTag'),
+          tagType: 3,
+        });
       </script>
 
       <div class="form-row">
@@ -68,24 +79,23 @@
     <div class="popup__btn-wrap">
       <button class="base-btn type1__size-m">발송</button>
     </div>
-    <button class="btn-close" onclick="WAP_COM_0060.hide()">닫기</button>
+    <button class="btn-close" onclick="WAP_COM_0055.hide()">닫기</button>
   </section>
 </div>
 <script>
+  // 받는 사람 메일 입력칸
+  const emailaddr = document.querySelector('#emailaddr')
+  const emailTag = document.querySelector('#emailTag')
 
-  // 받는 사람 번호 입력칸
-  const recipientNumber = document.querySelector('#recipientNumber')
-  const phoneNumTagWrap = document.querySelector('#phoneNum')
-
-  // 받는 사람 번호 추가
-  function phoneAddTag() {
-    phoneNum.addTag(recipientNumber.value);
-    recipientNumber.value = '';
+  // 받는 사람 메일 추가
+  function emailAddTag() {
+    emailAdd.addTag(emailaddr.value);
+    emailaddr.value = '';
   }
 
-  // 받는 사람 번호 드롭다운을 위한 toggleClass
-  function togglePhoneNum() {
-    phoneNumTagWrap.classList.toggle('is-show')
+  // 받는 사람 메일 드롭다운을 위한 toggleClass
+  function toggleEmail() {
+    emailTag.classList.toggle('is-show')
   }
 
   // 자주 쓰는 내용
@@ -99,5 +109,5 @@
   }
   $('.chip').checkChip();
 
-  const WAP_COM_0060 = new LayerPopup({target: "WAP-COM-0060"});
+  const WAP_COM_0055 = new LayerPopup({target: "WAP-COM-0055"});
 </script>

@@ -4165,6 +4165,21 @@ textarea {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
+.layer-popup.send-sms #emailTag {
+  display: none;
+  position: relative;
+  height: 37px;
+  overflow: hidden;
+  padding-right: 32px;
+}
+.layer-popup.send-sms #emailTag.is-show {
+  display: block;
+  height: auto;
+}
+.layer-popup.send-sms #emailTag.is-show .tag__dropdown-btn {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
 .layer-popup.send-sms #selectCont {
   gap: 0 8px;
 }
@@ -4237,5 +4252,56 @@ textarea {
 }
 .layer-popup.send-sms .popup__btn-wrap .btn-send {
   width: 200px;
+}
+.layer-popup.upload-excel #excelUpload {
+  display: none;
+}
+.layer-popup.upload-excel .upload-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -ms-flex-direction: column;
+  width: 100%;
+  height: 240px;
+  border-radius: 8px;
+  border: 4px dashed #F0F8FC;
+}
+.layer-popup.upload-excel .upload-area .ua-txt {
+  position: relative;
+  margin-bottom: 16px;
+  padding-top: 96px;
+  color: #ACACAC;
+  font-weight: 500;
+  text-align: center;
+}
+.layer-popup.upload-excel .upload-area .ua-txt:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background: url("../images/ico-attach-file.png");
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.layer-popup.upload-excel .guide-download {
+  margin-top: 110px;
+  color: #707070;
+  text-align: center;
+}
+.layer-popup.upload-excel .guide-download a {
+  color: #029ED0;
+  font-weight: 500;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=style.css.map */
