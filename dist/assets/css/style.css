@@ -4294,6 +4294,9 @@ textarea {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
+.layer-popup.upload-excel .file-list {
+  margin-top: 16px;
+}
 .layer-popup.upload-excel .guide-download {
   margin-top: 110px;
   color: #707070;
