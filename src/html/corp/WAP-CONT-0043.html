@@ -1,0 +1,38 @@
+<div class="layer-popup type-modal agree-detail" data-ref="WAP-CONT-0043">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">약관 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      
+      <div class="form-row">
+        <h4 class="title-sub2">제목</h4>
+        <div class="form-inner">
+          <div class="input-box h-full">
+            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <h4 class="title-sub2">내용</h4>
+        <div class="form-inner">
+          <div class="input-box h-full">
+            <textarea placeholder="입력하세요"></textarea>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">저장</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0043.hide()">닫기</button>
+  </section>
+</div>
+
+<script>
+  const WAP_CONT_0043 = new LayerPopup({target: "WAP-CONT-0043"});
+</script>

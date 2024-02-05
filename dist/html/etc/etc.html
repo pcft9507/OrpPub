@@ -114,6 +114,7 @@
           <button type="button" class="base-btn type2__size-m" onclick="WAP_CONT_0100.show()">
             <span class="base-icon icon-upload__size-s__color1">엑셀업로드</span>
           </button>
+          <button type="button" class="base-btn type2__size-m" onclick="WAP_CONT_0043.show()">입사지원서 약관등록</button>
         </div>
           
         <!-- 주소입력 테스트 -->
@@ -793,6 +794,44 @@
 
   const WAP_CONT_0100 = new LayerPopup({target: "WAP-CONT-0100"});
 </script>;
+  <div class="layer-popup type-modal agree-detail" data-ref="WAP-CONT-0043">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">약관 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      
+      <div class="form-row">
+        <h4 class="title-sub2">제목</h4>
+        <div class="form-inner">
+          <div class="input-box h-full">
+            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <h4 class="title-sub2">내용</h4>
+        <div class="form-inner">
+          <div class="input-box h-full">
+            <textarea placeholder="입력하세요"></textarea>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">저장</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0043.hide()">닫기</button>
+  </section>
+</div>
+
+<script>
+  const WAP_CONT_0043 = new LayerPopup({target: "WAP-CONT-0043"});
+</script>;
   
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
@@ -800,7 +839,8 @@
       "WAP_COM_0050" : ()=>{WAP_COM_0050.show()},
       "WAP_COM_0055" : ()=>{WAP_COM_0055.show()},
       "WAP_CORP_0025" : ()=>{WAP_CORP_0025.show()},
-      "WAP_CONT_0100" : ()=>{WAP_CONT_0100.show()}
+      "WAP_CONT_0100" : ()=>{WAP_CONT_0100.show()},
+      "WAP_CONT_0043" : ()=>{WAP_CONT_0043.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

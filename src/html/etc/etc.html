@@ -17,6 +17,7 @@
           <button type="button" class="base-btn type2__size-m" onclick="WAP_CONT_0100.show()">
             <span class="base-icon icon-upload__size-s__color1">엑셀업로드</span>
           </button>
+          <button type="button" class="base-btn type2__size-m" onclick="WAP_CONT_0043.show()">입사지원서 약관등록</button>
         </div>
           
         <!-- 주소입력 테스트 -->
@@ -64,6 +65,7 @@
   @@include('../html/etc/WAP-COM-0055.html');
   @@include('../html/etc/WAP-CORP-0025.html');
   @@include('../html/corp/WAP-CONT-0100.html');
+  @@include('../html/corp/WAP-CONT-0043.html');
   
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
@@ -71,7 +73,8 @@
       "WAP_COM_0050" : ()=>{WAP_COM_0050.show()},
       "WAP_COM_0055" : ()=>{WAP_COM_0055.show()},
       "WAP_CORP_0025" : ()=>{WAP_CORP_0025.show()},
-      "WAP_CONT_0100" : ()=>{WAP_CONT_0100.show()}
+      "WAP_CONT_0100" : ()=>{WAP_CONT_0100.show()},
+      "WAP_CONT_0043" : ()=>{WAP_CONT_0043.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

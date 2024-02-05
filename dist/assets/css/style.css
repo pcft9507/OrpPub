@@ -4307,4 +4307,8 @@ textarea {
   font-weight: 500;
   text-decoration: underline;
 }
+.layer-popup.agree-detail textarea {
+  display: block;
+  height: 286px;
+}
 /*# sourceMappingURL=style.css.map */
