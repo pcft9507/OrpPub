@@ -24,6 +24,39 @@
         display: block;
       }
     }
+
+    .mh {
+      padding-top: 32px;
+      border-top: 1px solid #E0E7ED;
+
+      &__list {
+        margin-top: 16px;
+      }
+
+      &__item {
+        margin-bottom: 16px;
+        padding: 16px;
+        border-radius: 6px;
+        border: 1px solid #DADDE5;
+        background: #F4F6FA;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &__name {
+        display: block;
+        color: #222631;
+        font-size: 14px;
+      }
+
+      &__summary {
+        margin-top: 9px;
+        color: #ACACAC;
+        font-size: 14px;
+      }
+    }
   }
 
   &.send-sms {
@@ -152,6 +185,10 @@
       border-radius: 8px; 
       border: 4px dashed #F0F8FC;
 
+      &.on {
+        background: #f9f9f9;
+      }
+
       .ua-txt {
         position: relative;
         margin-bottom: 16px;
@@ -178,7 +215,7 @@
     }
 
     .guide-download {
-      margin-top: 110px;
+      margin-top: 24px;
       color: #707070;
       text-align: center;
 

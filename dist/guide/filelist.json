@@ -546,18 +546,28 @@
       "list" : [
         {
           "dep2" : "SMS발송",
-          "name" : "WAP-COM-0050.html",
+          "name" : "WAP-COM-0050",
           "url" : "./html/etc/etc.html?popup=WAP_COM_0050"
         },
         {
           "dep2" : "E-Mail 발송",
-          "name" : "WAP-COM-0055.html",
+          "name" : "WAP-COM-0055",
           "url" : "./html/etc/etc.html?popup=WAP_COM_0055"
         },
         {
           "dep2" : "우편 번호 검색",
-          "name" : "WAP-CORP-0025.html",
+          "name" : "WAP-CORP-0025",
           "url" : "./html/etc/etc.html?popup=WAP_CORP_0025"
+        },
+        {
+          "dep2" : "엑셀업로드",
+          "name" : "WAP-CONT-0100",
+          "url" : "./html/etc/etc.html?popup=WAP_CONT_0100"
+        },
+        {
+          "dep2" : "입사지원서 약관등록",
+          "name" : "WAP-CONT-0043",
+          "url" : "./html/etc/etc.html?popup=WAP_CONT_0043"
         }
       ]
     }

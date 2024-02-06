@@ -4150,6 +4150,33 @@ textarea {
 .layer-popup.pop-interview-tools .ee-info.active {
   display: block;
 }
+.layer-popup.pop-interview-tools .mh {
+  padding-top: 32px;
+  border-top: 1px solid #E0E7ED;
+}
+.layer-popup.pop-interview-tools .mh__list {
+  margin-top: 16px;
+}
+.layer-popup.pop-interview-tools .mh__item {
+  margin-bottom: 16px;
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid #DADDE5;
+  background: #F4F6FA;
+}
+.layer-popup.pop-interview-tools .mh__item:last-child {
+  margin-bottom: 0;
+}
+.layer-popup.pop-interview-tools .mh__name {
+  display: block;
+  color: #222631;
+  font-size: 14px;
+}
+.layer-popup.pop-interview-tools .mh__summary {
+  margin-top: 9px;
+  color: #ACACAC;
+  font-size: 14px;
+}
 .layer-popup.send-sms #phoneNum {
   display: none;
   position: relative;
@@ -4275,6 +4302,9 @@ textarea {
   border-radius: 8px;
   border: 4px dashed #F0F8FC;
 }
+.layer-popup.upload-excel .upload-area.on {
+  background: #f9f9f9;
+}
 .layer-popup.upload-excel .upload-area .ua-txt {
   position: relative;
   margin-bottom: 16px;
@@ -4298,7 +4328,7 @@ textarea {
   margin-top: 16px;
 }
 .layer-popup.upload-excel .guide-download {
-  margin-top: 110px;
+  margin-top: 24px;
   color: #707070;
   text-align: center;
 }

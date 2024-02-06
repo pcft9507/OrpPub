@@ -687,31 +687,27 @@
   var inputFile = uploadExcel.querySelector('#excelUpload');
   var uploadBox = uploadExcel.querySelector('.upload-area');
   var fileList = uploadExcel.querySelector('.file-list'); // 파일 목록을 표시할 ul 요소
+  var selectedFiles = []; // 선택된 파일들을 저장할 배열
 
   /* 박스 안에 Drag를 하고 있을 때 */
   uploadBox.addEventListener('dragover', function(e) {
     e.preventDefault();
+    uploadBox.classList.add('on');
     console.log('dragover');
     var vaild = e.dataTransfer.types.indexOf('Files') >= 0;
   });
   
   /* 박스 밖으로 Drag가 나갈 때 */
-  uploadBox.addEventListener('dragleave', function(e) {});
+  uploadBox.addEventListener('dragleave', function(e) {
+    uploadBox.classList.remove('on');
+  });
   
   /* 박스 안에서 Drag를 Drop했을 때 */
   uploadBox.addEventListener('drop', function(e) {
     e.preventDefault(); // 기본 이벤트 방지
 
     var files = e.dataTransfer.files; // 드롭한 파일들
-
-    // 파일 리스트 초기화
-    fileList.innerHTML = '';
-
-    // 드롭한 파일 각각에 대해 처리
-    Array.from(files).forEach(function(file) {
-      const createdEl = `<div class='tag__item tag__item--type1'><span class='txt'>${file.name}</span><button class='del' onclick='removeTag(this)'></button></div>`
-      fileList.innerHTML += createdEl; // 생성된 요소를 fileList에 추가
-    });
+    updateSelectedFiles(files); // 선택된 파일들을 selectedFiles 배열에 추가하고 UI 업데이트
   });
   
   btnUpload.addEventListener('click', function () {
@@ -722,23 +718,31 @@
   inputFile.addEventListener('change', function(e) {
     var files = e.target.files; // 선택한 파일들
 
-    // 파일 리스트 초기화
-    fileList.innerHTML = '';
-
-    // 선택한 파일 각각에 대해 처리
-    Array.from(files).forEach(function(file) {
-      const createdEl = `<div class='tag__item tag__item--type1'><span class='txt'>${file.name}</span><button class='del' onclick='removeTag(this)'></button></div>`
-      fileList.innerHTML += createdEl; // 생성된 요소를 fileList에 추가
-    });
+    updateSelectedFiles(files); // 선택된 파일들을 selectedFiles 배열에 추가하고 UI 업데이트
   });
-
-  var selectedFiles = []; // 선택된 파일들을 저장할 배열
 
   // 파일 선택이나 드래그 앤 드롭 시 selectedFiles 배열 업데이트
   function updateSelectedFiles(files) {
-    // 예: 선택된 파일들을 배열에 추가하는 로직
-    selectedFiles = Array.from(files);
-    // UI 업데이트 로직도 여기에 추가
+    let isFileAdded = false; // 파일이 새로 추가되었는지 여부를 추적
+    
+    Array.from(files).forEach(function(file) {
+      // 중복된 파일이 없는지 검사
+      if (!selectedFiles.some(selectedFile => selectedFile.name === file.name)) {
+        selectedFiles.push(file); // 배열에 파일 추가
+        isFileAdded = true; // 새 파일이 추가되었음
+        
+        // UI에 새로운 파일 추가
+        const createdEl = `<div class='tag__item tag__item--type1'><span class='txt'>${file.name}</span><button class='del' onclick="removeTag(this, '${file.name}')"></button></div>`;
+        fileList.innerHTML += createdEl; // 생성된 요소를 fileList에 추가
+      }
+    });
+
+    // 선택된 파일이 추가되었으면 inputFile의 파일 목록을 업데이트
+    if(isFileAdded) {
+      // inputFile 엘리먼트에 파일 목록을 직접 설정할 수는 없으므로,
+      // 필요한 경우 서버에 업로드 로직을 여기에 추가하거나, 사용자에게 추가된 파일 목록을 다른 방식으로 알림
+      console.log(selectedFiles.length + " files selected.");
+    }
   }
 
   // 파일 제거 로직
@@ -747,22 +751,26 @@
     selectedFiles = selectedFiles.filter(function(file) {
       return file.name !== fileName;
     });
+
+    // inputFile의 상태 초기화 (중요)
+    if(inputFile) {
+      inputFile.value = ''; // inputFile 초기화
+    }
   }
 
   // removeTag 함수 내에서 이 함수를 호출
-  function removeTag(element) {
-    // 부모 요소 (tag__item) 찾기
+  function removeTag(element, fileName) {
+    // 이전 코드와 동일하게 파일을 제거하는 로직을 구현
+    // 파일 이름을 인자로 받아 해당 파일을 selectedFiles 배열에서 제거
+    removeFileFromList(fileName); // 수정 필요
+
+    // UI에서 해당 태그 제거
     var tagItem = element.closest('.tag__item');
-    var fileName = tagItem.querySelector('.txt').textContent; // 파일 이름 가져오기
-
-    // 파일 목록에서 파일 제거
-    removeFileFromList(fileName);
-
-    // 부모 요소가 있으면 제거
     if(tagItem) {
       tagItem.remove();
     }
-  }  
+    console.log(selectedFiles.length + " files selected.");
+  }
 
   // 파일 유효성 검사 함수
   function isValid(data){
