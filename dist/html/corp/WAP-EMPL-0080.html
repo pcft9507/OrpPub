@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+          <div class="header__info__cell header__page-sort">
+            <span>관리자 페이지</span>
+          </div>
+          <ul class="header__info__cell header__list-count">
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">10건</span>
+            </li>
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">8건</span>
+            </li>
+            <li>
+              <span class="key">계약만료</span>
+              <span class="val point-color">2건</span>
+            </li>
+          </ul>
+          <div class="header__info__cell header__input-search">
+            <div class="input-box type-search">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
+            </div>
+          </div>
+        </div>
+        <div class="header__util">
+          <a href="#">홍길동님</a>
+          <a href="#">도움말</a>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+        
+        <ul class="snb__menu">
+          <li><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
+          <li><a href="WAP-EMPL-0010.html" class="snb__depth1--btn icon4">채용등록</a></li>
+          <li class="isCurrent"><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon7">채용목록</a></li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon5"
+              aria-expanded="false"
+              aria-controls="snbSubMenu1"
+            ><span>보관함</span></button>
+            <div id="snbSubMenu1" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
+                <li><a href="WAP-CONT-0270.html">만족도조사</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon6"
+              aria-expanded="false"
+              aria-controls="snbSubMenu2"
+            ><span>기업정보</span></button>
+            <div id="snbSubMenu2" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CORP-0022.html">기업정보</a></li>
+                <li><a href="WAP-SYS-0090.html">사용자</a></li>
+                <li><a href="WAP-ETPR-0070.html">채용홈페이지</a></li>
+                <li><a href="WAP-ETPR-0200.html">개인정보 삭제기준</a></li>
+                <li><a href="WAP-ETPR-0210.html">발송이력</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[ORP연구소] 2021년 하반기 인턴 채용</h2>
+        </div>
+        <div class="contents-header__btns">
+          <a href="#" class="btn">
+            <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-gra ph__size-m__color5">통계</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- contents -->
+      <div class="contents recruitment-noti">
+        <div class="page-title__wrap">
+          <h3 class="title-sub">합격자 발표</h3>
+          <div class="page-title__btn">
+            <button type="button" class="base-btn type-icon__color1">
+              <span class="base-icon icon-down__size-s__color3">만족도 조사 다운로드</span>
+            </button>
+          </div>
+        </div>
+
+        <section class="form-set__box" data-target-cont="cont1">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">기본정보</h4>
+            </div>
+          </div>
+          <div class="box-flex type-gap2">
+            <div class="box-flex-col">
+              <div class="box-type1">
+                <h5 class="title-sub1">공통 항목을 선택하세요</h5>
+              
+                <div class="form-row__flex type2">
+                  <div class="form-th no-pd">기본사항</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox" checked>
+                        <span>경력여부</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>모집인원</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>근무부서</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex type2">
+                  <div class="form-th no-pd">우대사항</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>학력</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>자격</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>경력</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>기타</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex type2">
+                  <div class="form-th no-pd">우대사항</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>학력</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>자격</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>경력</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>기타</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex type2">
+                  <div class="form-th no-pd">근무조건</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>근무형태</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>직급/직책</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>근무부서</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>연봉</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex type2">
+                  <div class="form-th no-pd">전형절차</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>전형절차</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-row__flex type2">
+                  <div class="form-th no-pd">접수기간/방법</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>접수기간</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>접수방법</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex type2">
+                  <div class="form-th no-pd">기타 안내사항</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>기타 안내사항</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+
+            <div class="box-flex-col">
+              <div class="box-type1">
+                <h5 class="title-sub1">분야별 항목을 선택하세요</h5>
+              
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">기본사항</div>
+                  <div class="form-td">
+                    <div class="form-inner">
+                      <div class="chk-group">
+                        <label class="input-chk">
+                          <input type="checkbox" disabled>
+                          <span>경력여부</span>
+                        </label>
+                        <label class="input-chk">
+                          <input type="checkbox">
+                          <span>모집인원</span>
+                        </label>
+                        <label class="input-chk">
+                          <input type="checkbox">
+                          <span>근무부서</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex type2">
+                  <div class="form-th no-pd">자격사항</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>학력</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>자격</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>경력</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>기타</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex type2">
+                  <div class="form-th no-pd">우대사항</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>학력</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>자격</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>경력</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>기타</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex type2">
+                  <div class="form-th no-pd">근무조건</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>근무형태</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>직급/직책</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>근무부서</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>연봉</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 선택항목이 없을경우 -->
+        <p class="no-select-txt">선택한 항목이 없습니다.</p>
+        <!-- //선택항목이 없을경우 -->
+
+        <section class="form-set__box" data-target-cont="cont2">
+
+          <div class="box-flex">
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">모집분야</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th">모집분야</div>
+                  <div class="form-td">
+                    <div class="input-box h-full">
+                      <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="채용명을 입력해주세요." value="적성검사 개발 연구원채용">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">경력여부</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>신입</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>경력</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>경력무관</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">고용형태</div>
+                  <div class="form-td">
+                    <div class="dropdown">
+                      <button type="button" class="dropdown-btn size-s default-size" data-dropdown='{
+                        "name": "dropdown1",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": true
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                    ~
+                    <div class="dropdown">
+                      <button type="button" class="dropdown-btn size-s default-size" data-dropdown='{
+                        "name": "dropdown1",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": true
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                    <label class="input-chk">
+                      <input type="checkbox">
+                      <span>연수 무관</span>
+                    </label>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">모집인원</div>
+                  <div class="form-td">
+                    <div class="input-box" style="width: 136px;">
+                      <input type="number" class="input-txt" oninput="inputValueChk()" placeholder="0">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <strong>명</strong>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">담당업무</div>
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">모집분야</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th">모집분야</div>
+                  <div class="form-td">
+                    <div class="input-box h-full">
+                      <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="채용명을 입력해주세요." value="적성검사 개발 연구원채용">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">
+                    경력여부
+                    <button>
+                      <span class="base-icon icon-share__size-m__color3"><span class="isHidden">팝업</span></span>
+                    </button>
+                  </div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>신입</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>경력</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>경력무관</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row__flex">
+                  <div class="form-th">고용형태</div>
+                  <div class="form-td">
+                    <div class="dropdown">
+                      <button type="button" class="dropdown-btn size-s default-size" data-dropdown='{
+                        "name": "dropdown1",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": true
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                    ~
+                    <div class="dropdown">
+                      <button type="button" class="dropdown-btn size-s default-size" data-dropdown='{
+                        "name": "dropdown1",
+                        "type" : "single",
+                        "option": [
+                          {
+                            "name": "옵션1",
+                            "value": "val1",
+                            "disabled": false,
+                            "checked": true
+                          },
+                          {
+                            "name": "옵션2",
+                            "value": "val2",
+                            "disabled": false,
+                            "checked": false
+                          }
+                        ]
+                      }'>선택하세요</button> 
+                    </div>
+                    <label class="input-chk">
+                      <input type="checkbox">
+                      <span>연수 무관</span>
+                    </label>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">모집인원</div>
+                  <div class="form-td">
+                    <div class="input-box" style="width: 136px;">
+                      <input type="number" class="input-txt" oninput="inputValueChk()" placeholder="0">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <strong>명</strong>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">
+                    담당업무
+                    <button>
+                      <span class="base-icon icon-share__size-m__color3"><span class="isHidden">팝업</span></span>
+                    </button>
+                  </div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <section class="form-set__box" data-target-cont="cont3">
+          <div class="box-flex">
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">자격요건</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">학력</div>
+              
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>무관</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>제한</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>직접입력</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">자격</div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">경력</div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">기타</div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">자격요건</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">
+                    학력
+                    <button>
+                      <span class="base-icon icon-share__size-m__color3"><span class="isHidden">팝업</span></span>
+                    </button>
+                  </div>
+              
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>무관</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>제한</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>직접입력</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">자격</div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">경력</div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row__flex">
+                  <div class="form-th">기타</div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <section class="form-set__box" data-target-cont="cont4">
+          <div class="box-flex">
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">우대사항</h4>
+                </div>
+              </div>            
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">학력</div>
+              
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>무관</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>제한</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>직접입력</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">자격</div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">경력</div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">우대사항</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">
+                    학력
+                    <button>
+                      <span class="base-icon icon-share__size-m__color3"><span class="isHidden">팝업</span></span>
+                    </button>
+                  </div>
+              
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>무관</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>제한</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>직접입력</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">자격</div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-row__flex">
+                  <div class="form-th">경력</div>
+              
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-set__box" data-target-cont="cont5">
+          <div class="box-flex">
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">근무조건</h4>
+                </div>
+              </div>
+    
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">근무형태</div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>정규직</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>계약직</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>아르바이트</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>인턴직</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>프리랜서</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>파견직</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>전임</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>병역특례</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>교육생</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>해외취업</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-row__flex">
+                  <div class="form-th">근무부서</div>
+                  <div class="form-td">
+                    <div class="form-inner h-full">
+                      <div class="input-box h-full type-search ico-gray3 ">
+                        <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-row__flex">
+                  <div class="form-th">직급/직책</div>
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-row__flex">
+                  <div class="form-th">연봉</div>
+                  <div class="form-td">
+                    <div class="input-box h-full">
+                      <input type="text" class="input-txt" placeholder="000만원 or 추 후 입력" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">근무조건</h4>
+                </div>
+              </div>
+    
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">
+                    근무형태
+                    <button>
+                      <span class="base-icon icon-share__size-m__color3"><span class="isHidden">팝업</span></span>
+                    </button>
+                  </div>
+                  <div class="form-td">
+                    <div class="chk-group">
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>정규직</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>계약직</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>아르바이트</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>인턴직</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>프리랜서</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>파견직</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>전임</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>병역특례</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>교육생</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span>해외취업</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-row__flex">
+                  <div class="form-th">근무부서</div>
+                  <div class="form-td">
+                    <div class="form-inner h-full">
+                      <div class="input-box h-full type-search ico-gray3 ">
+                        <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-row__flex">
+                  <div class="form-th">
+                    직급/직책
+                    <button>
+                      <span class="base-icon icon-share__size-m__color3"><span class="isHidden">팝업</span></span>
+                    </button>
+                  </div>
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-row__flex">
+                  <div class="form-th">연봉</div>
+                  <div class="form-td">
+                    <div class="input-box h-full">
+                      <input type="text" class="input-txt" placeholder="000만원 or 추 후 입력" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="form-set__box" data-target-cont="cont6">
+          <div class="box-flex">
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">전형절차</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">연봉</div>
+                  <div class="form-td">
+                    <div class="input-box h-full">
+                      <textarea class="salery-text" placeholder="000만원 or 추 후 입력"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">전형절차</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th no-pd">연봉</div>
+                  <div class="form-td">
+                    <div class="input-box h-full">
+                      <textarea class="salery-text" placeholder="000만원 or 추 후 입력"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-set__box" data-target-cont="cont7">
+          <div class="box-flex">
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">접수기간 및 방법</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th">접수기간</div>
+                  <div class="form-td">
+                    <div class="input-box type-calendar">
+                      <input type="text" id="calendar1" class="input-txt datepicker-input" placeholder="날짜 선택">
+                    </div>
+                    ~
+                    <div class="input-box type-calendar">
+                      <input type="text" id="calendar2" class="input-txt datepicker-input" placeholder="날짜 선택">
+                    </div>
+                    <script>
+                      const calendar1 = new Datepicker(document.getElementById('calendar1'), {
+                        ...CALENDAR_DEFAULT_OPTION,
+                        ...{
+                          "minDate": "2023.12.06",
+                          "maxDate": "2023.12.20"
+                        }
+                      });
+                      const calendar2 = new Datepicker(document.getElementById('calendar2'), {
+                        ...CALENDAR_DEFAULT_OPTION,
+                        ...{
+                          "minDate": "2023.12.06",
+                          "maxDate": "2023.12.20"
+                        }
+                      });
+                    </script>
+                  </div>
+                </div>
+                <div class="form-row__flex">
+                  <div class="form-th">접수방법</div>
+                  <div class="form-td">
+                    <div class="input-box h-full">
+                      <input type="text" class="input-txt" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">접수기간 및 방법</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th">접수기간</div>
+                  <div class="form-td">
+                    <div class="input-box type-calendar">
+                      <input type="text" id="calendar3" class="input-txt datepicker-input" placeholder="날짜 선택">
+                    </div>
+                    ~
+                    <div class="input-box type-calendar">
+                      <input type="text" id="calendar4" class="input-txt datepicker-input" placeholder="날짜 선택">
+                    </div>
+                    <script>
+                      const calendar3 = new Datepicker(document.getElementById('calendar3'), {
+                        ...CALENDAR_DEFAULT_OPTION,
+                        ...{
+                          "minDate": "2023.12.06",
+                          "maxDate": "2023.12.20"
+                        }
+                      });
+                      const calendar4 = new Datepicker(document.getElementById('calendar4'), {
+                        ...CALENDAR_DEFAULT_OPTION,
+                        ...{
+                          "minDate": "2023.12.06",
+                          "maxDate": "2023.12.20"
+                        }
+                      });
+                    </script>
+                  </div>
+                </div>
+                <div class="form-row__flex">
+                  <div class="form-th">접수방법</div>
+                  <div class="form-td">
+                    <div class="input-box h-full">
+                      <input type="text" class="input-txt" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-set__box" data-target-cont="cont8">
+          <div class="box-flex">
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">기타사항</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th">기타사항</div>
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-flex-col">
+              <div class="form-set__header">
+                <div class="form-set__cell">
+                  <h4 class="title-sub">기타사항</h4>
+                </div>
+              </div>
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th">기타사항</div>
+                  <div class="form-td flex-wrap">
+                    <div class="form-inner h-full type-gap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+              
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(13);">
+                        <span>추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="apply-area">
+          <div class="apply-col">
+            <button class="base-btn type1__size-m2">작성한 내용 적용</button>
+          </div>
+          <div class="apply-col">
+            <button class="base-btn type1__size-m2">작성한 내용 적용</button>
+          </div>
+        </div>
+
+        <section class="form-set__box">
+          <div class="box-flex">
+            <div class="box-flex-col">
+              <div class="box-type1 d-flex ai-c">
+                <div class="temp-tit">템플릿 선택</div>
+                <div class="form-td flex-wrap">
+                  <ul class="temp-list">
+                    <li><a href="#"><div style="background: #F4F6FA;"></div></a></li>
+                    <li><a href="#"><div style="background: #F4F6FA;"></div></a></li>
+                    <li><a href="#" class="direct">직접등록</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <section class="form-set__box">
+          <div class="form-set__header">
+            <div class="form-set__cell">
+              <h4 class="title-sub">기타 안내사항</h4>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;height:650px;background:gainsboro;">에디터 영역</div>
+        </section>
+      </div>
+      <!-- //contents -->
+
+    </div>
+    <!-- //container -->
+    
+  </div>
+  <script>
+    const contentsNav = new ContentsNav();
+  </script>
+</body>
+</html>
