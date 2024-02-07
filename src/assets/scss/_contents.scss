@@ -701,3 +701,84 @@
     }
   }
 }
+
+.recruitment-noti {
+
+  .form-th {
+    width: 130px;
+  }
+
+  .form-td {
+    display: flex;
+    align-items: center;
+    gap: 0 8px;
+    width: calc(100% - 130px);
+  }
+
+  .box-flex {
+
+    .box-flex-col {
+      width: 100%;
+
+      .box-type1 {
+        height: 100%;
+      }
+
+      .form-set__header + .box-type1 {
+        height: calc(100% - 46px);
+      }
+    }
+
+    .salery-text {
+      height: 150px;
+    }
+
+    .type-calendar {
+      width: 170px;
+    }
+  }
+
+  .apply-area {
+    display: flex;
+
+    .apply-col {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 32px;
+    }
+  }
+
+  .temp-list {
+    display: flex;
+
+    li {
+      margin-left: 16px;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90px;
+      height: 68px;
+      border-radius: 6px;
+      border: 1px solid var(--Border-Divider, #E0E7ED);
+      background: var(--BG-Basic, #F4F6FA);
+
+      &.direct {
+        color: #029ED0;
+        font-weight: 500;
+        border-color: #029ED0;
+        background: #F0F8FC;
+      }
+    }
+  }
+
+  .dropdown-btn {
+
+    &.default-size {
+      width: 136px;
+    }
+  }
+}

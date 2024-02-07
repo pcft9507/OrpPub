@@ -1408,6 +1408,20 @@ const rowItemAdd = (num, targetEl) => {
       `
 			break;
 		}
+		case 13: {
+			template = `
+				<div class="form-inner h-full type-gap">
+					<button type="button" class="btn-item--del" onclick="rowItemDel();">
+						<span>삭제</span>
+					</button>
+					<div class="input-box h-full">
+						<input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+						<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+					</div>
+				</div>
+      `
+			break;
+		}
 		default: {
 			template = `
         <div class="form-inner type-gap2">

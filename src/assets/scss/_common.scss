@@ -390,6 +390,7 @@ hr {
     &.type-gap2 {gap: var(--content-margin2);}
     &.type-gap3 {gap: var(--content-margin3);}
     &.align-top {align-items: flex-start;}
+    &.h-full {width: 100%;}
 
     & + .pop-guide-txt {
       margin-top: var(--content-margin2);
@@ -1826,6 +1827,10 @@ textarea {
     justify-content: center;
     width: 42px;
   }
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .agree-toggle-row {

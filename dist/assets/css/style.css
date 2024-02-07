@@ -756,6 +756,9 @@ hr {
       -ms-flex-align: start;
           align-items: flex-start;
 }
+.form-inner.h-full {
+  width: 100%;
+}
 .form-inner + .pop-guide-txt {
   margin-top: var(--content-margin2);
 }
@@ -2572,6 +2575,11 @@ textarea {
   width: 42px;
 }
 
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .agree-toggle-row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3974,6 +3982,83 @@ textarea {
 }
 .q-evaluation .type-free-style.active {
   display: block;
+}
+
+.recruitment-noti .form-th {
+  width: 130px;
+}
+.recruitment-noti .form-td {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0 8px;
+  width: calc(100% - 130px);
+}
+.recruitment-noti .box-flex .box-flex-col {
+  width: 100%;
+}
+.recruitment-noti .box-flex .box-flex-col .box-type1 {
+  height: 100%;
+}
+.recruitment-noti .box-flex .box-flex-col .form-set__header + .box-type1 {
+  height: calc(100% - 46px);
+}
+.recruitment-noti .box-flex .salery-text {
+  height: 150px;
+}
+.recruitment-noti .box-flex .type-calendar {
+  width: 170px;
+}
+.recruitment-noti .apply-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.recruitment-noti .apply-area .apply-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-top: 32px;
+}
+.recruitment-noti .temp-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.recruitment-noti .temp-list li {
+  margin-left: 16px;
+}
+.recruitment-noti .temp-list a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90px;
+  height: 68px;
+  border-radius: 6px;
+  border: 1px solid var(--Border-Divider, #E0E7ED);
+  background: var(--BG-Basic, #F4F6FA);
+}
+.recruitment-noti .temp-list a.direct {
+  color: #029ED0;
+  font-weight: 500;
+  border-color: #029ED0;
+  background: #F0F8FC;
+}
+.recruitment-noti .dropdown-btn.default-size {
+  width: 136px;
 }
 
 .sch-comp__in {
