@@ -1828,3 +1828,31 @@ $(document).ready(function () {
 		console.log('검색하기')
 	});	
 })
+
+// toggle manager
+class ToggleManager {
+	constructor(buttonSelector, targetSelector) {
+			this.buttons = document.querySelectorAll(buttonSelector);
+			this.targetSelector = targetSelector;
+			
+			this.initialize();
+	}
+	
+	initialize() {
+    this.buttons.forEach(button => {
+        button.addEventListener('click', this.toggle.bind(this));
+    });
+	}
+	
+	toggle(event) {
+    const button = event.currentTarget;
+    const targetId = button.getAttribute('data-target');
+    // CSS 선택자를 사용해 대상 요소를 찾습니다. 이 예제에서는 targetSelector가 이미 클래스를 포함하도록 가정합니다.
+    const targetElement = document.querySelector(`${this.targetSelector}.${targetId}`);
+    
+    if (targetElement) {
+        button.classList.toggle('active');
+        targetElement.classList.toggle('active');
+    }
+	}
+}

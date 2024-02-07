@@ -217,6 +217,100 @@ pre {
   color: var(--point-color);
 }
 
+/* 
+Created on: 17 Sep, 2014, 4:29:37 PM
+Author: senthil
+*/
+.ti_tx,
+.mi_tx,
+.mer_tx {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.time,
+.mins,
+.meridian {
+  width: 60px;
+  float: left;
+  margin: 0 10px;
+  font-size: 20px;
+  color: #2d2e2e;
+  font-family: arial;
+  font-weight: 700;
+}
+
+.time_pick .prev,
+.time_pick .next {
+  cursor: pointer;
+  padding: 18px;
+  width: 28%;
+  border: 1px solid #ccc;
+  margin: auto;
+  background: url(../images/arrow.png) no-repeat;
+  border-radius: 5px;
+}
+
+.time_pick .prev:hover,
+.time_pick .next:hover {
+  background-color: #ccc;
+}
+
+.time_pick .next {
+  background-position: 50% 150%;
+}
+
+.time_pick .prev {
+  background-position: 50% -50%;
+}
+
+.time_pick .time_pick {
+  position: relative;
+}
+
+.timepicker_wrap {
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 998;
+  display: none;
+  -webkit-box-shadow: 2px 2px 5px 0 rgba(50, 50, 50, 0.35);
+          box-shadow: 2px 2px 5px 0 rgba(50, 50, 50, 0.35);
+  background: #f6f6f6;
+  border: 1px solid #ccc;
+  float: left;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+}
+
+.arrow_top {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: url(../images/top_arr.png) no-repeat;
+  width: 18px;
+  height: 10px;
+  z-index: 999;
+}
+
+input.timepicki-input {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px 5px 5px 5px;
+  float: none;
+  margin: 0;
+  text-align: center;
+  width: 70%;
+}
+
+a.reset_time {
+  float: left;
+  margin-top: 5px;
+  color: #000;
+}
+
 .point-color {
   color: var(--point-color);
 }
@@ -341,6 +435,9 @@ hr {
 }
 .title-sub1 .sub {
   font-weight: 400;
+}
+.title-sub1.point-color {
+  color: var(--point-color);
 }
 
 .title-sub2 {
@@ -559,6 +656,12 @@ hr {
 .base-btn[class*=__color1] {
   color: var(--font-color6);
 }
+.base-btn[class*=__color2] {
+  color: var(--gray9);
+}
+.base-btn.hover-tdu:hover {
+  text-decoration: underline;
+}
 
 .btn-toggle {
   cursor: pointer;
@@ -672,6 +775,35 @@ hr {
 }
 .btn-item--add.type-mr2:before {
   margin-right: var(--content-margin2);
+}
+
+.btn-tit-toggle {
+  position: relative;
+  width: 100%;
+  text-align: left;
+}
+.btn-tit-toggle:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  right: 0;
+  background-color: var(--primary);
+  -webkit-mask-image: var(--icon-url);
+  mask-image: var(--icon-url);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 0 -24px;
+  mask-position: 0 -24px;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.btn-tit-toggle.active:after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .form-row ~ .form-row {
@@ -3060,6 +3192,7 @@ textarea {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
   height: 56px;
   padding: 0 32px 0 25px;
   background: var(--primary);
@@ -3101,6 +3234,34 @@ textarea {
 .contents-header__btns .btn .base-icon:before {
   vertical-align: -5px;
   margin-right: 4px;
+}
+.contents-header__sub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.contents-header__sub .dropdown-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.contents-header__sub .dropdown-wrap .dropdown {
+  position: relative;
+  width: 132px;
+  margin: 0 24px;
+}
+.contents-header__sub .dropdown-wrap .dropdown:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -16px;
+  width: 1px;
+  height: 16px;
+  background: #fff;
+  -webkit-transform: translateY(calc(-50% + 1px));
+          transform: translateY(calc(-50% + 1px));
 }
 
 .login-wrap {
@@ -4061,6 +4222,46 @@ textarea {
   width: 136px;
 }
 
+.asa .col01 {
+  width: 110px;
+}
+.asa .col02 {
+  width: calc(100% - 474px);
+}
+.asa .col03 {
+  width: 348px;
+}
+.asa .col03 .register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 16px 8px;
+}
+.asa .col03 button {
+  width: 143px;
+}
+.asa .type-calendar {
+  width: 144px;
+}
+.asa .timepicker {
+  width: 86px;
+  padding: 0 15px;
+}
+.asa .toggleContent {
+  display: none;
+}
+.asa .toggleContent.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.asa .rl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .sch-comp__in {
   display: -webkit-box;
   display: -ms-flexbox;
