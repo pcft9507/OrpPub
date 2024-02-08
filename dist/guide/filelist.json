@@ -240,6 +240,11 @@
           "url" : "./html/corp/WAP-EMPL-0050.html"
         },
         {
+          "dep2" : "합격자발표",
+          "name" : "WAP-EMPL-0080",
+          "url" : "./html/corp/WAP-EMPL-0080.html"
+        },
+        {
           "dep2" : "전체지원자",
           "name" : "WAP-EMPL-0060",
           "url" : "./html/corp/WAP-EMPL-0060.html"
@@ -473,9 +478,9 @@
           "url" : "./html/corp/WAP-ETPR-0070.html"
         },
         {
-          "dep4" : "popup - 탬플릿 선택",
-          "name" : "WAP-ETPR-0080",
-          "url" : "./html/corp/WAP-ETPR-0070.html?popup=WAP_ETPR_0080"
+          "dep4" : "popup - 디자인 미리보기",
+          "name" : "WAP-ETPR-0090",
+          "url" : "./html/corp/WAP-ETPR-0070.html?popup=WAP_ETPR_0090"
         },
         {
           "dep3" : "회사소개",

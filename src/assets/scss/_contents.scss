@@ -821,3 +821,24 @@
     }
   }
 }
+
+.home-page {
+  .form-th {
+    &.col01 {
+      width: 130px;
+    }
+  }
+  .form-td {
+    &.col02 {
+      width: calc(100% - 130px);
+    }
+    .templit
+    {
+      width: 350px;
+    }
+    .inp-tab
+    {
+      width: 1042px;
+    }
+  }
+}

@@ -120,8 +120,15 @@
       <!-- //contents navigation -->
 
       <!-- contents -->
-      <div class="contents">
-        <h3 class="title-sub">채용홈페이지</h3>
+      <div class="contents home-page">
+        <h3 class="title-sub">
+          채용홈페이지 
+          <span class="url point-color5">http://orpi.wiselection.com</span>
+          <button>
+            <span class="base-icon icon-share__size-m__color3"><span class="isHidden">팝업</span></span>
+          </button>
+        </h3>
+
         <div class="base-tab tab-type1 content-mt4" data-ref="tabContents1">
           <ul class="tab__list" role="tablist">
             <li class="tab__item">
@@ -148,127 +155,176 @@
           const tabContents1 = new TabContents({target: 'tabContents1'});
         </script>
 
-        <p class="title-sub content-mt5">http://orpi.wiselection.com</p>
+        <h3 class="title-sub content-mt5">템플릿 선택</h3>
 
-        <div class="box-type1">
+        <div class="box-type1 content-mt3">
           <div class="form-row__flex">
-            <div class="form-th" style="width: 99px;">템플릿</div>
-            <div class="form-td" style="flex: 1;">
-              <button type="button" class="base-btn type2__size-s">
-                <span class="base-icon icon-add2__size-m__color1">템플릿 선택</span>
-              </button>
-              <div class="tag__box" style="margin-top: 13px;">
-                <div class="tag__item tag__item--type2">
-                  <span class="txt">styel04</span>
-                  <button type="button" class="del">삭제</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row__flex">
-            <div class="form-th no-pd" style="width: 99px;">메뉴구성</div>
-            <div class="form-td" style="flex: 1;">
-              <div class="chk-group">
-                <label class="input-chk">
-                  <input type="checkbox">
-                  <span>회사소개</span>
-                </label>
-                <label class="input-chk">
-                  <input type="checkbox">
-                  <span>공지사항</span>
-                </label>
-                <label class="input-chk">
-                  <input type="checkbox">
-                  <span>FAQ</span>
-                </label>
-                <label class="input-chk">
-                  <input type="checkbox">
-                  <span>1:1문의</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-row__flex">
-            <div class="form-th" style="width: 99px;">메인</div>
-            <div class="form-td" style="flex: 1;">
-              <button type="button" class="base-btn type2__size-s">
-                <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
-              </button>
-              <div class="tag__box" style="margin-top: 13px;">
-                <div class="tag__item tag__item--type2">
-                  <span class="txt">styel04</span>
-                  <button type="button" class="del">삭제</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row__flex">
-            <div class="form-th" style="width: 99px;">메인copy</div>
-            <div class="form-td" style="flex: 1;">
-              <div style="display:flex;align-items:center;justify-content:center;height:350px;background:gainsboro;">에디터 영역</div>
-            </div>
-          </div>
-          <div class="form-row__flex">
-            <div class="form-th no-pd" style="width: 99px;">색상 템플릿</div>
-            <div class="form-td" style="flex: 1;">
-              <div class="chk-group">
-                <label class="input-chk">
-                  <input type="radio" name="templateColor">
-                  <span>
-                    Type01
-                    <span class="color-chip" style="background-color: #212051;"></span>
-                  </span>
-                </label>
-                <label class="input-chk">
-                  <input type="radio" name="templateColor">
-                  <span>
-                    Type02
-                    <span class="color-chip" style="background-color: #D62828;"></span>
-                  </span>
-                </label>
-                <label class="input-chk">
-                  <input type="radio" name="templateColor">
-                  <span>
-                    Type03
-                    <span class="color-chip" style="background-color: #257E2E;"></span>
-                  </span>
-                </label>
-                <label class="input-chk">
-                  <input type="radio" name="templateColor">
-                  <span>
-                    Type04
-                    <span class="color-chip" style="background-color: #903EAD;"></span>
-                  </span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-row__flex">
-            <div class="form-th" style="width: 99px;">채용공고 TAB</div>
-            <div class="form-td" style="flex: 1;">
-              <div class="form-inner type-gap2">
-                <div class="input-box type-add" style="width: 100%;">
-                  <input type="text" class="input-txt" id="tabTag" oninput="inputValueChk()" placeholder="채용명을 입력해주세요.">
+            <div class="form-th col01">템플릿</div>
+
+            <div class="form-td col02">
+              <div class="form-inner">
+                <div class="input-box">
+                  <input type="text" class="input-txt templit" oninput="inputValueChk()" disabled placeholder="채용명을 입력해주세요.">
                   <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  <button type="button" class="btn-add" onclick="tabTag.addTag(document.getElementById('tabTag').value)">추가</button>
                 </div>
+
+                <button type="button" class="base-btn type2__size-m">
+                  <span>선택하기</span>
+                </button>
               </div>
-  
-              <div class="content-mt2" id="tabTagBox" style="display: none;">
-                <div class="tag__box">
-                </div>
-              </div>
-              <script>
-                const tabTag = new CreateTag({
-                  target: document.getElementById('tabTagBox'),
-                  tagType: 2,
-                });
-              </script>
             </div>
           </div>
-
         </div>
 
+        <h3 class="title-sub content-mt4">색상템플릿</h3>
+        
+        <div class="box-type1 content-mt3">
+          <div class="board-body">
+            <div class="table table-type1">
+              <table id="table">
+                <colgroup>
+                  <col style="width: 88px"/>
+                  <col/>
+                  <col/>
+                  <col/>
+                  <col/>
+                  <col/>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">1번 영역-메인(R,G,B)</th>
+                    <th scope="col">2번 영역-메인(R,G,B)</th>
+                    <th scope="col">3번 영역-메인(R,G,B)</th>
+                    <th scope="col">4번 영역-메인(R,G,B)</th>
+                    <th scope="col">진행상태(R,G,B)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    </td>
+                    <td><span class="color-square"><i></i>(21,20,51)</span></td>
+                    <td><span class="color-square"><i></i>(27,25,27)</span></td>
+                    <td><span class="color-square"><i></i>(02,9e,d0)</span></td>
+                    <td><span class="color-square"><i></i>(43,9d,72)</span></td>
+                    <td><span class="color-square"><i></i>(9f,9f,a3)</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    </td>
+                    <td><span class="color-square"><i></i>(c6,32,b7)</span></td>
+                    <td><span class="color-square"><i></i>(fb,bc,41)</span></td>
+                    <td><span class="color-square"><i></i>(27,25,27)</span></td>
+                    <td><span class="color-square"><i></i>(9f,9f,a3)</span></td>
+                    <td><span class="color-square"><i></i>(fb,bc,41)</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    </td>
+                    <td><span class="color-square"><i></i>(21,20,51)</span></td>
+                    <td><span class="color-square"><i></i>(43,9d,72)</span></td>
+                    <td><span class="color-square"><i></i>(02,9e,d0)</span></td>
+                    <td><span class="color-square"><i></i>(27,25,27)</span></td>
+                    <td><span class="color-square"><i></i>(9f,9f,a3)</span></td>
+                  </tr>
+                  <td>
+                      <label class="input-chk">
+                        <input type="checkbox">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    </td>
+                    <td><span class="color-square"><i></i>(fb,bc,41)</span></td>
+                    <td><span class="color-square"><i></i>(27,25,27)</span></td>
+                    <td><span class="color-square"><i></i>(02,9e,d0)</span></td>
+                    <td><span class="color-square"><i></i>(43,9d,72)</span></td>
+                    <td><span class="color-square"><i></i>(9f,9f,a3)</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+  
+        </div>
+
+        <h3 class="title-sub content-mt4">메인이미지</h3>
+
+        <div class="box-type1 content-mt3">
+          <div class="form-row__flex">
+            <div class="form-th col01">메인이미지</div>
+
+            <div class="form-td col02">
+              <div class="form-inner">
+                <div class="input-box">
+                  <input type="text" class="input-txt templit" oninput="inputValueChk()" disabled placeholder="채용명을 입력해주세요.">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+
+                <button type="button" class="base-btn type2__size-m">
+                  <span>업로드</span>
+                </button>
+              </div>
+
+              <p class="guide-txt content-mt2">000 x 000 px 크기의 이미지까지 첨부 가능합니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="title-sub content-mt4">채용공고 TAB 설정</h3>
+
+        <div class="box-type1 content-mt3">
+          <div class="form-row__flex">
+            <div class="form-th col01">채용공고 TAB</div>
+
+            <div class="form-td col02">
+              <div class="form-inner">
+                <div class="input-box">
+                  <input type="text" class="input-txt inp-tab" oninput="inputValueChk()" placeholder="입력 후 추가버튼 클릭 또는 엔터를 치세요.">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+
+                <button type="button" class="base-btn type2__size-m">
+                  <span>추가</span>
+                </button>
+              </div>
+
+              <!-- 추가 되고 나서 생성 -->
+              <div class="tag__box content-mt2">
+                <div class="tag__item tag__item--type1">
+                  <span class="txt">styel04</span>
+                  <button type="button" class="del">전체</button>
+                </div>
+                <div class="tag__item tag__item--type1">
+                  <span class="txt">styel04</span>
+                  <button type="button" class="del">신입</button>
+                </div>
+                <div class="tag__item tag__item--type1">
+                  <span class="txt">styel04</span>
+                  <button type="button" class="del">경력</button>
+                </div>
+              </div>
+              <!-- 추가 되고 나서 생성 -->
+            </div>
+          </div>
+        </div>
+
+        <h3 class="title-sub content-mt4">메인 Copy</h3>
+
+        <div class="box-type1 content-mt3">
+          <div style="display:flex;align-items:center;justify-content:center;height:650px;background:gainsboro;">에디터 영역</div>
+        </div>
       </div>
       <!-- //contents -->
     </div>
@@ -323,11 +379,32 @@
 <script>
   const WAP_ETPR_0080 = new LayerPopup({target: "WAP-ETPR-0080"});
 </script>;
+  <div class="layer-popup type-modal" data-ref="WAP-ETPR-0090">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">디자인 미리보기</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+
+      <div style="background-color: #D9D9D9; display: flex; justify-content: center; align-items: center; height: 623px;">디자인 미리보기</div>
+
+    </div>
+    <button class="btn-close" onclick="WAP_ETPR_0090.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ETPR_0090 = new LayerPopup({target: "WAP-ETPR-0090"});
+</script>;
+  <script>
+    // ui.js RGB색상값
+    $('.color-square').colorSquare();
+  </script>
   
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
-      "WAP_ETPR_0080" : ()=>{WAP_ETPR_0080.show()}
+      "WAP_ETPR_0080" : ()=>{WAP_ETPR_0080.show()},
+      "WAP_ETPR_0090" : ()=>{WAP_ETPR_0090.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

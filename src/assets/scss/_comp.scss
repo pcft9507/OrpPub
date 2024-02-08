@@ -112,10 +112,8 @@
     }
   }
 }
-
 .dropbtn {
   position: relative;
-
   &__list {
     display: none;
     position: absolute;
@@ -128,7 +126,6 @@
     border: 1px solid #DADDE5;
     border-radius: 6px;
   }
-  
   &__item {
     margin-bottom: 8px;
 
@@ -136,10 +133,8 @@
       margin-bottom: 0;
     }
   }
-
   &__btn {
     width: 100%;
-
     &:hover {
       background: var(--primary);
       border-color: var(--primary);
@@ -150,7 +145,6 @@
     }
   }
 }
-
 .chip {
   display: flex;
   align-items: center;
@@ -158,14 +152,12 @@
   padding: 0 16px;
   border-radius: 20px;
   background: #F4F6FA;
-
   .chip-txt {
     position: relative;
     padding-left: 28px;
     color: #707070;
     font-size: 14px;
     line-height: 22px;
-
     &:before {
       content: '';
       position: absolute;
@@ -176,14 +168,29 @@
       background: url($image-url + 'ico-chip-check.png') 0/100%;
     }
   }
-
   &.checked {
-
     .chip-txt {
-  
       &:before {
         background-image: url($image-url + 'ico-chip-checked.png');
       }
     }
+  }
+}
+.color-square {
+  display: inline-block;
+  position: relative;
+  padding-left: 28px;
+  color: #353D50;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+
+  i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
   }
 }

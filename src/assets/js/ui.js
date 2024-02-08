@@ -1821,14 +1821,6 @@ function paging(totalCnt, dataSize, pageSize, pageNo) {
 	return html.join("");
 }
 
-// 문서 로드 후 처리
-$(document).ready(function () {
-	// 검색 버튼 공통
-	$('.sch-comp .btn-sch').on('click', function () {
-		console.log('검색하기')
-	});	
-})
-
 // toggle manager
 class ToggleManager {
 	constructor(buttonSelector, targetSelector) {
@@ -1856,3 +1848,25 @@ class ToggleManager {
     }
 	}
 }
+
+// ui.js RGB색상값
+$.fn.colorSquare = function () {
+	return this.each(function () {
+		const csBody = $(this)
+		const csColorBox = csBody.children()
+		const csDefaultTxt = csBody.text()
+		const csDefaultTxt2 = csDefaultTxt.split('(')
+		let colorNum = []
+		colorNum = csDefaultTxt.split(/[(,)]+/)
+		const colorValue = colorNum[1] + colorNum[2] + colorNum[3]
+		csColorBox.css('background-color', '#'+colorValue)
+	})
+}
+
+// 문서 로드 후 처리
+$(document).ready(function () {
+	// 검색 버튼 공통
+	$('.sch-comp .btn-sch').on('click', function () {
+		console.log('검색하기')
+	});	
+})

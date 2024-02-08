@@ -55,6 +55,9 @@ hr {
 .title-sub {
   margin-bottom: var(--content-margin2);
   @include font(20px, 700);
+  .url {
+    font-size: 14px;
+  }  
 }
 .title-sub1 {
   margin-bottom: var(--content-margin3);
@@ -1958,10 +1961,12 @@ textarea {
   color: #707070;
   font-size: 14px;
 }
-
 .authBtn {
-
   &.is-show {
     display: block;
   }
+}
+.guide-txt {
+  color: #707070;
+  font-size: 14px;
 }

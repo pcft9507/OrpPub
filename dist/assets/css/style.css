@@ -425,6 +425,9 @@ hr {
   font-weight: 700;
   line-height: 1.5;
 }
+.title-sub .url {
+  font-size: 14px;
+}
 
 .title-sub1 {
   margin-bottom: var(--content-margin3);
@@ -2815,6 +2818,11 @@ textarea {
   display: block;
 }
 
+.guide-txt {
+  color: #707070;
+  font-size: 14px;
+}
+
 .header {
   position: sticky;
   z-index: 60;
@@ -4262,6 +4270,19 @@ textarea {
   display: -ms-flexbox;
   display: flex;
 }
+.home-page .form-th.col01 {
+  width: 130px;
+}
+.home-page .form-td.col02 {
+  width: calc(100% - 130px);
+}
+.home-page .form-td .templit {
+  width: 350px;
+}
+.home-page .form-td .inp-tab {
+  width: 1042px;
+}
+
 .sch-comp__in {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4421,6 +4442,24 @@ textarea {
 }
 .chip.checked .chip-txt:before {
   background-image: url("../images/ico-chip-checked.png");
+}
+
+.color-square {
+  display: inline-block;
+  position: relative;
+  padding-left: 28px;
+  color: #353D50;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.color-square i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
 }
 
 .layer-popup.pop-interview-tools .main-q__sub {
