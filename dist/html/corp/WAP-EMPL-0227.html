@@ -1,4 +1,4 @@
-<div class="layer-popup type-modal" data-ref="WAP-EMPL-0225">
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0227">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
       <h3 class="popup__title">불러오기</h3>
@@ -16,74 +16,67 @@
         </div>
       </div>
 
-      <div class="base-tab tab-type1 content-mt4" data-ref="popTabContents">
+      <div class="base-tab tab-type1 content-mt4" data-ref="popTabContents2">
         <ul class="tab__list" role="tablist">
           <li class="tab__item">
-            <button role="tab" aria-selected="true">이전채용</button>
+            <button role="tab" aria-selected="false">이전채용</button>
           </li>
           <li class="tab__item">
-            <button role="tab" aria-selected="false">보관함 (13건)</button>
+            <button role="tab" aria-selected="true">보관함 (13건)</button>
           </li>
         </ul>
       </div>
 
       <script>
-        const popTabContents = new TabContents({target: 'popTabContents'});
+        const popTabContents2 = new TabContents({target: 'popTabContents2'});
       </script>
 
       <div class="board-body content-mt2">
         <div class="table table-type1">
-          <table id="popupTable1" class="type-line">
+          <table id="popupTable2" class="type-line">
             <colgroup>
               <col style="width: 64px;">
-              <col style="width: 44px;">
               <col style="width: auto;">
-              <col style="width: 110px;">
-              <col style="width: 110px;">
+              <col style="width: 136px;">
+              <col style="width: 136px;">
             </colgroup>
             <thead>
               <tr>
                 <th>선택</th>
-                <th>번호</th>
-                <th>채용공고명</th>
-                <th>채용분야명</th>
-                <th>채용전형명</th>
+                <th>평가요소명</th>
+                <th>사용뮤무</th>
+                <th>서류코드</th>
               </tr>
             </thead>
           </table>
         </div>
         <script>
-          $('#popupTable1').DataTable({
+          $('#popupTable2').DataTable({
             data: [
               {
-                '번호': '10',
-                '채용공고명': '각 부문 신입/경력사원 모집',
-                '채용분야명' : '기술',
-                '채용전형명' : '서류전형1차'
+                '평가요소명': '효율성추구',
+                '사용유무' : '기술',
+                '서류코드' : '52'
               },
               {
-                '번호': '9',
-                '채용공고명': '[AI음성기술전문] Linux C/C++ 개발자(경력)',
-                '채용분야명' : '기술',
-                '채용전형명' : '서류전형2차'
+                '평가요소명': '품질지향성',
+                '사용유무' : '기술',
+                '서류코드' : '51'
               },
               {
-                '번호': '8',
-                '채용공고명': '모바일App개발자 (andrioid)',
-                '채용분야명' : '기술',
-                '채용전형명' : '서류전형2차'
+                '평가요소명': '추진력',
+                '사용유무' : '기술',
+                '서류코드' : '50'
               },
               {
-                '번호': '7',
-                '채용공고명': '모바일App개발자 (andrioid)',
-                '채용분야명' : '기술',
-                '채용전형명' : '서류전형2차'
+                '평가요소명': '첵임감',
+                '사용유무' : '기술',
+                '서류코드' : '49'
               },
               {
-                '번호': '6',
-                '채용공고명': '모바일App개발자 (andrioid)',
-                '채용분야명' : '기술',
-                '채용전형명' : '서류전형2차'
+                '평가요소명': '조직헌신',
+                '사용유무' : '기술',
+                '서류코드' : '48'
               }
             ],
             columns: [
@@ -98,10 +91,9 @@
                   `
                 }
               },
-              { data: '번호' },
-              { data: '채용공고명' },
-              { data: '채용분야명' },
-              { data: '채용전형명' }
+              { data: '평가요소명' },
+              { data: '사용유무' },
+              { data: '서류코드' },
             ],
             paging: false,
             searching: false,
@@ -115,9 +107,9 @@
     <div class="popup__btn-wrap">
       <button class="base-btn type1__size-m">적용</button>
     </div>
-    <button class="btn-close" onclick="WAP_EMPL_0225.hide()">닫기</button>
+    <button class="btn-close" onclick="WAP_EMPL_0227.hide()">닫기</button>
   </section>
 </div>
 <script>
-  const WAP_EMPL_0225 = new LayerPopup({target: "WAP-EMPL-0225"});
+  const WAP_EMPL_0227 = new LayerPopup({target: "WAP-EMPL-0227"});
 </script>

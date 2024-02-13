@@ -303,9 +303,15 @@
         },
         {
           "dep3" : "정성평가",
-          "dep4" : "평가요소불러오기이전채용",
+          "dep4" : "평가요소 불러오기 이전채용",
           "name" : "WAP-EMPL-0225",
           "url" : "./html/corp/WAP-EMPL-0220.html?popup=WAP_EMPL_0225"
+        },
+        {
+          "dep3" : "정성평가",
+          "dep4" : "평가요소 불러오기 보관함",
+          "name" : "WAP-EMPL-0227",
+          "url" : "./html/corp/WAP-EMPL-0220.html?popup=WAP_EMPL_0227"
         },
         {
           "dep4" : "평가자",

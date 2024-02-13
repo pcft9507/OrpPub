@@ -520,11 +520,11 @@
         <div class="table table-type1">
           <table id="popupTable1" class="type-line">
             <colgroup>
-              <col style="width: 80px;">
-              <col style="width: 80px;">
-              <col style="width: 80px;">
-              <col style="width: 80px;">
-              <col style="width: 80px;">
+              <col style="width: 64px;">
+              <col style="width: 44px;">
+              <col style="width: auto;">
+              <col style="width: 110px;">
+              <col style="width: 110px;">
             </colgroup>
             <thead>
               <tr>
@@ -606,11 +606,127 @@
 <script>
   const WAP_EMPL_0225 = new LayerPopup({target: "WAP-EMPL-0225"});
 </script>;
+    <div class="layer-popup type-modal" data-ref="WAP-EMPL-0227">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">불러오기</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <div class="box-flex">
+        <div class="box-flex__cell" style="flex: 1;">
+          <div class="input-box type-search" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+        <div class="box-flex__cell box-flex">
+          <button class="base-btn type1__size-m">검색</button>
+        </div>
+      </div>
+
+      <div class="base-tab tab-type1 content-mt4" data-ref="popTabContents2">
+        <ul class="tab__list" role="tablist">
+          <li class="tab__item">
+            <button role="tab" aria-selected="false">이전채용</button>
+          </li>
+          <li class="tab__item">
+            <button role="tab" aria-selected="true">보관함 (13건)</button>
+          </li>
+        </ul>
+      </div>
+
+      <script>
+        const popTabContents2 = new TabContents({target: 'popTabContents2'});
+      </script>
+
+      <div class="board-body content-mt2">
+        <div class="table table-type1">
+          <table id="popupTable2" class="type-line">
+            <colgroup>
+              <col style="width: 64px;">
+              <col style="width: auto;">
+              <col style="width: 136px;">
+              <col style="width: 136px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>선택</th>
+                <th>평가요소명</th>
+                <th>사용뮤무</th>
+                <th>서류코드</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <script>
+          $('#popupTable2').DataTable({
+            data: [
+              {
+                '평가요소명': '효율성추구',
+                '사용유무' : '기술',
+                '서류코드' : '52'
+              },
+              {
+                '평가요소명': '품질지향성',
+                '사용유무' : '기술',
+                '서류코드' : '51'
+              },
+              {
+                '평가요소명': '추진력',
+                '사용유무' : '기술',
+                '서류코드' : '50'
+              },
+              {
+                '평가요소명': '첵임감',
+                '사용유무' : '기술',
+                '서류코드' : '49'
+              },
+              {
+                '평가요소명': '조직헌신',
+                '사용유무' : '기술',
+                '서류코드' : '48'
+              }
+            ],
+            columns: [
+              {
+                data: '',
+                render: function() {
+                  return `
+                    <label class="input-chk">
+                      <input type="radio" name="sample">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  `
+                }
+              },
+              { data: '평가요소명' },
+              { data: '사용유무' },
+              { data: '서류코드' },
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          });
+        </script>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0227.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0227 = new LayerPopup({target: "WAP-EMPL-0227"});
+</script>;
   </div>
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
-      "WAP_EMPL_0225" : ()=>{WAP_EMPL_0225.show()}
+      "WAP_EMPL_0225" : ()=>{WAP_EMPL_0225.show()},
+      "WAP_EMPL_0227" : ()=>{WAP_EMPL_0227.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>
