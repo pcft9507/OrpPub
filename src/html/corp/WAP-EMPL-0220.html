@@ -152,7 +152,7 @@
           <div class="box-flex align-center">
             <p class="point-color6" style="flex: 1;">평가요소를 직접 등록할 수 있습니다.</p>
             <div>
-              <button type="button" class="base-btn type2__size-s">
+              <button type="button" class="base-btn type2__size-s" onclick="WAP_EMPL_0225.show()">
                 <span class="base-icon icon-down__size-s__color1">불러오기</span>
               </button>
             </div>
@@ -194,6 +194,15 @@
                 </div>
               </div>
               <div class="form-row__flex">
+                <div class="form-th" style="width: 240px;">평가요소 정의</div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="input-box" style="width: 100%;">
+                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row__flex">
                 <div class="form-th" style="width: 240px;">하위요소</div>
                 <div class="form-td" style="flex: 1;">
                   <div class="form-inner type-gap2">
@@ -230,29 +239,15 @@
                 </div>
               </div>
               <div class="form-row__flex">
-                <div class="form-inner">
-                  <button type="button" class="btn-item--add"
-                    onclick="
-                      event.target.closest('.form-inner').insertAdjacentHTML('beforebegin', SAMPLE_TEMPLATE);
-                      event.target.closest('.form-inner').remove();
-                    "
-                  >
-                    <span>정의</span>
-                  </button>
+                <div class="form-th" style="width: 240px;">평가자 가이드</div>
+                <div class="form-td" style="flex: 1;">
+                  <div class="input-box" style="width: 100%;">
+                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
                 </div>
               </div>
-              <div class="form-row__flex">
-                <div class="form-inner">
-                  <button type="button" class="btn-item--add"
-                    onclick="
-                      event.target.closest('.form-inner').insertAdjacentHTML('beforebegin', SAMPLE_TEMPLATE2);
-                      event.target.closest('.form-inner').remove();
-                    "
-                  >
-                    <span>평가자 가이드</span>
-                  </button>
-                </div>
-              </div>
+
             </div>
           </section>
         </div>
@@ -391,6 +386,15 @@
     </div>
     <!-- //container -->
     
+    @@include('../html/corp/WAP-EMPL-0225.html');
   </div>
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_EMPL_0225" : ()=>{WAP_EMPL_0225.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->  
 </body>
 </html>
