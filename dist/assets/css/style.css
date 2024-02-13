@@ -897,6 +897,9 @@ hr {
 .form-inner + .pop-guide-txt {
   margin-top: var(--content-margin2);
 }
+.form-inner.pd-type1 {
+  padding-left: 32px;
+}
 .form-inner ~ .form-inner {
   margin-top: var(--content-margin2);
 }
@@ -2203,6 +2206,9 @@ textarea {
 .table .type-input th,
 .table .type-input td {
   padding: 16px;
+}
+.table .type-line .first-td-bdt0 tr:first-child td {
+  border-top: 0;
 }
 .table .type-line td {
   padding: 16px 4px;

@@ -1030,7 +1030,7 @@ class CreateTag {
  * 인풋 엘리먼트 삭제
  * @param {Numer} num 삭제할 클래스명 숫자로 구분
  */
-const rowItemDel = (num) => {
+const rowItemDel = (num, delTableRow) => {
 	const _this = event.target;
 	let target;
 	switch (num) {
@@ -1048,6 +1048,10 @@ const rowItemDel = (num) => {
 		}
 		case 4: {
 			target = _this.closest('.main-q__inner');
+			break;
+		}
+		case 5: {
+			target = _this.closest('tr');
 			break;
 		}
 		default: {
@@ -1422,6 +1426,44 @@ const rowItemAdd = (num, targetEl) => {
       `
 			break;
 		}
+		case 14: {
+			template = `
+				<tr>
+					<td class="pd-type1">
+						<div class="form-inner type-gap2">
+							<button type="button" class="btn-item--del" onclick="rowItemDel(5);">
+								<span>삭제</span>
+							</button>
+							<div class="input-box type-search h-full">
+								<input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+								<button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+							</div>
+						</div>
+					</td>
+					<td>bokyoung_kim@orp</td>
+					<td>
+						<label class="input-chk">
+							<input type="checkbox">
+							<span class="isHidden">선택</span>
+						</label>
+					</td>
+					<td>
+						<label class="input-chk">
+							<input type="checkbox">
+							<span class="isHidden">선택</span>
+						</label>
+					</td>
+					<td>
+						<label class="input-chk">
+							<input type="checkbox">
+							<span class="isHidden">선택</span>
+						</label>
+					</td>
+					<td></td>
+				</tr>
+      `
+			break;
+		}
 		default: {
 			template = `
         <div class="form-inner type-gap2">
@@ -1441,7 +1483,12 @@ const rowItemAdd = (num, targetEl) => {
 			break;
 		}
 	}
-	(targetEl) ? targetEl.insertAdjacentHTML('beforeend', template) : target.insertAdjacentHTML('beforebegin', template);
+	if(targetEl) {
+		const targetElement = document.querySelector(targetEl);
+		targetElement.insertAdjacentHTML('beforeend', template)
+	} else {
+		target.insertAdjacentHTML('beforebegin', template);
+	}
 }
 /**
  * 아이템 순서를 대상 위로 옮길 경우에 사용

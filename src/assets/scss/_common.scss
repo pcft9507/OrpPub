@@ -428,9 +428,11 @@ hr {
     &.type-gap3 {gap: var(--content-margin3);}
     &.align-top {align-items: flex-start;}
     &.h-full {width: 100%;}
-
     & + .pop-guide-txt {
       margin-top: var(--content-margin2);
+    }
+    &.pd-type1 {
+      padding-left: 32px;
     }
   }
   &-inner ~ &-inner {margin-top: var(--content-margin2);}
@@ -1471,6 +1473,15 @@ textarea {
   .type-input th,
   .type-input td {
     padding: 16px;
+  }
+  .type-line {
+    .first-td-bdt0 {
+      tr:first-child {
+        td {
+          border-top: 0;
+        }
+      }
+    }
   }
   .type-line td {
     padding: 16px 4px;
