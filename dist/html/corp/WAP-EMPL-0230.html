@@ -263,15 +263,15 @@
                     <th>ID</th>
                     <th>
                       1실
-                      <button type="button">
-                        <span class="base-icon icon-trash__size-m__color3">
+                      <button onclick="deleteColumn(this);">
+                        <span class="base-icon icon-trash__size-m__color3" >
                           <span class="isHidden">삭제</span>
                         </span>
                       </button>
                     </th>
                     <th>
                       2실
-                      <button type="button">
+                      <button onclick="deleteColumn(this);">
                         <span class="base-icon icon-trash__size-m__color3">
                           <span class="isHidden">삭제</span>
                         </span>
@@ -279,7 +279,7 @@
                     </th>
                     <th>
                       3실
-                      <button type="button">
+                      <button onclick="deleteColumn(this);">
                         <span class="base-icon icon-trash__size-m__color3">
                           <span class="isHidden">삭제</span>
                         </span>
@@ -326,7 +326,7 @@
               </table>
 
               <div class="form-inner content-mt2 pd-type1">
-                <button type="button" class="btn-item--add" onclick="rowItemAdd(14, '#table tbody');">
+                <button type="button" class="btn-item--add" onclick="addRow();">
                   <span>추가</span>
                 </button>
               </div>
@@ -340,46 +340,136 @@
     
   </div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const addButton = document.querySelector('.icon-add__size-s__color3');
-  
-  addButton.addEventListener('click', function() {
-    const theadRow = document.querySelector('.type-line thead tr');
-    const tbodyRows = document.querySelectorAll('.type-line tbody tr');
-    const existingCols = theadRow.querySelectorAll('th').length;
+  // 실추가
+  document.addEventListener('DOMContentLoaded', function() {
+    const addButton = document.querySelector('.icon-add__size-s__color3');
     
-    // 최대 칼럼 수를 10으로 제한
-    if(existingCols - 1 > 11) { // 첫 번째 '평가자'와 'ID' 칼럼을 제외한 순수한 '실' 칼럼만 계산
-      alert('최대 10실까지만 추가 가능합니다.');
-      return;
-    }
-    
-    const newColIndex = existingCols - 2; // '실추가' 버튼 칼럼을 제외한 새 칼럼의 인덱스
-    const newTh = document.createElement('th');
-    newTh.innerHTML = `${newColIndex}실
-                        <button type="button">
-                          <span class="base-icon icon-trash__size-m__color3">
-                            <span class="isHidden">삭제</span>
-                          </span>
-                        </button>`;
-    
-    // '실추가' 버튼의 th 요소를 찾아 그 전에 새로운 th 요소 삽입
-    const addButtonTh = addButton.closest('th');
-    theadRow.insertBefore(newTh, addButtonTh);
-    
-    // tbody의 각 행에 새로운 td 요소 추가
-    tbodyRows.forEach(row => {
-      const newTd = document.createElement('td');
-      newTd.innerHTML = `<label class="input-chk">
-                            <input type="checkbox">
-                            <span class="isHidden">선택</span>
-                          </label>`;
-      // 마지막 td 요소 전에 새로운 td 요소 삽입
-      const lastTd = row.querySelectorAll('td')[newColIndex-2]; // 새로운 칼럼을 '실추가' 버튼 전의 칼럼 위치에 삽입
-      row.insertBefore(newTd, lastTd ? lastTd.nextSibling : null);
+    addButton.addEventListener('click', function() {
+      const theadRow = document.querySelector('.type-line thead tr');
+      const tbodyRows = document.querySelectorAll('.type-line tbody tr');
+      const existingCols = theadRow.querySelectorAll('th').length;
+      
+      // 최대 칼럼 수를 10으로 제한
+      if(existingCols - 1 > 11) { // 첫 번째 '평가자'와 'ID' 칼럼을 제외한 순수한 '실' 칼럼만 계산
+        alert('최대 10실까지만 추가 가능합니다.');
+        return;
+      }
+      
+      const newColIndex = existingCols - 2; // '실추가' 버튼 칼럼을 제외한 새 칼럼의 인덱스
+      const newTh = document.createElement('th');
+      newTh.innerHTML = `${newColIndex}실
+                          <button type="button" onclick="deleteColumn(this);">
+                            <span class="base-icon icon-trash__size-m__color3">
+                              <span class="isHidden">삭제</span>
+                            </span>
+                          </button>`;
+      
+      // '실추가' 버튼의 th 요소를 찾아 그 전에 새로운 th 요소 삽입
+      const addButtonTh = addButton.closest('th');
+      theadRow.insertBefore(newTh, addButtonTh);
+      
+      // tbody의 각 행에 새로운 td 요소 추가
+      tbodyRows.forEach(row => {
+        const newTd = document.createElement('td');
+        newTd.innerHTML = `<label class="input-chk">
+                              <input type="checkbox">
+                              <span class="isHidden">선택</span>
+                            </label>`;
+        // 마지막 td 요소 전에 새로운 td 요소 삽입
+        const lastTd = row.querySelectorAll('td')[newColIndex-2]; // 새로운 칼럼을 '실추가' 버튼 전의 칼럼 위치에 삽입
+        row.insertBefore(newTd, lastTd ? lastTd.nextSibling : null);
+      });
     });
   });
-});
+
+  // 행추가'addRow' 함수 정의
+  function addRow() {
+    // thead에서 칼럼의 수를 계산
+    const columnCount = document.querySelector("#table .type-line thead tr").childElementCount;
+    
+    // 기본 템플릿을 시작
+    let template = `
+      <tr>
+        <td class="pd-type1">
+          <div class="form-inner type-gap2">
+            <button type="button" class="btn-item--del" onclick="rowItemDel(5);"><span>삭제</span></button>
+            <div class="input-box type-search h-full"><input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            </div>
+          </div>
+        </td>`;
+    
+    // ID 칼럼
+    template += `<td>bokyoung_kim@orp</td>`;
+
+    // 나머지 칼럼에 대해서는 체크박스를 추가합니다.
+    for (let i = 3; i < columnCount; i++) { // 평가자, ID 칼럼을 제외하고 시작
+      template += `
+        <td>
+          <label class="input-chk">
+            <input type="checkbox">
+            <span class="isHidden">선택</span>
+          </label>
+        </td>`;
+    }
+
+    
+    // 템플릿을 마무리하고 빈 td 추가(마지막 실추가 버튼 칼럼에 대응)
+    template += '<td></td></tr>';
+    
+    // 'table' 요소 내의 'tbody'를 찾아 완성된 'template'을 추가
+    const tbody = document.querySelector("#table table tbody");
+    tbody.insertAdjacentHTML('beforeend', template);
+  }
+
+  function deleteColumn(element) {
+    const theadRow = element.closest('table').querySelector('thead tr');
+    const colCount = theadRow.querySelectorAll('th').length;
+    
+    // 최소 3개의 칼럼이 유지되어야 함을 확인
+    if(colCount <= 6) { // '평가자', 'ID', 그리고 최소 1개의 '실' 칼럼을 포함하여 총 3개가 기본적으로 있어야 함
+      alert('기본값은 3실입니다.');
+      return; // 함수 실행을 여기서 중단
+    }
+    
+    // 클릭된 버튼이 속한 th 요소의 인덱스를 찾음
+    const thIndex = element.closest('th').cellIndex;
+    
+    // thead 내에서 해당 th 요소 삭제
+    element.closest('table').querySelector('thead tr').deleteCell(thIndex);
+    
+    // tbody 내의 모든 행을 순회하면서 동일한 인덱스의 td 요소 삭제
+    document.querySelectorAll("#table .type-line tbody tr").forEach(row => {
+      if(row.cells.length > thIndex) { // 해당 인덱스에 td 요소가 존재하는 경우만 삭제
+        row.deleteCell(thIndex);
+      }
+    });
+    
+    // colgroup 내에서 해당 인덱스의 <col> 요소 삭제
+    const colgroup = document.querySelector("#table colgroup");
+    if(colgroup && colgroup.children[thIndex]) {
+      colgroup.removeChild(colgroup.children[thIndex]);
+    }
+  }
+
+  function addColumn() {
+    // 새로운 <col> 요소 생성
+    const newCol = document.createElement('col');
+
+    // colgroup에 새로운 <col> 요소 추가
+    document.querySelector("#table colgroup").appendChild(newCol);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // 'thead'에 이벤트 리스너를 추가하여 '실 삭제' 버튼 클릭 이벤트를 위임합니다.
+    document.querySelector('#table thead').addEventListener('click', function(event) {
+      // 클릭된 요소가 '실 삭제' 버튼인지 확인합니다.
+      if (event.target.closest('.delete-column')) {
+        const element = event.target.closest('.delete-column');
+        deleteColumn(element);
+      }
+    });
+  });  
 </script>
 </body>
 </html>
