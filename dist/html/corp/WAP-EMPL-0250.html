@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+          <div class="header__info__cell header__page-sort">
+            <span>관리자 페이지</span>
+          </div>
+          <ul class="header__info__cell header__list-count">
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">10건</span>
+            </li>
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">8건</span>
+            </li>
+            <li>
+              <span class="key">계약만료</span>
+              <span class="val point-color">2건</span>
+            </li>
+          </ul>
+          <div class="header__info__cell header__input-search">
+            <div class="input-box type-search">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
+            </div>
+          </div>
+        </div>
+        <div class="header__util">
+          <a href="#">홍길동님</a>
+          <a href="#">도움말</a>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+        
+        <ul class="snb__menu">
+          <li><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
+          <li><a href="WAP-EMPL-0010.html" class="snb__depth1--btn icon4">채용등록</a></li>
+          <li class="isCurrent"><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon7">채용목록</a></li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon5"
+              aria-expanded="false"
+              aria-controls="snbSubMenu1"
+            ><span>보관함</span></button>
+            <div id="snbSubMenu1" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
+                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
+                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
+                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
+                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
+                <li><a href="WAP-CONT-0270.html">만족도조사</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="snb__depth1--btn icon6"
+              aria-expanded="false"
+              aria-controls="snbSubMenu2"
+            ><span>기업정보</span></button>
+            <div id="snbSubMenu2" class="snb__depth2">
+              <ul>
+                <li><a href="WAP-CORP-0022.html">기업정보</a></li>
+                <li><a href="WAP-SYS-0090.html">사용자</a></li>
+                <li><a href="WAP-ETPR-0070.html">채용홈페이지</a></li>
+                <li><a href="WAP-ETPR-0200.html">개인정보 삭제기준</a></li>
+                <li><a href="WAP-ETPR-0210.html">발송이력</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[ORP연구소] 2021년 하반기 인턴 채용</h2>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                data-dropdown='{
+                  "name": "headerDropdown",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "사무",
+                      "value": "사무",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                data-dropdown='{
+                  "name": "headerDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "서류전형",
+                      "value": "서류전형",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="contents-header__btns">
+          <a href="#" class="btn">
+            <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-graph__size-m__color5">통계</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- contents navigation -->
+      <div class="contents-nav type2">
+        <div class="contents-nav__inner">
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type2__size-m">초기화</button>
+          </div>
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type2__size-m">취소</button>
+            <button type="button" class="base-btn type1__size-m">저장</button>
+          </div>
+        </div>
+      </div>
+      <!-- //contents navigation -->
+
+      <!-- contents -->
+      <div class="contents q-evaluation-rating">
+
+        <h3 class="title-sub">평가설정</h3>
+
+        <div class="base-tab tab-type1 content-mt6" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">적부평가</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">정량평가</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">정성평가</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+        <div class="base-tab tab-type2 content-mt3" data-ref="tabContents2">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">평가요소</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">평가자</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">집계기준</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">등급</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">평가시스템 설정</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents2 = new TabContents({target: 'tabContents2'});
+        </script>
+        
+        <div class="box-type1 content-mt6">
+          <div class="board-body">
+            <div id="table" class="table table-type1 td-pd-h-0 ph4">
+              <table class="type-line">
+                <colgroup>
+                  <col style="width:110px;">
+                  <col style="width:auto;">
+                  <col style="width:290px;">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="form-inner type-gap2 jc-c">
+                        <button type="button" class="btn-item--del" onclick="deleteAllRows();">
+                          <span>삭제</span>
+                        </button>
+                        <span class="after-del-txt">NO</span>
+                      </div>
+                    </th>
+                    <th>점수구간</th>
+                    <th>등급</th>
+                  </tr>
+                </thead>
+                <tbody class="first-td-bdt0">
+                  <tr>
+                    <td class="pd-type1">
+                      <div class="form-inner type-gap2 jc-c">
+                        <button type="button" class="btn-item--del" onclick="rowItemDel(5);">
+                          <span>삭제</span>
+                        </button>
+                        <span class="after-del-txt">1</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-inner type-gap2 jc-c">
+                        <div class="input-box w-100px">
+                          <input type="text" class="input-txt pr-0" placeholder="입력하세요" oninput="inputValueChk()">
+                          <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                        </div>
+                        점 이상~
+                        <div class="input-box w-100px">
+                          <input type="text" class="input-txt pr-0" placeholder="입력하세요" oninput="inputValueChk()">
+                          <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                        </div>
+                        점 미만
+                      </div>
+                    </td>
+                    <td class="center">
+                      <div class="form-inner type-gap2 jc-c">
+                        <div class="input-box w-100px">
+                          <input type="text" class="input-txt pr-0" placeholder="입력하세요" oninput="inputValueChk()" value="S">
+                          <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                        </div>
+                        등급
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="form-inner content-mt2 pd-type1">
+                <button type="button" class="btn-item--add" onclick="addRow();">
+                  <span>추가</span>
+                </button>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+<script>
+  // 행추가
+  function addRow() {
+    const tbody = document.querySelector("#table .type-line tbody");
+    const lastRow = tbody.querySelector("tr:last-child");
+    const lastNo = lastRow ? parseInt(lastRow.querySelector(".after-del-txt").textContent, 10) : 0;
+    const newRowNo = lastNo + 1;
+
+    // 새로운 행의 HTML 구조 생성
+    const newRow = `
+      <tr>
+        <td class="pd-type1">
+          <div class="form-inner type-gap2 jc-c">
+            <button type="button" class="btn-item--del" onclick="rowItemDel(5);">
+              <span>삭제</span>
+            </button>
+            <span class="after-del-txt">${newRowNo}</span>
+          </div>
+        </td>
+        <td>
+          <div class="form-inner type-gap2 jc-c">
+            <div class="input-box w-100px">
+              <input type="text" class="input-txt pr-0" placeholder="입력하세요" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            </div>
+            점 이상~
+            <div class="input-box w-100px">
+              <input type="text" class="input-txt pr-0" placeholder="입력하세요" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            </div>
+            점 미만
+          </div>
+        </td>
+        <td class="center">
+          <div class="form-inner type-gap2 jc-c">
+            <div class="input-box w-100px">
+              <input type="text" class="input-txt pr-0" placeholder="입력하세요" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            </div>
+            등급
+          </div>
+        </td>
+      </tr>
+    `;
+
+    // 'table' 요소 내의 'tbody'에 새로운 행 추가
+    tbody.insertAdjacentHTML('beforeend', newRow);
+  }  
+
+  function deleteAllRows() {
+    // 'table' 요소 내의 'tbody'를 선택
+    const tbody = document.querySelector("#table .type-line tbody");
+
+    // 'tbody' 내의 모든 'tr' 요소 삭제
+    while (tbody.firstChild) {
+      tbody.removeChild(tbody.firstChild);
+    }
+  }
+</script>
+</body>
+</html>

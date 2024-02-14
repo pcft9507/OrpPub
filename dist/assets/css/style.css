@@ -900,6 +900,11 @@ hr {
 .form-inner.pd-type1 {
   padding-left: 32px;
 }
+.form-inner.jc-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 .form-inner ~ .form-inner {
   margin-top: var(--content-margin2);
 }
@@ -1227,6 +1232,9 @@ input[type=radio] {
 textarea {
   padding: 12px 15px;
 }
+textarea.default-h {
+  height: 282px;
+}
 
 .input-txt {
   height: 48px;
@@ -1255,6 +1263,9 @@ textarea {
   display: inline-block;
   vertical-align: middle;
 }
+.input-box.w-100px {
+  width: 100px;
+}
 .input-box.h-full {
   width: 100%;
 }
@@ -1269,6 +1280,9 @@ textarea {
 }
 .input-box .input-txt[readonly] {
   background: #EAEDF3;
+}
+.input-box .input-txt.pr-0 {
+  padding-right: 0;
 }
 .input-box .btn-del {
   display: none;
@@ -2176,6 +2190,10 @@ textarea {
 }
 .table-type1 td {
   padding: 24px 8px;
+}
+.table.td-pd-h-0 thead th {
+  padding-left: 0;
+  padding-right: 0;
 }
 .table.ph4 thead th:first-child {
   padding-left: 32px;
@@ -4287,6 +4305,11 @@ textarea {
 }
 .home-page .form-td .inp-tab {
   width: 1042px;
+}
+
+.q-evaluation-rating .after-del-txt {
+  width: 54px;
+  text-align: center;
 }
 
 .sch-comp__in {

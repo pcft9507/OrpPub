@@ -565,11 +565,37 @@
 <script>
   const WAP_CONT_0080 = new LayerPopup({target: "WAP-CONT-0080"});
 </script>;
+  <div class="layer-popup type-modal" data-ref="WAP-CONT-0095">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">평가요소 정보 수정</h3>
+    </div>
+    <div class="popup__contents">
+
+      <div class="form-row">
+        <h4 class="title-sub2">수정 내용</h4>
+        <div class="form-inner">
+          <textarea class="font-weight-s default-h" placeholder="입력해주세요."></textarea>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">저장</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0095.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CONT_0095 = new LayerPopup({target: "WAP-CONT-0095"});
+</script>;
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
       "WAP_CONT_0070" : ()=>{WAP_CONT_0070.show()},
-      "WAP_CONT_0080" : ()=>{WAP_CONT_0080.show()}
+      "WAP_CONT_0080" : ()=>{WAP_CONT_0080.show()},
+      "WAP_CONT_0095" : ()=>{WAP_CONT_0095.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

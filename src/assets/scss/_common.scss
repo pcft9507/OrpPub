@@ -434,6 +434,9 @@ hr {
     &.pd-type1 {
       padding-left: 32px;
     }
+    &.jc-c {
+      justify-content: center;
+    }
   }
   &-inner ~ &-inner {margin-top: var(--content-margin2);}
   &-inner ~ &-inner.type-mt2 {margin-top: var(--content-margin1);}
@@ -677,6 +680,10 @@ input[type="radio"] {
 
 textarea {
   padding: 12px 15px;
+
+  &.default-h {
+    height: 282px;
+  }
 }
 .input-txt {
   height: 48px;
@@ -701,23 +708,25 @@ textarea {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-
+  &.w-100px {
+    width: 100px;
+  }
   &.h-full {
     width: 100%;
   }
-
   &.after-btn {
     width: calc(100% - 96px);
-
     & + .base-btn {
       width: 88px;
     }
   }
   .input-txt {
     padding-right: 44px;
-
     &[readonly] {
       background: #EAEDF3;
+    }
+    &.pr-0 {
+      padding-right: 0;
     }
   }
   .btn-del {
@@ -754,7 +763,6 @@ textarea {
       background: var(--icon-url) no-repeat 0 -72px;
     }
     &.ico-gray3 {
-
       &:before {
         background: url($image-url + 'icon-search-gray3.png') 0/24px;
       }
@@ -777,7 +785,6 @@ textarea {
       padding: 13px 15px 12px 46px;
     }
     &.bo-head {
-
       .input-txt {
         width: 170px;
       }
@@ -1433,25 +1440,27 @@ textarea {
     }
   }
 
-  &.ph4 {
-
+  &.td-pd-h-0 {
     thead {
-
+      th {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+  &.ph4 {
+    thead {
       th:first-child {
         padding-left: 32px;
       }
-
       th:last-child {
         padding-right: 32px;
       }
     }
-
     tbody {
-
       tr {
         border-bottom: 1px solid var(--border-color5);
       }
-
       td:first-child {
         padding-left: 32px;
       }

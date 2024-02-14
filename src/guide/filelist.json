@@ -110,6 +110,11 @@
           "url" : "./html/admin/WAP-CONT-0060.html?popup=WAP_CONT_0080"
         },
         {
+          "dep3" : "popup - 평가요소 정보 수정",
+          "name" : "WAP-CONT-0095",
+          "url" : "./html/admin/WAP-CONT-0060.html?popup=WAP_CONT_0095"
+        },
+        {
           "dep2" : "필기도구",
           "name" : "WAP-CONT-0110",
           "url" : "./html/admin/WAP-CONT-0110.html"
@@ -324,6 +329,11 @@
           "url" : "./html/corp/WAP-EMPL-0240.html"
         },
         {
+          "dep4" : "등급",
+          "name" : "WAP-EMPL-0250",
+          "url" : "./html/corp/WAP-EMPL-0250.html"
+        },
+        {
           "dep4" : "평가시스템 설정",
           "name" : "WAP-EMPL-0260",
           "url" : "./html/corp/WAP-EMPL-0260.html"
@@ -410,6 +420,11 @@
           "dep3" : "popup - 평가요소",
           "name" : "WAP-CONT-0080",
           "url" : "./html/corp/WAP-CONT-0060.html?popup=WAP_CONT_0080"
+        },
+        {
+          "dep3" : "popup - 평가요소 정보 수정",
+          "name" : "WAP-CONT-0095",
+          "url" : "./html/corp/WAP-CONT-0060.html?popup=WAP_CONT_0095"
         },
         {
           "dep2" : "필기도구",

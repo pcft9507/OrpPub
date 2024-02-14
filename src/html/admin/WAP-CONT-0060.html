@@ -322,11 +322,13 @@
   </div>
   @@include('../html/admin/WAP-CONT-0070.html');
   @@include('../html/admin/WAP-CONT-0080.html');
+  @@include('../html/admin/WAP-CONT-0095.html');
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
       "WAP_CONT_0070" : ()=>{WAP_CONT_0070.show()},
-      "WAP_CONT_0080" : ()=>{WAP_CONT_0080.show()}
+      "WAP_CONT_0080" : ()=>{WAP_CONT_0080.show()},
+      "WAP_CONT_0095" : ()=>{WAP_CONT_0095.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>
