@@ -281,6 +281,11 @@
           "url" : "./html/corp/WAP-EMPL-0180.html?popup=WAP_EMPL_0190"
         },
         {
+          "dep4" : "인적사항",
+          "name" : "WAP-EMPL-0191",
+          "url" : "./html/corp/WAP-EMPL-0180.html?popup=WAP_EMPL_0191"
+        },
+        {
           "dep4" : "학력사항",
           "name" : "WAP-EMPL-0192",
           "url" : "./html/corp/WAP-EMPL-0192.html"

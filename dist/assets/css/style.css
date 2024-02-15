@@ -4326,13 +4326,6 @@ textarea.default-h {
   left: 0;
   width: 100%;
 }
-.sch-comp__select {
-  width: 136px;
-}
-.sch-comp__select + .sch-comp__inp-wrap {
-  width: calc(100% - 238px);
-  margin-left: 16px;
-}
 .sch-comp__select .dropdown {
   width: 100%;
 }
@@ -4343,7 +4336,6 @@ textarea.default-h {
   width: 100%;
 }
 .sch-comp__inp {
-  display: none;
   position: relative;
 }
 .sch-comp__inp.active {
@@ -4384,7 +4376,7 @@ textarea.default-h {
   line-height: 21px;
   border-radius: 6px;
 }
-.sch-comp__result-list a:hover {
+.sch-comp__result-list a.selected, .sch-comp__result-list a:hover {
   background: #F0F8FC;
 }
 .sch-comp__col-row {

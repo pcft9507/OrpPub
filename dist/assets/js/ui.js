@@ -1858,6 +1858,103 @@ class ToggleManager {
 	}
 }
 
+// 드롭다운리스트를 input으로 검색
+class SearchList {
+	constructor(element, options) {
+		this.element = element instanceof HTMLElement ? element : document.querySelector(element);
+		this.options = Object.assign({}, options);
+		this.init();
+	}
+
+	init() {
+		this.schCompInp = this.element.querySelector('.sch-comp__inp');
+		this.searchTag = this.element.querySelector('.search-tag');
+		this.tagBox = this.searchTag.querySelector('.tag__box');
+		this.ssBtn = this.element.querySelector('.sch-comp__ss-btn');
+		this.ssOpt = this.element.querySelector('.sch-comp__ss');
+		this.ssInp = this.element.querySelector('.sch-comp__ss .input-txt');
+		this.ssResult = this.element.querySelector('.sch-comp__ss-result');
+
+		this.bindEvents();
+	}
+
+	bindEvents() {
+		this.ssBtn.addEventListener('click', () => {
+			this.toggleDropdown();
+		});
+
+		document.addEventListener('click', (e) => {
+			if (!this.element.contains(e.target)) {
+				this.ssBtn.classList.remove('active');
+				this.ssOpt.style.display = 'none';
+			}
+		});
+
+		this.element.addEventListener('click', (e) => {
+			if (e.target.matches('.sch-comp__btn-result')) {
+				this.selectItem(e);
+			} else if (e.target.matches('.del')) {
+				this.deleteTag(e);
+			}
+		});
+
+		this.ssInp.addEventListener('input', () => this.filterResults());
+	}
+
+	toggleDropdown() {
+		this.ssBtn.classList.toggle('active');
+		this.ssOpt.style.display = this.ssOpt.style.display === 'block' ? 'none' : 'block';
+	}
+
+	selectItem(e) {
+		e.preventDefault();
+		const btn = e.target;
+		if (btn.classList.contains('selected')) {
+			return;
+		}
+		const currentValue = btn.textContent;
+		this.ssInp.value = currentValue;
+		// .sch-data가 입력이라고 가정하면 HTML을 기반으로 조정해야 할 수도 있습니다.
+		this.element.querySelector('.sch-data').value = currentValue;
+		btn.classList.add('selected');
+		this.ssBtn.classList.remove('active');
+		this.ssOpt.style.display = 'none';
+
+		let tagTemp = document.createElement('div');
+		tagTemp.innerHTML = `<span class="txt">${currentValue}</span><button type="button" class="del"></button>`;
+		tagTemp.classList.add('tag__item', 'tag__item--type1');
+		this.tagBox.appendChild(tagTemp);
+		this.updateSearchTagActive();
+	}
+
+	deleteTag(e) {
+		const tagName = e.target.previousElementSibling.textContent;
+		e.target.parentElement.remove();
+		this.element.querySelectorAll('.sch-comp__btn-result.selected').forEach(btn => {
+			if (btn.textContent === tagName) {
+				btn.classList.remove('selected');
+			}
+		});
+		this.updateSearchTagActive();
+	}
+
+	filterResults() {
+		const searchText = this.ssInp.value.toLowerCase();
+		this.ssResult.querySelectorAll('li').forEach(item => {
+			const listItemText = item.textContent.toLowerCase();
+			item.style.display = listItemText.includes(searchText) ? 'block' : 'none';
+		});
+	}
+
+	updateSearchTagActive() {
+		if (this.tagBox.querySelectorAll('.tag__item').length > 0) {
+			this.searchTag.classList.add('active');
+		} else {
+			this.searchTag.classList.remove('active');
+		}
+	}
+}
+
 // ui.js RGB색상값
 $.fn.colorSquare = function () {
 	return this.each(function () {
@@ -1879,3 +1976,4 @@ $(document).ready(function () {
 		console.log('검색하기')
 	});	
 })
+
