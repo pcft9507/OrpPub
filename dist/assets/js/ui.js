@@ -1902,6 +1902,7 @@ class SearchList {
 	}
 
 	toggleDropdown() {
+		this.resetSearch();
 		this.ssBtn.classList.toggle('active');
 		this.ssOpt.style.display = this.ssOpt.style.display === 'block' ? 'none' : 'block';
 	}
@@ -1914,8 +1915,6 @@ class SearchList {
 		}
 		const currentValue = btn.textContent;
 		this.ssInp.value = currentValue;
-		// .sch-data가 입력이라고 가정하면 HTML을 기반으로 조정해야 할 수도 있습니다.
-		this.element.querySelector('.sch-data').value = currentValue;
 		btn.classList.add('selected');
 		this.ssBtn.classList.remove('active');
 		this.ssOpt.style.display = 'none';
@@ -1940,10 +1939,24 @@ class SearchList {
 
 	filterResults() {
 		const searchText = this.ssInp.value.toLowerCase();
-		this.ssResult.querySelectorAll('li').forEach(item => {
-			const listItemText = item.textContent.toLowerCase();
-			item.style.display = listItemText.includes(searchText) ? 'block' : 'none';
-		});
+		
+		// 검색 필드가 비어있는 경우 모든 결과를 표시
+		if (searchText === '') {
+			this.ssResult.querySelectorAll('li').forEach(item => {
+				item.style.display = 'block'; // 모든 검색 결과 항목을 표시
+			});
+		} else {
+			// 검색어가 있는 경우 필터링된 결과만 표시
+			this.ssResult.querySelectorAll('li').forEach(item => {
+				const listItemText = item.textContent.toLowerCase();
+				item.style.display = listItemText.includes(searchText) ? 'block' : 'none';
+			});
+		}
+	}
+
+	resetSearch() {
+		this.ssInp.value = ''; // 검색 필드 초기화
+		this.filterResults(); // filterResults 메서드를 호출하여 모든 결과를 다시 표시
 	}
 
 	updateSearchTagActive() {
@@ -1967,6 +1980,45 @@ $.fn.colorSquare = function () {
 		const colorValue = colorNum[1] + colorNum[2] + colorNum[3]
 		csColorBox.css('background-color', '#'+colorValue)
 	})
+}
+
+// 입력폼에서 같은행을 복사해서 붙이는 클래스
+class FormRowFlex {
+	constructor(element) {
+			this.element = element;
+			this.initAddButton();
+	}
+
+	initAddButton() {
+		const addButton = this.element.querySelector('.btn-item--add');
+		addButton.addEventListener('click', () => this.addFormInner());
+	}
+
+	addFormInner() {
+		const formInnerTemplate = this.element.querySelector('.form-inner').cloneNode(true);
+		this.updateDropdownNames(formInnerTemplate);
+		this.element.querySelector('.btn-item--add').before(formInnerTemplate);
+		this.initDeleteButton(formInnerTemplate);
+		dropdown.init('dropdown');
+	}
+
+	updateDropdownNames(formInner) {
+		// 현재 form-row__flex 내의 form-inner 개수를 기준으로 새 인덱스 계산
+		const newIndex = this.element.querySelectorAll('.form-inner').length + 1;
+		const dropdowns = formInner.querySelectorAll('.dropdown-btn');
+		
+		dropdowns.forEach((dropdown) => {
+				const dropdownData = JSON.parse(dropdown.getAttribute('data-dropdown'));
+				// name 속성의 숫자 부분만 새로운 인덱스 값으로 업데이트
+				dropdownData.name = dropdownData.name.replace(/\d+/, newIndex);
+				dropdown.setAttribute('data-dropdown', JSON.stringify(dropdownData));
+		});
+	}
+
+	initDeleteButton(formInner) {
+		const deleteButton = formInner.querySelector('.btn-item--del');
+		deleteButton.onclick = () => formInner.remove();
+	}
 }
 
 // 문서 로드 후 처리

@@ -127,35 +127,91 @@
 
         <h5 class="title-sub content-mt5">교육사항</h5>
 
-        <!-- 교육사항 -->
+        <!-- 자격증 -->
         <div class="box-type1 content-mt3">
-          <div class="form-row__flex">
-            <div class="form-th" style="width: 130px;">교육 과정 수</div>
+          <!-- 만료일 -->
+          <div class="form-row__flex content-mt4">
+            <div class="form-th" style="width: 130px;">만료일</div>
             <div class="form-td font-weight-s" style="flex: 1;">
               <div class="form-inner type-gap2">
-                전체
-                <div class="input-box" style="width: 100px;">
-                  <input type="text" class="input-txt pr-0" oninput="inputValueChk()" placeholder="입력하세요">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-                개 이상 이수한 대상자 적격
+                <label class="input-chk">
+                  <input type="radio" name="sample">
+                  <span>무관</span>
+                </label>
               </div>
               <div class="form-inner type-gap2">
-                학교교육 과정 수
-                <div class="input-box" style="width: 100px;">
-                  <input type="text" class="input-txt pr-0" oninput="inputValueChk()" placeholder="입력하세요">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                <label class="input-chk">
+                  <input type="radio" name="sample">
+                  <span class="isHidden">라디오</span>
+                </label>
+                <div class="input-box type-calendar">
+                  <input type="text" id="calendar" class="input-txt" placeholder="일자 선택">
+                  <script>
+                    const calendar = new Datepicker(document.getElementById('calendar'), {
+                      ...CALENDAR_DEFAULT_OPTION,
+                      ...{
+                        "minDate": "2023.12.06",
+                        "maxDate": "2023.12.20"
+                      }
+                    });
+                  </script>
                 </div>
-                개 이상 이수한 대상자 적격
+                까지 만료일이 남아있는 자격증에 적용
               </div>
+            </div>
+          </div>
+          <!-- //만료일 -->
+
+          <!-- 조건 -->
+          <div class="form-row__flex">
+            <div class="form-th" style="width: 130px;">조건</div>
+            <div class="form-td font-weight-s" style="flex: 1;">
               <div class="form-inner type-gap2">
-                작업교육 과정 수
+                아래 자격증 중
                 <div class="input-box" style="width: 100px;">
-                  <input type="text" class="input-txt pr-0" oninput="inputValueChk()" placeholder="입력하세요">
+                  <input type="text" class="input-txt pr-0" oninput="inputValueChk()" placeholder="자격증검색">
                   <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                 </div>
-                개 이상 이수한 대상자 적격
+                개 이상 보유한  대상자 적격
               </div>
+
+              <div class="form-inner type-gap2">
+                <div class="sch-comp sch-comp1 h-full">
+                  <div class="sch-comp__in">
+                    <div class="sch-comp__inp-wrap">
+                      <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+                      <div class="sch-comp__inp" data-type="search-select">
+                        <button class="sch-comp__ss-btn dropdown-btn">선택</button>
+                        <div class="sch-comp__ss">
+                          <div class="input-box type-search">
+                            <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
+                            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                          </div>
+                          <div class="sch-comp__ss-result">
+                            <ul class="sch-comp__result-list">
+                              <li><a href="#" class="sch-comp__btn-result">정보처리기사</a></li>
+                              <li><a href="#" class="sch-comp__btn-result">정보처리기사2</a></li>
+                              <li><a href="#" class="sch-comp__btn-result">정보처리기사3</a></li>
+                              <li><a href="#" class="sch-comp__btn-result">정보처리기사4</a></li>
+                              <li><a href="#" class="sch-comp__btn-result">정보처리기사5</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+                    </div>
+                  </div>
+
+                  <div class="search-tag content-mt4" id="searchTag">
+                    <div class="tag__box">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //병역구분 -->
+
             </div>
           </div>
         </div>
@@ -165,5 +221,9 @@
     </div>
     <!-- //container -->
   </div>
+<script>
+  const searchListComponent1 = document.querySelector(".sch-comp1");
+  const searchList1 = new SearchList(searchListComponent1, {/* 옵션 객체 */});
+</script>
 </body>
 </html>

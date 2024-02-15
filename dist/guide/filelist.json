@@ -296,6 +296,26 @@
           "url" : "./html/corp/WAP-EMPL-0193.html"
         },
         {
+          "dep4" : "자격증",
+          "name" : "WAP-EMPL-0194",
+          "url" : "./html/corp/WAP-EMPL-0194.html"
+        },
+        {
+          "dep4" : "어학사항",
+          "name" : "WAP-EMPL-0195",
+          "url" : "./html/corp/WAP-EMPL-0195.html"
+        },
+        {
+          "dep4" : "경력사항",
+          "name" : "WAP-EMPL-0196",
+          "url" : "./html/corp/WAP-EMPL-0196.html"
+        },
+        {
+          "dep4" : "경력사항",
+          "name" : "WAP-EMPL-0197",
+          "url" : "./html/corp/WAP-EMPL-0197.html"
+        },
+        {
           "dep3" : "정량평가",
           "name" : "WAP-EMPL-0200",
           "url" : "./html/corp/WAP-EMPL-0200.html"

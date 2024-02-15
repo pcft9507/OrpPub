@@ -205,7 +205,7 @@
 
         <h3 class="title-sub">평가설정</h3>
 
-        <div class="base-tab tab-type1 content-mt6" data-ref="tabContents1">
+        <div class="base-tab tab-type1 content-mt4" data-ref="tabContents1">
           <ul class="tab__list" role="tablist">
             <li class="tab__item">
               <button role="tab" aria-selected="true">적부평가</button>
@@ -222,33 +222,25 @@
           const tabContents1 = new TabContents({target: 'tabContents1'});
         </script>
 
-        <h4 class="title-sub">인적사항</h4>
+        <h5 class="title-sub content-mt5">어학사항</h5>
 
-        <div class="box-type1 content-mt5">
-          <!-- 성별 -->
-          <div class="form-row__flex">
-            <div class="form-th" style="width: 130px;">성별</div>
-            <div class="form-td d-flex ai-c" style="flex: 1;">
-              <div class="form-inner type-gap2">
-                <label class="input-chk">
-                  <input type="checkbox">
-                  <span>남성 부적격</span>
-                </label>
-                <label class="input-chk">
-                  <input type="checkbox">
-                  <span>여성 부적격</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <!-- //성별 -->
-
-          <!-- 연령 -->
+        <!-- 자격증 -->
+        <div class="box-type1 content-mt3">
+          <!-- 만료일 -->
           <div class="form-row__flex content-mt4">
-            <div class="form-th" style="width: 130px;">연령</div>
+            <div class="form-th" style="width: 130px;">만료일</div>
             <div class="form-td font-weight-s" style="flex: 1;">
               <div class="form-inner type-gap2">
-                연령기준일
+                <label class="input-chk">
+                  <input type="radio" name="sample">
+                  <span>무관</span>
+                </label>
+              </div>
+              <div class="form-inner type-gap2">
+                <label class="input-chk">
+                  <input type="radio" name="sample">
+                  <span class="isHidden">라디오</span>
+                </label>
                 <div class="input-box type-calendar">
                   <input type="text" id="calendar" class="input-txt" placeholder="일자 선택">
                   <script>
@@ -261,84 +253,55 @@
                     });
                   </script>
                 </div>
-              </div>
-              <div class="form-inner type-gap2">
-                <label class="input-chk">
-                  <input type="checkbox">
-                  <span class="isHidden">선택</span>
-                </label>
-                <div class="input-box" style="width: 250px;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-                세(만) 미만 대상자 부적격
-              </div>
-              <div class="form-inner type-gap2">
-                <label class="input-chk">
-                  <input type="checkbox">
-                  <span class="isHidden">선택</span>
-                </label>
-                <div class="input-box" style="width: 250px;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-                세(만) 이상 대상자 부적격
+                까지 만료일이 남아있는 자격증에 적용
               </div>
             </div>
           </div>
-          <!-- //연령 -->
+          <!-- //만료일 -->
 
-          <!-- 국적 -->
-          <div class="form-row__flex content-mt4">
-            <div class="form-th" style="width: 130px;">국적</div>
-            <div class="form-td d-flex ai-c" style="flex: 1;">
+          <!-- 조건 -->
+          <div class="form-row__flex">
+            <div class="form-th" style="width: 130px;">조건</div>
+            <div class="form-td font-weight-s" style="flex: 1;">
               <div class="form-inner type-gap2">
-                <label class="input-chk">
-                  <input type="checkbox">
-                  <span>외국인대상자 부적격</span>
-                </label>
-                <label class="input-chk">
-                  <input type="checkbox">
-                  <span>국내 대상 부적격</span>
-                </label>
+                아래 어학시험 중
+                <div class="input-box" style="width: 100px;">
+                  <input type="text" class="input-txt pr-0" oninput="inputValueChk()" placeholder="어학시험 검색">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+                개 이상 보유한  대상자 적격
               </div>
-            </div>
-          </div>
-          <!-- //국적 -->
 
-          <!-- 병역구분 -->
-          <div class="form-row__flex content-mt4">
-            <div class="form-th" style="width: 130px;">병역구분</div>
-            <div class="form-td" style="flex: 1;">
-              <!-- 좌측 콤보박스(dropdown first)와 우측 입력의(sch-comp__inp)의 data-type을 맞춰주셔야 합니다. -->
-              <div class="sch-comp sch-comp1">
-                <div class="sch-comp__in">
-                  <div class="sch-comp__inp-wrap">
-                    <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
-                    <div class="sch-comp__inp" data-type="search-select">
-                      <button class="sch-comp__ss-btn dropdown-btn">선택</button>
-                      <div class="sch-comp__ss">
-                        <div class="input-box type-search">
-                          <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-                        </div>
-                        <div class="sch-comp__ss-result">
-                          <ul class="sch-comp__result-list">
-                            <li><a href="#" class="sch-comp__btn-result">군필</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">미필</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">면제</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">면제(여성)</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">복무중</a></li>
-                          </ul>
+              <div class="form-inner type-gap2">
+                <div class="sch-comp sch-comp1 h-full">
+                  <div class="sch-comp__in">
+                    <div class="sch-comp__inp-wrap">
+                      <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+                      <div class="sch-comp__inp" data-type="search-select">
+                        <button class="sch-comp__ss-btn dropdown-btn">선택</button>
+                        <div class="sch-comp__ss">
+                          <div class="input-box type-search">
+                            <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
+                            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                          </div>
+                          <div class="sch-comp__ss-result">
+                            <ul class="sch-comp__result-list">
+                              <li><a href="#" class="sch-comp__btn-result">TOEIC</a></li>
+                              <li><a href="#" class="sch-comp__btn-result">TOEIC2</a></li>
+                              <li><a href="#" class="sch-comp__btn-result">TOEIC3</a></li>
+                              <li><a href="#" class="sch-comp__btn-result">TOEIC4</a></li>
+                              <li><a href="#" class="sch-comp__btn-result">TOEIC5</a></li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
+                      <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
                     </div>
-                    <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
                   </div>
-                </div>
 
-                <div class="search-tag content-mt4" id="searchTag">
-                  <div class="tag__box">
+                  <div class="search-tag content-mt4" id="searchTag">
+                    <div class="tag__box">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -346,95 +309,18 @@
           </div>
           <!-- //병역구분 -->
 
-          <!-- 제대계급 -->
-          <div class="form-row__flex content-mt4">
-            <div class="form-th" style="width: 130px;">제대계급</div>
-            <div class="form-td" style="flex: 1;">
-              <div class="sch-comp sch-comp2">
-                <div class="sch-comp__in">
-                  <div class="sch-comp__inp-wrap">
-                    <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
-                    <div class="sch-comp__inp" data-type="search-select">
-                      <button class="sch-comp__ss-btn dropdown-btn">선택</button>
-                      <div class="sch-comp__ss">
-                        <div class="input-box type-search">
-                          <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-                        </div>
-                        <div class="sch-comp__ss-result">
-                          <ul class="sch-comp__result-list">
-                            <li><a href="#" class="sch-comp__btn-result">이등병</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">일병</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">상병</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">병장</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">하사</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">중사</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">상사</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">원사</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">준위</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">소위</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">중위</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">대위</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">소령</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">중령</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">대령</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">준장</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">소장</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">중장</a></li>
-                            <li><a href="#" class="sch-comp__btn-result">대장</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
-                  </div>
-                </div>
-
-                <div class="search-tag content-mt4" id="searchTag">
-                  <div class="tag__box">
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
-          <!-- //제대계급 -->
-
-          <!-- 보훈사항 -->
-          <div class="form-row__flex content-mt4">
-            <div class="form-th" style="width: 130px;">보훈사항</div>
-            <div class="form-td d-flex ai-c" style="flex: 1;">비대상 부적격</div>
-          </div>
-          <!-- //보훈사항 -->
-
-          <!-- 장애사항 -->
-          <div class="form-row__flex content-mt4">
-            <div class="form-th" style="width: 130px;">장애사항</div>
-            <div class="form-td d-flex ai-c" style="flex: 1;">비대상 부적격</div>
-          </div>
-          <!-- //장애사항 -->
-
-          <!-- 지역인재 -->
-          <div class="form-row__flex content-mt4">
-            <div class="form-th" style="width: 130px;">지역인재</div>
-            <div class="form-td d-flex ai-c" style="flex: 1;">비대상 부적격</div>
-          </div>
-          <!-- //지역인재 -->
         </div>
-
+        <!-- //교육사항 -->
       </div>
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
   </div>
-
 <script>
-  // 병역구분
   const searchListComponent1 = document.querySelector(".sch-comp1");
   const searchList1 = new SearchList(searchListComponent1, {/* 옵션 객체 */});
-  // 병역구분
-  const searchListComponent2 = document.querySelector(".sch-comp2");
-  const searchList2 = new SearchList(searchListComponent2, {/* 옵션 객체 */});
 </script>
 </body>
 </html>

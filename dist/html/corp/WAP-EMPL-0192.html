@@ -222,23 +222,51 @@
           const tabContents1 = new TabContents({target: 'tabContents1'});
         </script>
 
-        <div class="box-type1 content-mt5">
-          <h5 class="title-sub1">공통 항목을 선택하세요</h5>
+        <h4 class="title-sub  content-mt4">학력사항</h4>
+
+        <div class="box-type1 content-mt3">
           <!-- 최종학력 -->
-          <div class="form-row__flex content-mt4">
-            <div class="form-th" style="width: 240px;">
-              <label class="input-chk type2">
-                <input type="checkbox">
-                <span>최종학력</span>
-              </label>
+          <div class="form-row__flex">
+            <div class="form-th" style="width: 130px;">최종학력</div>
+            <div class="form-td font-weight-s" style="flex: 1;">
+              <div class="form-inner type-gap2">
+                <div class="dropdown" style="width: 136px;">
+                  <button type="button" class="dropdown-btn"
+                    data-dropdown='{
+                      "name": "dropdown1",
+                      "type" : "single",
+                      "option": [
+                        {
+                          "name": "초등학교",
+                          "value": "초등학교",
+                          "disabled": false,
+                          "checked": true
+                        },
+                        {
+                          "name": "옵션2",
+                          "value": "옵션2",
+                          "disabled": false,
+                          "checked": false
+                        }
+                      ]
+                    }'
+                  >선택하세요</button>
+                </div>
+              </div>
             </div>
+          </div>
+          <!-- //최종학력 -->
+
+          <!-- 조건 -->
+          <div class="form-row__flex content-mt4">
+            <div class="form-th" style="width: 130px;">조건</div>
             <div class="form-td font-weight-s" style="flex: 1;">
               <div class="form-inner type-gap2">
                 <label class="input-chk type2">
                   <input type="checkbox">
                   <span class="isHidden">선택</span>
                 </label>
-                <div class="dropdown" style="width: 250px;">
+                <div class="dropdown" style="width: 136px;">
                   <button type="button" class="dropdown-btn"
                     data-dropdown='{
                       "name": "dropdown1",
@@ -267,7 +295,7 @@
                   <input type="checkbox">
                   <span class="isHidden">선택</span>
                 </label>
-                <div class="dropdown" style="width: 250px;">
+                <div class="dropdown" style="width: 136px;">
                   <button type="button" class="dropdown-btn"
                     data-dropdown='{
                       "name": "dropdown2",
@@ -293,69 +321,33 @@
               </div>
             </div>
           </div>
-          <!-- //최종학력 -->
-          <!-- 학교구분 -->
-          <div class="form-row__flex type4">
-            <div class="form-th" style="width: 240px;">학교 구분</div>
-            <div class="form-td" style="flex: 1;">
-              <div class="dropdown" style="width: 100%;">
-                <button type="button" class="dropdown-btn"
-                  data-dropdown='{
-                    "name": "dropdown3",
-                    "type" : "single",
-                    "option": [
-                      {
-                        "name": "고등학교",
-                        "value": "고등학교",
-                        "disabled": false,
-                        "checked": true
-                      },
-                      {
-                        "name": "옵션2",
-                        "value": "옵션2",
-                        "disabled": false,
-                        "checked": false
-                      }
-                    ]
-                  }'
-                >선택</button>
-              </div>
-            </div>
-          </div>
-          <!-- //학교구분 -->
+          <!-- //조건 -->
+        </div>
+
+        <h4 class="title-sub  content-mt4">고등학교</h4>
+
+        <div class="box-type1 content-mt3">
           <!-- 검정고시 -->
-          <div class="form-row__flex">
-            <div class="form-th no-pd" style="width: 240px;">
-              <label class="input-chk type2">
-                <input type="checkbox" disabled>
-                <span>검정고시</span>
-              </label>
+          <div class="form-row__flex ">
+            <div class="form-th no-pd" style="width: 130px;">검정고시</label>
             </div>
-            <div class="form-td font-weight-s" style="flex: 1;">
-              <label class="input-chk type2">
-                <input type="checkbox" disabled>
-                <span>검정고시 대상자 제외</span>
-              </label>
-            </div>
+            <div class="form-td font-weight-s" style="flex: 1;">검정고시 대상자 부적격</div>
           </div>
           <!-- //검정고시 -->
           <!-- 소재지 -->
-          <div class="form-row__flex">
-            <div class="form-th no-pd" style="width: 240px;">
-              <label class="input-chk type2">
-                <input type="checkbox" disabled>
-                <span>소재지</span>
-              </label>
+          <div class="form-row__flex flex-form-row">
+            <div class="form-th" style="width: 130px;">소재지</label>
             </div>
             <div class="form-td" style="flex: 1;">
               <div class="form-inner">
-                <p class="point-color3">소재지가 아래에 해당하는 대상자 적격</p>
-              </div>
-              <div class="form-inner">
-                <div class="dropdown" style="width: 33.33%;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                  <span>삭제</span>
+                </button>
+                <p>소재지가 아래에 해당하는 대상자 적격</p>
+                <div class="dropdown" style="width: 160px;">
                   <button type="button" class="dropdown-btn"
                     data-dropdown='{
-                      "name": "dropdown4",
+                      "name": "location1-1",
                       "type" : "single",
                       "option": [
                         {
@@ -374,10 +366,10 @@
                     }'
                   >선택 (도, 광역시)</button>
                 </div>
-                <div class="dropdown" style="width: 33.33%;">
+                <div class="dropdown" style="width: 160px;">
                   <button type="button" class="dropdown-btn"
                     data-dropdown='{
-                      "name": "dropdown5",
+                      "name": "location1-2",
                       "type" : "single",
                       "option": [
                         {
@@ -396,46 +388,17 @@
                     }'
                   >선택 (시, 군)</button>
                 </div>
-                <script>
-                  let SampleTemplate = `<div class="dropdown" style="width: 33.33%;">
-                      <button type="button" class="dropdown-btn"
-                        data-dropdown='{
-                          "name": "dropdown6",
-                          "type" : "single",
-                          "option": [
-                            {
-                              "name": "옵션1",
-                              "value": "옵션1",
-                              "disabled": false,
-                              "checked": false
-                            },
-                            {
-                              "name": "옵션2",
-                              "value": "옵션2",
-                              "disabled": false,
-                              "checked": false
-                            }
-                          ]
-                        }'
-                      >선택 (시, 군)</button>
-                    </div>`
-                </script>
-                <button type="button" class="btn-item--add"
-                  onclick="
-                    event.currentTarget.insertAdjacentHTML('beforebegin', SampleTemplate);
-                    event.currentTarget.remove();
-                    dropdown.init('dropdown');
-                  "
-                >
-                  <span>추가</span>
-                </button>
               </div>
+              <button type="button" class="btn-item--add">
+                <span>추가</span>
+              </button>              
             </div>
           </div>
           <!-- //소재지 -->
+
           <!-- 입학구분 -->
-          <div class="form-row__flex">
-            <div class="form-th no-pd" style="width: 240px;">
+          <div class="form-row__flex flex-form-row">
+            <div class="form-th" style="width: 130px;">
               <label class="input-chk type2">
                 <input type="checkbox" disabled>
                 <span>입학구분</span>
@@ -443,13 +406,14 @@
             </div>
             <div class="form-td" style="flex: 1;">
               <div class="form-inner">
-                <p class="point-color1">입학구분이 아래에 해당되는 대상자 부적격</p>
-              </div>
-              <div class="form-inner">
-                <div class="dropdown" style="width: 33.33%;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                  <span>삭제</span>
+                </button>
+                <p>입학구분이 해당되는 대상자 부적격</p>
+                <div class="dropdown" style="width: 160px;">
                   <button type="button" class="dropdown-btn"
                     data-dropdown='{
-                      "name": "dropdown7",
+                      "name": "admission1",
                       "type" : "single",
                       "option": [
                         {
@@ -466,48 +430,19 @@
                         }
                       ]
                     }'
-                  >선택(입학구분)</button>
+                  >선택 (시, 군)</button>
                 </div>
-                <script>
-                  let SampleTemplate2 = `<div class="dropdown" style="width: 33.33%;">
-                      <button type="button" class="dropdown-btn"
-                        data-dropdown='{
-                          "name": "dropdown8",
-                          "type" : "single",
-                          "option": [
-                            {
-                              "name": "옵션1",
-                              "value": "옵션1",
-                              "disabled": false,
-                              "checked": false
-                            },
-                            {
-                              "name": "옵션2",
-                              "value": "옵션2",
-                              "disabled": false,
-                              "checked": false
-                            }
-                          ]
-                        }'
-                      >선택(입학구분)</button>
-                    </div>`
-                </script>
-                <button type="button" class="btn-item--add"
-                  onclick="
-                    event.currentTarget.insertAdjacentHTML('beforebegin', SampleTemplate2);
-                    event.currentTarget.remove();
-                    dropdown.init('dropdown');
-                  "
-                >
-                  <span>추가</span>
-                </button>
               </div>
+              <button type="button" class="btn-item--add">
+                <span>추가</span>
+              </button>              
             </div>
           </div>
           <!-- //입학구분 -->
+
           <!-- 졸업구분 -->
-          <div class="form-row__flex">
-            <div class="form-th no-pd" style="width: 240px;">
+          <div class="form-row__flex flex-form-row">
+            <div class="form-th" style="width: 130px;">
               <label class="input-chk type2">
                 <input type="checkbox">
                 <span>졸업구분</span>
@@ -515,13 +450,14 @@
             </div>
             <div class="form-td" style="flex: 1;">
               <div class="form-inner">
-                <p class="point-color1">졸업구분이 아래에 해당되는 대상자 부적격</p>
-              </div>
-              <div class="form-inner">
-                <div class="dropdown" style="width: 33.33%;">
+                <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                  <span>삭제</span>
+                </button>
+                <p>졸업구분이 해당되는 대상자 부적격</p>
+                <div class="dropdown" style="width: 160px;">
                   <button type="button" class="dropdown-btn"
                     data-dropdown='{
-                      "name": "dropdown9",
+                      "name": "graduate1",
                       "type" : "single",
                       "option": [
                         {
@@ -538,61 +474,27 @@
                         }
                       ]
                     }'
-                  >선택(졸업구분)</button>
+                  >선택 (시, 군)</button>
                 </div>
-                <script>
-                  let SampleTemplate3 = `<div class="dropdown" style="width: 33.33%;">
-                      <button type="button" class="dropdown-btn"
-                        data-dropdown='{
-                          "name": "dropdown10",
-                          "type" : "single",
-                          "option": [
-                            {
-                              "name": "옵션1",
-                              "value": "옵션1",
-                              "disabled": false,
-                              "checked": false
-                            },
-                            {
-                              "name": "옵션2",
-                              "value": "옵션2",
-                              "disabled": false,
-                              "checked": false
-                            }
-                          ]
-                        }'
-                      >선택(졸업구분)</button>
-                    </div>`
-                </script>
-                <button type="button" class="btn-item--add"
-                  onclick="
-                    event.currentTarget.insertAdjacentHTML('beforebegin', SampleTemplate3);
-                    event.currentTarget.remove();
-                    dropdown.init('dropdown');
-                  "
-                >
-                  <span>추가</span>
-                </button>
               </div>
+              <button type="button" class="btn-item--add">
+                <span>추가</span>
+              </button>              
             </div>
           </div>
           <!-- //졸업구분 -->
+
           <!-- 졸업년도 -->
           <div class="form-row__flex content-mt4">
-            <div class="form-th" style="width: 240px;">
-              <label class="input-chk type2">
-                <input type="checkbox">
-                <span>졸업년도</span>
-              </label>
-            </div>
+            <div class="form-th" style="width: 130px;">졸업년도</div>
             <div class="form-td font-weight-s" style="flex: 1;">
               <div class="form-inner type-gap2">
                 <label class="input-chk type2">
                   <input type="checkbox">
                   <span class="isHidden">선택</span>
                 </label>
-                <div class="input-box" style="width: 250px;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="기간 입력" disabled>
+                <div class="input-box" style="width: 136px;">
+                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
                   <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                 </div>
                 이전(미만) 졸업자 부적격
@@ -602,8 +504,8 @@
                   <input type="checkbox">
                   <span class="isHidden">선택</span>
                 </label>
-                <div class="input-box" style="width: 250px;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="기간 입력" disabled>
+                <div class="input-box" style="width: 136px;">
+                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
                   <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                 </div>
                 이후(이상) 졸업자 부적격
@@ -611,18 +513,15 @@
             </div>
           </div>
           <!-- //졸업년도 -->
+
           <!-- 학점 -->
           <div class="form-row__flex content-mt4">
-            <div class="form-th" style="width: 240px;">
-              <label class="input-chk type2">
-                <input type="checkbox" disabled>
-                <span>학점</span>
-              </label>
-            </div>
+            <div class="form-th" style="width: 130px;">학점</div>
             <div class="form-td font-weight-s" style="flex: 1;">
               <div class="form-inner type-gap2">
-                <div class="input-box" style="width: 250px;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="점수 입력">
+                100점 만점에
+                <div class="input-box" style="width: 136px;">
+                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
                   <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                 </div>
                 점 미만인 대상자 부적격
@@ -630,60 +529,15 @@
             </div>
           </div>
           <!-- //학점 -->
-
-          <!-- 전문대 학점 -->
-          <div class="form-row__flex">
-            <div class="form-th" style="width: 240px;">
-              <label class="input-chk type2">
-                <input type="checkbox" disabled>
-                <span>학점</span>
-              </label>
-            </div>
-            <div class="form-td font-weight-s" style="flex: 1;">
-              <div class="form-inner">
-                <div class="input-box" style="width: 150px;">
-                  <input type="text" class="input-txt" placeholder="학점 입력" oninput="inputValueChk()">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-                <div>/</div>
-                <div class="dropdown" style="width: 150px;">
-                  <button type="button" class="dropdown-btn" data-dropdown='{
-                    "name": "dropdown6_4",
-                    "type" : "single",
-                    "option": [
-                      {
-                        "name": "옵션1",
-                        "value": "val1",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션2",
-                        "value": "val2",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션3",
-                        "value": "val3",
-                        "disabled": false,
-                        "checked": false
-                      }
-                    ]
-                  }'>선택하세요</button> 
-                </div>
-                점 미만인 대상자 제외
-              </div>
-            </div>
-          </div>
-          <!-- //전문대 학점 -->
         </div>
-
       </div>
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
   </div>
+<script>
+  // 행추가	
+  document.querySelectorAll('.flex-form-row').forEach(element => new FormRowFlex(element));
+</script>
 </body>
 </html>

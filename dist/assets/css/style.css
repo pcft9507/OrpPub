@@ -4312,6 +4312,9 @@ textarea.default-h {
   text-align: center;
 }
 
+.sch-comp.h-full {
+  width: 100%;
+}
 .sch-comp__in {
   display: -webkit-box;
   display: -ms-flexbox;
