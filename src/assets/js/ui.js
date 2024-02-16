@@ -1584,6 +1584,12 @@ class ControlAddItem {
 			});
 		})
 	}
+	schCompInit(wrap) {
+		const items = wrap.querySelectorAll('.sch-comp');
+		if (items) items.forEach((_this, idx) => {
+			const searchList = new SearchList(_this, {/* 옵션 객체 */});
+		})
+	}
 	add() {
 		const wrap = document.createElement(this.wrapTag);
 		wrap.innerHTML = this.template;
@@ -1592,9 +1598,12 @@ class ControlAddItem {
 		this.dropdownInit(wrap);
 		this.target.insertAdjacentElement('beforeend', wrap);
 		this.stateNum++;
-		if (wrap.querySelectorAll(Util.returnRef('num'))) wrap.querySelectorAll(Util.returnRef('num'))[0].innerText = this.stateNum;
+		if(this.stateNum) {
+			if (wrap.querySelectorAll(Util.returnRef('num'))) wrap.querySelectorAll(Util.returnRef('num'))[0].innerText = this.stateNum;
+		}
 		if (this.innerTemplate) this.innerControlInit(wrap);
 		if (this.addCallBack) this.addCallBack(wrap, this);
+		this.schCompInit(wrap)
 	}
 	del(target) {
 		event.target.closest(target).remove();

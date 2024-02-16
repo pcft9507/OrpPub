@@ -384,8 +384,16 @@ a.reset_time {
   font-size: inherit;
 }
 
+.tac {
+  text-align: center !important;
+}
+
 .tar {
   text-align: right !important;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 hr {
@@ -1281,6 +1289,9 @@ textarea.default-h {
 .input-box .input-txt[readonly] {
   background: #EAEDF3;
 }
+.input-box .input-txt.ph-0 {
+  padding: 0;
+}
 .input-box .input-txt.pr-0 {
   padding-right: 0;
 }
@@ -2146,6 +2157,9 @@ textarea.default-h {
 .board-add-row {
   padding: 16px 32px;
 }
+.board-add-row2 {
+  padding: 16px;
+}
 
 .table-type1 {
   text-align: center;
@@ -2191,6 +2205,12 @@ textarea.default-h {
 .table-type1 td {
   padding: 24px 8px;
 }
+.table-type1 td.bdl {
+  border-left: 1px solid var(--border-color5);
+}
+.table-type1 td.bdr {
+  border-right: 1px solid var(--border-color5);
+}
 .table.td-pd-h-0 thead th {
   padding-left: 0;
   padding-right: 0;
@@ -2229,8 +2249,10 @@ textarea.default-h {
   border-top: 0;
 }
 .table .type-line td {
-  padding: 16px 4px;
   border-top: 1px solid var(--border-color5);
+}
+.table .type-line td.ph-s {
+  padding: 16px 4px;
 }
 .table .type-line td.bdt0 {
   border-top: 0;
@@ -2692,10 +2714,18 @@ textarea.default-h {
   display: -ms-flexbox;
   display: flex;
 }
+.d-flex.type-gap {
+  gap: 0 8px;
+}
 .d-flex.jc-c {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.d-flex.jc-fe {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 .d-flex.jc-sb {
   -webkit-box-pack: justify;

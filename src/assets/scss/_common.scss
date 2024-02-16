@@ -27,9 +27,14 @@
 .fz-inherit {
   font-size:  inherit;
 }
-
+.tac {
+  text-align: center !important;
+}
 .tar {
   text-align: right !important;
+}
+.nowrap {
+  white-space: nowrap;
 }
 
 hr {
@@ -725,6 +730,9 @@ textarea {
     &[readonly] {
       background: #EAEDF3;
     }
+    &.ph-0 {
+      padding: 0;
+    }
     &.pr-0 {
       padding-right: 0;
     }
@@ -1403,6 +1411,9 @@ textarea {
   &-add-row {
     padding: 16px 32px;
   }
+  &-add-row2 {
+    padding: 16px;
+  }
 }
 
 .table {
@@ -1437,6 +1448,12 @@ textarea {
     }
     td {
       padding: 24px 8px;
+      &.bdl {
+        border-left: 1px solid var(--border-color5);
+      }
+      &.bdr {
+        border-right: 1px solid var(--border-color5);
+      }
     }
   }
   &.td-pd-h-0 {
@@ -1492,9 +1509,10 @@ textarea {
     }
   }
   .type-line td {
-    padding: 16px 4px;
     border-top: 1px solid var(--border-color5);
-
+    &.ph-s {
+      padding: 16px 4px;
+    }
     &.bdt0 {
       border-top: 0;
     }
@@ -1845,27 +1863,27 @@ textarea {
 
 .d-flex {
   display: flex;
-
+  &.type-gap {
+    gap: 0 8px;
+  }
   &.jc-c {
     justify-content: center;
   }
-
+  &.jc-fe {
+    justify-content: flex-end;
+  }
   &.jc-sb {
     justify-content: space-between;
   }
-
   &.ai-c {
     align-items: center;
   }
-
   &.title {
     margin-bottom: 16px;
   }
-
   &.w-full {
     width: 100%;
   }
-
   .row-col {
     display: flex;
 
@@ -1873,11 +1891,9 @@ textarea {
       gap: 0 8px;
     }
   }
-  
   .title-sub {
     margin-bottom: 0;
   }
-
   .wave {
     display: flex;
     justify-content: center;
