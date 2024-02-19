@@ -105,7 +105,6 @@
 
       <!-- contents -->
       <div class="contents">
-
         <h3 class="title-sub">평가설정</h3>
 
         <div class="base-tab tab-type1 content-mt6" data-ref="tabContents1">
@@ -124,939 +123,457 @@
         <script>
           const tabContents1 = new TabContents({target: 'tabContents1'});
         </script>
-          <!-- 학력사항 합 -->
-          <div class="board-head content-mt4">
-            <div class="board-head__cell">
-              <h5 class="title-sub1">학력사항 합</h5>
 
-              <div class="input-box" style="width:100px;">
-                <input type="text" class="input-txt pr-0" disabled value="자동입력">
+        <!-- 학력사항 합 -->
+        <div class="board-head content-mt4">
+          <div class="board-head__cell">
+            <h5 class="title-sub1">학력사항 합</h5>
+
+            <div class="input-box" style="width:100px;">
+              <input type="text" class="input-txt pr-0" disabled value="자동입력">
+            </div>
+            점
+          </div>
+        </div>
+
+        <div class="box-type1 content-mt3">
+          <div class="form-row__flex">
+            <div class="form-th no-pd" style="width: 130px;">사용여부</div>
+            <div class="form-td font-weight-s" style="flex: 1;">
+              <div class="form-inner type-gap2">
+                <label class="input-chk">
+                  <input type="radio">
+                  <span>사용</span>
+                </label>
+                <label class="input-chk">
+                  <input type="radio">
+                  <span>미사용</span>
+                </label>
               </div>
-              점
             </div>
           </div>
+        </div>
+        <!-- //학력사항 합 -->
 
-          <div class="box-type1 content-mt3">
-            <div class="form-row__flex">
-              <div class="form-th no-pd" style="width: 130px;">사용여부</div>
-              <div class="form-td font-weight-s" style="flex: 1;">
-                <div class="form-inner type-gap2">
-                  <label class="input-chk">
-                    <input type="radio">
-                    <span>사용</span>
-                  </label>
-                  <label class="input-chk">
-                    <input type="radio">
-                    <span>미사용</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- //학력사항 합 -->
+        <!-- 학교구분 합 -->
+        <div class="board-head content-mt4">
+          <div class="board-head__cell">
+            <h5 class="title-sub1">학교구분 합</h5>
 
-          <!-- 학교구분 합 -->
-          <div class="board-head content-mt4">
-            <div class="board-head__cell">
-              <h5 class="title-sub1">학교구분 합</h5>
-
-              <div class="input-box" style="width:100px;">
-                <input type="text" class="input-txt pr-0" disabled value="자동입력">
-              </div>
-              점
+            <div class="input-box" style="width:100px;">
+              <input type="text" class="input-txt pr-0" disabled value="자동입력">
             </div>
+            점
           </div>
-          <div class="box-type1 content-mt3">
-            <div class="table table-type1">
-              <table class="type-input type-line">
-                <colgroup>
-                  <col style="width:56px;">
-                  <col>
-                  <col>
-                  <col style="width: 280px;">
-                  <col>
-                  <col style="width: 280px;">
-                  <col>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>학교구분</th>
-                    <th>입학구분</th>
-                    <th>입학시기</th>
-                    <th>졸업구분</th>
-                    <th>졸업시기</th>
-                    <th>배점</th>
-                  </tr>
-                </thead>
-                <tbody class="first-td-bdt0" data-ref="controlTable1">
-                  <tr>
-                    <td class="pd-type1">
-                      <button type="button" class="btn-item--del" onclick="controlTable1.del('tr')">
-                        <span>삭제</span>
-                      </button>
-                    </td>
-                    <td>
-                      <div class="dropdown" style="width: 170px;">
-                        <button type="button" class="dropdown-btn size-s"
-                          data-dropdown='{
-                            "name": "controlTable1_0_1",
-                            "type" : "single",
-                            "option": [
-                              {
-                                "name": "옵션1",
-                                "value": "val1",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션2",
-                                "value": "val2",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션3",
-                                "value": "val3",
-                                "disabled": false,
-                                "checked": false
-                              }
-                            ]
-                          }'>고등학교</button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex jc-c">
-                        <div class="chk-group type-column-left">
-                          <label class="input-chk type2">
-                            <input type="checkbox">
-                            <span>일반입학</span>
-                          </label>
-                          <label class="input-chk type2">
-                            <input type="checkbox">
-                            <span>편입</span>
-                          </label>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex ai-c type-gap">
-                        <div class="input-box type-calendar" style="width:170px;">
-                          <input type="text" class="input-txt" value="일자선택">
-                        </div>
-                        <span class="nowrap">이후(이상) 입학</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="dropdown" style="width: 134px;">
-                        <button type="button" class="dropdown-btn size-m"
-                          data-dropdown='{
-                            "name": "controlTable1_0_2",
-                            "type" : "single",
-                            "option": [
-                              {
-                                "name": "옵션1",
-                                "value": "val1",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션2",
-                                "value": "val2",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션3",
-                                "value": "val3",
-                                "disabled": false,
-                                "checked": false
-                              }
-                            ]
-                          }'>선택하세요</button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex ai-c type-gap">
-                        <div class="input-box type-calendar" style="width:170px;">
-                          <input type="text" class="input-txt" value="일자선택">
-                        </div>
-                        <span class="nowrap">전(미만) 졸업</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex ai-c jc-c type-gap">
-                        <div class="input-box" style="width:80px;">
-                          <input type="text" class="input-txt tac ph-0" placeholder="0">
-                        </div>
-                        점
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="board-add-row">
-              <button type="button" class="btn-item--add" onclick="controlTable1.add();">
-                <span>추가</span>
-              </button>
-            </div>
-            <script>
-              const controlTable1 = new ControlAddItem({
-                target: 'controlTable1',
-                wrapTag: 'tr',
-                template: `
-                <td class="pd-type1">
-                  <button type="button" class="btn-item--del" onclick="controlTable1.del('tr')">
-                    <span>삭제</span>
-                  </button>
-                </td>
-                <td>
-                  <div class="dropdown" style="width: 170px;">
-                    <button type="button" class="dropdown-btn size-s"
-                      data-dropdown='{
-                        "name": "controlTable1_0_1",
-                        "type" : "single",
-                        "option": [
-                          {
-                            "name": "옵션1",
-                            "value": "val1",
-                            "disabled": false,
-                            "checked": false
-                          },
-                          {
-                            "name": "옵션2",
-                            "value": "val2",
-                            "disabled": false,
-                            "checked": false
-                          },
-                          {
-                            "name": "옵션3",
-                            "value": "val3",
-                            "disabled": false,
-                            "checked": false
-                          }
-                        ]
-                      }'>고등학교</button>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex jc-c">
-                    <div class="chk-group type-column-left">
-                      <label class="input-chk type2">
-                        <input type="checkbox">
-                        <span>일반입학</span>
-                      </label>
-                      <label class="input-chk type2">
-                        <input type="checkbox">
-                        <span>편입</span>
-                      </label>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex ai-c type-gap">
-                    <div class="input-box type-calendar" style="width:170px;">
-                      <input type="text" class="input-txt" value="일자선택">
-                    </div>
-                    <span class="nowrap">이후(이상) 입학</span>
-                  </div>
-                </td>
-                <td>
-                  <div class="dropdown" style="width: 134px;">
-                    <button type="button" class="dropdown-btn size-m"
-                      data-dropdown='{
-                        "name": "controlTable1_0_2",
-                        "type" : "single",
-                        "option": [
-                          {
-                            "name": "옵션1",
-                            "value": "val1",
-                            "disabled": false,
-                            "checked": false
-                          },
-                          {
-                            "name": "옵션2",
-                            "value": "val2",
-                            "disabled": false,
-                            "checked": false
-                          },
-                          {
-                            "name": "옵션3",
-                            "value": "val3",
-                            "disabled": false,
-                            "checked": false
-                          }
-                        ]
-                      }'>선택하세요</button>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex ai-c type-gap">
-                    <div class="input-box type-calendar" style="width:170px;">
-                      <input type="text" class="input-txt" value="일자선택">
-                    </div>
-                    <span class="nowrap">전(미만) 졸업</span>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex ai-c jc-c type-gap">
-                    <div class="input-box" style="width:80px;">
-                      <input type="text" class="input-txt tac ph-0" placeholder="0">
-                    </div>
-                    점
-                  </div>
-                </td>
-                `
-              });
-            </script>
-            <!-- //학력사항 -->
-          </div>
-          <!-- //학교구분 합 -->
-
-          <!-- 전공/소재지 -->
-          <div class="board-head content-mt4">
-            <div class="board-head__cell">
-              <h5 class="title-sub1">전공 소재지 합</h5>
-
-              <div class="input-box" style="width:100px;">
-                <input type="text" class="input-txt pr-0" disabled value="자동입력">
-              </div>
-              점
-            </div>
-          </div>
-          <div class="box-type1 content-mt3">
-            <div class="table table-type1">
-              <table class="type-input type-line">
-                <colgroup>
-                  <col style="width:56px;">
-                  <col>
-                  <col>
-                  <col style="width:290px;">
-                  <col style="width:290px;">
-                  <col>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>학력기준</th>
-                    <th>구분</th>
-                    <th colspan="2">전공분야 / 소재지</th>
-                    <th>배점</th>
-                  </tr>
-                </thead>
-                <tbody class="first-td-bdt0" data-ref="controlTable2">
-                  <tr>
-                    <td class="pd-type1">
-                      <button type="button" class="btn-item--del" onclick="controlTable2.del('tr');">
-                        <span>삭제</span>
-                      </button>
-                    </td>
-                    <td>
-                      <div class="dropdown" style="width: 170px;">
-                        <button type="button" class="dropdown-btn size-s"
-                          data-dropdown='{
-                            "name": "controlTable2_0_1",
-                            "type" : "single",
-                            "option": [
-                              {
-                                "name": "옵션1",
-                                "value": "val1",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션2",
-                                "value": "val2",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션3",
-                                "value": "val3",
-                                "disabled": false,
-                                "checked": false
-                              }
-                            ]
-                          }'>고등학교</button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="dropdown" style="width: 170px;">
-                        <button type="button" class="dropdown-btn size-s"
-                          data-dropdown='{
-                            "name": "controlTable2_0_2",
-                            "type" : "single",
-                            "option": [
-                              {
-                                "name": "옵션1",
-                                "value": "val1",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션2",
-                                "value": "val2",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션3",
-                                "value": "val3",
-                                "disabled": false,
-                                "checked": false
-                              }
-                            ]
-                          }'>전공</button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="dropdown" style="width: 258px;">
-                        <button type="button" class="dropdown-btn size-s"
-                          data-dropdown='{
-                            "name": "controlTable2_0_3",
-                            "type" : "single",
-                            "option": [
-                              {
-                                "name": "옵션1",
-                                "value": "val1",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션2",
-                                "value": "val2",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션3",
-                                "value": "val3",
-                                "disabled": false,
-                                "checked": false
-                              }
-                            ]
-                          }'>인문계열</button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="dropdown" style="width: 258px;">
-                        <button type="button" class="dropdown-btn size-s"
-                          data-dropdown='{
-                            "name": "controlTable2_0_4",
-                            "type" : "single",
-                            "option": [
-                              {
-                                "name": "옵션1",
-                                "value": "val1",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션2",
-                                "value": "val2",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션3",
-                                "value": "val3",
-                                "disabled": false,
-                                "checked": false
-                              }
-                            ]
-                          }'>언어•문학</button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex ai-c type-gap">
-                        <div class="input-box" style="width:80px;">
-                          <input type="text" class="input-txt tac ph-0" placeholder="0">
-                        </div>
-                        점
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="board-add-row">
-              <button type="button" class="btn-item--add" onclick="controlTable2.add();">
-                <span>추가</span>
-              </button>
-            </div>
-            <script>
-              const controlTable2 = new ControlAddItem({
-                target: 'controlTable2',
-                wrapTag: 'tr',
-                template: `
-                    <td class="pd-type1">
-                      <button type="button" class="btn-item--del" onclick="controlTable2.del('tr');">
-                        <span>삭제</span>
-                      </button>
-                    </td>
-                    <td>
-                      <div class="dropdown" style="width: 170px;">
-                        <button type="button" class="dropdown-btn size-s"
-                          data-dropdown='{
-                            "type" : "single",
-                            "option": [
-                              {
-                                "name": "옵션1",
-                                "value": "val1",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션2",
-                                "value": "val2",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션3",
-                                "value": "val3",
-                                "disabled": false,
-                                "checked": false
-                              }
-                            ]
-                          }'>고등학교</button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="dropdown" style="width: 170px;">
-                        <button type="button" class="dropdown-btn size-s"
-                          data-dropdown='{
-                            "type" : "single",
-                            "option": [
-                              {
-                                "name": "옵션1",
-                                "value": "val1",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션2",
-                                "value": "val2",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션3",
-                                "value": "val3",
-                                "disabled": false,
-                                "checked": false
-                              }
-                            ]
-                          }'>전공</button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="dropdown" style="width: 258px;">
-                        <button type="button" class="dropdown-btn size-s"
-                          data-dropdown='{
-                            "type" : "single",
-                            "option": [
-                              {
-                                "name": "옵션1",
-                                "value": "val1",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션2",
-                                "value": "val2",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션3",
-                                "value": "val3",
-                                "disabled": false,
-                                "checked": false
-                              }
-                            ]
-                          }'>인문계열</button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="dropdown" style="width: 258px;">
-                        <button type="button" class="dropdown-btn size-s"
-                          data-dropdown='{
-                            "type" : "single",
-                            "option": [
-                              {
-                                "name": "옵션1",
-                                "value": "val1",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션2",
-                                "value": "val2",
-                                "disabled": false,
-                                "checked": false
-                              },
-                              {
-                                "name": "옵션3",
-                                "value": "val3",
-                                "disabled": false,
-                                "checked": false
-                              }
-                            ]
-                          }'>언어•문학</button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex ai-c type-gap">
-                        <div class="input-box" style="width:80px;">
-                          <input type="text" class="input-txt tac ph-0" placeholder="0">
-                        </div>
-                        점
-                      </div>
-                    </td>
-                  `
-              });
-            </script>
-          </div>
-          <!-- //전공/소재지 -->
-
-          <!-- 교육사항 -->
-          <div class="board-head content-mt4">
-            <div class="board-head__cell">
-              <h5 class="title-sub1">교육사항</h5>
-            </div>
-            <div class="board-head__cell type-gap2">
-              <strong class="point-color5">사용여부</strong>
-              <label class="btn-toggle">
-                <input type="checkbox">
-                <span>버튼</span>
-              </label>
-            </div>
-          </div>
+        </div>
+        <div class="box-type1 content-mt3">
           <div class="table table-type1">
-            <table class="type-input">
+            <table class="type-input type-line">
               <colgroup>
                 <col style="width:56px;">
-                <col style="width:176px">
+                <col>
+                <col>
+                <col style="width: 280px;">
+                <col>
+                <col style="width: 280px;">
                 <col>
               </colgroup>
               <thead>
                 <tr>
                   <th></th>
-                  <th class="left">
-                    <label class="input-chk">
-                      <input type="radio" name="table3Radio1">
-                      <span>전체</span>
-                    </label>
-                  </th>
+                  <th>학교구분</th>
+                  <th>입학구분</th>
+                  <th>입학시기</th>
+                  <th>졸업구분</th>
+                  <th>졸업시기</th>
                   <th>배점</th>
                 </tr>
               </thead>
-              <tbody data-ref="controlTable3">
+              <tbody class="first-td-bdt0" data-ref="controlTable1">
                 <tr>
                   <td class="pd-type1">
-                    <button type="button" class="btn-item--del" onclick="controlTable3.del('tr');">
+                    <button type="button" class="btn-item--del" onclick="controlTable1.del('tr')">
                       <span>삭제</span>
                     </button>
                   </td>
-                  <td class="left">
-                    <label class="input-chk">
-                      <input type="radio" name="controlTable3Radio1">
-                      <span>학교교육</span>
-                    </label>
-                  </td>
                   <td>
-                    <div class="form-inner">
-                      <div class="input-box" style="width: 200px;">
-                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div>개 이상~</div>
-                      <div class="input-box" style="width: 200px;">
-                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div>개 미만</div>
-                      <div class="input-box" style="width: 200px;">
-                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div>점</div>
+                    <div class="dropdown" style="width: 170px;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "name": "controlTable1_0_1",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>고등학교</button>
                     </div>
                   </td>
-                </tr>
-                <tr>
-                  <td class="pd-type1">
-                    <button type="button" class="btn-item--del" onclick="controlTable3.del('tr');">
-                      <span>삭제</span>
-                    </button>
-                  </td>
-                  <td class="left">
-                    <label class="input-chk">
-                      <input type="radio" name="controlTable3Radio1">
-                      <span>항목구분</span>
-                    </label>
-                  </td>
                   <td>
-                    <div class="form-inner">
-                      <div class="input-box" style="width: 200px;">
-                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    <div class="d-flex jc-c">
+                      <div class="chk-group type-column-left">
+                        <label class="input-chk type2">
+                          <input type="checkbox">
+                          <span>일반입학</span>
+                        </label>
+                        <label class="input-chk type2">
+                          <input type="checkbox">
+                          <span>편입</span>
+                        </label>
                       </div>
-                      <div>개 이상~</div>
-                      <div class="input-box" style="width: 200px;">
-                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div>개 미만</div>
-                      <div class="input-box" style="width: 200px;">
-                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div>점</div>
                     </div>
                   </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="board-add-row">
-            <button type="button" class="btn-item--add" onclick="controlTable3.add();">
-              <span>추가</span>
-            </button>
-          </div>
-          <script>
-            const controlTable3 = new ControlAddItem({
-              target: 'controlTable3',
-              stateNum: 2,
-              wrapTag: 'tr',
-              template: `
-                  <td class="pd-type1">
-                    <button type="button" class="btn-item--del">
-                      <span>삭제</span>
-                    </button>
-                  </td>
-                  <td class="left">
-                    <label class="input-chk">
-                      <input type="radio" name="controlTable3Radio1">
-                      <span>항목구분</span>
-                    </label>
-                  </td>
                   <td>
-                    <div class="form-inner">
-                      <div class="input-box" style="width: 200px;">
-                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    <div class="d-flex ai-c type-gap">
+                      <div class="input-box type-calendar" style="width:170px;">
+                        <input type="text" class="input-txt" value="일자선택">
                       </div>
-                      <div>개 이상~</div>
-                      <div class="input-box" style="width: 200px;">
-                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div>개 미만</div>
-                      <div class="input-box" style="width: 200px;">
-                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div>점</div>
+                      <span class="nowrap">이후(이상) 입학</span>
                     </div>
                   </td>
-                `
-            });
-          </script>
-          <!-- 교육사항 -->
-
-          <!-- 자격증 -->
-          <div class="board-head content-mt4">
-            <div class="board-head__cell">
-              <h5 class="title-sub1">자격증 <span class="sub">(총 배점 00점)</span></h5>
-            </div>
-            <div class="board-head__cell type-gap2">
-              <strong class="point-color5">사용여부</strong>
-              <label class="btn-toggle">
-                <input type="checkbox">
-                <span>버튼</span>
-              </label>
-            </div>
-          </div>
-          <div class="form-inner">
-            <label class="input-chk">
-              <input type="radio" name="table4Radio1">
-              <span>만료일 무관</span>
-            </label>
-          </div>
-          <div class="form-inner type-gap2">
-            <label class="input-chk">
-              <input type="radio" name="table4Radio1">
-              <span class="isHidden">선택</span>
-            </label>
-            <div class="input-box" style="width: 200px;">
-              <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="기간 입력">
-              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-            </div>
-            <div class="font-weight-s">까지 만료일이 남아있는 자격증에 적용</div>
-          </div>
-          <div class="table table-type1 content-mt2">
-            <table class="type-input">
-              <colgroup>
-                <col style="width:56px;">
-                <col style="width:150px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>구분</th>
-                  <th>기본점수</th>
-                  <th>점수</th>
-                  <th>정보</th>
-                </tr>
-              </thead>
-              <tbody data-ref="controlTable4">
-                <tr>
-                  <td class="pd-type1">
-                    <button type="button" class="btn-item--del" onclick="controlTable4.del('tr');">
-                      <span>삭제</span>
-                    </button>
-                  </td>
-                  <td class="left">자격증 점수</td>
                   <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
+                    <div class="dropdown" style="width: 134px;">
+                      <button type="button" class="dropdown-btn size-m"
+                        data-dropdown='{
+                          "name": "controlTable1_0_2",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>선택하세요</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex ai-c type-gap">
+                      <div class="input-box type-calendar" style="width:170px;">
+                        <input type="text" class="input-txt" value="일자선택">
+                      </div>
+                      <span class="nowrap">전(미만) 졸업</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width:80px;">
+                        <input type="text" class="input-txt tac ph-0" placeholder="0">
+                      </div>
                       점
                     </div>
                   </td>
-                  <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      점
-                    </div>
-                  </td>
-                  <td class="left">조건에 등록되어 있지 않은 자격증</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="board-add-row">
-            <button type="button" class="btn-item--add" onclick="controlTable4.add();">
+            <button type="button" class="btn-item--add" onclick="controlTable1.add();">
               <span>추가</span>
             </button>
           </div>
           <script>
-            const controlTable4 = new ControlAddItem({
-              target: 'controlTable4',
-              stateNum: 1,
+            const controlTable1 = new ControlAddItem({
+              target: 'controlTable1',
               wrapTag: 'tr',
               template: `
-                  <td class="pd-type1">
-                    <button type="button" class="btn-item--del" onclick="controlTable4.del('tr');">
-                      <span>삭제</span>
-                    </button>
-                  </td>
-                  <td class="left">자격증 점수</td>
-                  <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      점
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      점
-                    </div>
-                  </td>
-                  <td class="left">조건에 등록되어 있지 않은 자격증</td>
+              <td class="pd-type1">
+                <button type="button" class="btn-item--del" onclick="controlTable1.del('tr')">
+                  <span>삭제</span>
+                </button>
+              </td>
+              <td>
+                <div class="dropdown" style="width: 170px;">
+                  <button type="button" class="dropdown-btn size-s"
+                    data-dropdown='{
+                      "name": "controlTable1_0_1",
+                      "type" : "single",
+                      "option": [
+                        {
+                          "name": "옵션1",
+                          "value": "val1",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "옵션2",
+                          "value": "val2",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "옵션3",
+                          "value": "val3",
+                          "disabled": false,
+                          "checked": false
+                        }
+                      ]
+                    }'>고등학교</button>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex jc-c">
+                  <div class="chk-group type-column-left">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>일반입학</span>
+                    </label>
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>편입</span>
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex ai-c type-gap">
+                  <div class="input-box type-calendar" style="width:170px;">
+                    <input type="text" class="input-txt" value="일자선택">
+                  </div>
+                  <span class="nowrap">이후(이상) 입학</span>
+                </div>
+              </td>
+              <td>
+                <div class="dropdown" style="width: 134px;">
+                  <button type="button" class="dropdown-btn size-m"
+                    data-dropdown='{
+                      "name": "controlTable1_0_2",
+                      "type" : "single",
+                      "option": [
+                        {
+                          "name": "옵션1",
+                          "value": "val1",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "옵션2",
+                          "value": "val2",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "옵션3",
+                          "value": "val3",
+                          "disabled": false,
+                          "checked": false
+                        }
+                      ]
+                    }'>선택하세요</button>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex ai-c type-gap">
+                  <div class="input-box type-calendar" style="width:170px;">
+                    <input type="text" class="input-txt" value="일자선택">
+                  </div>
+                  <span class="nowrap">전(미만) 졸업</span>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex ai-c jc-c type-gap">
+                  <div class="input-box" style="width:80px;">
+                    <input type="text" class="input-txt tac ph-0" placeholder="0">
+                  </div>
+                  점
+                </div>
+              </td>
               `
             });
           </script>
-          <!-- 자격증 -->
+          <!-- //학력사항 -->
+        </div>
+        <!-- //학교구분 합 -->
 
-          <!-- 경력사항 -->
-          <div class="board-head content-mt4">
-            <div class="board-head__cell">
-              <h5 class="title-sub1">경력사항 <span class="sub">(총 배점 00점)</span></h5>
+        <!-- 전공/소재지 -->
+        <div class="board-head content-mt4">
+          <div class="board-head__cell">
+            <h5 class="title-sub1">전공 소재지 합</h5>
+
+            <div class="input-box" style="width:100px;">
+              <input type="text" class="input-txt pr-0" disabled value="자동입력">
             </div>
-            <div class="board-head__cell type-gap2">
-              <strong class="point-color5">사용여부</strong>
-              <label class="btn-toggle">
-                <input type="checkbox">
-                <span>버튼</span>
-              </label>
-            </div>
+            점
           </div>
-          <div class="form-inner">
-            <label class="input-chk">
-              <input type="radio" name="table5Radio1">
-              <span>근무기간으로 산출</span>
-            </label>
-          </div>
-          <div class="form-inner type-gap2">
-            <label class="input-chk">
-              <input type="radio" name="table5Radio1">
-              <span class="isHidden">선택</span>
-            </label>
-            <div class="input-box" style="width: 200px;">
-              <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="기간 입력">
-              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-            </div>
-            <div class="font-weight-s">까지 만료일이 남아있는 근무기간으로 적용</div>
-          </div>
-          <div class="table table-type1 content-mt2">
-            <table class="type-input">
+        </div>
+        <div class="box-type1 content-mt3">
+          <div class="table table-type1">
+            <table class="type-input type-line">
               <colgroup>
                 <col style="width:56px;">
-                <col style="width:150px">
-                <col style="width:150px">
-                <col style="width:150px">
-                <col style="width:150px">
+                <col>
+                <col>
+                <col style="width:290px;">
+                <col style="width:290px;">
                 <col>
               </colgroup>
               <thead>
                 <tr>
                   <th></th>
+                  <th>학력기준</th>
                   <th>구분</th>
-                  <th>기본점수</th>
-                  <th>점수</th>
+                  <th colspan="2">전공분야 / 소재지</th>
                   <th>배점</th>
-                  <th>정보</th>
                 </tr>
               </thead>
-              <tbody data-ref="controlTable5">
+              <tbody class="first-td-bdt0" data-ref="controlTable2">
                 <tr>
                   <td class="pd-type1">
-                    <button type="button" class="btn-item--del" onclick="controlTable5.del('tr');">
+                    <button type="button" class="btn-item--del" onclick="controlTable2.del('tr');">
                       <span>삭제</span>
                     </button>
                   </td>
-                  <td class="left">총 근무시간</td>
                   <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      점
+                    <div class="dropdown" style="width: 170px;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "name": "controlTable2_0_1",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>고등학교</button>
                     </div>
                   </td>
                   <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      점
+                    <div class="dropdown" style="width: 170px;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "name": "controlTable2_0_2",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>전공</button>
                     </div>
                   </td>
                   <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      점
+                    <div class="dropdown" style="width: 258px;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "name": "controlTable2_0_3",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>인문계열</button>
                     </div>
                   </td>
                   <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      개월 이상~
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      개월 미만
+                    <div class="dropdown" style="width: 258px;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "name": "controlTable2_0_4",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>언어•문학</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex ai-c type-gap">
+                      <div class="input-box" style="width:80px;">
+                        <input type="text" class="input-txt tac ph-0" placeholder="0">
+                      </div>
+                      점
                     </div>
                   </td>
                 </tr>
@@ -1064,60 +581,149 @@
             </table>
           </div>
           <div class="board-add-row">
-            <button type="button" class="btn-item--add" onclick="controlTable5.add();">
+            <button type="button" class="btn-item--add" onclick="controlTable2.add();">
               <span>추가</span>
             </button>
           </div>
           <script>
-            const controlTable5 = new ControlAddItem({
-              target: 'controlTable5',
-              stateNum: 1,
+            const controlTable2 = new ControlAddItem({
+              target: 'controlTable2',
               wrapTag: 'tr',
               template: `
                   <td class="pd-type1">
-                    <button type="button" class="btn-item--del" onclick="controlTable5.del('tr');">
+                    <button type="button" class="btn-item--del" onclick="controlTable2.del('tr');">
                       <span>삭제</span>
                     </button>
                   </td>
-                  <td class="left">총 근무시간</td>
                   <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      점
+                    <div class="dropdown" style="width: 170px;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>고등학교</button>
                     </div>
                   </td>
                   <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      점
+                    <div class="dropdown" style="width: 170px;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>전공</button>
                     </div>
                   </td>
                   <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      점
+                    <div class="dropdown" style="width: 258px;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>인문계열</button>
                     </div>
                   </td>
                   <td>
-                    <div class="form-inner type-gap2">
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      개월 이상~
-                      <input type="text" class="input-txt" placeholder="0" style="width:80px;text-align: center;">
-                      개월 미만
+                    <div class="dropdown" style="width: 258px;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>언어•문학</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex ai-c type-gap">
+                      <div class="input-box" style="width:80px;">
+                        <input type="text" class="input-txt tac ph-0" placeholder="0">
+                      </div>
+                      점
                     </div>
                   </td>
                 `
             });
           </script>
-          <!-- 경력사항 -->
-
         </div>
-
+        <!-- //전공/소재지 -->
       </div>
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
   </div>
 </body>
 </html>

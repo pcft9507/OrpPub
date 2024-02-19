@@ -105,7 +105,6 @@
 
       <!-- contents -->
       <div class="contents">
-
         <h3 class="title-sub">평가설정</h3>
 
         <div class="base-tab tab-type1 content-mt6" data-ref="tabContents1">
@@ -124,211 +123,212 @@
         <script>
           const tabContents1 = new TabContents({target: 'tabContents1'});
         </script>
-          <!-- 교육사항 합 -->
-          <div class="board-head content-mt4">
-            <div class="board-head__cell">
-              <h5 class="title-sub1">자격증 합</h5>
+        <!-- 교육사항 합 -->
+        <div class="board-head content-mt4">
+          <div class="board-head__cell">
+            <h5 class="title-sub1">자격증 합</h5>
 
-              <div class="input-box" style="width:100px;">
-                <input type="text" class="input-txt pr-0" disabled value="자동입력">
-              </div>
-              점
+            <div class="input-box" style="width:100px;">
+              <input type="text" class="input-txt pr-0" disabled value="자동입력">
             </div>
+            점
           </div>
+        </div>
 
-          <div class="box-type1 content-mt3">
-            <div class="form-row__flex">
-              <div class="form-th no-pd" style="width: 130px;">사용여부</div>
-              <div class="form-td font-weight-s" style="flex: 1;">
-                <div class="form-inner type-gap2">
-                  <label class="input-chk">
-                    <input type="radio" name="sample1">
-                    <span>사용</span>
-                  </label>
-                  <label class="input-chk">
-                    <input type="radio" name="sample1">
-                    <span>미사용</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="form-row__flex">
-              <div class="form-th no-pd" style="width: 130px;">만료일</div>
-              <div class="form-td font-weight-s" style="flex: 1;">
-                <div class="form-inner type-gap2">
-                  <label class="input-chk">
-                    <input type="radio" name="sample2">
-                    <span>무관</span>
-                  </label>
-                </div>
-                <div class="form-inner type-gap2">
-                  <label class="input-chk">
-                    <input type="radio" name="sample2">
-                    <span class="isHidden">라디오</span>
-                  </label>
-                  <div class="input-box type-calendar">
-                    <input type="text" id="calendar" class="input-txt" placeholder="일자 선택">
-                    <script>
-                      const calendar = new Datepicker(document.getElementById('calendar'), {
-                        ...CALENDAR_DEFAULT_OPTION,
-                        ...{
-                          "minDate": "2023.12.06",
-                          "maxDate": "2023.12.20"
-                        }
-                      });
-                    </script>
-                  </div>
-                  까지 만료일이 남아있는 자격증에 적용
-                </div>
+        <div class="box-type1 content-mt3">
+          <div class="form-row__flex">
+            <div class="form-th no-pd" style="width: 130px;">사용여부</div>
+            <div class="form-td font-weight-s" style="flex: 1;">
+              <div class="form-inner type-gap2">
+                <label class="input-chk">
+                  <input type="radio" name="sample1">
+                  <span>사용</span>
+                </label>
+                <label class="input-chk">
+                  <input type="radio" name="sample1">
+                  <span>미사용</span>
+                </label>
               </div>
             </div>
           </div>
-          <!-- //교육사항 합 -->
-
-          <!-- 배점 -->
-          <div class="board-head content-mt4">
-            <div class="board-head__cell">
-              <h5 class="title-sub1">배점</h5>
-            </div>
-          </div>
-          <div class="box-type1">
-            <div class="form-row__flex">
-              <div class="form-th no-pd" style="width: 130px;">2가지 이상 해당시</div>
-              <div class="form-td font-weight-s" style="flex: 1;">
-                <div class="form-inner type-gap2">
-                  <label class="input-chk">
-                    <input type="radio" name="sample3">
-                    <span>점수를 합산하여 적용</span>
-                  </label>
+          <div class="form-row__flex">
+            <div class="form-th no-pd" style="width: 130px;">만료일</div>
+            <div class="form-td font-weight-s" style="flex: 1;">
+              <div class="form-inner type-gap2">
+                <label class="input-chk">
+                  <input type="radio" name="sample2">
+                  <span>무관</span>
+                </label>
+              </div>
+              <div class="form-inner type-gap2">
+                <label class="input-chk">
+                  <input type="radio" name="sample2">
+                  <span class="isHidden">라디오</span>
+                </label>
+                <div class="input-box type-calendar">
+                  <input type="text" id="calendar" class="input-txt" placeholder="일자 선택">
+                  <script>
+                    const calendar = new Datepicker(document.getElementById('calendar'), {
+                      ...CALENDAR_DEFAULT_OPTION,
+                      ...{
+                        "minDate": "2023.12.06",
+                        "maxDate": "2023.12.20"
+                      }
+                    });
+                  </script>
                 </div>
-                <div class="form-inner type-gap2">
-                  <label class="input-chk">
-                    <input type="radio" name="sample3">
-                    <span>더 높은 배점의 자격증으로 적용</span>
-                  </label>
-                </div>
+                까지 만료일이 남아있는 자격증에 적용
               </div>
             </div>
-            <div class="table table-type1 content-mt4">
-              <table class="type-input type-line">
-                <colgroup>
-                  <col style="width: 150px;">
-                  <col style="width: 200px;">
-                  <col style="width: 200px;">
-                  <col>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>구분</th>
-                    <th>기본점수</th>
-                    <th>점수</th>
-                    <th>정보</th>
-                  </tr>
-                </thead>
-                <tbody class="first-td-bdt0">
-                  <tr data-row="1">
-                    <td class="bdr" rowspan="2">
-                      <div class="form-inner">
-                        <button type="button" class="btn-item--del">
-                          <span>삭제</span>
-                        </button>
-                        자격증 점수
+          </div>
+        </div>
+        <!-- //교육사항 합 -->
+
+        <!-- 배점 -->
+        <div class="board-head content-mt4">
+          <div class="board-head__cell">
+            <h5 class="title-sub1">배점</h5>
+          </div>
+        </div>
+        <div class="box-type1">
+          <div class="form-row__flex">
+            <div class="form-th no-pd" style="width: 130px;">2가지 이상 해당시</div>
+            <div class="form-td font-weight-s" style="flex: 1;">
+              <div class="form-inner type-gap2">
+                <label class="input-chk">
+                  <input type="radio" name="sample3">
+                  <span>점수를 합산하여 적용</span>
+                </label>
+              </div>
+              <div class="form-inner type-gap2">
+                <label class="input-chk">
+                  <input type="radio" name="sample3">
+                  <span>더 높은 배점의 자격증으로 적용</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="table table-type1 content-mt4">
+            <table class="type-input type-line">
+              <colgroup>
+                <col style="width: 150px;">
+                <col style="width: 200px;">
+                <col style="width: 200px;">
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>기본점수</th>
+                  <th>점수</th>
+                  <th>정보</th>
+                </tr>
+              </thead>
+              <tbody class="first-td-bdt0">
+                <tr data-row="1">
+                  <td class="bdr" rowspan="2">
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--del">
+                        <span>삭제</span>
+                      </button>
+                      자격증 점수
+                    </div>
+                  </td>
+                  <td class="bdr" rowspan="2">
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width: 80px;">
+                        <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                       </div>
-                    </td>
-                    <td class="bdr" rowspan="2">
-                      <div class="d-flex ai-c jc-c type-gap">
-                        <div class="input-box" style="width: 80px;">
-                          <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                        </div>
-                        <div>점</div>
+                      <div>점</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width: 80px;">
+                        <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                       </div>
-                    </td>
-                    <td>
-                      <div class="d-flex ai-c jc-c type-gap">
-                        <div class="input-box" style="width: 80px;">
-                          <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                        </div>
-                        <div>점</div>
+                      <div>점</div>
+                    </div>
+                  </td>
+                  <td class="left">조건에 등록되어 있지 않은 자격증</td>
+                </tr>
+                <tr data-row="1">
+                  <td>
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width: 80px;">
+                        <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                       </div>
-                    </td>
-                    <td class="left">조건에 등록되어 있지 않은 자격증</td>
-                  </tr>
-                  <tr data-row="1">
-                    <td>
-                      <div class="d-flex ai-c jc-c type-gap">
-                        <div class="input-box" style="width: 80px;">
-                          <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                        </div>
-                        <div>점</div>
-                      </div>
-                    </td>
-                    <td class="left">
-                      <div class="sch-comp sch-comp1">
-                        <div class="sch-comp__in">
-                          <div class="sch-comp__inp-wrap">
-                            <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
-                            <div class="sch-comp__inp" data-type="search-select">
-                              <button class="sch-comp__ss-btn dropdown-btn">선택</button>
-                              <div class="sch-comp__ss">
-                                <div class="input-box type-search">
-                                  <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
-                                  <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-                                </div>
-                                <div class="sch-comp__ss-result">
-                                  <ul class="sch-comp__result-list">
-                                    <li><a href="#" class="sch-comp__btn-result">자격증1</a></li>
-                                    <li><a href="#" class="sch-comp__btn-result">자격증2</a></li>
-                                    <li><a href="#" class="sch-comp__btn-result">자격증3</a></li>
-                                    <li><a href="#" class="sch-comp__btn-result">자격증4</a></li>
-                                    <li><a href="#" class="sch-comp__btn-result">자격증5</a></li>
-                                  </ul>
-                                </div>
+                      <div>점</div>
+                    </div>
+                  </td>
+                  <td class="left">
+                    <div class="sch-comp sch-comp1">
+                      <div class="sch-comp__in">
+                        <div class="sch-comp__inp-wrap">
+                          <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+                          <div class="sch-comp__inp" data-type="search-select">
+                            <button class="sch-comp__ss-btn dropdown-btn">선택</button>
+                            <div class="sch-comp__ss">
+                              <div class="input-box type-search">
+                                <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
+                                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                              </div>
+                              <div class="sch-comp__ss-result">
+                                <ul class="sch-comp__result-list">
+                                  <li><a href="#" class="sch-comp__btn-result">자격증1</a></li>
+                                  <li><a href="#" class="sch-comp__btn-result">자격증2</a></li>
+                                  <li><a href="#" class="sch-comp__btn-result">자격증3</a></li>
+                                  <li><a href="#" class="sch-comp__btn-result">자격증4</a></li>
+                                  <li><a href="#" class="sch-comp__btn-result">자격증5</a></li>
+                                </ul>
                               </div>
                             </div>
-                            <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
                           </div>
-                        </div>
-              
-                        <div class="search-tag content-mt2" id="searchTag">
-                          <div class="tag__box">
-                          </div>
+                          <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
                         </div>
                       </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="board-add-row2">
-              <button type="button" class="btn-item--add">
-                <span>추가</span>
-              </button>
-            </div>
+            
+                      <div class="search-tag content-mt2" id="searchTag">
+                        <div class="tag__box">
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <!-- //배점 -->
+          <div class="board-add-row2">
+            <button type="button" class="btn-item--add">
+              <span>추가</span>
+            </button>
+          </div>
         </div>
+        <!-- //배점 -->
       </div>
       <!-- //contents -->
     </div>
     <!-- //container -->
   </div>
 <script>
-  
   function setSchComp () {
-    const items = document.querySelectorAll('.sch-comp');
-    if (items) items.forEach((_this, idx) => {
+    // '.sch-comp' 클래스를 가진 요소 중에서 아직 SearchList 인스턴스가 초기화되지 않은 요소만 선택
+    const items = document.querySelectorAll('.sch-comp:not(.initialized)');
+    items.forEach(_this => {
+      // 초기화되지 않은 요소에 'initialized' 클래스를 추가하여 중복 초기화 방지
+      _this.classList.add('initialized');
       const searchList = new SearchList(_this, {/* 옵션 객체 */});
-    })
+    });
   }
   setSchComp ()
 
   const addButton = document.querySelector('.btn-item--add'); // "추가" 버튼 선택
   addButton.addEventListener('click', function() {
     const tbody = document.querySelector('.first-td-bdt0'); // tbody 선택
-    const lastDataRowValue = Math.max(...Array.from(tbody.querySelectorAll('tr')).map(tr => parseInt(tr.getAttribute('data-row')))); // 마지막 data-row 값 찾기
+    const lastDataRowValue = Math.max(0, ...Array.from(tbody.querySelectorAll('tr')).map(tr => parseInt(tr.getAttribute('data-row') || '0')));
     const newRowValue = lastDataRowValue + 1; // 새로운 data-row 값 계산
 
     // HTML 템플릿 정의
@@ -336,7 +336,7 @@
       <tr data-row="${newRowValue}">
         <td class="bdr" rowspan="2">
           <div class="form-inner">
-            <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
+            <button type="button" class="btn-item--del">
               <span>삭제</span>
             </button>
             자격증 점수
@@ -373,7 +373,7 @@
           </div>
         </td>
         <td class="left">
-          <div class="sch-comp sch-comp1">
+          <div class="sch-comp sch-comp${newRowValue}">
             <div class="sch-comp__in">
               <div class="sch-comp__inp-wrap">
                 <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
@@ -410,7 +410,7 @@
 
     // 생성된 템플릿을 tbody에 삽입
     tbody.insertAdjacentHTML('beforeend', newRowTemplate);
-    setSchComp()
+    setSchComp(); // 새로운 행이 추가된 후 setSchComp를 호출하여 초기화
   });
 
   // tbody에 이벤트 위임을 사용하여 모든 '삭제' 버튼 클릭을 처리합니다.
