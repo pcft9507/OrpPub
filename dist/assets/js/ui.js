@@ -1446,8 +1446,7 @@ const rowItemAdd = (num, targetEl) => {
 		}
 	}
 	if(targetEl) {
-		const targetElement = document.querySelector(targetEl);
-		targetElement.insertAdjacentHTML('beforeend', template)
+		targetEl.insertAdjacentHTML('beforeend', template)
 	} else {
 		target.insertAdjacentHTML('beforebegin', template);
 	}
