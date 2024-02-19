@@ -2005,3 +2005,10 @@ textarea {
   color: #707070;
   font-size: 14px;
 }
+.info-txt {
+  padding-left: 24px;
+  color: #707070;
+  font-size: 12px;
+  background: url($image-url + 'icons-info-16.png') 0 1px/16px no-repeat;
+  line-height: 1.4;
+}
