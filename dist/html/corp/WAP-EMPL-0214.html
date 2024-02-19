@@ -384,14 +384,7 @@
                 </thead>
                 <tbody class="first-td-bdt0">
                   <tr>
-                    <td class="bdr" rowspan="2">
-                      <div class="form-inner">
-                        <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
-                          <span>삭제</span>
-                        </button>
-                        OPIC
-                      </div>
-                    </td>
+                    <td class="bdr" rowspan="2">OPIC</td>
                     <td class="bdr" rowspan="2">
                       <div class="d-flex ai-c jc-c type-gap">
                         <div class="input-box" style="width: 80px;">
@@ -418,7 +411,7 @@
                     <td class="left">
                       <div data-ref="controlTable1">
                         <div class="form-inner">
-                          <button type="button" class="btn-item--del" onclick="controlTable.del('.form-inner');">
+                          <button type="button" class="btn-item--del" onclick="controlTable1.del('.form-inner');">
                             <span>삭제</span>
                           </button>
                           <div class="input-box h-full">
@@ -433,7 +426,6 @@
                       <script>
                         const controlTable1 = new ControlAddItem({
                           target: 'controlTable1',
-                          //wrapTag: 'div',
                           template: `
                           <div class="form-inner content-mt2">
                             <button type="button" class="btn-item--del" onclick="controlTable2.del('.form-inner');">

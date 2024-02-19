@@ -255,7 +255,7 @@
               <div class="form-inner type-gap2">
                 <label class="input-chk">
                   <input type="radio" name="sample2">
-                  <span>무관</span>
+                  <span>모든 근무기간으로 산출</span>
                 </label>
               </div>
               <div class="form-inner type-gap2">
@@ -275,243 +275,178 @@
                     });
                   </script>
                 </div>
-                까지 만료일이 남아있는 자격증에 적용
+                까지의 근무기간으로 산출
               </div>
             </div>
           </div>
         </div>
         <!-- //경력사항 합 -->
 
-          <!-- 배점설정 -->
-          <h4 class="title-sub1 content-mt4">배점설정</h4>
+        <!-- 배점설정 -->
+        <h4 class="title-sub1 content-mt4">배점설정</h4>
 
-          <div class="box-type1 content-mt3">
-            <div class="table table-type1">
-              <table class="type-input type-line">
-                <colgroup>
-                  <col style="width: 150px;">
-                  <col style="width: 150px;">
-                  <col>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>기본점수</th>
-                    <th>최대점수</th>
-                    <th>어학사항</th>
-                  </tr>
-                </thead>
-                <tbody class="first-td-bdt0">
-                  <tr>
-                    <td>
-                      <div class="d-flex ai-c jc-c type-gap">
-                        <div class="input-box" style="width: 80px;">
-                          <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                        </div>
-                        <div>점</div>
+        <p class="info-txt size-s">2가지 이상 해당 시 더 높은 배점으로 적용</p>
+
+        <div class="box-type1 content-mt3">
+          <div class="table table-type1">
+            <table class="type-input type-line">
+              <colgroup>
+                <col style="width: 150px;">
+                <col style="width: 200px;">
+                <col style="width: 200px;">
+                <col style="width: 200px;">
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>기본점수</th>
+                  <th>최대점수</th>
+                  <th>점수</th>
+                  <th>기간</th>
+                </tr>
+              </thead>
+              <tbody class="first-td-bdt0">
+                <tr>
+                  <td class="bdr" rowspan="2">총 근무 기간</td>
+                  <td class="bdr" rowspan="2">
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width: 80px;">
+                        <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                       </div>
-                    </td>
-                    <td>
-                      <div class="d-flex ai-c jc-c type-gap">
-                        <div class="input-box" style="width: 80px;">
-                          <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                        </div>
-                        <div>점</div>
+                      <div>점</div>
+                    </div>
+                  </td>
+                  <td class="bdr" rowspan="2">
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width: 80px;">
+                        <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                       </div>
-                    </td>
-                    <td class="left">
-                      <div class="sch-comp sch-comp1">
-                        <div class="sch-comp__in">
-                          <div class="sch-comp__inp-wrap">
-                            <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
-                            <div class="sch-comp__inp" data-type="search-select">
-                              <button class="sch-comp__ss-btn dropdown-btn">선택</button>
-                              <div class="sch-comp__ss">
-                                <div class="input-box type-search">
-                                  <input type="text" class="input-txt" placeholder="검색하세요" oninput="inputValueChk()">
-                                  <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-                                </div>
-                                <div class="sch-comp__ss-result">
-                                  <ul class="sch-comp__result-list">
-                                    <li><a href="#" class="sch-comp__btn-result">자격증1</a></li>
-                                    <li><a href="#" class="sch-comp__btn-result">자격증2</a></li>
-                                    <li><a href="#" class="sch-comp__btn-result">자격증3</a></li>
-                                    <li><a href="#" class="sch-comp__btn-result">자격증4</a></li>
-                                    <li><a href="#" class="sch-comp__btn-result">자격증5</a></li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
-                          </div>
-                        </div>
-              
-                        <div class="search-tag content-mt2" id="searchTag">
-                          <div class="tag__box">
-                          </div>
-                        </div>
+                      <div>점</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width: 80px;">
+                        <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                       </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- //배점설정 -->
-
-          <!-- 어학사항 명 -->
-          <h4 class="title-sub1 content-mt4">어학사항 명</h4>
-
-          <p class="info-txt size-s">2가지 이상 해당 시 더 높은 배점으로 적용</p>
-
-          <div class="box-type1 content-mt3">
-            <div class="table table-type1">
-              <table class="type-input type-line">
-                <colgroup>
-                  <col style="width: 150px;">
-                  <col style="width: 200px;">
-                  <col style="width: 350px;">
-                  <col>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>시험명</th>
-                    <th>배점</th>
-                    <th>점수</th>
-                    <th>등급</th>
-                  </tr>
-                </thead>
-                <tbody class="first-td-bdt0">
-                  <tr>
-                    <td class="bdr" rowspan="2">
+                      <div>점</div>
+                    </div>
+                  </td>
+                  <td class="left">
+                    <div data-ref="controlTable1">
                       <div class="form-inner">
-                        <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
+                        <button type="button" class="btn-item--del" onclick="controlTable1.del('.form-inner');">
                           <span>삭제</span>
                         </button>
-                        OPIC
-                      </div>
-                    </td>
-                    <td class="bdr" rowspan="2">
-                      <div class="d-flex ai-c jc-c type-gap">
                         <div class="input-box" style="width: 80px;">
                           <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
                           <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                         </div>
-                        <div>점</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="form-inner">
+                        <div>개월 이상~</div>
                         <div class="input-box" style="width: 80px;">
                           <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
                           <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                         </div>
-                        <div>점 이상~</div>
-                        <div class="input-box" style="width: 80px;">
-                          <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                        </div>
-                        <div>점 미만</div>
+                        <div>개월 미만</div>
                       </div>
-                    </td>
-                    <td class="left">
-                      <div data-ref="controlTable1">
-                        <div class="form-inner">
-                          <button type="button" class="btn-item--del" onclick="controlTable.del('.form-inner');">
-                            <span>삭제</span>
-                          </button>
-                          <div class="input-box h-full">
-                            <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                        </div>
-                      </div>
-                      <button type="button" class="btn-item--add content-mt2" onclick="controlTable1.add();">
-                        <span>추가</span>
-                      </button>
-                      <script>
-                        const controlTable1 = new ControlAddItem({
-                          target: 'controlTable1',
-                          //wrapTag: 'div',
-                          template: `
+                    </div>
+                    <button type="button" class="btn-item--add content-mt2" onclick="controlTable1.add();">
+                      <span>추가</span>
+                    </button>
+                    <script>
+                      const controlTable1 = new ControlAddItem({
+                        target: 'controlTable1',
+                        template: `
                           <div class="form-inner content-mt2">
-                            <button type="button" class="btn-item--del" onclick="controlTable2.del('.form-inner');">
+                            <button type="button" class="btn-item--del" onclick="controlTable1.del('.form-inner');">
                               <span>삭제</span>
                             </button>
-                            <div class="input-box h-full">
+                            <div class="input-box" style="width: 80px;">
                               <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
                               <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                             </div>
-                          </div>
-                            `
-                        });
-                      </script>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="form-inner">
-                        <div class="input-box" style="width: 80px;">
-                          <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                        </div>
-                        <div>점 이상~</div>
-                        <div class="input-box" style="width: 80px;">
-                          <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                        </div>
-                        <div>점 미만</div>
-                      </div>
-                    </td>
-                    <td class="left">
-                      <div data-ref="controlTable2">
-                        <div class="form-inner">
-                          <button type="button" class="btn-item--del" onclick="controlTable2.del('.form-inner');">
-                            <span>삭제</span>
-                          </button>
-                          <div class="input-box h-full">
-                            <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                        </div>
-                      </div>
-                      <button type="button" class="btn-item--add content-mt2" onclick="controlTable2.add();">
-                        <span>추가</span>
-                      </button>
-                      <script>
-                        const controlTable2 = new ControlAddItem({
-                          target: 'controlTable2',
-                          //wrapTag: 'div',
-                          template: `
-                          <div class="form-inner content-mt2">
-                            <button type="button" class="btn-item--del" onclick="controlTable2.del('.form-inner');">
-                              <span>삭제</span>
-                            </button>
-                            <div class="input-box h-full">
+                            <div>개월 이상~</div>
+                            <div class="input-box" style="width: 80px;">
                               <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
                               <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                             </div>
+                            <div>개월 미만</div>
                           </div>
-                            `
-                        });
-                      </script>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                          `
+                      });
+                    </script>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width: 80px;">
+                        <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <div>점</div>
+                    </div>
+                  </td>
+                  <td class="left">
+                    <div data-ref="controlTable2">
+                      <div class="form-inner">
+                        <button type="button" class="btn-item--del" onclick="controlTable1.del('.form-inner');">
+                          <span>삭제</span>
+                        </button>
+                        <div class="input-box" style="width: 80px;">
+                          <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        </div>
+                        <div>개월 이상~</div>
+                        <div class="input-box" style="width: 80px;">
+                          <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        </div>
+                        <div>개월 미만</div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn-item--add content-mt2" onclick="controlTable2.add();">
+                      <span>추가</span>
+                    </button>
+                    <script>
+                      const controlTable2 = new ControlAddItem({
+                        target: 'controlTable2',
+                        //wrapTag: 'div',
+                        template: `
+                          <div class="form-inner content-mt2">
+                              <button type="button" class="btn-item--del" onclick="controlTable2.del('.form-inner');">
+                                <span>삭제</span>
+                              </button>
+                              <div class="input-box" style="width: 80px;">
+                                <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                              </div>
+                              <div>개월 이상~</div>
+                              <div class="input-box" style="width: 80px;">
+                                <input type="text" class="input-txt ph-0 tac" oninput="inputValueChk()" placeholder="0">
+                                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                              </div>
+                              <div>개월 미만</div>
+                            </div>
+                          `
+                      });
+                    </script>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <!-- //어학사항 명 -->
+        </div>
+        <!-- //배점설정 -->
         </div>
       </div>
       <!-- //contents -->
     </div>
     <!-- //container -->
   </div>
-<script>
-  // 배점설정 검색
-  const searchList = new SearchList('.sch-comp', {/* 옵션 객체 */});
-</script>  
 </body>
 </html> 
