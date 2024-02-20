@@ -129,480 +129,137 @@
           const tabContents1 = new TabContents({target: 'tabContents1'});
         </script>
 
-        <div class="content-mt3" style="text-align: right;">
-          <button type="button" class="base-btn type2__size-s" onclick="controlWrap.add();">
-            <span class="base-icon icon-add__size-s__color1">면접도구 추가</span>
-          </button>
+        <div class="box-type5 content-mt3">
+          <div class="d-flex ai-c jc-sb">
+            <span class="point-color6">면접정보를 직접 등록할 수 있습니다.</span>
+
+            <button type="button" class="base-btn type2__size-s" onclick="controlWrap.add();">
+              <span class="base-icon icon-down__size-s__color1">불러오기</span>
+            </button>
+          </div>
         </div>
 
-        <div class="content-mt3" data-ref="controlWrap">
-          <section class="form-set__box">
-            <div class="form-set__header">
-              <div class="form-set__cell">
-                <h4 class="title-sub">면접 도구 (<span data-ref="num">1</span>)</h4>
-              </div>
-              <div class="form-set__btn type-gap2">
-                <button type="button" onclick="controlWrap.itemDown('.form-set__box');">
-                  <span class="base-icon icon-down2__size-m__color3">
-                    <span class="isHidden">아래로</span>
-                  </span>
-                </button>
-                <button type="button" onclick="controlWrap.itemUp('.form-set__box');">
-                  <span class="base-icon icon-up__size-m__color3">
-                    <span class="isHidden">위로</span>
-                  </span>
-                </button>
-                <button type="button" class="base-btn type-icon__color1" onclick="controlWrap.del('.form-set__box');">
-                  <span class="base-icon icon-del__size-s__color3">
-                    <strong class="font-size-l">삭제</strong>
-                  </span>
-                </button>
-              </div>
-            </div>
-            <div class="box-type1">
-              <!-- 면접명 -->
-              <section>
-                <h4 class="title-sub1">면접정보</h4>
-                <div class="form-row__flex">
-                  <div class="form-th" style="width: 130px;">면접명</div>
-                  <div class="form-td" style="flex: 1;">
-                    <div class="form-inner">
-                      <div class="input-box" style="width: 100%;">
-                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+        <div class="box-type1 content-mt3">
+          <div class="table table-type1">
+            <table class="type-input type-line">
+              <colgroup>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>면접명</th>
+                  <th>시작날짜</th>
+                  <th>종료날짜</th>
+                </tr>
+              </thead>
+              <tbody class="first-td-bdt0" data-ref="controlTable">
+                <tr>
+                  <td colspan="3">
+                    <div class="form-inner type-gap2">
+                      <div class="d-flex w-full type-gap">
+                        <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
+                          <span>삭제</span>
+                        </button>
+
+                        <div class="input-box h-full">
+                          <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        </div>
                       </div>
+
+                      <div class="d-flex w-full type-gap">
+                        <div class="input-box type-calendar" style="flex: 1;">
+                          <input type="text" class="input-txt" id="calendar2_1" placeholder="시작 일자 선택" oninput="inputValueChk()">
+                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        </div>
+
+                        <div class="input-box" style="width: 69px;">
+                          <input class="input-txt ph-0 tac timepicker" type='text'name='timepicker' placeholder="시간 선택">
+                        </div>
+                      </div>
+
+                      <div class="d-flex w-full type-gap">
+                        <div class="input-box type-calendar" style="flex: 1;">
+                          <input type="text" class="input-txt" id="calendar2_2" placeholder="일자 선택" oninput="inputValueChk()">
+                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        </div>
+
+                        <div class="input-box" style="width: 69px;">
+                          <input class="input-txt ph-0 tac timepicker" type='text'name='timepicker' placeholder="시간 선택">
+                        </div>     
+                      </div>            
                     </div>
-                    <div class="form-inner">
-                      <div class="input-box type-calendar" style="flex: 1;">
-                        <input type="text" class="input-txt" id="calendar2_1" placeholder="시작 일자 선택" oninput="inputValueChk()">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div class="input-box" style="width: 196px;">
-                        <input type="text" class="input-txt" placeholder="시간 입력" oninput="inputValueChk()">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      ~ 
-                      <div class="input-box type-calendar" style="flex: 1;">
-                        <input type="text" class="input-txt" id="calendar2_2" placeholder="일자 선택" oninput="inputValueChk()">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div class="input-box" style="width: 196px;">
-                        <input type="text" class="input-txt" placeholder="시간 입력" oninput="inputValueChk()">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                  </div>
-                </div>
-              </section>
-              <!-- //면접명 -->
-
-              <hr>
-
-              <!-- 평가요소 -->
-              <section>
-                <h4 class="title-sub1">평가요소</h4>
-                <div class="form-inner type-gap2">
-                  <button type="button" class="btn-item--del" onclick="
-                    event.target.closest('.form-inner').nextElementSibling.style.display = 'flex';
-                    event.target.closest('.form-inner').style.display = 'none';
-                  ">
-                    <span>삭제</span>
-                  </button>
-                  <div style="width: 100px;">평가요소명</div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-                <div class="form-inner" style="display: none;">
-                  <button type="button" class="btn-item--add"
-                    onclick="
-                      event.target.closest('.form-inner').previousElementSibling.style.display = 'flex';
-                      event.target.closest('.form-inner').style.display = 'none';
-                    "
-                  >
-                    <span>평가요소명</span>
-                  </button>
-                </div>
-                <div class="form-inner type-gap2" style="display: none;">
-                  <button type="button" class="btn-item--del" onclick="
-                    event.target.closest('.form-inner').nextElementSibling.style.display = 'flex';
-                    event.target.closest('.form-inner').style.display = 'none';
-                  ">
-                    <span>삭제</span>
-                  </button>
-                  <div style="width: 100px;">정의</div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-                <div class="form-inner">
-                  <button type="button" class="btn-item--add"
-                    onclick="
-                      event.target.closest('.form-inner').previousElementSibling.style.display = 'flex';
-                      event.target.closest('.form-inner').style.display = 'none';
-                    "
-                  >
-                    <span>정의</span>
-                  </button>
-                </div>
-                <div class="form-inner type-gap2" style="display: none;">
-                  <button type="button" class="btn-item--del" onclick="
-                    event.target.closest('.form-inner').nextElementSibling.style.display = 'flex';
-                    event.target.closest('.form-inner').style.display = 'none';
-                  ">
-                    <span>삭제</span>
-                  </button>
-                  <div style="width: 100px;">하위요소</div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-                <div class="form-inner">
-                  <button type="button" class="btn-item--add"
-                    onclick="
-                      event.target.closest('.form-inner').previousElementSibling.style.display = 'flex';
-                      event.target.closest('.form-inner').style.display = 'none';
-                    "
-                  >
-                    <span>하위요소</span>
-                  </button>
-                </div>
-              </section>
-              <!-- //평가요소 -->
-
-              <hr>
-
-              <!-- 면접과제 -->
-              <section>
-                <h4 class="title-sub1">면접과제</h4>
-                <div class="form-row__flex">
-                  <div class="form-th" style="width: 130px;">면접명</div>
-                  <div class="form-td form-inner" style="flex: 1;">
-                    <label class="input-file">
-                      <input type="file">
-                      <span type="button" class="base-btn type2__size-s">
-                        <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
-                      </span>
-                    </label>
-                    <button type="button" class="base-btn type2__size-s">
-                      <span class="base-icon icon-print__size-m__color1">출력</span>
-                    </button>
-                  </div>
-                </div>
-              </section>
-              <!-- //면접과제 -->
-
-              <hr>
-
-              <!-- 질문지 -->
-              <section>
-                <h4 class="title-sub1">질문지</h4>
-                <div data-ref="innerControl">
-                </div>
-
-                <div class="content-mt2">
-                  <button type="button" class="btn-item--add" data-ref="btnInnerControlAdd">
-                    <span>질문 추가</span>
-                  </button>
-                </div>
-              </section>
-              <!-- //질문지 -->
-
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="d-flex content-mt2 type-pd2">
+              <button type="button" class="btn-item--add" onclick="controlTable.add();">
+                <span>추가하기</span>
+              </button>
             </div>
-          </section>
+            <script>
+              const controlTable = new ControlAddItem({
+                target: 'controlTable',
+                wrapTag: 'tr',
+                template: `
+                    <td colspan="3">
+                      <div class="form-inner type-gap2">
+                        <div class="d-flex w-full type-gap">
+                          <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
+                            <span>삭제</span>
+                          </button>
+
+                          <div class="input-box h-full">
+                            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                          </div>
+                        </div>
+
+                        <div class="d-flex w-full type-gap">
+                          <div class="input-box type-calendar" style="flex: 1;">
+                            <input type="text" class="input-txt" id="calendar2_1" placeholder="시작 일자 선택" oninput="inputValueChk()">
+                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                          </div>
+
+                          <div class="input-box" style="width: 69px;">
+                            <input class="input-txt ph-0 tac timepicker" type='text'name='timepicker' placeholder="시간 선택">
+                          </div>
+                        </div>
+
+                        <div class="d-flex w-full type-gap">
+                          <div class="input-box type-calendar" style="flex: 1;">
+                            <input type="text" class="input-txt" id="calendar2_2" placeholder="일자 선택" oninput="inputValueChk()">
+                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                          </div>
+
+                          <div class="input-box" style="width: 69px;">
+                            <input class="input-txt ph-0 tac timepicker" type='text'name='timepicker' placeholder="시간 선택">
+                          </div>     
+                        </div>            
+                      </div>
+                    </td>
+                  `
+              });
+            </script>
+          </div>
         </div>
-
-        <script>
-          const BOX_TEMPLATE = `
-            <div class="form-set__header">
-              <div class="form-set__cell">
-                <h4 class="title-sub">면접 도구 (<span data-ref="num">1</span>)</h4>
-              </div>
-              <div class="form-set__btn type-gap2">
-                <button type="button" onclick="controlWrap.itemDown('.form-set__box');">
-                  <span class="base-icon icon-down2__size-m__color3">
-                    <span class="isHidden">아래로</span>
-                  </span>
-                </button>
-                <button type="button" onclick="controlWrap.itemUp('.form-set__box');">
-                  <span class="base-icon icon-up__size-m__color3">
-                    <span class="isHidden">위로</span>
-                  </span>
-                </button>
-                <button type="button" class="base-btn type-icon__color1" onclick="controlWrap.del('.form-set__box');">
-                  <span class="base-icon icon-del__size-s__color3">
-                    <strong class="font-size-l">삭제</strong>
-                  </span>
-                </button>
-              </div>
-            </div>
-            <div class="box-type1">
-              <!-- 면접명 -->
-              <section>
-                <h4 class="title-sub1">면접정보</h4>
-                <div class="form-row__flex">
-                  <div class="form-th" style="width: 130px;">면접명</div>
-                  <div class="form-td" style="flex: 1;">
-                    <div class="form-inner">
-                      <div class="input-box" style="width: 100%;">
-                        <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                    </div>
-                    <div class="form-inner">
-                      <div class="input-box type-calendar" style="flex: 1;">
-                        <input type="text" class="input-txt" id="calendar2_1" placeholder="시작 일자 선택" oninput="inputValueChk()">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div class="input-box" style="width: 196px;">
-                        <input type="text" class="input-txt" placeholder="시간 입력" oninput="inputValueChk()">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      ~ 
-                      <div class="input-box type-calendar" style="flex: 1;">
-                        <input type="text" class="input-txt" id="calendar2_2" placeholder="일자 선택" oninput="inputValueChk()">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                      <div class="input-box" style="width: 196px;">
-                        <input type="text" class="input-txt" placeholder="시간 입력" oninput="inputValueChk()">
-                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                      </div>
-                  </div>
-                </div>
-              </section>
-              <!-- //면접명 -->
-
-              <hr>
-
-              <!-- 평가요소 -->
-              <section>
-                <h4 class="title-sub1">평가요소</h4>
-                <div class="form-inner type-gap2">
-                  <button type="button" class="btn-item--del" onclick="
-                    event.target.closest('.form-inner').nextElementSibling.style.display = 'flex';
-                    event.target.closest('.form-inner').style.display = 'none';
-                  ">
-                    <span>삭제</span>
-                  </button>
-                  <div style="width: 100px;">평가요소명</div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-                <div class="form-inner" style="display: none;">
-                  <button type="button" class="btn-item--add"
-                    onclick="
-                      event.target.closest('.form-inner').previousElementSibling.style.display = 'flex';
-                      event.target.closest('.form-inner').style.display = 'none';
-                    "
-                  >
-                    <span>평가요소명</span>
-                  </button>
-                </div>
-                <div class="form-inner type-gap2" style="display: none;">
-                  <button type="button" class="btn-item--del" onclick="
-                    event.target.closest('.form-inner').nextElementSibling.style.display = 'flex';
-                    event.target.closest('.form-inner').style.display = 'none';
-                  ">
-                    <span>삭제</span>
-                  </button>
-                  <div style="width: 100px;">정의</div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-                <div class="form-inner">
-                  <button type="button" class="btn-item--add"
-                    onclick="
-                      event.target.closest('.form-inner').previousElementSibling.style.display = 'flex';
-                      event.target.closest('.form-inner').style.display = 'none';
-                    "
-                  >
-                    <span>정의</span>
-                  </button>
-                </div>
-                <div class="form-inner type-gap2" style="display: none;">
-                  <button type="button" class="btn-item--del" onclick="
-                    event.target.closest('.form-inner').nextElementSibling.style.display = 'flex';
-                    event.target.closest('.form-inner').style.display = 'none';
-                  ">
-                    <span>삭제</span>
-                  </button>
-                  <div style="width: 100px;">하위요소</div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-                <div class="form-inner">
-                  <button type="button" class="btn-item--add"
-                    onclick="
-                      event.target.closest('.form-inner').previousElementSibling.style.display = 'flex';
-                      event.target.closest('.form-inner').style.display = 'none';
-                    "
-                  >
-                    <span>하위요소</span>
-                  </button>
-                </div>
-              </section>
-              <!-- //평가요소 -->
-
-              <hr>
-
-              <!-- 면접과제 -->
-              <section>
-                <h4 class="title-sub1">면접과제</h4>
-                <div class="form-row__flex">
-                  <div class="form-th" style="width: 130px;">면접명</div>
-                  <div class="form-td form-inner" style="flex: 1;">
-                    <label class="input-file">
-                      <input type="file">
-                      <span type="button" class="base-btn type2__size-s">
-                        <span class="base-icon icon-upload2__size-m__color1">파일 업로드</span>
-                      </span>
-                    </label>
-                    <button type="button" class="base-btn type2__size-s">
-                      <span class="base-icon icon-print__size-m__color1">출력</span>
-                    </button>
-                  </div>
-                </div>
-              </section>
-              <!-- //면접과제 -->
-
-              <hr>
-
-              <!-- 질문지 -->
-              <section>
-                <h4 class="title-sub1">질문지</h4>
-                <div data-ref="innerControl">
-
-                </div>
-
-                <div class="content-mt2">
-                  <button type="button" class="btn-item--add" data-ref="btnInnerControlAdd">
-                    <span>질문 추가</span>
-                  </button>
-                </div>
-              </section>
-              <!-- //질문지 -->
-
-            </div>
-          `
-          const INNER_TEMPLATE = `
-            <div class="form-set__header">
-              <div class="form-set__cell">
-                <h4 class="title-sub1">질문(<span data-ref="num">1</span>)</h4>
-              </div>
-              <div class="form-set__btn type-gap2">
-                <button type="button" data-ref="btnItemUp">
-                  <span class="base-icon icon-up__size-m__color3">
-                    <span class="isHidden">위로</span>
-                  </span>
-                </button>
-                <button type="button" data-ref="btnItemDown">
-                  <span class="base-icon icon-down2__size-m__color3">
-                    <span class="isHidden">아래로</span>
-                  </span>
-                </button>
-                <button type="button" class="base-btn type-icon__color1" data-ref="btnItemDel">
-                  <span class="base-icon icon-del__size-s__color3">
-                    <strong class="point-color5 font-size-l">삭제</strong>
-                  </span>
-                </button>
-              </div>
-            </div>
-            <div class="box-type6">
-
-              <div class="form-row__flex">
-                <div class="form-th" style="width: 134px;">질문주제</div>
-                <div class="form-td" style="flex: 1;">
-                  <div class="form-inner type-gap2">
-                    <button type="button" class="btn-item--del" onclick="rowItemDel();">
-                      <span>삭제</span>
-                    </button>
-                    <div class="input-box" style="flex: 1;">
-                      <input type="text" class="input-txt" placeholder="추가질문명" oninput="inputValueChk()">
-                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                    </div>
-                  </div>
-                  <div class="form-inner">
-                    <button type="button" class="btn-item--add" onclick="rowItemAdd(5)">
-                      <span>추가</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-row__flex">
-                <div class="form-th" style="width: 134px;">주질문</div>
-                <div class="form-td" style="flex: 1;">
-                  <div class="form-inner type-gap2">
-                    <button type="button" class="btn-item--del" onclick="rowItemDel();">
-                      <span>삭제</span>
-                    </button>
-                    <div class="input-box" style="width: 346px;">
-                      <input type="text" class="input-txt" placeholder="주질문명" oninput="inputValueChk()">
-                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                    </div>
-                    <div class="input-box" style="flex: 1;">
-                      <input type="text" class="input-txt" placeholder="설명" oninput="inputValueChk()">
-                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                    </div>
-                  </div>
-                  <div class="form-inner">
-                    <button type="button" class="btn-item--add" onclick="rowItemAdd(6)">
-                      <span>추가</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-row__flex">
-                <div class="form-th" style="width: 134px;">추가질문</div>
-                <div class="form-td" style="flex: 1;">
-                  <div class="form-inner type-gap2">
-                    <button type="button" class="btn-item--del" onclick="rowItemDel();">
-                      <span>삭제</span>
-                    </button>
-                    <div class="input-box" style="width: 346px;">
-                      <input type="text" class="input-txt" placeholder="주질문명" oninput="inputValueChk()">
-                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                    </div>
-                    <div class="input-box" style="flex: 1;">
-                      <input type="text" class="input-txt" placeholder="설명" oninput="inputValueChk()">
-                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                    </div>
-                  </div>
-                  <div class="form-inner">
-                    <button type="button" class="btn-item--add" onclick="rowItemAdd(6)">
-                      <span>추가</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            `
-          
-          const controlWrap = new ControlAddItem({
-            target: 'controlWrap',
-            wrapTag: 'section',
-            wrapClassName: ["form-set__box"],
-            stateNum: 1,
-            template: BOX_TEMPLATE,
-            innerTemplate: INNER_TEMPLATE
-          });
-        </script>
-        
       </div>
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
   </div>
+
+<script src="../../assets/js/timepicki.js"></script>
+<script>
+  // 타임 피커
+  $('.timepicker').timepicki({
+    show_meridian:false,
+    min_hour_value:0,
+    max_hour_value:23
+  });   
+</script>
 </body>
 </html>
