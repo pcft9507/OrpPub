@@ -4531,12 +4531,6 @@ textarea.default-h {
 .layer-popup.pop-interview-tools .main-q__inner + .main-q__inner {
   margin-top: 16px;
 }
-.layer-popup.pop-interview-tools .ee-info {
-  display: none;
-}
-.layer-popup.pop-interview-tools .ee-info.active {
-  display: block;
-}
 .layer-popup.pop-interview-tools .mh {
   padding-top: 32px;
   border-top: 1px solid #E0E7ED;

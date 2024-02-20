@@ -688,6 +688,9 @@
   <section class="popup__container popup__size-m">
     <div class="popup__header">
       <h3 class="popup__title">면접도구 등록</h3>
+      <!-- 수정일 경우 타이틀 명 면접도구 수정
+        <h3 class="popup__title">면접도구 수정</h3>
+       -->
     </div>
     <div class="popup__contents popup__scroll-view">
       <h4 class="title-sub">기본정보</h4>
@@ -784,63 +787,16 @@
           <button class="base-btn type2__size-s">
             <span class="base-icon icon-add__color1__size-s">추가</span>
           </button>
-          <button class="base-btn type2__size-s" onclick="showEeInfo()">
+          <button class="base-btn type2__size-s" id="directInputBtn">
             <span class="base-icon">직접입력</span>
           </button>
         </div>
       </div>
 
-      <div class="ee-info content-mt4">
-        <h4 class="title-sub">평가요소정보</h4>
-        
-        <div class="form-row">
-          <h5 class="title-sub2 fz-inherit">면접도구정의</h5>
-          <div class="form-inner">
-            <div class="input-box h-full">
-              <input type="text" class="input-txt" placeholder="입력하세요." oninput="inputValueChk()">
-              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-row">
-          <h5 class="title-sub2 fz-inherit">하위요소</h5>
-          <div>
-            <div class="add-target" data-ref="addTarget">
-              <div class="form-inner type-mt2 type-gap2">
-                <button type="button" class="btn-item--del" onclick="rowItemDel();">
-                  <span>삭제</span>
-                </button>
-                <div class="with-txt">
-                  <input type="text" class="input-txt size-s center" placeholder="하위요소명">
-                </div>
-                <div class="input-box" style="flex: 1;">
-                  <input type="text" class="input-txt size-s" placeholder="하위요소 설명" oninput="inputValueChk()">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-                <button type="button" onclick="rowItemUp('.form-inner')">
-                  <span class="base-icon icon-up__size-m__color3">
-                    <span class="isHidden">위로</span>
-                  </span>
-                </button>
-                <button type="button" onclick="rowItemDown('.form-inner')">
-                  <span class="base-icon icon-down2__size-m__color3">
-                    <span class="isHidden">아래로</span>
-                  </span>
-                </button>
-              </div>
-            </div>
-            <div class="form-inner content-mt1" onclick="rowItemAdd(9, event.target.closest('.form-row').querySelector('[data-ref=addTarget]'));">
-              <button type="button" class="btn-item--add">
-                <span>추가</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="ee-info-wrap"></div>
 
       <div class="form-row">
-        <h5 class="title-sub2 fz-inherit">과제정보</h5>
+        <h5 class="title-sub fz-inherit">과제정보</h5>
         <div class="form-inner">
           <div class="input-box h-full">
             <input type="text" class="input-txt" placeholder="입력해주세요." readonly>
@@ -877,10 +833,66 @@
 <script>
   const WAP_CONT_0190 = new LayerPopup({target: "WAP-CONT-0190"});
 
-  // 평가요소정보 보이기
-  function showEeInfo() {
-    $('.ee-info').addClass('active')
-  }
+  const directBtn = document.getElementById('directInputBtn');
+  directBtn.addEventListener('click', function() {
+    // HTML 템플릿 정의
+    var htmlTemplate = `
+      <div class="ee-info content-mt4">
+        <h4 class="title-sub">평가요소정보</h4>
+        
+        <div class="form-row">
+          <h5 class="title-sub2 fz-inherit">면접도구정의</h5>
+          <div class="form-inner">
+            <div class="input-box h-full">
+              <input type="text" class="input-txt" placeholder="입력하세요." oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <h5 class="title-sub2 fz-inherit">하위요소</h5>
+          <div>
+            <div class="add-target" data-ref="addTarget3">
+              <div class="form-inner type-mt2 type-gap2">
+                <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                  <span>삭제</span>
+                </button>
+                <div class="with-txt">
+                  <input type="text" class="input-txt size-s center" placeholder="하위요소명">
+                </div>
+                <div class="input-box" style="flex: 1;">
+                  <input type="text" class="input-txt size-s" placeholder="하위요소 설명" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+                <button type="button" onclick="rowItemUp('.form-inner')">
+                  <span class="base-icon icon-up__size-m__color3">
+                    <span class="isHidden">위로</span>
+                  </span>
+                </button>
+                <button type="button" onclick="rowItemDown('.form-inner')">
+                  <span class="base-icon icon-down2__size-m__color3">
+                    <span class="isHidden">아래로</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div class="form-inner content-mt1" onclick="rowItemAdd(9, event.target.closest('.form-row').querySelector('[data-ref=addTarget3]'));">
+              <button type="button" class="btn-item--add">
+                <span>추가</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // ee-info-wrap 요소 선택
+    var eeInfoElement = document.querySelector('.ee-info-wrap');
+
+    // HTML 템플릿을 ee-info-wrap 요소의 자식으로 추가
+    eeInfoElement.insertAdjacentHTML('beforeend', htmlTemplate);
+  });
 </script>;
   
 <div class="layer-popup type-modal pop-interview-tools" data-ref="WAP-CONT-0200">
