@@ -298,11 +298,13 @@
     
   </div>
   @@include('../html/corp/WAP-ETPR-0121.html');
-  
+  @@include('../html/corp/WAP-ETPR-0122.html');
+
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
-      "WAP_ETPR_0121" : ()=>{WAP_ETPR_0121.show()}
+      "WAP_ETPR_0121" : ()=>{WAP_ETPR_0121.show()},
+      "WAP_ETPR_0122" : ()=>{WAP_ETPR_0122.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

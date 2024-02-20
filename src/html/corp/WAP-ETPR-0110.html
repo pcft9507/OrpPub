@@ -136,7 +136,7 @@
             </div>
           </div>
           <div class="board-head__cell">
-            <button class="base-btn type2__size-s">
+            <button class="base-btn type2__size-s" onclick="WAP_ETPR_0112.show();" >
               <span class="base-icon icon-add__color1__size-s">등록</span>
             </button>
           </div>
@@ -254,5 +254,15 @@
     <!-- //container -->
     
   </div>
+  @@include('../html/corp/WAP-ETPR-0112.html');
+
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_ETPR_0112" : ()=>{WAP_ETPR_0112.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
 </body>
 </html>

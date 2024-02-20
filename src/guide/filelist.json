@@ -500,7 +500,7 @@
         {
           "dep2" : "popup - 기업정보 수정",
           "name" : "WAP-SYS-0110",
-          "url" : "./html/corp/WAP-CORP-0022.html?popup=WAP_SYS_0110"
+          "url" : "./html/corp/WAP-CORP-0022.html?popup=WAP_SYS_0110 "
         },
         {
           "dep2" : "사용자",
@@ -540,6 +540,11 @@
           "url" : "./html/corp/WAP-ETPR-0110.html"
         },
         {
+          "dep4" : "popup - 공지사항 등록",
+          "name" : "WAP-ETPR-0112",
+          "url" : "./html/corp/WAP-ETPR-0112.html?popup=WAP-ETPR-0112"
+        },
+        {
           "dep3" : "FAQ",
           "name" : "WAP-ETPR-0120",
           "url" : "./html/corp/WAP-ETPR-0120.html"
@@ -548,6 +553,11 @@
           "dep4" : "popup - FAQ 자세히보기",
           "name" : "WAP-ETPR-0121",
           "url" : "./html/corp/WAP-ETPR-0120.html?popup=WAP_ETPR_0121"
+        },
+        {
+          "dep4" : "popup - FAQ 등록",
+          "name" : "WAP-ETPR-0122",
+          "url" : "./html/corp/WAP-ETPR-0120.html?popup=WAP_ETPR_0122"
         },
         {
           "dep3" : "1:1 문의",
