@@ -233,7 +233,7 @@
             </div>
           </div>
           <div class="board-head__cell">
-            <button class="base-btn type2__size-s">
+            <button class="base-btn type2__size-s" onclick="WAP_ETPR_0112.show();" >
               <span class="base-icon icon-add__color1__size-s">등록</span>
             </button>
           </div>
@@ -351,5 +351,51 @@
     <!-- //container -->
     
   </div>
+  <div class="layer-popup type-modal" data-ref="WAP-SYS-0112">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">공지사항 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <div class="form-row__flex" style="align-items:center;">
+        <div class="form-th no-pd" style="width: 130px;">제목</div>
+        <div class="form-td" style="width:100%;">
+          <div class="form-inner">
+            <div class="input-box" style="width: 100%;">
+              <input type="text" class="input-txt" placeholder="입력하세요">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row__flex">
+        <div class="form-th no-pd" style="width: 130px;">내용</div>
+        <div class="form-td" style="width: 100%;">
+          <div class="form-inner">
+            <textarea class="textarea default-h" name="" id="" title="내용입력 하기" placeholder="입력하세요"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <!--<button class="base-btn type1__size-m">등록</button>-->
+      <!-- 수정일 경우 버튼 명 저장 -->
+      <button class="base-btn type1__size-m">저장</button>
+
+    </div>
+    <button class="btn-close" onclick="WAP_ETPR_0112.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ETPR_0112 = new LayerPopup({target: "WAP-SYS-0112"});
+</script>;
+
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_ETPR_0112" : ()=>{WAP_ETPR_0112.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
 </body>
 </html>

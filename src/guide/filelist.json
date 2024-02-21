@@ -384,9 +384,14 @@
           "url" : "./html/corp/WAP-EMPL-0310.html?popup=WAP_EMPL_0312"
         },
         {
-          "dep3" : "면접도구",
+          "dep3" : "면접정보",
           "name" : "WAP-EMPL-0340",
           "url" : "./html/corp/WAP-EMPL-0340.html"
+        },
+        {
+          "dep3" : "평가요소",
+          "name" : "WAP-EMPL-0350",
+          "url" : "./html/corp/WAP-EMPL-0350.html"
         },
         {
           "dep4" : "평가자",

@@ -429,11 +429,104 @@
 <script>
   const WAP_ETPR_0121 = new LayerPopup({target: "WAP-ETPR-0121"});
 </script>;
-  
+  <div class="layer-popup type-modal" data-ref="WAP-ETPR-0122">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">FAQ 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <div class="form-row__flex" style="align-items:center;">
+        <div class="form-th no-pd" style="width: 130px;">제목</div>
+        <div class="form-td" style="width:100%;">
+          <div class="form-inner">
+            <div class="input-box" style="width: 100%;">
+              <input type="text" class="input-txt" placeholder="입력하세요">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row__flex" style="align-items:center;">
+        <div class="form-th no-pd" style="width: 130px;">카테고리</div>
+        <div class="form-td" style="width:100%;">
+          <div class="form-inner">
+            <div class="dropdown" style="width:100%">
+              <button type="button" class="dropdown-btn size-s"
+                      data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "선택",
+                      "value": "선택",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "서류전형",
+                      "value": "서류전형",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "필기전형",
+                      "value": "필기전형",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "면접전형",
+                      "value": "면접전형",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "기타",
+                      "value": "기타",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row__flex">
+        <div class="form-th no-pd" style="width: 130px;">내용</div>
+        <div class="form-td" style="width: 100%;">
+          <div class="form-inner">
+            <textarea class="textarea default-h" name="" id="" title="내용입력 하기" placeholder="입력하세요"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <!--<button class="base-btn type1__size-m">등록</button>-->
+      <!-- 수정일 경우 버튼 명 저장 -->
+      <button class="base-btn type1__size-m">저장</button>
+
+    </div>
+    <button class="btn-close" onclick="WAP_ETPR_0122.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ETPR_0122 = new LayerPopup({target: "WAP-ETPR-0122"});
+</script>;
+
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
-      "WAP_ETPR_0121" : ()=>{WAP_ETPR_0121.show()}
+      "WAP_ETPR_0121" : ()=>{WAP_ETPR_0121.show()},
+      "WAP_ETPR_0122" : ()=>{WAP_ETPR_0122.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>
