@@ -817,6 +817,10 @@ hr {
           transform: rotate(180deg);
 }
 
+.is-hidden {
+  display: none;
+}
+
 .form-row ~ .form-row {
   margin-top: var(--content-margin4);
 }
@@ -2503,6 +2507,9 @@ textarea.default-h2 {
   background: var(--bg-color7);
   gap: 4px;
 }
+.tag__item.no-mw {
+  max-width: none;
+}
 .tag__item .txt {
   white-space: nowrap;
   white-space: nowrap;
@@ -2517,6 +2524,15 @@ textarea.default-h2 {
   background: var(--icon-url) no-repeat 100% -32px;
   font-size: 0;
   margin-top: -3px;
+}
+.tag__item .print {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background: url("../images/icons-print.png") 50%/16px no-repeat;
+  font-size: 0;
+  margin-top: -2px;
 }
 .tag__item--type1 {
   border-radius: 4px;
