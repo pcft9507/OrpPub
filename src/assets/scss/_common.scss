@@ -386,7 +386,9 @@ hr {
     }
   }
 }
-
+.is-hidden {
+  display: none;
+}
 .form {
   &-row ~ &-row {margin-top: var(--content-margin4);}
   &-row ~ &-row__flex {margin-top: var(--content-margin4);}
@@ -1725,6 +1727,9 @@ textarea {
     border: 1px solid var(--primary);
     background: var(--bg-color7);
     gap: 4px;
+    &.no-mw {
+      max-width: none;
+    }
     .txt {
       white-space: nowrap;
       @include ellipsis;
@@ -1735,6 +1740,13 @@ textarea {
       background: var(--icon-url) no-repeat 100% -32px;
       font-size: 0;
       margin-top: -3px;
+    }
+    .print {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: url($image-url + 'icons-print.png') 50%/16px no-repeat;
+      font-size: 0;
+      margin-top: -2px;
     }
   }
   &__item--type1 {

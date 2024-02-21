@@ -1428,7 +1428,7 @@ const rowItemAdd = (num, targetEl) => {
 		}
 		default: {
 			template = `
-        <div class="form-inner type-gap2">
+        <div class="form-inner">
           <button type="button" class="btn-item--del" onclick="rowItemDel();">
             <span>삭제</span>
           </button>
