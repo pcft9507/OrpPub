@@ -1,109 +1,12 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="../../assets/css/style.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <script src="../../assets/js/ui.js"></script>
-</head>
+@@include('./head.html', {title: ""})
 <body>
   <div class="wrap">
 
-    <!-- header -->
-    <header class="header">
-      <div class="header__inner">
-        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
-        <div class="header__info">
-          <div class="header__info__cell header__page-sort">
-            <span>관리자 페이지</span>
-          </div>
-          <ul class="header__info__cell header__list-count">
-            <li>
-              <span class="key">전체</span>
-              <span class="val point-color">10건</span>
-            </li>
-            <li>
-              <span class="key">전체</span>
-              <span class="val point-color">8건</span>
-            </li>
-            <li>
-              <span class="key">계약만료</span>
-              <span class="val point-color">2건</span>
-            </li>
-          </ul>
-          <div class="header__info__cell header__input-search">
-            <div class="input-box type-search">
-              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
-            </div>
-          </div>
-        </div>
-        <div class="header__util">
-          <a href="#">홍길동님</a>
-          <a href="#">도움말</a>
-          <a href="#">로그아웃</a>
-        </div>
-      </div>
-    </header>
-    <!-- //header -->
+    @@include('./header.html')
     
     <!-- container -->
     <div class="container">
-      <!-- snb -->
-      <nav class="snb" data-ref="sideNav">
-        
-        
-        <ul class="snb__menu">
-          <li><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
-          <li><a href="WAP-EMPL-0010.html" class="snb__depth1--btn icon4">채용등록</a></li>
-          <li class="isCurrent"><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon7">채용목록</a></li>
-          <li>
-            <button
-              type="button"
-              class="snb__depth1--btn icon5"
-              aria-expanded="false"
-              aria-controls="snbSubMenu1"
-            ><span>보관함</span></button>
-            <div id="snbSubMenu1" class="snb__depth2">
-              <ul>
-                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
-                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
-                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
-                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
-                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
-                <li><a href="WAP-CONT-0270.html">만족도조사</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <button
-              type="button"
-              class="snb__depth1--btn icon6"
-              aria-expanded="false"
-              aria-controls="snbSubMenu2"
-            ><span>기업정보</span></button>
-            <div id="snbSubMenu2" class="snb__depth2">
-              <ul>
-                <li><a href="WAP-CORP-0022.html">기업정보</a></li>
-                <li><a href="WAP-SYS-0090.html">사용자</a></li>
-                <li><a href="WAP-ETPR-0070.html">채용홈페이지</a></li>
-                <li><a href="WAP-ETPR-0200.html">개인정보 삭제기준</a></li>
-                <li><a href="WAP-ETPR-0210.html">발송이력</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-        
-        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
-      </nav>
-      <script>
-        const sideNav = new SideNav({target: "sideNav"});
-      </script>
-      <!-- //snb -->
+      @@include('./snb.html', {type: "기업담당자", dep1: "3"})
 
       <div class="contents-header">
         <div class="contents-header__title-cell">
@@ -238,97 +141,194 @@
           </div>
         </div>
 
-        <div data-ref="controlWrap1" data-index="1">
-          <div class="d-flex jc-sb content-mt5">
-            <h4 class="title-sub1">평가요소1</h4>
-          
-            <div class="form-set__btn type-gap2">
-              <button type="button" onclick="controlWrap1.itemDown('.form-set__box');">
-                <span class="base-icon icon-down2__size-m__color3">
-                  <span class="isHidden">아래로</span>
-                </span>
-              </button>
-              <button type="button" onclick="controlWrap1.itemUp('.form-set__box');">
-                <span class="base-icon icon-up__size-m__color3">
-                  <span class="isHidden">위로</span>
-                </span>
-              </button>
-              <button type="button" class="base-btn type-icon__color1" onclick="controlWrap1.del('.form-set__box');">
-                <span class="base-icon icon-del__size-s__color3">
-                  <strong class="font-size-l">삭제</strong>
-                </span>
-              </button>
-            </div>          
+        <div class="section-type1">
+          <div class="section-cont-wrap">
+            <div class="section-cont" data-index="1">
+              <div class="d-flex jc-sb content-mt5">
+                <h4 class="title-sub1">평가요소1</h4>
+              
+                <div class="form-set__btn type-gap2">
+                  <button type="button" onclick="rowItemDown('.section-type1 .section-cont');">
+                    <span class="base-icon icon-down2__size-m__color3">
+                      <span class="isHidden">아래로</span>
+                    </span>
+                  </button>
+                  <button type="button" onclick="rowItemUp('.section-type1 .section-cont');">
+                    <span class="base-icon icon-up__size-m__color3">
+                      <span class="isHidden">위로</span>
+                    </span>
+                  </button>
+                  <button type="button" class="base-btn type-icon__color1" onclick="sectionItemDel('.section-type1 .section-cont');">
+                    <span class="base-icon icon-del__size-s__color3">
+                      <strong class="font-size-l">삭제</strong>
+                    </span>
+                  </button>
+                </div>          
+              </div>
+              
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th" style="width: 240px;">평가요소명</div>
+                  <div class="form-td" style="flex: 1;">
+                    <div class="form-inner">
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" oninput="inputValueChk()" value="지원동기">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>            
+                <div class="form-row__flex">
+                  <div class="form-th" style="width: 240px;">평가요소정의</div>
+                  <div class="form-td" style="flex: 1;">
+                    <div class="form-inner">
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>            
+                <div class="form-row__flex">
+                  <div class="form-th" style="width: 240px;">하위요소</div>
+                  <div class="form-td" style="flex: 1;">
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box" style="width: 200px;">
+                        <input type="text" class="input-txt" placeholder="하위요소명" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <div class="input-box" style="flex: 1;">
+                        <input type="text" class="input-txt" placeholder="하위요소설명" value="ORP 연구소와 지원분야에 지원한 동기가 분명하게 작성되어 있다" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd();">
+                        <span>추가하기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>   
+                <div class="form-row__flex">
+                  <div class="form-th" style="width: 240px;">면접과제</div>
+                  <div class="form-td" style="flex: 1;">
+                    <div class="form-inner">
+                      <button type="button" class="base-btn type2__size-s">
+                        <span class="base-icon icon-upload__size-s__color1" onclick="document.getElementById('uploadFile1').click();">파일업로드</span>
+                      </button>
+                      <input type="file" id="uploadFile1" class="is-hidden" title="파일업로드" onchange="addFileName(this)">
+                    </div>
+                    <div class="form-inner">
+                      <div class="tag__box"></div>
+                    </div>
+                  </div>
+                </div>            
+              </div>
+            </div>
           </div>
 
-          <div class="box-type1">
-            <div class="form-row__flex">
-              <div class="form-th" style="width: 240px;">평가요소명</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="form-inner">
-                  <div class="input-box h-full">
-                    <input type="text" class="input-txt" oninput="inputValueChk()" value="지원동기">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-              </div>
-            </div>            
-            <div class="form-row__flex">
-              <div class="form-th" style="width: 240px;">평가요소정의</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="form-inner">
-                  <div class="input-box h-full">
-                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-              </div>
-            </div>            
-            <div class="form-row__flex">
-              <div class="form-th" style="width: 240px;">하위요소</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="form-inner">
-                  <button type="button" class="btn-item--del" onclick="rowItemDel();">
-                    <span>삭제</span>
-                  </button>
-                  <div class="input-box" style="width: 200px;">
-                    <input type="text" class="input-txt" placeholder="하위요소명" oninput="inputValueChk()">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" placeholder="하위요소설명" value="ORP 연구소와 지원분야에 지원한 동기가 분명하게 작성되어 있다" oninput="inputValueChk()">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-                <div class="form-inner">
-                  <button type="button" class="btn-item--add" onclick="rowItemAdd();">
-                    <span>추가하기</span>
-                  </button>
-                </div>
-              </div>
-            </div>   
-            <div class="form-row__flex">
-              <div class="form-th" style="width: 240px;">면접과제</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="form-inner">
-                  <button type="button" class="base-btn type2__size-s">
-                    <span class="base-icon icon-upload__size-s__color1" onclick="document.getElementById('uploadFile1').click();">파일업로드</span>
-                  </button>
-                  <input type="file" id="uploadFile1" class="is-hidden" title="파일업로드" onchange="addFileName(this)">
-                </div>
-                <div class="form-inner">
-                  <div class="tag__box">
-                    <!-- <div class="tag__item tag__item--type1 no-mw">
-                      <span class="txt">면접 평가요소 파일test.pdf</span>
-                      <button type="button" class="del">삭제</button>
-                      <button type="button" class="print">삭제</button>
-                    </div> -->
-                  </div>
-                </div>
-              </div>
-            </div>            
+          <div class="btn-wrap d-flex jc-fe content-mt4">
+            <button type="button" class="btn-item--add" onclick="addSectionType1Cont();">
+              <span>평가요소 추가</span>
+            </button>
           </div>
-       </div>
+        </div>
+
+        <div class="section-type2">
+          <div class="section-cont-wrap">
+            <div class="section-cont" data-index="1">
+              <div class="d-flex jc-sb content-mt5">
+                <h4 class="title-sub1">질문지1</h4>
+                <div class="form-set__btn type-gap2">
+                  <button type="button" onclick="rowItemDown('.section-type2 .section-cont');">
+                    <span class="base-icon icon-down2__size-m__color3">
+                      <span class="isHidden">아래로</span>
+                    </span>
+                  </button>
+                  <button type="button" onclick="rowItemUp('.section-type2 .section-cont');">
+                    <span class="base-icon icon-up__size-m__color3">
+                      <span class="isHidden">위로</span>
+                    </span>
+                  </button>
+                  <button type="button" class="base-btn type-icon__color1" onclick="sectionItemDel('.section-type2 .section-cont');">
+                    <span class="base-icon icon-del__size-s__color3">
+                      <strong class="font-size-l">삭제</strong>
+                    </span>
+                  </button>
+                </div>          
+              </div>
+              
+              <div class="box-type1">
+                <div class="form-row__flex">
+                  <div class="form-th" style="width: 240px;">질문주제</div>
+                  <div class="form-td" style="flex: 1;">
+                    <div class="form-inner">
+                      <div class="input-box h-full">
+                        <input type="text" class="input-txt" oninput="inputValueChk()" value="지원동기">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>            
+                <div class="form-row__flex">
+                  <div class="form-th" style="width: 240px;">주질문</div>
+                  <div class="form-td" style="flex: 1;">
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box" style="width: 200px;">
+                        <input type="text" class="input-txt" placeholder="주질문 입력" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <div class="input-box" style="flex: 1;">
+                        <input type="text" class="input-txt" placeholder="주질문 설명 입력" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(14);">
+                        <span>추가하기</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>   
+                <div class="form-row__flex">
+                  <div class="form-th" style="width: 240px;">추가질문</div>
+                  <div class="form-td" style="flex: 1;">
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box" style="width: 200px;">
+                        <input type="text" class="input-txt" placeholder="추가질문 입력" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <div class="input-box" style="flex: 1;">
+                        <input type="text" class="input-txt" placeholder="추가질문 설명 입력" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--add" onclick="rowItemAdd(15);">
+                        <span>추가질문 추가</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>   
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-wrap d-flex jc-fe content-mt4">
+            <button type="button" class="btn-item--add" onclick="addSectionType2Cont();">
+              <span>질문지 추가</span>
+            </button>
+          </div>
+        </div>
       </div>
       <!-- //contents -->
     </div>
@@ -336,6 +336,10 @@
     
   </div>
 <script>
+  // 평가요소
+  const controlWrap1 = new ControlAddItem({
+    target: 'tabContents1'
+  });
  function addFileName(input) {
     if (input.files && input.files[0]) {
       var fileName = input.files[0].name; // 파일 이름 추출
@@ -350,7 +354,8 @@
       `;
       
       // tag__box 내부에 생성된 태그 아이템 추가
-      document.querySelector('.tag__box').appendChild(tagItem);
+      //document.querySelector('.tag__box').appendChild(tagItem);
+      const currentTarget = event.target.closest('.section-cont').querySelector('.tag__box').appendChild(tagItem);
     }
   }
 
@@ -358,6 +363,228 @@
   function removeTagItem(button) {
     button.parentElement.remove();
   }
+
+  // 평가요소 추가
+  function addSectionType1Cont() {
+    const sectionType1 = document.querySelector('.section-type1');
+    const section1ContWrap = document.querySelector('.section-type1 .section-cont-wrap');
+    const index = document.querySelectorAll('.section-type1 .section-cont').length + 1; // 새로운 인덱스 계산
+
+    // 평가요소 템플릿
+    const template = `
+      <div class="section-cont" data-index="${index}">
+        <div class="d-flex jc-sb content-mt5">
+          <h4 class="title-sub1">평가요소${index}</h4>
+        
+          <div class="form-set__btn type-gap2">
+            <button type="button" onclick="rowItemDown('.section-type1 .section-cont');">
+              <span class="base-icon icon-down2__size-m__color3">
+                <span class="isHidden">아래로</span>
+              </span>
+            </button>
+            <button type="button" onclick="rowItemUp('.section-type1 .section-cont');">
+              <span class="base-icon icon-up__size-m__color3">
+                <span class="isHidden">위로</span>
+              </span>
+            </button>
+            <button type="button" class="base-btn type-icon__color1" onclick="sectionItemDel('.section-type1 .section-cont');">
+              <span class="base-icon icon-del__size-s__color3">
+                <strong class="font-size-l">삭제</strong>
+              </span>
+            </button>
+          </div>          
+        </div>
+        
+        <div class="box-type1">
+          <div class="form-row__flex">
+            <div class="form-th" style="width: 240px;">평가요소명</div>
+            <div class="form-td" style="flex: 1;">
+              <div class="form-inner">
+                <div class="input-box h-full">
+                  <input type="text" class="input-txt" oninput="inputValueChk()" value="지원동기">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+              </div>
+            </div>
+          </div>            
+          <div class="form-row__flex">
+            <div class="form-th" style="width: 240px;">평가요소정의</div>
+            <div class="form-td" style="flex: 1;">
+              <div class="form-inner">
+                <div class="input-box h-full">
+                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+              </div>
+            </div>
+          </div>            
+          <div class="form-row__flex">
+            <div class="form-th" style="width: 240px;">하위요소</div>
+            <div class="form-td" style="flex: 1;">
+              <div class="form-inner">
+                <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                  <span>삭제</span>
+                </button>
+                <div class="input-box" style="width: 200px;">
+                  <input type="text" class="input-txt" placeholder="하위요소명" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+                <div class="input-box" style="flex: 1;">
+                  <input type="text" class="input-txt" placeholder="하위요소설명" value="ORP 연구소와 지원분야에 지원한 동기가 분명하게 작성되어 있다" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+              </div>
+              <div class="form-inner">
+                <button type="button" class="btn-item--add" onclick="rowItemAdd();">
+                  <span>추가하기</span>
+                </button>
+              </div>
+            </div>
+          </div>   
+          <div class="form-row__flex">
+            <div class="form-th" style="width: 240px;">면접과제</div>
+            <div class="form-td" style="flex: 1;">
+              <div class="form-inner">
+                <button type="button" class="base-btn type2__size-s">
+                  <span class="base-icon icon-upload__size-s__color1" onclick="document.getElementById('uploadFile${index}').click();">파일업로드</span>
+                </button>
+                <input type="file" id="uploadFile${index}" class="is-hidden" title="파일업로드" onchange="addFileName(this)">
+              </div>
+              <div class="form-inner">
+                <div class="tag__box"></div>
+              </div>
+            </div>
+          </div>            
+        </div>
+      </div>
+    `;
+    
+    section1ContWrap.insertAdjacentHTML('beforeend', template); // 마지막에 새로운 섹션 추가
+  }
+
+  // 질문지 추가
+  function addSectionType2Cont() {
+    const sectionType2 = document.querySelector('.section-type2');
+    const section2ContWrap = document.querySelector('.section-type2 .section-cont-wrap');
+    const index = document.querySelectorAll('.section-type2 .section-cont').length + 1; // 새로운 인덱스 계산
+
+    // 평가요소 템플릿
+    const template = `
+      <div class="section-cont" data-index="${index}">
+        <div class="d-flex jc-sb content-mt5">
+          <h4 class="title-sub1">질문지${index}</h4>
+          <div class="form-set__btn type-gap2">
+            <button type="button" onclick="rowItemDown('.section-type2 .section-cont');">
+              <span class="base-icon icon-down2__size-m__color3">
+                <span class="isHidden">아래로</span>
+              </span>
+            </button>
+            <button type="button" onclick="rowItemUp('.section-type2 .section-cont');">
+              <span class="base-icon icon-up__size-m__color3">
+                <span class="isHidden">위로</span>
+              </span>
+            </button>
+            <button type="button" class="base-btn type-icon__color1" onclick="sectionItemDel('.section-type2 .section-cont');">
+              <span class="base-icon icon-del__size-s__color3">
+                <strong class="font-size-l">삭제</strong>
+              </span>
+            </button>
+          </div>          
+        </div>
+        
+        <div class="box-type1">
+          <div class="form-row__flex">
+            <div class="form-th" style="width: 240px;">질문주제</div>
+            <div class="form-td" style="flex: 1;">
+              <div class="form-inner">
+                <div class="input-box h-full">
+                  <input type="text" class="input-txt" oninput="inputValueChk()" value="지원동기">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+              </div>
+            </div>
+          </div>            
+          <div class="form-row__flex">
+            <div class="form-th" style="width: 240px;">주질문</div>
+            <div class="form-td" style="flex: 1;">
+              <div class="form-inner">
+                <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                  <span>삭제</span>
+                </button>
+                <div class="input-box" style="width: 200px;">
+                  <input type="text" class="input-txt" placeholder="주질문 입력" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+                <div class="input-box" style="flex: 1;">
+                  <input type="text" class="input-txt" placeholder="주질문 설명 입력" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+              </div>
+              <div class="form-inner">
+                <button type="button" class="btn-item--add" onclick="rowItemAdd(14);">
+                  <span>추가하기</span>
+                </button>
+              </div>
+            </div>
+          </div>   
+          <div class="form-row__flex">
+            <div class="form-th" style="width: 240px;">추가질문</div>
+            <div class="form-td" style="flex: 1;">
+              <div class="form-inner">
+                <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                  <span>삭제</span>
+                </button>
+                <div class="input-box" style="width: 200px;">
+                  <input type="text" class="input-txt" placeholder="추가질문 입력" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+                <div class="input-box" style="flex: 1;">
+                  <input type="text" class="input-txt" placeholder="추가질문 설명 입력" oninput="inputValueChk()">
+                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                </div>
+              </div>
+              <div class="form-inner">
+                <button type="button" class="btn-item--add" onclick="rowItemAdd(15);">
+                  <span>추가질문 추가</span>
+                </button>
+              </div>
+            </div>
+          </div>   
+        </div>
+      </div>
+    `;
+    
+    section2ContWrap.insertAdjacentHTML('beforeend', template); // 마지막에 새로운 섹션 추가
+  }
+
+  // 아이템 삭제
+  function sectionItemDel(element) {
+    // 이벤트가 발생한 요소를 기준으로 .section-cont 클래스를 가진 부모 요소를 찾습니다.
+    let sectionCont = event.target.closest(element);
+
+    // .section-cont 요소가 존재하면 해당 요소를 DOM에서 제거합니다.
+    if (sectionCont) {
+      sectionCont.remove();
+      updateSectionIndexes(element); // 섹션 인덱스 업데이트 함수 호출
+    }
+  }  
+
+  // 인덱스 체크
+  function updateSectionIndexes(element) {
+  // 모든 .section-cont 요소를 선택
+  const allSections = document.querySelectorAll(element);
+
+  // 각 섹션의 data-index 속성을 업데이트
+  allSections.forEach((section, index) => {
+    section.setAttribute('data-index', index + 1); // 인덱스를 1부터 시작하도록 설정
+
+    if(element == '.section-type1 .section-cont') {
+      section.querySelector(element + ' .title-sub1').textContent = `평가요소${index + 1}`; // 제목도 업데이트
+    } else {
+      section.querySelector(element + ' .title-sub1').textContent = `질문지${index + 1}`; // 제목도 업데이트
+    }
+  });
+}
 </script>
 </body>
 </html>

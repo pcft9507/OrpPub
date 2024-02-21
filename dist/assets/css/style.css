@@ -4395,6 +4395,13 @@ textarea.default-h2 {
   left: 0;
   width: 100%;
 }
+.sch-comp__select {
+  width: 136px;
+}
+.sch-comp__select + .sch-comp__inp-wrap {
+  width: calc(100% - 238px);
+  margin-left: 16px;
+}
 .sch-comp__select .dropdown {
   width: 100%;
 }
@@ -4405,6 +4412,7 @@ textarea.default-h2 {
   width: 100%;
 }
 .sch-comp__inp {
+  display: none;
   position: relative;
 }
 .sch-comp__inp.active {

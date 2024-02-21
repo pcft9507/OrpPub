@@ -17,6 +17,11 @@
     }
   }
   &__select {
+    width: 136px;
+    & + .sch-comp__inp-wrap {
+      width: calc(100% - 238px);
+      margin-left: 16px;
+    }
     .dropdown {
       width: 100%;
     }
@@ -29,6 +34,7 @@
     }
   }
   &__inp {
+    display: none;
     position: relative;
 
     &.active {

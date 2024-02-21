@@ -1426,6 +1426,42 @@ const rowItemAdd = (num, targetEl) => {
       `
 			break;
 		}
+		case 14: {
+			template = `
+			<div class="form-inner">
+				<button type="button" class="btn-item--del" onclick="rowItemDel();">
+					<span>삭제</span>
+				</button>
+				<div class="input-box" style="width: 200px;">
+					<input type="text" class="input-txt" placeholder="주질문 입력" oninput="inputValueChk()">
+					<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+				</div>
+				<div class="input-box" style="flex: 1;">
+					<input type="text" class="input-txt" placeholder="주질문 설명 입력" oninput="inputValueChk()">
+					<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+				</div>
+			</div>
+      `
+			break;
+		}
+		case 15: {
+			template = `
+			<div class="form-inner">
+				<button type="button" class="btn-item--del" onclick="rowItemDel();">
+					<span>삭제</span>
+				</button>
+				<div class="input-box" style="width: 200px;">
+					<input type="text" class="input-txt" placeholder="추가질문 입력" oninput="inputValueChk()">
+					<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+				</div>
+				<div class="input-box" style="flex: 1;">
+					<input type="text" class="input-txt" placeholder="추가질문 설명 입력" oninput="inputValueChk()">
+					<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+				</div>
+			</div>
+      `
+			break;
+		}
 		default: {
 			template = `
         <div class="form-inner">
