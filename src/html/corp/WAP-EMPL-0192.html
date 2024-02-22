@@ -140,14 +140,32 @@
                       "type" : "single",
                       "option": [
                         {
-                          "name": "초등학교",
-                          "value": "초등학교",
+                          "name": "고등학교",
+                          "value": "고등학교",
                           "disabled": false,
-                          "checked": true
+                          "checked": false
                         },
                         {
-                          "name": "옵션2",
-                          "value": "옵션2",
+                          "name": "전문대학",
+                          "value": "전문대학",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "대학교",
+                          "value": "대학교",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "석사",
+                          "value": "석사",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "박사",
+                          "value": "박사",
                           "disabled": false,
                           "checked": false
                         }
@@ -231,14 +249,14 @@
 
         <div class="box-type1 content-mt3">
           <!-- 검정고시 -->
-          <div class="form-row__flex ">
+          <div class="form-row__flex fr-first" style="display: none;">
             <div class="form-th no-pd" style="width: 130px;">검정고시</label>
             </div>
             <div class="form-td font-weight-s" style="flex: 1;">검정고시 대상자 부적격</div>
           </div>
           <!-- //검정고시 -->
           <!-- 소재지 -->
-          <div class="form-row__flex flex-form-row">
+          <div class="form-row__flex flex-form-row fr-second" style="margin-top: 0">
             <div class="form-th" style="width: 130px;">소재지</label>
             </div>
             <div class="form-td" style="flex: 1;">
@@ -441,6 +459,24 @@
 <script>
   // 행추가	
   document.querySelectorAll('.flex-form-row').forEach(element => new FormRowFlex(element));
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const formFirst = document.querySelector('.fr-first');
+    const formSecond = document.querySelector('.fr-second');
+    dropdown.init('dropdown', {
+      name: 'dropdown1',
+      onChange: _this=>{
+        console.log(_this.value);
+        if(_this.value == '고등학교') {
+          formSecond.style.marginTop = '32px'
+          formFirst.style.display = 'flex'
+        } else {
+          formFirst.style.display = 'none'
+          formSecond.style.marginTop = 0
+        }
+      }
+    });
+  })
 </script>
 </body>
 </html>
