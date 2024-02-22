@@ -13,6 +13,7 @@
 .content-mt5 {margin-top: var(--content-margin5);}
 .content-mt6 {margin-top: var(--content-margin6);}
 .content-mt7 {margin-top: var(--content-margin7);}
+.content-mt8 {margin-top: var(--content-margin8);}
 
 .font-size-s {
   font-size: 12px;
@@ -98,6 +99,12 @@ hr {
   @include font(24px, 700);
 }
 
+.sub-text1{
+  font-size:16px;
+  font-weight:500;
+  color:#707070;
+}
+
 .required-mark {
   font-size: 0;
   &:before {
@@ -112,6 +119,10 @@ hr {
     background: var(--bg-color2);
     border-radius: var(--radius3);
     box-shadow: 0 0 8px 0 var(--shadow);
+
+    &.ver2{
+      padding:16px 0;
+    }
   }
   &-type2 {
     padding: 32px;
@@ -148,6 +159,11 @@ hr {
     padding: 16px;
     border-radius: var(--radius3);
     background: var(--gray7)
+  }
+  &-type8 {
+    padding: 24px;
+    border-radius: var(--radius3);
+    background: var(--primary-light);
   }
 }
 
@@ -1184,6 +1200,7 @@ textarea {
         color: var(--primary);
         border-color: var(--primary);
       }
+      &.swiper-slide{width:auto!important;}
     }
     .tab-type2 & {
       a, button {
@@ -1462,6 +1479,20 @@ textarea {
       }
     }
   }
+  &-type1.ver2 {
+    td{
+      padding-top:12px;
+      padding-bottom:12px;
+    }
+
+    tbody{
+      tr:first-child{
+        > td{
+          padding-top:24px;
+        }
+      }
+    }
+  }
   &.td-pd-h-0 {
     thead {
       th {
@@ -1489,6 +1520,14 @@ textarea {
 
       td:last-child {
         padding-right: 32px;
+      }
+    }
+  }
+
+  &.ph4.ver2{
+    tbody {
+      tr {
+        border-bottom:0;
       }
     }
   }
@@ -2036,4 +2075,20 @@ textarea {
   font-size: 12px;
   background: url($image-url + 'icons-info-16.png') 0 1px/16px no-repeat;
   line-height: 1.4;
+}
+
+.ico_gallery_btn{
+  display:block;
+  width:24px;
+  height:24px;
+  background:url($image-url + "ico-gallery.svg") center center no-repeat;
+  background-size:24px;
+}
+
+.ico_list_btn{
+  display:block;
+  width:24px;
+  height:24px;
+  background:url($image-url + "ico-list.svg") center center no-repeat;
+  background-size:24px;
 }

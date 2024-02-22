@@ -52,6 +52,7 @@
             </div>
           </li>
         </ul>}
+
         @@if (type == '기업담당자'){
         <ul class="snb__menu">
           <li@@if (dep1 == '1'){ class="isCurrent"}><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
@@ -92,8 +93,49 @@
               </ul>
             </div>
           </li>
+        </ul>}
+
+        @@if (type == '평가시스템'){
+        @@if (dep1 == '1' && dep2 == '1'){
+        <div class="link-btn-wrap">
+          <button class="base-btn type2__size-s" onclick="WAP_ASES_0031.show();">
+            <span>GPT평가 보기</span>
+          </button>
+        </div>
+        }
+        <ul class="snb__menu">
+          <li@@if (dep1 == '1'){ class="isCurrent"}>
+          <button
+                  type="button"
+                  class="snb__depth1--btn icon8 has-child"
+                  @@if (dep1 == '1'){aria-expanded="true"}@@if (dep1 != '1'){aria-expanded="false"}
+          aria-controls="snbSubMenu1"
+          ><span>평가하기</span></button>
+          <div id="snbSubMenu1" @@if (dep1 == '1'){class="snb__depth2 isOpen"}@@if (dep1 !== '1'){class="snb__depth2"}>
+          <ul>
+            <li@@if (dep1 == '1' && dep2 == '1'){ class="isCurrent"}><a href="WAP-ASES-0030.html">입사지원서</a></li>
+            <li@@if (dep1 == '1' && dep2 == '2'){ class="isCurrent"}><a href="">서류 평가요소</a></li>
+          </ul>
+          </div>
+          </li>
+          <li@@if (dep1 == '2'){ class="isCurrent"}>
+          <button
+                  type="button"
+                  class="snb__depth1--btn icon9 has-child"
+                  @@if (dep1 == '2'){aria-expanded="true"}@@if (dep1 != '2'){aria-expanded="false"}
+          aria-controls="snbSubMenu2"
+          ><span>협의/조정</span></button>
+          <div id="snbSubMenu2" @@if (dep1 == '2'){class="snb__depth2 isOpen"}@@if (dep1 !== '2'){class="snb__depth2"}>
+          <ul>
+            <li@@if (dep1 == '2' && dep2 == '1'){ class="isCurrent"}><a href="">평가자별점수열람</a></li>
+            <li@@if (dep1 == '2' && dep2 == '2'){ class="isCurrent"}><a href="">서류점수통계</a></li>
+          </ul>
+          </div>
+          </li>
+          <li@@if (dep1 == '3'){ class="isCurrent"}><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon10">확인/제출</a></li>
         </ul>
         }
+
         <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
       </nav>
       <script>
