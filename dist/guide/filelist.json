@@ -178,6 +178,11 @@
           "url" : "./html/admin/WAP-SYS-0050.html"
         },
         {
+          "dep2" : "팝업 등록",
+          "name" : "WAP-SYS-0060",
+          "url" : "./html/admin/WAP-SYS-0050.html?popup=WAP_SYS_0060"
+        },
+        {
           "dep2" : "사용자",
           "name" : "WAP-SYS-0090",
           "url" : "./html/admin/WAP-SYS-0090.html"

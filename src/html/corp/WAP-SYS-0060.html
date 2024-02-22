@@ -1,0 +1,107 @@
+<div class="layer-popup type-modal" data-ref="WAP-SYS-0060">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">평가척도 등록</h3>
+      <!-- 수정일 경우 타이틀 명 평가척도 수정
+        <h3 class="popup__title">평가척도 수정</h3>
+       -->
+    </div>
+    <div class="popup__contents popup__scroll-view">
+
+      <div class="form-row">
+        <h4 class="title-sub2">척도명</h4>
+        <div class="form-inner">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="입력해주세요." oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <label class="btn-toggle">
+            <input type="checkbox" checked>
+            <span>사용여부</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">척도 구분</h4>
+        <div class="form-inner type-gap2">
+          <div>1</div>
+          <div>~</div>
+          <div class="dropdown" style="width:76px">
+            <button type="button" class="dropdown-btn size-s"
+              data-dropdown='{
+                "name": "pointSortDropdown",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "2",
+                    "value": "2",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "3",
+                    "value": "3",
+                    "disabled": false,
+                    "checked": true
+                  }
+                ]
+              }'
+            >선택하세요</button>
+          </div>
+        </div>
+        <div class="form-inner type-mt2">
+          <div style="width: 38px;">1점</div>
+          <div class="input-box" style="width: 140px;">
+            <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+        <div class="form-inner type-mt2">
+          <div style="width: 38px;">2점</div>
+          <div class="input-box" style="width: 140px;">
+            <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+        <div class="form-inner type-mt2">
+          <div style="width: 38px;">3점</div>
+          <div class="input-box" style="width: 140px;">
+            <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">메모</h4>
+        <div class="form-inner">
+          <textarea style="height:100px;" placeholder="입력해주세요."></textarea>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m" disabled>등록</button>
+      <!-- 수정일 경우 버튼 명 저장
+        <button class="base-btn type1__size-m">저장</button>
+       -->
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0240.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CONT_0240 = new LayerPopup({target: "WAP-SYS-0060"});
+</script>

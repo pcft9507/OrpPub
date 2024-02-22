@@ -258,7 +258,7 @@
 
           </div>
           <div class="board-head__cell" data-ref="rowNoneCheck">
-            <button class="base-btn type2__size-s" onclick="WAP_CONT_0240.show()">
+            <button class="base-btn type2__size-s" onclick="WAP_SYS_0060.show()">
               <span class="base-icon icon-add__color1__size-s">등록</span>
             </button>
           </div>
@@ -506,7 +506,180 @@
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
+    <div class="layer-popup type-modal" data-ref="WAP-SYS-0060">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">팝업 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+
+      <div class="form-row">
+        <h4 class="title-sub2">팝업제목</h4>
+        <div class="form-inner">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="입력해주세요." oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">기간</h4>
+        <div class="form-inner w-full">
+          <div class="d-flex type-gap">
+            <div class="input-box type-calendar" style="width: 140px;">
+              <input type="text" id="calendar1" class="input-txt" placeholder="날짜 선택">
+              <script>
+                const calendar1 = new Datepicker(document.getElementById('calendar1'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
+            </div>
+            <div class="input-box" style="width: 69px;">
+              <input class="input-txt timepicker ph-0 tac" type='text'name='timepicker' value="00:00" placeholder="시간 선택">
+            </div>
+          </div>
+          <span>~</span>
+          <div class="d-flex type-gap">
+            <div class="input-box type-calendar" style="width: 140px;">
+              <input type="text" id="calendar2" class="input-txt" placeholder="날짜 선택">
+              <script>
+                const calendar2 = new Datepicker(document.getElementById('calendar2'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
+            </div>
+            <div class="input-box" style="width: 69px;">
+              <input class="input-txt timepicker ph-0 tac" type='text'name='timepicker' value="00:00" placeholder="시간 선택">
+            </div>
+          </div>
+          <label class="btn-toggle">
+            <input type="checkbox" checked>
+            <span>사용여부</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">위치</h4>
+        <div class="form-inner type-gap2">
+          <div class="dropdown h-full">
+            <button type="button" class="dropdown-btn size-s"
+              data-dropdown='{
+                "name": "pointSortDropdown",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "2",
+                    "value": "2",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "3",
+                    "value": "3",
+                    "disabled": false,
+                    "checked": false
+                  }
+                ]
+              }'
+            >선택하세요</button>
+          </div>
+          <div class="dropdown h-full">
+            <button type="button" class="dropdown-btn size-s"
+              data-dropdown='{
+                "name": "pointSortDropdown",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "2",
+                    "value": "2",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "3",
+                    "value": "3",
+                    "disabled": false,
+                    "checked": true
+                  }
+                ]
+              }'
+            >선택하세요</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">화면 위치 및 크기</h4>
+        <div class="form-inner type-mt2">
+          <div style="width: 116px;">위치</div>
+          <div class="input-box" style="width: 214px;">
+            <input type="text" class="input-txt font-weight-s" placeholder="0" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt font-weight-s" placeholder="0" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+        <div class="form-inner type-mt2">
+          <div style="width: 116px;">크기</div>
+          <div class="input-box" style="width: 214px;">
+            <input type="text" class="input-txt font-weight-s" placeholder="0" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt font-weight-s" placeholder="0" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">척도 구분</h4>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub2">내용</h4>
+        <div class="form-inner">
+          에디터 들어가는 곳
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type2__size-m">미리보기</button>
+      <button class="base-btn type1__size-m">등록</button>
+    </div>
+    <button class="btn-close" onclick="WAP_SYS_0060.hide()">닫기</button>
+  </section>
+</div>
+<script src="../../assets/js/timepicki.js"></script>
+<script>
+  const WAP_SYS_0060 = new LayerPopup({target: "WAP-SYS-0060"});
+  // 타임 피커
+  $('.timepicker').timepicki({
+    show_meridian:false,
+    min_hour_value:0,
+    max_hour_value:23
+  });   
+</script>;
   </div>
+  <script>
+    const pop = {
+      "WAP_SYS_0060" : ()=>{WAP_SYS_0060.show()},
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+
 </body>
 </html>

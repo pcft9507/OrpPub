@@ -151,7 +151,7 @@
 
           </div>
           <div class="board-head__cell" data-ref="rowNoneCheck">
-            <button class="base-btn type2__size-s" onclick="WAP_CONT_0240.show()">
+            <button class="base-btn type2__size-s" onclick="WAP_SYS_0060.show()">
               <span class="base-icon icon-add__color1__size-s">등록</span>
             </button>
           </div>
@@ -399,7 +399,14 @@
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
+    @@include('../html/admin/WAP-SYS-0060.html');
   </div>
+  <script>
+    const pop = {
+      "WAP_SYS_0060" : ()=>{WAP_SYS_0060.show()},
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+
 </body>
 </html>
