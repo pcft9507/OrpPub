@@ -3208,6 +3208,18 @@ textarea.default-h2 {
   margin: 0 auto;
   padding: 56px 0 72px;
 }
+.container__type3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: calc(100vh - 64px);
+}
 
 .contents {
   padding: 40px 32px 40px 24px;
@@ -4376,6 +4388,26 @@ textarea.default-h2 {
 .q-evaluation-rating .after-del-txt {
   width: 54px;
   text-align: center;
+}
+
+.error-page {
+  margin-top: -150px;
+}
+.error-page .ep__txt {
+  margin-top: 52px;
+  color: #222631;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+.error-page .ep__txt2 {
+  margin-top: 8px;
+  color: #222631;
+  font-size: 16px;
+  text-align: center;
+}
+.error-page .ep__btn {
+  width: 384px;
 }
 
 .sch-comp.h-full {

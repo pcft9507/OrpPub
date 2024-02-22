@@ -848,3 +848,24 @@
     text-align: center;
   }
 }
+.error-page {
+  margin-top: -150px;
+  .ep {
+    &__txt {
+      margin-top: 52px;
+      color: #222631;
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+    }
+    &__txt2 {
+      margin-top: 8px;
+      color: #222631;
+      font-size: 16px;
+      text-align: center;
+    }
+    &__btn {
+      width: 384px;
+    }
+  }
+}

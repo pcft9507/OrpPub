@@ -643,6 +643,16 @@
           "dep2" : "입사지원서 약관등록",
           "name" : "WAP-CONT-0043",
           "url" : "./html/etc/etc.html?popup=WAP_CONT_0043"
+        },
+        {
+          "dep1" : "404에러페이지",
+          "name" : "WAP-COM-0080",
+          "url" : "./html/etc/WAP-COM-0080.html"
+        },
+        {
+          "dep1" : "500에러페이지",
+          "name" : "WAP-COM-0095",
+          "url" : "./html/etc/WAP-COM-0090.html"
         }
       ]
     }

@@ -179,6 +179,12 @@
     margin: 0 auto;
     padding: 56px 0 72px;
   }
+  &__type3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 64px);
+  }
 }
 .contents {
   padding: 40px 32px 40px 24px;
