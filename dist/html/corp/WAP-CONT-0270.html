@@ -310,7 +310,137 @@
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
+    <div class="layer-popup type-modal" data-ref="WAP-CONT-0272">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">만족도조사 문항 불러오기</h3>
+    </div>
+    <div class="popup__contents">
+
+      <div class="box-flex align-center">
+        <div class="box-flex__cell" style="flex: 1;">
+          <div class="dropdown" style="width: 100%;">
+            <button type="button" class="dropdown-btn" data-dropdown='{
+              "name": "alermSetSearchdropdown",
+              "type" : "single",
+              "option": [
+                {
+                  "name": "옵션1",
+                  "value": "val1",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "옵션2",
+                  "value": "val2",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "옵션3",
+                  "value": "val3",
+                  "disabled": false,
+                  "checked": false
+                }
+              ]
+            }'>담당자를 추가해주세요</button> 
+          </div>
+        </div>
+        <div class="box-flex__cell">
+          <button class="base-btn type1__size-m">추가</button>
+        </div>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="popTable0160" class="type-s type-line">
+            <colgroup>
+              <col style="width: 50px"/>
+              <col style="width: 20px"/>
+              <col>
+              <col style="width: 200px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">선택</th>
+                <th scope="col">No.</th>
+                <th scope="col">문항명</th>
+                <th scope="col">척도</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $('#popTable0160').DataTable({
+            data: [
+              {
+                '번호': '23',
+                '문항명': '불편한점이 있다면 작성해주세요',
+              },
+              {
+                '번호': '22',
+                '문항명': '회사의 대응은 어땠나요?',
+                '척도' : '불량-미흡-보통-우수-탁월'
+              },
+              {
+                '번호': '22',
+                '문항명': '지원서 작성시 업무와 맞는 형식이었나요?',
+                '척도' : '불량-미흡-보통-우수-탁월'
+              },
+            ],
+            columns: [
+              { data: '선택',
+                render: function() {
+                    return `
+                    <label class="input-chk">
+                      <input type="checkbox">
+                      <span class="isHidden">체크박스</span>
+                    </label>
+                    `
+                  }
+              },
+              { data: '번호'},
+              { data: '문항명'},
+              { data: '척도'}
+            ],
+            "columnDefs": [
+              {
+                "targets": 3, // 'name' 열의 인덱스. 첫 번째 열이라면 0, 두 번째 열이라면 1을 설정합니다.
+                "render": function(data, type, row) {
+                  // data는 현재 셀의 데이터, type은 처리 유형, row는 현재 행의 전체 데이터입니다.
+                  return data ? data : `<div class="input-box" style="width: 100%;">
+                      <input type="text" class="input-txt" placeholder="입력하는 부분입니다." oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>`; // 데이터가 있으면 그대로 반환, 없으면 'N/A' 반환
+                }
+              }
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          })
+        </script>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">사용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0272.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CONT_0272 = new LayerPopup({target: "WAP-CONT-0272"});
+</script>;
   </div>
+  <script>
+    const pop = {
+      "WAP_CONT_0272" : ()=>{WAP_CONT_0272.show()},
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>  
 </body>
 </html>
