@@ -545,6 +545,11 @@
           "url" : "./html/corp/WAP-ETPR-0070.html"
         },
         {
+          "dep4" : "popup - 디자인탬플릿선택",
+          "name" : "WAP-ETPR-0080",
+          "url" : "./html/corp/WAP-ETPR-0070.html?popup=WAP_ETPR_0080"
+        },
+        {
           "dep4" : "popup - 디자인 미리보기",
           "name" : "WAP-ETPR-0090",
           "url" : "./html/corp/WAP-ETPR-0070.html?popup=WAP_ETPR_0090"
@@ -663,6 +668,31 @@
           "dep1" : "500에러페이지",
           "name" : "WAP-COM-0095",
           "url" : "./html/etc/WAP-COM-0090.html"
+        }
+      ]
+    },
+    {
+      "title" : "평가시스템",
+      "list" : [
+        {
+          "dep2" : "평가목록(카드형)",
+          "name" : "WAP-ASES-0010",
+          "url" : "./html/eval/WAP-ASES-0010.html"
+        },
+        {
+          "dep2" : "평가목록(목록형)",
+          "name" : "WAP-ASES-0011",
+          "url" : "./html/eval/WAP-ASES-0011.html"
+        },
+        {
+          "dep2" : "평가하기(입사지원서)",
+          "name" : "WAP-ASES-0030",
+          "url" : "./html/eval/WAP-ASES-0030.html"
+        },
+        {
+          "dep2" : "평가하기(서류,면접평가요소) - 작업중",
+          "name" : "WAP-ASES-0031",
+          "url" : "./html/eval/WAP-ASES-0030.html?popup=WAP_ASES_0031"
         }
       ]
     }

@@ -98,6 +98,24 @@
       }
     }
 
+    /* 평가하기 */
+    &.icon8:before {
+      @include svgfill(none, none);
+      background:url($image-url + 'icon-eval1.svg');
+    }
+
+    &.icon9:before{
+      @include svgfill(none, none);
+      background:url($image-url + 'icon-eval2.svg');
+    }
+
+    &.icon10:before{
+      @include svgfill(none, none);
+      background:url($image-url + 'icon-eval3.svg');
+    }
+
+
+
     &[aria-expanded="true"] span:after {
       transform: rotate(180deg);
     }
@@ -110,6 +128,26 @@
         background-color: unset;
         background-position: -168px 0;
       }
+
+      /* 평가하기 */
+      &.icon8:before{
+        background-color: unset;
+        background-position:center center;
+        background-image:url($image-url + 'icon-eval1-b.svg');
+      }
+
+      &.icon9:before{
+        background-color: unset;
+        background-position:center center;
+        background-image:url($image-url + 'icon-eval2-b.svg');
+      }
+
+      &.icon10:before{
+        background-color: unset;
+        background-position:center center;
+        background-image:url($image-url + 'icon-eval3-b.svg')
+      }
+
       &:after {
         content: "";
         @include pos(absolute, 12px, 0);
@@ -188,6 +226,30 @@
 }
 .contents {
   padding: 40px 32px 40px 24px;
+  &.small-ver{
+    padding-top:29px;
+    .box-type1 + .title{
+      margin-top:24px;
+    }
+
+    .box-type1 + .box-type8{
+      margin-top:24px;
+    }
+  }
+
+  &.flex-ver{
+    display:flex;
+    gap:27px;
+  }
+
+  .contents-divide1{
+    width:80%;
+  }
+
+  .contents-divide2{
+    width:20%;
+    min-width:246px;
+  }
 }
 .categori-control ~ .contents {
   margin-right: 280px;
@@ -296,4 +358,13 @@
       }
     }
   }
+}
+
+.top-contents{
+  background-color:#fff;
+  padding-left:24px;
+  .base-tab{
+    margin-top:0;
+  }
+
 }
