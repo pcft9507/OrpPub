@@ -1,0 +1,131 @@
+<div class="layer-popup type-modal" data-ref="WAP-CONT-0271">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">Pool 불러오기</h3>
+    </div>
+    <div class="popup__contents">
+
+      <div class="d-flex jc-fe">
+        <button class="base-icon icon-reset__size-s__color3 point-color5">초기화</button>
+      </div>
+
+      <div class="content-mt1">
+        <button class="base-btn type2__size-m w-full">
+          <span class="base-icon icon-excel__size-s__color1">만족도 조사 불러오기</span>
+        </button>
+      </div>
+
+      <div class="form-row content-mt3">
+        <h4 class="title-sub1">만족도 조사 질의 등록</h4>
+        <div class="form-inner">
+          <div style="width: 116px;"><strong>제목</strong></div>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt font-weight-s" placeholder="0" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+        <div class="form-inner">
+          <div style="width: 116px;"><strong>시작 인삿말</strong></div>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt font-weight-s" placeholder="0" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+        <div class="form-inner">
+          <div style="width: 116px;"><strong>마지막 인삿말</strong></div>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt font-weight-s" placeholder="0" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row content-mt3" data-target="flex-section">
+        <h4 class="title-sub1">문항</h4>
+        <div class="flex-section">
+          <div class="form-inner type-mt2 type-gap2">
+            <button type="button" class="btn-item--del" onclick="removeFormInner(event)">
+              <span>삭제</span>
+            </button>
+            <div class="input-box" style="width: 350px;">
+              <input type="text" class="input-txt size-s" placeholder="문항 입력" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="d-flex type-gap">
+              <label class="input-chk">
+                <input type="radio" name="type">
+                <span>척도형</span>
+              </label>
+              <label class="input-chk">
+                <input type="radio" name="type">
+                <span>입력형</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex content-mt2" style="padding-left: 38px;">
+          <button class="base-btn type2__size-s">
+            <span class="base-icon icon-excel__size-s__color1">만족도조사 문항 불러오기</span>
+          </button>
+        </div>
+  
+        <div class="d-flex content-mt2">
+          <button type="button" class="btn-item--add" onclick="addFormInner()">
+            <span>추가</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type2__size-m">미리보기</button>
+      <button class="base-btn type1__size-m">저장</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0271.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CONT_0271 = new LayerPopup({target: "WAP-CONT-0271"});
+
+  // 삭제 버튼에 대한 이벤트 핸들러 함수
+  function removeFormInner(event) {
+    // 이벤트가 발생한 요소의 부모 요소 중 'form-inner' 클래스를 가진 가장 가까운 요소를 찾음
+    const formInner = event.target.closest('.form-inner');
+    
+    // 'form-inner' 요소가 존재하면, DOM에서 해당 요소를 제거
+    if (formInner) {
+      formInner.remove();
+    }
+  }  
+
+  // 추가 버튼 클릭 시 실행될 함수
+  function addFormInner() {
+    // HTML 템플릿 정의
+    const template = `
+      <div class="form-inner type-mt2 type-gap2">
+        <button type="button" class="btn-item--del" onclick="removeFormInner(event)">
+          <span>삭제</span>
+        </button>
+        <div class="input-box" style="width: 350px;">
+          <input type="text" class="input-txt size-s" placeholder="문항 입력" oninput="inputValueChk()">
+          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+        </div>
+        <div class="d-flex type-gap">
+          <label class="input-chk">
+            <input type="radio" name="type">
+            <span>척도형</span>
+          </label>
+          <label class="input-chk">
+            <input type="radio" name="type">
+            <span>입력형</span>
+          </label>
+        </div>
+      </div>
+    `;
+
+    // 'flex-section' 클래스를 가진 요소를 찾아 HTML 템플릿을 마지막 자식으로 추가
+    const flexSection = document.querySelector('.flex-section');
+    flexSection.insertAdjacentHTML('beforeend', template);
+  }  
+</script>

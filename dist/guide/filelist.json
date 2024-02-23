@@ -498,11 +498,21 @@
           "url" : "./html/corp/WAP-CONT-0230.html?popup=WAP_CONT_0250"
         },
         {
-          "dep2" : "만족도조사",
+          "dep3" : "만족도조사",
           "name" : "WAP-CONT-0270",
           "url" : "./html/corp/WAP-CONT-0270.html"
         },
         {
+          "dep3" : "Pool 불러오기",
+          "name" : "WAP-CONT-0271",
+          "url" : "./html/corp/WAP-CONT-0270.html?popup=WAP_CONT_0271"
+        },
+        {
+          "dep3" : "만족도조사 문항 불러오기",
+          "name" : "WAP-CONT-0272",
+          "url" : "./html/corp/WAP-CONT-0270.html?popup=WAP_CONT_0272"
+        },
+        { 
           "dep1" : "기업정보",
           "name" : "WAP-CORP-0022",
           "url" : "./html/corp/WAP-CORP-0022.html"
