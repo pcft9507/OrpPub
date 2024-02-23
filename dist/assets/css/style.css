@@ -2979,6 +2979,10 @@ textarea.default-h2 {
   background-size: 24px;
 }
 
+.fw-500 {
+  font-weight: 500;
+}
+
 .header {
   position: sticky;
   z-index: 60;
