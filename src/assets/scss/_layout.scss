@@ -244,11 +244,17 @@
 
   .contents-divide1{
     width:80%;
+    &.ver2{
+      width:85%;
+    }
   }
 
   .contents-divide2{
     width:20%;
     min-width:246px;
+    &.ver2{
+      width:15%;
+    }
   }
 }
 .categori-control ~ .contents {

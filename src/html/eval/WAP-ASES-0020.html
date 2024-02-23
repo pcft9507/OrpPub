@@ -1,0 +1,341 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header2.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "평가시스템", dep1: "", dep2: ""})
+
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[경영지원](2023년도 ㈜오알피연구소 신입/경력사원 공개채용</h2>
+          <div class="cell">
+            2023-09-13~2023-09-15
+          </div>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                      data-dropdown='{
+                  "name": "headerDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "상태",
+                      "value": "상태",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "평가예정",
+                      "value": "평가예정",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "평가완료",
+                      "value": "평가완료",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "제적/회피",
+                      "value": "제적/회피",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "평가제외",
+                      "value": "평가제외",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- contents -->
+      <div class="contents asa">
+        <div class="contents-divide1">
+          <div class="page-title__wrap">
+            <h3 class="title-sub">합격자 발표</h3>
+          </div>
+          <div class="board-head content-mt6">
+            <div class="board-head__cell">
+              <div class="dropdown" style="width: 172px;">
+                <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "multi",
+                  "option": [
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "all": true,
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "수험번호",
+                      "value": "수험번호",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "성명",
+                      "value": "성명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "넘버링(수험번호 대신 사용)",
+                      "value": "넘버링(수험번호 대신 사용)",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "비고1~비고6",
+                      "value": "비고1~비고6",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "면접조",
+                      "value": "면접조",
+                      "disabled": false,
+                      "checked": false
+                    },
+                  ]
+                }'
+                >
+                  <span class="dropdown-btn__label">목록순</span>
+                  <span class="dropdown-btn__checked">전체</span>
+                </button>
+                <script>
+                  dropdown.init('dropdown', {
+                    name: 'boardDropdown',
+                    onChange: _this=>{
+                      console.log(_this.value);
+                    }
+                  });
+                </script>
+              </div>
+
+              <div class="dropdown" style="width: 136px;">
+                <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+                >10개씩</button>
+                <script>
+                  dropdown.init('dropdown', {
+                    name: 'boardDropdown2',
+                    onChange: _this=>{
+                      console.log(_this.value);
+                    }
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+          <div class="board-body">
+            <div class="table table-type1">
+              <table id="table">
+                <colgroup>
+                  <col style="width: 56px;"/>
+                  <col style="width: 56px;"/>
+                  <col style="width: 100px;"/>
+                  <col style="width: 150px;"/>
+                  <col/>
+                  <col style="width: 120px"/>
+                  <col style="width: 200px"/>
+                  <col style="width: 200px"/>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">NO</th>
+                  <th scope="col">구분</th>
+                  <th scope="col">면접도구코드</th>
+                  <th scope="col">면접도구명</th>
+                  <th scope="col">평가요소</th>
+                  <th scope="col">최종등록</th>
+                  <th scope="col">최종수정정보</th>
+                </tr>
+                </thead>
+              </table>
+            </div>
+            <script>
+              $('#table').DataTable({
+                data: [
+                  {
+                    'NO': '6',
+                    '구분': '표준형',
+                    '면접도구코드': 'TD-PT-00066',
+                    '면접도구명': 'io 면접도구 5/16',
+                    '평가요소': ['논리적사고'],
+                    '최종등록': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                    '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                  },
+                  {
+                    'NO': '6',
+                    '구분': '표준형',
+                    '면접도구코드': 'TD-PT-00066',
+                    '면접도구명': '상황면접',
+                    '평가요소': ['의사소통'],
+                    '최종등록': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                    '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                  },
+                  {
+                    'NO': '6',
+                    '구분': '표준형',
+                    '면접도구코드': 'TD-PT-00066',
+                    '면접도구명': '표준면접도구 불러오기 테스트 (논리적 사고력, 기획력, 목표설정, 질문)',
+                    '평가요소': ['논리적사고', '기획력', '목표설정'],
+                    '최종등록': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                    '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                  }
+                ],
+                columns: [
+                  {
+                    data: '',
+                    className: 'pd-type1',
+                    render: function() {
+                      return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                    }
+                  },
+                  { data: 'NO' },
+                  { data: '구분' },
+                  { data: '면접도구코드' },
+                  { data: '면접도구명',
+                    render: function(data) {
+                      return `<span class="point-color">${data}</span>`
+                    }
+                  },
+                  { data: '평가요소',
+                    render: function(data) {
+                      let temp = '';
+                      if(data.length > 1) {
+                        for(let idx = 0; idx < data.length; idx++) {
+                          if(idx < data.length - 1) {
+                            temp += `${data[idx]}<br>`
+                          } else {
+                            temp += data[idx]
+                          }
+                        }
+                      } else {
+                        temp = data[0]
+                      }
+                      return temp;
+                    }
+                  },
+                  { data: '최종등록',
+                    render: function(data) {
+                      return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                    }
+                  },
+                  { data: '최종수정정보',
+                    render: function(data) {
+                      return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                    }
+                  }
+                ],
+                paging: false,
+                searching: false,
+                showing: false,
+                info: false
+              });
+            </script>
+          </div>
+        </div>
+        <div class="contents-divide2">
+
+        </div>
+
+      </div>
+      <!-- //contents -->
+
+    </div>
+    <!-- //container -->
+    
+  </div>
+
+  <script src="../../assets/js/timepicki.js"></script>
+  <script>
+    // 데이트피커
+    const calendars = document.querySelectorAll('.datepicker-input');
+    let dp = [];
+    calendars.forEach((element, i) => {
+      dp[i] = new Datepicker(element, {
+        ...CALENDAR_DEFAULT_OPTION,
+        ...{
+          "minDate": "2023.12.06",
+          "maxDate": "2023.12.20"
+        }
+      })
+    });
+
+    // 타임 피커
+    $('.timepicker').timepicki({
+      show_meridian:false,
+      min_hour_value:0,
+      max_hour_value:23
+    }); 
+
+    // 탭
+    const tabContents1 = new TabContents({target: 'tabContents1'});
+
+    // ui.js toggle manager
+    const toggleManager = new ToggleManager('.btn-tit-toggle', '.toggleContent');
+  </script>
+</body>
+</html>

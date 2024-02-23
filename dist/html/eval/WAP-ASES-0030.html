@@ -1,12 +1,90 @@
-@@include('./head.html', {title: ""})
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
 <body>
   <div class="wrap">
 
-    @@include('./header2.html')
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+
+        </div>
+        <div class="header__util">
+          <span>면접의원 A님 환영합니다.</span>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
     
     <!-- container -->
     <div class="container">
-      @@include('./snb.html', {type: "평가시스템", dep1: "1", dep2: "1"})
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+
+        
+
+        
+        
+        <div class="link-btn-wrap">
+          <button class="base-btn type2__size-s" onclick="WAP_ASES_0031.show();">
+            <span>GPT평가 보기</span>
+          </button>
+        </div>
+        
+        <ul class="snb__menu">
+          <li class="isCurrent">
+          <button
+                  type="button"
+                  class="snb__depth1--btn icon8 has-child"
+                  aria-expanded="true"
+          aria-controls="snbSubMenu1"
+          ><span>평가하기</span></button>
+          <div id="snbSubMenu1" class="snb__depth2 isOpen">
+          <ul>
+            <li class="isCurrent"><a href="WAP-ASES-0030.html">입사지원서</a></li>
+            <li><a href="">서류 평가요소</a></li>
+          </ul>
+          </div>
+          </li>
+          <li>
+          <button
+                  type="button"
+                  class="snb__depth1--btn icon9 has-child"
+                  aria-expanded="false"
+          aria-controls="snbSubMenu2"
+          ><span>협의/조정</span></button>
+          <div id="snbSubMenu2" class="snb__depth2">
+          <ul>
+            <li><a href="">평가자별점수열람</a></li>
+            <li><a href="">서류점수통계</a></li>
+          </ul>
+          </div>
+          </li>
+          <li><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon10">확인/제출</a></li>
+        </ul>
+        
+
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
 
       <div class="top-contents">
         <div class="member-list-box">
@@ -787,7 +865,98 @@
     <!-- //container -->
     
   </div>
-  @@include('../html/eval/WAP-ASES-0031.html');
+  <div class="layer-popup type-modal" data-ref="WAP-ASES-0031">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">평가요소 상세</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <div class="form-row__flex" style="align-items:center;">
+        <div class="form-th no-pd" style="width: 130px;">제목</div>
+        <div class="form-td" style="width:100%;">
+          <div class="form-inner">
+            <div class="input-box" style="width: 100%;">
+              <input type="text" class="input-txt" placeholder="입력하세요">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row__flex" style="align-items:center;">
+        <div class="form-th no-pd" style="width: 130px;">카테고리</div>
+        <div class="form-td" style="width:100%;">
+          <div class="form-inner">
+            <div class="dropdown" style="width:100%">
+              <button type="button" class="dropdown-btn size-s"
+                      data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "선택",
+                      "value": "선택",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "서류전형",
+                      "value": "서류전형",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "필기전형",
+                      "value": "필기전형",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "면접전형",
+                      "value": "면접전형",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "기타",
+                      "value": "기타",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row__flex">
+        <div class="form-th no-pd" style="width: 130px;">내용</div>
+        <div class="form-td" style="width: 100%;">
+          <div class="form-inner">
+            <textarea class="textarea default-h" name="" id="" title="내용입력 하기" placeholder="입력하세요"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <!--<button class="base-btn type1__size-m">등록</button>-->
+      <!-- 수정일 경우 버튼 명 저장 -->
+      <button class="base-btn type1__size-m">저장</button>
+
+    </div>
+    <button class="btn-close" onclick="WAP_ASES_0031.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ASES_0031 = new LayerPopup({target: "WAP-ASES-0031"});
+</script>;
 
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
