@@ -3340,9 +3340,15 @@ textarea.default-h2 {
 .contents .contents-divide1 {
   width: 80%;
 }
+.contents .contents-divide1.ver2 {
+  width: 85%;
+}
 .contents .contents-divide2 {
   width: 20%;
   min-width: 246px;
+}
+.contents .contents-divide2.ver2 {
+  width: 15%;
 }
 
 .categori-control ~ .contents {

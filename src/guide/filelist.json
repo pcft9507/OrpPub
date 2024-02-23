@@ -690,6 +690,11 @@
           "url" : "./html/eval/WAP-ASES-0011.html"
         },
         {
+          "dep2" : "지원자 리스트",
+          "name" : "WAP-ASES-0020",
+          "url" : "./html/eval/WAP-ASES-0020.html"
+        },
+        {
           "dep2" : "평가하기(입사지원서)",
           "name" : "WAP-ASES-0030",
           "url" : "./html/eval/WAP-ASES-0030.html"
