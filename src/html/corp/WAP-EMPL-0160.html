@@ -1,0 +1,85 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0160">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">기타사항 항목 설계</h3>
+    </div>
+    <div class="popup__contents">
+      <div class="board-body">
+        <div class="table table-type1">
+          <table class="type-s type-line">
+            <colgroup>
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">기타사항</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+              <tr>
+                <td>
+                  <div class="form-inner">
+                    <button type="button" class="btn-item--del" onclick="deleteRow(this)">
+                      <span>삭제</span>
+                    </button>
+                    <div class="input-box" style="flex: 1;">
+                      <input type="text" class="input-txt size-s" placeholder="기타사항 입력하세요" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-inner content-mt1">
+                    <button type="button" class="btn-item--add" onclick="addRow(this)">
+                      <span>추가</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0160.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0160 = new LayerPopup({target: "WAP-EMPL-0160"});
+
+  // 새로운 행을 추가하는 함수
+  function addRow(button) {
+    // 클릭한 버튼에서 가장 가까운 tbody를 찾습니다.
+    const currentTr = button.closest('tr');
+    const tbody = currentTr.closest('tbody');
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+      <td>
+        <div class="form-inner">
+          <button type="button" class="btn-item--del" onclick="deleteRow(this)">
+            <span>삭제</span>
+          </button>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt size-s" placeholder="기타사항 입력하세요">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </td>
+    `;
+
+    // 새로운 행을 현재 "추가" 버튼이 있는 tr의 바로 앞에 삽입합니다.
+    tbody.insertBefore(newRow, currentTr);
+  }
+
+  // 특정 행을 삭제하는 함수
+  function deleteRow(element) {
+    // 삭제 버튼이 속한 tr 요소를 찾아 제거합니다.
+    const parentTr = element.closest('tr');
+    parentTr.remove();
+  }
+</script>
