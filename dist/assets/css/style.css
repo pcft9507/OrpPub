@@ -692,6 +692,9 @@ hr {
 .base-btn.hover-tdu:hover {
   text-decoration: underline;
 }
+.base-btn.w-full {
+  width: 100%;
+}
 
 .btn-toggle {
   cursor: pointer;
