@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+
+        </div>
+        <div class="header__util">
+          <span>면접의원 A님 환영합니다.</span>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+
+        
+
+        
+        
+        <ul class="snb__menu">
+          <li>
+          <button
+                  type="button"
+                  class="snb__depth1--btn icon8 has-child"
+                  aria-expanded="false"
+          aria-controls="snbSubMenu1"
+          ><span>평가하기</span></button>
+          <div id="snbSubMenu1" class="snb__depth2">
+          <ul>
+            <li><a href="WAP-ASES-0030.html">입사지원서</a></li>
+            <li><a href="">서류 평가요소</a></li>
+          </ul>
+          </div>
+          </li>
+          <li>
+          <button
+                  type="button"
+                  class="snb__depth1--btn icon9 has-child"
+                  aria-expanded="false"
+          aria-controls="snbSubMenu2"
+          ><span>협의/조정</span></button>
+          <div id="snbSubMenu2" class="snb__depth2">
+          <ul>
+            <li><a href="">평가자별점수열람</a></li>
+            <li><a href="">서류점수통계</a></li>
+          </ul>
+          </div>
+          </li>
+          <li><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon10">확인/제출</a></li>
+        </ul>
+        
+
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <!-- contents -->
+      <div class="contents">
+        <div class="top-title-box">
+          <div>
+            <h3 class="title-sub2 type2">평가리스트</h3>
+            <p class="sub-text1">진행중인 평가 리스트를 확인하시고 평가를 진행해 주세요.</p>
+          </div>
+          <div class="btn-type-wrap">
+            <a href="#" class="ico_gallery_btn" title=""></a>
+            <a href="#" class="ico_list_btn" title=""></a>
+          </div>
+        </div>
+
+        <section class="content-mt8 card-swiper-box">
+          <div class="swiper esSwiper card-swiper">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide">
+                <div class="card-box">
+                  <a href="#">
+                    <div class="c-title-box">
+                      <span>2023년도 (주) 오알피연구소</span>
+                      <h3 class="c-title">경영지원 신입<span class="c-badge">상시</span></h3>
+                    </div>
+                    <div class="c-image-box">
+                      <img src="" alt="">
+                    </div>
+                    <div class="c-desc-box">
+                      <ul>
+                        <li>
+                          <span>발표면접</span>
+                          <p class="c-title">면접전형 1차심사</p>
+                        </li>
+                        <li>
+                          <span>평가기간</span>
+                          <p class="c-title">23.05.26 09:00~23.06.29 09:00</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </a>
+                </div>
+              </li>
+
+              <li class="swiper-slide">
+                <div class="card-box">
+                  <a href="#">
+                    <div class="c-title-box">
+                      <span>2023년도 (주) 오알피연구소</span>
+                      <h3 class="c-title">경영지원 신입<span class="c-badge">상시</span></h3>
+                    </div>
+                    <div class="c-image-box">
+                      <img src="" alt="">
+                    </div>
+                    <div class="c-desc-box">
+                      <ul>
+                        <li>
+                          <span>발표면접</span>
+                          <p class="c-title">면접전형 1차심사</p>
+                        </li>
+                        <li>
+                          <span>평가기간</span>
+                          <p class="c-title">23.05.26 09:00~23.06.29 09:00</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </a>
+                </div>
+              </li>
+
+              <li class="swiper-slide">
+                <div class="card-box">
+                  <a href="#">
+                    <div class="c-title-box">
+                      <span>2023년도 (주) 오알피연구소</span>
+                      <h3 class="c-title">경영지원 신입<span class="c-badge">상시</span></h3>
+                    </div>
+                    <div class="c-image-box">
+                      <img src="" alt="">
+                    </div>
+                    <div class="c-desc-box">
+                      <ul>
+                        <li>
+                          <span>발표면접</span>
+                          <p class="c-title">면접전형 1차심사</p>
+                        </li>
+                        <li>
+                          <span>평가기간</span>
+                          <p class="c-title">23.05.26 09:00~23.06.29 09:00</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </a>
+                </div>
+              </li>
+
+              <li class="swiper-slide">
+                <div class="card-box">
+                  <a href="#">
+                    <div class="c-title-box">
+                      <span>2023년도 (주) 오알피연구소</span>
+                      <h3 class="c-title">경영지원 신입<span class="c-badge">상시</span></h3>
+                    </div>
+                    <div class="c-image-box">
+                      <img src="" alt="">
+                    </div>
+                    <div class="c-desc-box">
+                      <ul>
+                        <li>
+                          <span>발표면접</span>
+                          <p class="c-title">면접전형 1차심사</p>
+                        </li>
+                        <li>
+                          <span>평가기간</span>
+                          <p class="c-title">23.05.26 09:00~23.06.29 09:00</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </section>
+        <script>
+          var esSwiper = new Swiper(".esSwiper", {
+            slidesPerView: 3,
+            spaceBetween: 24,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+        </script>
+      </div>
+
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

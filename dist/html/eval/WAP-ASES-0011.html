@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+
+        </div>
+        <div class="header__util">
+          <span>면접의원 A님 환영합니다.</span>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+
+        
+
+        
+        
+        <ul class="snb__menu">
+          <li>
+          <button
+                  type="button"
+                  class="snb__depth1--btn icon8 has-child"
+                  aria-expanded="false"
+          aria-controls="snbSubMenu1"
+          ><span>평가하기</span></button>
+          <div id="snbSubMenu1" class="snb__depth2">
+          <ul>
+            <li><a href="WAP-ASES-0030.html">입사지원서</a></li>
+            <li><a href="">서류 평가요소</a></li>
+          </ul>
+          </div>
+          </li>
+          <li>
+          <button
+                  type="button"
+                  class="snb__depth1--btn icon9 has-child"
+                  aria-expanded="false"
+          aria-controls="snbSubMenu2"
+          ><span>협의/조정</span></button>
+          <div id="snbSubMenu2" class="snb__depth2">
+          <ul>
+            <li><a href="">평가자별점수열람</a></li>
+            <li><a href="">서류점수통계</a></li>
+          </ul>
+          </div>
+          </li>
+          <li><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon10">확인/제출</a></li>
+        </ul>
+        
+
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <!-- contents -->
+      <div class="contents">
+        <h3 class="title-sub2 type2">평가리스트</h3>
+
+        <div class="board-head content-mt4">
+          <div class="board-head__cell type-gap2">
+            <span class="title-sub4">총 2개</span>
+            <div class="dropdown">
+              <button type="button" class="dropdown-btn size-s" style="width:136px;"
+                      data-dropdown='{
+                  "name": "boardDropdown1",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "50개씩",
+                      "value": "50개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "100개씩",
+                      "value": "100개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "200개씩",
+                      "value": "200개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown1',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-body">
+          <div class="table table-type1 ver2 ph4">
+            <table>
+              <colgroup>
+                <col style="width: 90px;">
+                <col style="width: 384px;">
+                <col style="width: 100px;">
+                <col style="width: auto;">
+                <col style="width: auto">
+                <col style="width: 100px">
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col"><button type="button" class="btn-align-cell">NO</button></th>
+                <th scope="col">공고명</th>
+                <th scope="col">분야</th>
+                <th scope="col">평가명칭</th>
+                <th scope="col">평가기간</th>
+                <th scope="col">남은기간</th>
+                <th scope="col">지원자 수</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2023년도(주) 오알피연구소 신입</td>
+                <td>상시</td>
+                <td>면접전형 1차 심사</td>
+                <td>2023.09.01~2033.12.31</td>
+                <td>99</td>
+                <td>3</td>
+              </tr>
+
+              </tbody>
+            </table>
+
+            <!-- fg-toolbar -->
+            <div class="fg-toolbar ui-toolbar ui-widget-header ui-helper-clearfix ui-corner-bl ui-corner-br">
+              <div class="dataTables_paginate fg-buttonset">
+                <a class="fg-button ui-button ui-state-default first">처음</a>
+                <a class="fg-button ui-button ui-state-default previous">이전</a>
+                <span>
+                  <a class="fg-button ui-button ui-state-default">1</a>
+                  <a class="fg-button ui-button ui-state-default">16</a>
+                  <a class="fg-button ui-button ui-state-default">17</a>
+                  <a class="fg-button ui-button ui-state-default">18</a>
+                  <a class="fg-button ui-button ui-state-default">19</a>
+                  <a class="fg-button ui-button ui-state-default ui-state-disabled">20</a></span>
+                <a class="fg-button ui-button ui-state-default next ui-state-disabled">다음</a>
+                <a class="fg-button ui-button ui-state-default last ui-state-disabled">마지막</a>
+              </div>
+            </div>
+            <!-- // fg-toolbar -->
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>
