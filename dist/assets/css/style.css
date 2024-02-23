@@ -2774,6 +2774,9 @@ textarea.default-h2 {
 .d-flex.type-gap2 {
   gap: 0 16px;
 }
+.d-flex.type-gap3 {
+  gap: 0 24px;
+}
 .d-flex.type-pd {
   padding: 0 8px;
 }

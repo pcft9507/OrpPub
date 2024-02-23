@@ -280,11 +280,16 @@
           "url" : "./html/corp/WAP-EMPL-0120.html?popup=WAP_EMPL_0130"
         },
         {
+          "dep4" : "popup - 자격증목록팝업",
+          "name" : "WAP-EMPL-0140",
+          "url" : "./html/corp/WAP-EMPL-0120.html?popup=WAP_EMPL_0140"
+        },
+        {
           "dep2" : "평가설정",
           "dep3" : "적부평가",
           "name" : "WAP-EMPL-0180",
           "url" : "./html/corp/WAP-EMPL-0180.html"
-        },
+        }, 
         {
           "dep4" : "popup - 불러오기",
           "name" : "WAP-EMPL-0190",

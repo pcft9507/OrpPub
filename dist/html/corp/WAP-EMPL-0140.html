@@ -1,4 +1,4 @@
-<div class="layer-popup type-modal" data-ref="WAP-EMPL-0130">
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0140">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
       <h3 class="popup__title">지원서 불러오기</h3>
@@ -60,26 +60,17 @@
 
       <div class="board-body content-mt4">
         <div class="table table-type1">
-          <table id="table1" class="type-s type-line">
+          <table id="table2" class="type-s type-line">
             <colgroup>
-              <col style="width: 70px"/>
-              <col style="width: 100px"/>
               <col>
-              <col style="width: 100px;">
+              <col>
               <col style="width: 100px;">
             </colgroup>
             <thead>
               <tr>
-                <th scope="col">
-                    <label class="input-chk">
-                    <input type="checkbox" data-ref="chkItem" value="chkAll" onchange="inputCheckAll('chkItem')">
-                    <span class="isHidden">전체 체크</span>
-                  </label>
-                </th>
-                <th scope="col">공고번호</th>
-                <th scope="col">채용명</th>
-                <th scope="col">채용분야명</th>
-                <th scope="col">채용전형명</th>
+                <th scope="col">구분</th>
+                <th scope="col">자격증</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody class="first-td-bdt0">
@@ -87,48 +78,25 @@
           </table>
         </div>
         <script>
-          $('#table1').DataTable({
+          $('#table2').DataTable({
             data: [
               {
-                '공고번호': '705',
-                '채용명': '아던트 신입 채용 공고',
-                '채용분야명': '사무직',
-                '채용전형명': '서류전형 1차'
+                '구분': '국가기술자격',
+                '자격증': '정보처리기사',
               },
               {
-                '공고번호': '705',
-                '채용명': '아던트 신입 채용 공고',
-                '채용분야명': '사무직',
-                '채용전형명': '서류전형 1차'
-              },
-              {
-                '공고번호': '705',
-                '채용명': '아던트 신입 채용 공고',
-                '채용분야명': '사무직',
-                '채용전형명': '서류전형 1차'
-              },
-              {
-                '공고번호': '705',
-                '채용명': '아던트 신입 채용 공고',
-                '채용분야명': '사무직',
-                '채용전형명': '서류전형 1차'
+                '구분': '국가기술자격',
+                '자격증': '정보처리기사',
               },
             ],
             columns: [
+            { data: '구분'},
+            { data: '자격증'},
               { data: '선택',
                 render: function() {
-                    return `
-                    <label class="input-chk">
-                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
-                      <span class="isHidden">선택</span>
-                    </label>
-                    `
+                    return `<button class="base-btn type2__size-s">삭제</button>`
                   }
-              },
-              { data: '공고번호'},
-              { data: '채용명'},
-              { data: '채용분야명'},
-              { data: '채용전형명'}
+              }
             ],
             paging: false,
             searching: false,
@@ -138,13 +106,27 @@
         </script>
       </div>
 
+      <div class="box-type3 content-mt3">
+        <p class="point-color5 tac">위 목록에 등록되지 않은 자격증을 지원자가 직접 입력하여 작성할 수 있습니다.</p>
+        <div class="d-flex jc-c type-gap3 content-mt2">
+          <label class="input-chk">
+            <input type="radio" name="sample">
+            <span>예</span>
+          </label>
+          <label class="input-chk">
+            <input type="radio" name="sample">
+            <span>아니오</span>
+          </label>
+        </div>
+      </div>
+
     </div>
     <div class="popup__btn-wrap">
       <button class="base-btn type1__size-m">적용</button>
     </div>
-    <button class="btn-close" onclick="WAP_EMPL_0130.hide()">닫기</button>
+    <button class="btn-close" onclick="WAP_EMPL_0140.hide()">닫기</button>
   </section>
 </div>
 <script>
-  const WAP_EMPL_0130 = new LayerPopup({target: "WAP-EMPL-0130"});
+  const WAP_EMPL_0140 = new LayerPopup({target: "WAP-EMPL-0140"});
 </script>
