@@ -3905,10 +3905,17 @@
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
+
+    @@include('../html/corp/WAP-EMPL-0130.html');
   </div>
 
 <script>
+
+  const pop = {
+    "WAP_EMPL_0130" : ()=>{WAP_EMPL_0130.show()},
+  }
+  if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  
   // 모든 checkbox 요소와 form-set__box 요소를 선택합니다.
   const checkboxes = document.querySelectorAll('.categori-control__item input[type="checkbox"]');
   const formSetBoxes = document.querySelectorAll('.form-set__box');
@@ -4025,6 +4032,7 @@
           }
       });
   });
+
 </script>
 </body>
 </html>

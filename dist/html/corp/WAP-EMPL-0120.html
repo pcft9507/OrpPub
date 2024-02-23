@@ -4007,10 +4007,166 @@
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
+
+    <div class="layer-popup type-modal" data-ref="WAP-EMPL-0130">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">지원서 불러오기</h3>
+    </div>
+    <div class="popup__contents">
+      <div class="base-tab tab-type1" data-ref="tabContents1">
+        <ul class="tab__list" role="tablist">
+          <li class="tab__item">
+            <button role="tab" aria-selected="true">입사지원서</button>
+          </li>
+          <li class="tab__item">
+            <button role="tab" aria-selected="false">표준형지원서</button>
+          </li>
+        </ul>
+      </div>
+      <script>
+        const tabContents1 = new TabContents({target: 'tabContents1'});
+      </script>
+
+      <div class="box-flex align-center content-mt3">
+        <div class="box-flex__cell">
+          <div class="dropdown" style="width: 112px;">
+            <button type="button" class="dropdown-btn" data-dropdown='{
+              "name": "alermSetSearchdropdown",
+              "type" : "single",
+              "option": [
+                {
+                  "name": "옵션1",
+                  "value": "val1",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "옵션2",
+                  "value": "val2",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "옵션3",
+                  "value": "val3",
+                  "disabled": false,
+                  "checked": false
+                }
+              ]
+            }'>검색항목</button> 
+          </div>
+        </div>
+        <div class="box-flex__cell flex-1">
+          <div class="input-box type-search h-full">
+            <input type="text" class="input-txt" placeholder="키워드를 입력하세요." oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+        <div class="box-flex__cell">
+          <button class="base-btn type1__size-m">검색</button>
+        </div>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="popTable0160" class="type-s type-line">
+            <colgroup>
+              <col style="width: 70px"/>
+              <col style="width: 100px"/>
+              <col>
+              <col style="width: 100px;">
+              <col style="width: 100px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">
+                    <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem" value="chkAll" onchange="inputCheckAll('chkItem')">
+                    <span class="isHidden">전체 체크</span>
+                  </label>
+                </th>
+                <th scope="col">공고번호</th>
+                <th scope="col">채용명</th>
+                <th scope="col">채용분야명</th>
+                <th scope="col">채용전형명</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $('#popTable0160').DataTable({
+            data: [
+              {
+                '공고번호': '705',
+                '채용명': '아던트 신입 채용 공고',
+                '채용분야명': '사무직',
+                '채용전형명': '서류전형 1차'
+              },
+              {
+                '공고번호': '705',
+                '채용명': '아던트 신입 채용 공고',
+                '채용분야명': '사무직',
+                '채용전형명': '서류전형 1차'
+              },
+              {
+                '공고번호': '705',
+                '채용명': '아던트 신입 채용 공고',
+                '채용분야명': '사무직',
+                '채용전형명': '서류전형 1차'
+              },
+              {
+                '공고번호': '705',
+                '채용명': '아던트 신입 채용 공고',
+                '채용분야명': '사무직',
+                '채용전형명': '서류전형 1차'
+              },
+            ],
+            columns: [
+              { data: '선택',
+                render: function() {
+                    return `
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                    `
+                  }
+              },
+              { data: '공고번호'},
+              { data: '채용명'},
+              { data: '채용분야명'},
+              { data: '채용전형명'}
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          })
+        </script>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0130.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0130 = new LayerPopup({target: "WAP-EMPL-0130"});
+</script>;
   </div>
 
 <script>
+
+  const pop = {
+    "WAP_EMPL_0130" : ()=>{WAP_EMPL_0130.show()},
+  }
+  if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  
   // 모든 checkbox 요소와 form-set__box 요소를 선택합니다.
   const checkboxes = document.querySelectorAll('.categori-control__item input[type="checkbox"]');
   const formSetBoxes = document.querySelectorAll('.form-set__box');
@@ -4127,6 +4283,7 @@
           }
       });
   });
+
 </script>
 </body>
 </html>

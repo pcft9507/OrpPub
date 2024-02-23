@@ -275,6 +275,11 @@
           "url" : "./html/corp/WAP-EMPL-0120.html"
         },
         {
+          "dep4" : "popup - 기존양식불러오기",
+          "name" : "WAP-EMPL-0130",
+          "url" : "./html/corp/WAP-EMPL-0120.html?popup=WAP_EMPL_0130"
+        },
+        {
           "dep2" : "평가설정",
           "dep3" : "적부평가",
           "name" : "WAP-EMPL-0180",
@@ -503,12 +508,12 @@
           "url" : "./html/corp/WAP-CONT-0270.html"
         },
         {
-          "dep3" : "Pool 불러오기",
+          "dep3" : "popup - Pool 불러오기",
           "name" : "WAP-CONT-0271",
           "url" : "./html/corp/WAP-CONT-0270.html?popup=WAP_CONT_0271"
         },
         {
-          "dep3" : "만족도조사 문항 불러오기",
+          "dep3" : "popup - 만족도조사 문항 불러오기",
           "name" : "WAP-CONT-0272",
           "url" : "./html/corp/WAP-CONT-0270.html?popup=WAP_CONT_0272"
         },

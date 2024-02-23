@@ -1967,7 +1967,10 @@ textarea {
     width: 42px;
   }
 }
-
+.flex-1 {
+  flex: 1;
+  -ms-flex: 1;
+}
 .flex-wrap {
   flex-wrap: wrap;
 }
