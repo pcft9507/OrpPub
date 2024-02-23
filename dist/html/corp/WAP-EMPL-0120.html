@@ -4161,60 +4161,23 @@
     <div class="layer-popup type-modal" data-ref="WAP-EMPL-0140">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
-      <h3 class="popup__title">지원서 불러오기</h3>
+      <h3 class="popup__title">자격증</h3>
     </div>
     <div class="popup__contents">
-      <div class="base-tab tab-type1" data-ref="tabContents1">
-        <ul class="tab__list" role="tablist">
-          <li class="tab__item">
-            <button role="tab" aria-selected="true">입사지원서</button>
-          </li>
-          <li class="tab__item">
-            <button role="tab" aria-selected="false">표준형지원서</button>
-          </li>
-        </ul>
-      </div>
-      <script>
-        const tabContents1 = new TabContents({target: 'tabContents1'});
-      </script>
+      <p><strong>지원자에게 자격증 목록을 제시하고 이 중에서 선택하여 작성할 수 있게 합니다.</strong></p>
 
       <div class="box-flex align-center content-mt3">
-        <div class="box-flex__cell">
-          <div class="dropdown" style="width: 112px;">
-            <button type="button" class="dropdown-btn" data-dropdown='{
-              "name": "alermSetSearchdropdown",
-              "type" : "single",
-              "option": [
-                {
-                  "name": "옵션1",
-                  "value": "val1",
-                  "disabled": false,
-                  "checked": false
-                },
-                {
-                  "name": "옵션2",
-                  "value": "val2",
-                  "disabled": false,
-                  "checked": false
-                },
-                {
-                  "name": "옵션3",
-                  "value": "val3",
-                  "disabled": false,
-                  "checked": false
-                }
-              ]
-            }'>검색항목</button> 
-          </div>
-        </div>
         <div class="box-flex__cell flex-1">
           <div class="input-box type-search h-full">
-            <input type="text" class="input-txt" placeholder="키워드를 입력하세요." oninput="inputValueChk()">
+            <input type="text" class="input-txt" placeholder="자격증 검색." oninput="inputValueChk()">
             <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
           </div>
         </div>
         <div class="box-flex__cell">
-          <button class="base-btn type1__size-m">검색</button>
+          <button class="base-btn type1__size-m">등록</button>
+        </div>
+        <div class="box-flex__cell">
+          <button class="base-btn type2__size-m">직접입력</button>
         </div>
       </div>
 
@@ -4254,7 +4217,7 @@
             { data: '자격증'},
               { data: '선택',
                 render: function() {
-                    return `<button class="base-btn type2__size-s">삭제</button>`
+                    return `<button class="base-btn type2__size-s pop-table-height">삭제</button>`
                   }
               }
             ],
@@ -4270,7 +4233,7 @@
         <p class="point-color5 tac">위 목록에 등록되지 않은 자격증을 지원자가 직접 입력하여 작성할 수 있습니다.</p>
         <div class="d-flex jc-c type-gap3 content-mt2">
           <label class="input-chk">
-            <input type="radio" name="sample">
+            <input type="radio" name="sample" checked>
             <span>예</span>
           </label>
           <label class="input-chk">
@@ -4290,6 +4253,109 @@
 <script>
   const WAP_EMPL_0140 = new LayerPopup({target: "WAP-EMPL-0140"});
 </script>;
+    <div class="layer-popup type-modal" data-ref="WAP-EMPL-0150">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">어학시험</h3>
+    </div>
+    <div class="popup__contents">
+      <p><strong>지원자에게 어학시험 목록을 제시하고 이 중에서 선택하여 작성할 수 있게 합니다.</strong></p>
+
+      <div class="box-flex align-center content-mt3">
+        <div class="box-flex__cell flex-1">
+          <div class="input-box type-search h-full">
+            <input type="text" class="input-txt" placeholder="자격증 검색." oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+        <div class="box-flex__cell">
+          <button class="base-btn type1__size-m">등록</button>
+        </div>
+        <div class="box-flex__cell">
+          <button class="base-btn type2__size-m">직접입력</button>
+        </div>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="table3" class="type-s type-line">
+            <colgroup>
+              <col style="width: 160px;">
+              <col>
+              <col style="width: 167px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">어학시험명</th>
+                <th scope="col">점수설정</th>
+                <th scope="col">등급설정</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $('#table3').DataTable({
+            data: [
+              {
+                '어학시험명': 'JLPT',
+                '등급설정': '<p class="point-color5">등급을 선택하세요</p>',
+              },
+              {
+                '어학시험명': 'TOEIC',
+                '등급설정': '5개중 5개 선택됨',
+              },
+            ],
+            columns: [
+              { data: '어학시험명'},
+              { data: '점수설정',
+                render: function() {
+                    return `<div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box">
+                        <input type="text" class="input-txt tac ph-0 pop-table-height">
+                      </div>점
+                      <span>~</span>
+                      <div class="input-box">
+                        <input type="text" class="input-txt tac ph-0 pop-table-height">
+                      </div>점
+                    </div>`
+                  }
+              },
+              { data: '등급설정'}
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          })
+        </script>
+      </div>
+
+      <div class="box-type3 content-mt3">
+        <p class="point-color5 tac">위 목록에 등록되지 않은 어학시험을 지원자가 직접 입력하여 작성할 수 있습니다.</p>
+        <div class="d-flex jc-c type-gap3 content-mt2">
+          <label class="input-chk">
+            <input type="radio" name="sample2" checked>
+            <span>예</span>
+          </label>
+          <label class="input-chk">
+            <input type="radio" name="sample2">
+            <span>아니오</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0150.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0150 = new LayerPopup({target: "WAP-EMPL-0150"});
+</script>;
   </div>
 
 <script>
@@ -4297,6 +4363,7 @@
   const pop = {
     "WAP_EMPL_0130" : ()=>{WAP_EMPL_0130.show()},
     "WAP_EMPL_0140" : ()=>{WAP_EMPL_0140.show()},
+    "WAP_EMPL_0150" : ()=>{WAP_EMPL_0150.show()},
   }
   if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   

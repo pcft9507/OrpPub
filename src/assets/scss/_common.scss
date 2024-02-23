@@ -270,6 +270,9 @@ hr {
   &.w-full {
     width: 100%;
   }
+  &.pop-table-height {
+    padding: 4px 16px;
+  }
 }
 .btn-toggle {
   cursor: pointer;
@@ -760,6 +763,9 @@ textarea {
     }
     &.pr-0 {
       padding-right: 0;
+    }
+    &.pop-table-height {
+      height: 32px;
     }
   }
   .btn-del {
