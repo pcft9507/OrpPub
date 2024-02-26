@@ -3,88 +3,30 @@
     <div class="popup__header">
       <h3 class="popup__title">평가요소 상세</h3>
     </div>
-    <div class="popup__contents popup__scroll-view">
-      <div class="form-row__flex" style="align-items:center;">
-        <div class="form-th no-pd" style="width: 130px;">제목</div>
-        <div class="form-td" style="width:100%;">
-          <div class="form-inner">
-            <div class="input-box" style="width: 100%;">
-              <input type="text" class="input-txt" placeholder="입력하세요">
-            </div>
-          </div>
-        </div>
+    <div class="popup__contents popup__scroll-view2">
+      <h4 class="chk-title">평가요소</h4>
+      <div class="box-type3 pop-ver">
+        <h5 class="pop-tit">논리적사고</h5>
+        <p class="pop-desc">주어진 정보들의 논리적 연계성을 명확히 파악하고, 명확한 논리적 근거를 바탕으로 합리적인 의견을 제시한다</p>
+        <ul class="dot-list">
+          <li>논리적 연계성 파악: 다양한 정보나 자료 간 연계성을 파악하여 논리적으로 설명한다</li>
+          <li>명확한 논리 제시: 논리적 모순에 빠지지 않고 일관된 맥락으로 자신의 의견을 제시한다</li>
+          <li>합리적 의견 제시: 타당한 논리적 근거를 바탕으로 어떤 현상에 대한 합리적인 의견을 제시한다</li>
+        </ul>
       </div>
-      <div class="form-row__flex" style="align-items:center;">
-        <div class="form-th no-pd" style="width: 130px;">카테고리</div>
-        <div class="form-td" style="width:100%;">
-          <div class="form-inner">
-            <div class="dropdown" style="width:100%">
-              <button type="button" class="dropdown-btn size-s"
-                      data-dropdown='{
-                  "name": "boardDropdown2",
-                  "type" : "single",
-                  "option": [
-                    {
-                      "name": "선택",
-                      "value": "선택",
-                      "disabled": false,
-                      "checked": true
-                    },
-                    {
-                      "name": "서류전형",
-                      "value": "서류전형",
-                      "disabled": false,
-                      "checked": false
-                    },
-                    {
-                      "name": "필기전형",
-                      "value": "필기전형",
-                      "disabled": false,
-                      "checked": false
-                    },
-                    {
-                      "name": "면접전형",
-                      "value": "면접전형",
-                      "disabled": false,
-                      "checked": false
-                    },
-                    {
-                      "name": "기타",
-                      "value": "기타",
-                      "disabled": false,
-                      "checked": false
-                    }
-                  ]
-                }'
-              >10개씩</button>
-              <script>
-                dropdown.init('dropdown', {
-                  name: 'boardDropdown2',
-                  onChange: _this=>{
-                    console.log(_this.value);
-                  }
-                });
-              </script>
-            </div>
-          </div>
-        </div>
+
+      <div class="box-type3 pop-ver">
+        <h5 class="pop-tit">리더십</h5>
+        <ul class="dot-list">
+          <li>하위요소 : 설명</li>
+          <li>평가자 가이드 : 평가자 가이드</li>
+        </ul>
       </div>
-      <div class="form-row__flex">
-        <div class="form-th no-pd" style="width: 130px;">내용</div>
-        <div class="form-td" style="width: 100%;">
-          <div class="form-inner">
-            <textarea class="textarea default-h" name="" id="" title="내용입력 하기" placeholder="입력하세요"></textarea>
-          </div>
-        </div>
-      </div>
+    <button class="btn-close" onclick="WAP_ASES_0031.hide()">닫기</button>
     </div>
     <div class="popup__btn-wrap">
-      <!--<button class="base-btn type1__size-m">등록</button>-->
-      <!-- 수정일 경우 버튼 명 저장 -->
-      <button class="base-btn type1__size-m">저장</button>
-
+      <button class="base-btn type2__size-m" onclick="WAP_ASES_0031.hide()">닫기</button>
     </div>
-    <button class="btn-close" onclick="WAP_ASES_0031.hide()">닫기</button>
   </section>
 </div>
 <script>

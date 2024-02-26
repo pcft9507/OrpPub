@@ -135,6 +135,11 @@ hr {
     border-radius: var(--radius2);
     background: var(--bg-color);
     &.type-pd2 {padding: 16px;}
+    &.pop-ver{
+      + .pop-ver{
+      margin-top:16px;
+    }
+    }
   }
   &-type4 {
     padding: 16px 24px;
@@ -240,6 +245,9 @@ hr {
   }
   &[class*="__size-s2"] {
     padding: 9px 30px;
+  }
+  &[class*="__size-s3"] {
+    padding: 6px 12px;
   }
   &[class*="__size-m"] {
     padding: 11.5px 19px 10.5px;
@@ -1309,6 +1317,10 @@ textarea {
   &__scroll-view {
     overflow: auto;
     max-height: 500px;
+  }
+  &__scroll-view2{
+    overflow: auto;
+    max-height: 552px;
   }
 }
 

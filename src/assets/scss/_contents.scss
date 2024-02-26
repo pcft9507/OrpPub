@@ -99,11 +99,18 @@
     &.type2 {
       width: 240px; height: 240px;
       img {max-width: 132px;}
+      &.whole{
+        img{
+          max-width:none;
+          width:100%;
+        }
+      }
     }
     &.type3 {
       width: 160px; height: 160px;
       img {max-width: 88px;}
     }
+
   }
   &__corp-cont {
     flex: 1;
@@ -894,6 +901,9 @@
                 display:block;
                 margin-bottom:8px;
               }
+              .c-badge{
+                margin-left:8px;
+              }
             }
 
             > .c-image-box{
@@ -939,6 +949,20 @@
               font-size:20px;
               font-weight:700;
               color:#222631;
+            }
+            .c-badge{
+              display:inline-flex;
+              padding:3px 8px;
+              font-size:16px;
+              font-weight:700;
+              color:var(--primary);
+              border-radius:4px;
+              background-color:var(--primary-light);
+
+              &.c-grey{
+                color:var(--gray);
+                background-color:var(--gray5);
+              }
             }
           }
         }
@@ -1096,7 +1120,7 @@
 .type-table{
   .rows{
     display:flex;
-    align-items:center;
+    align-items:flex-start;
     width:100%;
 
     + .rows{
@@ -1121,11 +1145,13 @@
   .cell{
     display:flex;
     justify-content:flex-start;
-    align-items:center;
+    align-items:flex-start;
+
 
     > .th{
       font-weight:700;
       line-height:1.5;
+      word-break:break-word;
 
       &.important > span {
         &::after{
@@ -1140,6 +1166,7 @@
       padding-left:4px;
       font-weight:400;
       line-height:1.5;
+      word-break:break-word;
     }
   }
 }
@@ -1263,6 +1290,135 @@
     }
   }
 }
+
+/* 선택 박스 */
+.member-select-box{
+  &.sticky-ver{
+    position:sticky;
+    top:100px;
+  }
+  background-color:var(--gray5);
+  border-radius:8px;
+  overflow:hidden;
+
+  .ms-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:26px 24px;
+    position:relative;
+
+    > span{
+      font-size:16px;
+      font-weight:700;
+    }
+
+    &::after{
+      content:'';
+      width:calc(100% - 48px);
+      height:1px;
+      position:absolute;
+      left:24px;
+      bottom:0;
+      background-color:var(--gray6);
+    }
+  }
+  .ms-list-box{
+    padding:18px 0;
+    height:calc(100vh - 368px);
+    overflow-y:auto;
+
+    > ul {
+      > li {
+        display:flex;
+        justify-content:space-between;
+        padding:10px 16px;
+        > div{
+          width:calc(100% - 71px);
+          display:flex;
+          align-items:center;
+          gap:8px;
+        }
+      }
+    }
+
+    .ms-image-box{
+      width:24px;
+      height:24px;
+      border-radius:50%;
+      overflow:hidden;
+
+      > img{
+        max-width:none;
+        width:100%;
+      }
+    }
+    .ms-user-info{
+      width:calc(100% - 32px);
+      display:inline-block;
+      font-size:14px;
+      font-weight:500;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      overflow:hidden;
+    }
+    .base-btn{font-size:10px;}
+  }
+
+  .btn-wrap{
+    margin-top:0;
+    padding:24px;
+  }
+
+}
+
+/* 닷 리스트 */
+.dot-list{
+  padding-left:8px;
+  > li {
+    padding-left:8px;
+    position:relative;
+    font-weight:400;
+    letter-spacing:-0.01rem;
+    &::before{
+      content:'';
+      width:4px;
+      height:4px;
+      position:absolute;
+      left:0;
+      top:8px;
+      border-radius:50%;
+      background-color:var(--black);
+    }
+  }
+}
+
+/* 팝업 박스 */
+.pop-tit{
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+.pop-desc{
+  font-size:14px;
+  font-weight:400;
+  margin-bottom:16px;
+}
+
+.td-front{
+  text-align:left;
+}
+
+.chk-title{
+  font-size:18px;
+  font-weight:700;
+  padding-left:32px;
+  margin-bottom:16px;
+  background:url($image-url + "ico-chk.svg") left 0 top 0;
+  background-repeat:no-repeat;
+}
+
 .error-page {
   margin-top: -150px;
   .ep {
