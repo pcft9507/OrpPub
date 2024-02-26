@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
+        <div class="header__info">
+          <div class="header__info__cell header__page-sort">
+            <span>관리자 페이지</span>
+          </div>
+          <ul class="header__info__cell header__list-count">
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">10건</span>
+            </li>
+            <li>
+              <span class="key">전체</span>
+              <span class="val point-color">8건</span>
+            </li>
+            <li>
+              <span class="key">계약만료</span>
+              <span class="val point-color">2건</span>
+            </li>
+          </ul>
+          <div class="header__info__cell header__input-search">
+            <div class="input-box type-search">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
+            </div>
+          </div>
+        </div>
+        <div class="header__util">
+          <a href="#">홍길동님</a>
+          <a href="#">도움말</a>
+          <a href="#">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    
+    <!-- container -->
+    <div class="container">
+      <!-- snb -->
+      <nav class="snb" data-ref="sideNav">
+        
+
+        
+
+        
+        
+        <div class="link-btn-wrap">
+          <button class="base-btn type2__size-s" onclick="WAP_ASES_0031.show();">
+            <span>GPT평가 보기</span>
+          </button>
+        </div>
+        
+        <ul class="snb__menu">
+          <li class="isCurrent">
+          <button
+                  type="button"
+                  class="snb__depth1--btn icon8 has-child"
+                  aria-expanded="true"
+          aria-controls="snbSubMenu1"
+          ><span>평가하기</span></button>
+          <div id="snbSubMenu1" class="snb__depth2 isOpen">
+          <ul>
+            <li class="isCurrent"><a href="WAP-ASES-0030.html">입사지원서</a></li>
+            <li><a href="">서류 평가요소</a></li>
+          </ul>
+          </div>
+          </li>
+          <li>
+          <button
+                  type="button"
+                  class="snb__depth1--btn icon9 has-child"
+                  aria-expanded="false"
+          aria-controls="snbSubMenu2"
+          ><span>협의/조정</span></button>
+          <div id="snbSubMenu2" class="snb__depth2">
+          <ul>
+            <li><a href="">평가자별점수열람</a></li>
+            <li><a href="">서류점수통계</a></li>
+          </ul>
+          </div>
+          </li>
+          <li><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon10">확인/제출</a></li>
+        </ul>
+        
+
+        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
+      </nav>
+      <script>
+        const sideNav = new SideNav({target: "sideNav"});
+      </script>
+      <!-- //snb -->
+
+      <div class="top-contents">
+        <div class="member-list-box">
+          <div class="swiper member-swiper">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide on">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">홍길동</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge state2">완료</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="member-box">
+                  <a href="#">
+                    <span class="s-badge">예정</span>
+                    <div class="m-wrap">
+                      <div class="m-image-box">
+                        <img src="../../assets/images/demo-user.png" alt="이미지">
+                      </div>
+                      <div class="m-desc-box">
+                        <span class="m-name">응시자7</span>
+                        <span class="m-num">01-000011</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+        <script>
+          var memberSwiper = new Swiper(".member-swiper", {
+            slidesPerView: "auto",
+            spaceBetween: 16,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+        </script>
+      </div>
+
+      <!-- contents -->
+      <div class="contents small-ver2 flex-ver" style="padding-bottom:64px;">
+        <div class="contents-divide1">
+          <div class="title d-flex jc-sb ai-c">
+            <h3 class="title-sub">면접 과제</h3>
+          </div>
+
+          <!-- 면접과제 슬라이드 -->
+          <div class="work-list-box">
+            <div class="work-swiper">
+              <ul class="swiper-wrapper">
+                <li class="swiper-slide">
+                  <div class="work-box">
+                    <a href="#">
+                      <div class="work-title-box">
+                        <p>개별과제</p>
+                        <span class="w-badge">총 30%</span>
+                      </div>
+                      <div class="work-desc-box">
+                        <p class="work-tit">1. 광고 개념정리</p>
+                        <p>: 아래 내용을 각각 서술하여 서면으로 제출</p>
+                        <ul class="dot-list">
+                          <li>내가 생각하는 광고란</li>
+                          <li>광고 홍보 선정의 차이점</li>
+                          <li>AEㆍCWㆍADㆍCD가 하는 일</li>
+                        </ul>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+                <li class="swiper-slide">
+                  <div class="work-box">
+                    <a href="#">
+                      <div class="work-title-box">
+                        <p>개별과제</p>
+                        <span class="w-badge state1">총 30%</span>
+                      </div>
+                      <div class="work-desc-box">
+                        <p class="work-tit">1. 광고 개념정리</p>
+                        <p>: 아래 내용을 각각 서술하여 서면으로 제출</p>
+                        <ul class="dot-list">
+                          <li>내가 생각하는 광고란</li>
+                          <li>광고 홍보 선정의 차이점</li>
+                          <li>AEㆍCWㆍADㆍCD가 하는 일</li>
+                        </ul>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <script>
+            var workSwiper = new Swiper(".work-swiper", {
+              slidesPerView: 1,
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+            });
+          </script>
+        </div>
+
+        <!-- 2. 평가점수 입력 -->
+        <div class="contents-divide2">
+          <div class="calc-box sticky-ver">
+            <div class="calc-top">
+              <ul>
+                <li>
+                  <p class="calc-title">리더십</p>
+                  <div class="dropdown" style="width:100%;">
+                    <button type="button" class="dropdown-btn type1"
+                            data-dropdown='{
+                  "name": "leadership",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "매우 좋음(5점)",
+                      "value": "매우 좋음(5점)",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+                    >선택하세요</button>
+                    <script>
+                      dropdown.init('dropdown', {
+                        name: 'headerDropdown',
+                        onChange: _this=>{
+                          console.log(_this.value);
+                        }
+                      });
+                    </script>
+                  </div>
+                </li>
+                <li>
+                  <p class="calc-title">전문지식</p>
+                  <div class="dropdown" style="width:100%;">
+                    <button type="button" class="dropdown-btn type1"
+                            data-dropdown='{
+                  "name": "expertKnowledge",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "매우 좋음(5점)",
+                      "value": "매우 좋음(5점)",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+                    >선택하세요</button>
+                    <script>
+                      dropdown.init('dropdown', {
+                        name: 'headerDropdown',
+                        onChange: _this=>{
+                          console.log(_this.value);
+                        }
+                      });
+                    </script>
+                  </div>
+                </li>
+                <li>
+                  <p class="calc-title">기획력</p>
+                  <div class="dropdown" style="width:100%;">
+                    <button type="button" class="dropdown-btn type1"
+                            data-dropdown='{
+                  "name": "planningAbility",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "중대형 프로젝트 가능(4점)",
+                      "value": "중대형 프로젝트 가능(4점)",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+                    >선택하세요</button>
+                    <script>
+                      dropdown.init('dropdown', {
+                        name: 'headerDropdown',
+                        onChange: _this=>{
+                          console.log(_this.value);
+                        }
+                      });
+                    </script>
+                  </div>
+                </li>
+                <li>
+                  <textarea placeholder="최종의견을 입력해주세요."></textarea>
+                </li>
+              </ul>
+              <div class="dropdown" style="width:100%;margin-top:12px;padding-top:12px;border-top:1px solid #E0E7ED;">
+                <button type="button" class="dropdown-btn type1"
+                        data-dropdown='{
+                  "name": "evaluation",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "최종의견선택",
+                      "value": "최종의견선택",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+                >선택하세요</button>
+                <script>
+                  dropdown.init('dropdown', {
+                    name: 'headerDropdown',
+                    onChange: _this=>{
+                      console.log(_this.value);
+                    }
+                  });
+                </script>
+              </div>
+              <div class="btn-type-wrap">
+                <button type="button">평가제외</button>
+                <button type="button">제적/회피</button>
+              </div>
+            </div>
+            <div class="total-score-box">
+              <span>총점</span>
+              <span><em>0.00</em>점</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- //contents -->
+      <div class="contents-nav type2">
+        <div class="contents-nav__inner">
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type2__size-m">목록으로</button>
+          </div>
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type1__size-m">저장</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //container -->
+    
+  </div>
+  <div class="layer-popup type-modal" data-ref="WAP-ASES-0031">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">평가요소 상세</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view2">
+      <h4 class="chk-title">평가요소</h4>
+      <div class="box-type3 pop-ver">
+        <h5 class="pop-tit">논리적사고</h5>
+        <p class="pop-desc">주어진 정보들의 논리적 연계성을 명확히 파악하고, 명확한 논리적 근거를 바탕으로 합리적인 의견을 제시한다</p>
+        <ul class="dot-list">
+          <li>논리적 연계성 파악: 다양한 정보나 자료 간 연계성을 파악하여 논리적으로 설명한다</li>
+          <li>명확한 논리 제시: 논리적 모순에 빠지지 않고 일관된 맥락으로 자신의 의견을 제시한다</li>
+          <li>합리적 의견 제시: 타당한 논리적 근거를 바탕으로 어떤 현상에 대한 합리적인 의견을 제시한다</li>
+        </ul>
+      </div>
+
+      <div class="box-type3 pop-ver">
+        <h5 class="pop-tit">리더십</h5>
+        <ul class="dot-list">
+          <li>하위요소 : 설명</li>
+          <li>평가자 가이드 : 평가자 가이드</li>
+        </ul>
+      </div>
+    <button class="btn-close" onclick="WAP_ASES_0031.hide()">닫기</button>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type2__size-m" onclick="WAP_ASES_0031.hide()">닫기</button>
+    </div>
+  </section>
+</div>
+<script>
+  const WAP_ASES_0031 = new LayerPopup({target: "WAP-ASES-0031"});
+</script>;
+
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_ASES_0031" : ()=>{WAP_ASES_0031.show()},
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>
