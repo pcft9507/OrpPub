@@ -145,8 +145,8 @@
         </div>
       </div>
       <!-- contents -->
-      <div class="contents asa">
-        <div class="contents-divide1">
+      <div class="contents flex-ver asa">
+        <div class="contents-divide1 ver2">
           <div class="page-title__wrap">
             <h3 class="title-sub">합격자 발표</h3>
           </div>
@@ -194,7 +194,7 @@
                       "value": "면접조",
                       "disabled": false,
                       "checked": false
-                    },
+                    }
                   ]
                 }'
                 >
@@ -210,7 +210,36 @@
                   });
                 </script>
               </div>
-
+              <div class="dropdown" style="width: 136px;">
+                <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "오름차순",
+                      "value": "오름차순",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "내림차순",
+                      "value": "내림차순",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+                >10개씩</button>
+                <script>
+                  dropdown.init('dropdown', {
+                    name: 'boardDropdown2',
+                    onChange: _this=>{
+                      console.log(_this.value);
+                    }
+                  });
+                </script>
+              </div>
               <div class="dropdown" style="width: 136px;">
                 <button type="button" class="dropdown-btn size-s"
                         data-dropdown='{
@@ -250,11 +279,11 @@
                   <col style="width: 56px;"/>
                   <col style="width: 56px;"/>
                   <col style="width: 100px;"/>
-                  <col style="width: 150px;"/>
+                  <col style="width: 100px;"/>
+                  <col style="width: 100px;"/>
                   <col/>
-                  <col style="width: 120px"/>
-                  <col style="width: 200px"/>
-                  <col style="width: 200px"/>
+                  <col/>
+                  <col/>
                 </colgroup>
                 <thead>
                 <tr>
@@ -265,12 +294,12 @@
                     </label>
                   </th>
                   <th scope="col">NO</th>
-                  <th scope="col">구분</th>
-                  <th scope="col">면접도구코드</th>
-                  <th scope="col">면접도구명</th>
-                  <th scope="col">평가요소</th>
-                  <th scope="col">최종등록</th>
-                  <th scope="col">최종수정정보</th>
+                  <th scope="col">응시자</th>
+                  <th scope="col">수험번호</th>
+                  <th scope="col">평가상태</th>
+                  <th scope="col" colspan="3">비고</th>
+                  <th scope="col" style="display:none;">비고</th>
+                  <th scope="col" style="display:none;">비고</th>
                 </tr>
                 </thead>
               </table>
@@ -279,32 +308,41 @@
               $('#table').DataTable({
                 data: [
                   {
-                    'NO': '6',
-                    '구분': '표준형',
-                    '면접도구코드': 'TD-PT-00066',
-                    '면접도구명': 'io 면접도구 5/16',
-                    '평가요소': ['논리적사고'],
-                    '최종등록': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
-                    '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                    'NO': '1',
+                    '응시자': '응시자7',
+                    '수험번호': '01-000011',
+                    '평가상태': '평가예정',
+                    '비고1': '',
+                    '비고2': '',
+                    '비고3': '',
                   },
                   {
-                    'NO': '6',
-                    '구분': '표준형',
-                    '면접도구코드': 'TD-PT-00066',
-                    '면접도구명': '상황면접',
-                    '평가요소': ['의사소통'],
-                    '최종등록': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
-                    '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                    'NO': '2',
+                    '응시자': '응시자6',
+                    '수험번호': '01-000011',
+                    '평가상태': '제적/회피',
+                    '비고1': '',
+                    '비고2': '',
+                    '비고3': '',
                   },
                   {
-                    'NO': '6',
-                    '구분': '표준형',
-                    '면접도구코드': 'TD-PT-00066',
-                    '면접도구명': '표준면접도구 불러오기 테스트 (논리적 사고력, 기획력, 목표설정, 질문)',
-                    '평가요소': ['논리적사고', '기획력', '목표설정'],
-                    '최종등록': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
-                    '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
-                  }
+                    'NO': '3',
+                    '응시자': '응시자5',
+                    '수험번호': '01-000011',
+                    '평가상태': '평가완료',
+                    '비고1': '',
+                    '비고2': '',
+                    '비고3': '',
+                  },
+                  {
+                    'NO': '4',
+                    '응시자': '응시자4',
+                    '수험번호': '01-000011',
+                    '평가상태': '평가제외',
+                    '비고1': '',
+                    '비고2': '',
+                    '비고3': '',
+                  },
                 ],
                 columns: [
                   {
@@ -320,57 +358,215 @@
                     }
                   },
                   { data: 'NO' },
-                  { data: '구분' },
-                  { data: '면접도구코드' },
-                  { data: '면접도구명',
+                  {
+                    data: '응시자',
                     render: function(data) {
-                      return `<span class="point-color">${data}</span>`
-                    }
+                      return `
+                      <div style="display:flex;align-items:center;gap:8px;">
+                        <span class="data-image" style="display:inline-flex;width:24px;height:24px;border-radius:50%;">
+                          <img src="../../assets/images/demo-user.png" alt="">
+                        </span>
+                        ${data}
+                      </div>
+                      `;
+                    },
                   },
-                  { data: '평가요소',
+                  { data: '수험번호' },
+                  { data: '평가상태',
                     render: function(data) {
-                      let temp = '';
-                      if(data.length > 1) {
-                        for(let idx = 0; idx < data.length; idx++) {
-                          if(idx < data.length - 1) {
-                            temp += `${data[idx]}<br>`
-                          } else {
-                            temp += data[idx]
-                          }
-                        }
+                      let temp;
+                      if (data === '평가예정') {
+                        temp = `<span class="point-color6">${data}</span>`;
+                      } else if (data === '제적/회피') {
+                        temp = `<span class="point-color4">${data}</span>`;
+                      } else if (data === '평가완료') {
+                        temp = `<span class="point-color3">${data}</span>`;
+                      } else if (data === '평가제외') {
+                        temp = `<span class="point-color1">${data}</span>`;
                       } else {
-                        temp = data[0]
+                        temp = data;
                       }
+
                       return temp;
                     }
                   },
-                  { data: '최종등록',
+                  {
+                    data: '비고1',
                     render: function(data) {
-                      return `
-                      <div>${data[0]}</div>
-                      <div class="font-size-s">${data[1]}</div>
-                    `
-                    }
+                      return `비고 1 : ${data}`; // "말머리" 텍스트 추가
+                    },
+                    className: 'td-front',
                   },
-                  { data: '최종수정정보',
+                  {
+                    data: '비고2',
                     render: function(data) {
-                      return `
-                      <div>${data[0]}</div>
-                      <div class="font-size-s">${data[1]}</div>
-                    `
-                    }
-                  }
+                      return `비고 2 : ${data}`; // "말머리" 텍스트 추가
+                    },
+                    className: 'td-front',
+                  },
+                  {
+                    data: '비고3',
+                    render: function(data) {
+                      return `비고 3 : ${data}`; // "말머리" 텍스트 추가
+                    },
+                    className: 'td-front',
+                  },
                 ],
                 paging: false,
                 searching: false,
                 showing: false,
-                info: false
+                info: false,
               });
             </script>
           </div>
         </div>
-        <div class="contents-divide2">
-
+        <div class="contents-divide2 ver2">
+          <div class="member-select-box sticky-ver">
+            <div class="ms-top">
+              <span>2명 선택됨</span>
+              <button type="button" class="base-icon icon-reset__size-s__color3 point-color5">초기화</button>
+            </div>
+            <div class="ms-list-box">
+              <ul>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)응시자6  (01-000011)응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)응시자6  (01-000011)응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)응시자6  (01-000011)응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)응시자6  (01-000011)응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)응시자6  (01-000011)응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)응시자6  (01-000011)응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)응시자6  (01-000011)응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)응시자6  (01-000011)응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+                <li>
+                  <div>
+                    <div class="ms-image-box"><img src="../../assets/images/demo-user.png" alt=""></div>
+                    <span class="ms-user-info">응시자6  (01-000011)</span>
+                  </div>
+                  <button class="base-btn type2__size-s3">선택취소</button>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-wrap">
+                <button class="base-btn type1__size-s" style="width:100%;">평가하기</button>
+            </div>
+          </div>
         </div>
 
       </div>

@@ -237,6 +237,10 @@
     }
   }
 
+  &.small-ver2{
+    padding-top:24px;
+  }
+
   &.flex-ver{
     display:flex;
     gap:27px;
@@ -245,7 +249,7 @@
   .contents-divide1{
     width:80%;
     &.ver2{
-      width:85%;
+      width:75%;
     }
   }
 
@@ -253,7 +257,8 @@
     width:20%;
     min-width:246px;
     &.ver2{
-      width:15%;
+      width:25%;
+      min-width:280px;
     }
   }
 }
