@@ -3354,6 +3354,9 @@ textarea.default-h2 {
 .contents.small-ver .box-type1 + .box-type8 {
   margin-top: 24px;
 }
+.contents.small-ver2 {
+  padding-top: 24px;
+}
 .contents.flex-ver {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4563,6 +4566,7 @@ textarea.default-h2 {
   text-align: center;
 }
 
+/* 카드 디자인 슬라이드 */
 .card-swiper-box {
   margin-left: auto;
   margin-right: auto;
@@ -4715,6 +4719,7 @@ textarea.default-h2 {
   padding-top: 0;
 }
 
+/* 상단 회원 슬라이드 */
 .member-list-box {
   padding: 14px 55px 32px 24px;
   position: relative;
@@ -4798,6 +4803,11 @@ textarea.default-h2 {
   color: var(--primary);
   border-radius: 6px;
   background-color: var(--primary-light);
+  /* s-badge - 완료 */
+}
+.member-box .s-badge.state2 {
+  background-color: var(--green2);
+  color: var(--green);
 }
 .member-box .m-desc-box > span {
   display: block;
@@ -4821,6 +4831,130 @@ textarea.default-h2 {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
+}
+
+/* 면접과제 슬라이드 */
+.work-list-box {
+  padding: 85px 98px;
+  position: relative;
+  overflow: hidden;
+  /* 스와이퍼 버튼 위치 */
+}
+.work-list-box .swiper-button-prev {
+  left: 0 !important;
+  width: 50px;
+  height: 50px;
+  background: url("../images/ico-swiper-prev.svg") center center no-repeat;
+  background-size: 50px;
+}
+.work-list-box .swiper-button-prev::after {
+  display: none;
+}
+.work-list-box .swiper-button-next {
+  right: 0 !important;
+  width: 50px;
+  height: 50px;
+  background: url("../images/ico-swiper-next.svg") center center no-repeat;
+  background-size: 50px;
+}
+.work-list-box .swiper-button-next::after {
+  display: none;
+}
+
+.work-swiper {
+  overflow: hidden;
+}
+
+.work-box {
+  background-color: var(--white);
+  border-radius: 16px;
+  height: 436px;
+}
+.work-box > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 80px;
+  height: 100%;
+  padding: 40px 80px;
+}
+.work-box .work-title-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 10%;
+  min-width: 81px;
+}
+.work-box .work-title-box > p {
+  font-size: 22px;
+  font-weight: 700;
+}
+.work-box .work-title-box > .w-badge {
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  padding: 3px 8px 4px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--red);
+  border-radius: 4px;
+  background-color: var(--red2);
+}
+.work-box .work-desc-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 90%;
+  height: 100%;
+  padding: 32px;
+  background-color: var(--primary-light);
+  border-radius: 16px;
+}
+.work-box .work-desc-box .work-tit {
+  font-size: 20px;
+  font-weight: 700;
+}
+.work-box .work-desc-box .work-tit + p {
+  margin-top: 8px;
+  font-weight: 400;
+  color: #707070;
+}
+.work-box .work-desc-box .dot-list {
+  padding-left: 9px;
+  margin-top: 16px;
+}
+.work-box .work-desc-box .dot-list > li {
+  font-size: 16px;
+  padding-left: 9px;
+}
+.work-box .work-desc-box .dot-list > li::before {
+  top: 10px;
 }
 
 .type-table .rows {

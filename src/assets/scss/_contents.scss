@@ -869,6 +869,7 @@
   }
 }
 
+/* 카드 디자인 슬라이드 */
 .card-swiper-box{
   margin-left:auto;
   margin-right:auto;
@@ -1017,6 +1018,7 @@
   }
 }
 
+/* 상단 회원 슬라이드 */
 .member-list-box{
   padding:14px 55px 32px 24px;
   position:relative;
@@ -1057,7 +1059,6 @@
     }
   }
 }
-
 .member-box{
   min-width:192px;
   height:118px;
@@ -1087,6 +1088,12 @@
     color:var(--primary);
     border-radius:6px;
     background-color:var(--primary-light);
+
+    /* s-badge - 완료 */
+    &.state2{
+      background-color:var(--green2);
+      color:var(--green);
+    }
   }
 
   .m-desc-box{
@@ -1113,6 +1120,113 @@
     >img{
       object-fit:cover;
       display:block;
+    }
+  }
+}
+
+/* 면접과제 슬라이드 */
+.work-list-box{
+  padding:85px 98px;
+  position:relative;
+  overflow:hidden;
+
+  /* 스와이퍼 버튼 위치 */
+  .swiper-button-prev{
+    left:0!important;
+    width:50px;
+    height:50px;
+    background:url($image-url + "ico-swiper-prev.svg") center center no-repeat;
+    background-size:50px;
+    &::after {
+      display:none;
+    }
+  }
+  .swiper-button-next{
+    right:0!important;
+    width:50px;
+    height:50px;
+    background:url($image-url + "ico-swiper-next.svg") center center no-repeat;
+    background-size:50px;
+    &::after {
+      display:none;
+    }
+  }
+
+}
+.work-swiper{
+  overflow:hidden;
+}
+.work-box{
+  background-color:var(--white);
+  border-radius:16px;
+  height:436px;
+
+  > a{
+    display:flex;
+    align-items:center;
+    gap:80px;
+    height:100%;
+    padding:40px 80px;
+  }
+
+  .work-title-box{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:10%;
+    min-width:81px;
+    > p{
+      font-size:22px;
+      font-weight:700;
+    }
+
+    > .w-badge{
+      display:inline-block;
+      width:fit-content;
+      text-align:center;
+      padding:3px 8px 4px;
+      margin-top:8px;
+      font-size:16px;
+      font-weight:700;
+      color:var(--red);
+      border-radius:4px;
+      background-color:var(--red2);
+    }
+  }
+  .work-desc-box{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:flex-start;
+    width:90%;
+    height:100%;
+    padding:32px;
+    background-color:var(--primary-light);
+    border-radius:16px;
+
+    .work-tit{
+      font-size:20px;
+      font-weight:700;
+
+      + p{
+        margin-top:8px;
+        font-weight:400;
+        color:#707070;
+      }
+    }
+
+    .dot-list{
+      padding-left:9px;
+      margin-top:16px;
+      > li{
+        font-size:16px;
+        padding-left:9px;
+
+        &::before{
+          top:10px;
+        }
+      }
     }
   }
 }

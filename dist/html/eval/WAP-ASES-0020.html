@@ -358,7 +358,19 @@
                     }
                   },
                   { data: 'NO' },
-                  { data: '응시자' },
+                  {
+                    data: '응시자',
+                    render: function(data) {
+                      return `
+                      <div style="display:flex;align-items:center;gap:8px;">
+                        <span class="data-image" style="display:inline-flex;width:24px;height:24px;border-radius:50%;">
+                          <img src="../../assets/images/demo-user.png" alt="">
+                        </span>
+                        ${data}
+                      </div>
+                      `;
+                    },
+                  },
                   { data: '수험번호' },
                   { data: '평가상태',
                     render: function(data) {
