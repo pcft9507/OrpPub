@@ -419,6 +419,16 @@
           "url" : "./html/corp/WAP-EMPL-0350.html"
         },
         {
+          "dep4" : "평가요소불러오기(표준형)",
+          "name" : "WAP-EMPL-0351",
+          "url" : "./html/corp/WAP-EMPL-0350.html?popup=WAP_EMPL_0351"
+        },
+        {
+          "dep4" : "평가요소불러오기(맞춤형)",
+          "name" : "WAP-EMPL-0352",
+          "url" : "./html/corp/WAP-EMPL-0350.html?popup=WAP_EMPL_0352"
+        },
+        {
           "dep4" : "평가자",
           "name" : "WAP-EMPL-0360",
           "url" : "./html/corp/WAP-EMPL-0360.html"

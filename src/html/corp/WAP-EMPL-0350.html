@@ -333,9 +333,17 @@
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
+
+    @@include('../html/corp/WAP-EMPL-0351.html');
+    @@include('../html/corp/WAP-EMPL-0352.html');
   </div>
 <script>
+  const pop = {
+    "WAP_EMPL_0351" : ()=>{WAP_EMPL_0351.show()},
+    "WAP_EMPL_0352" : ()=>{WAP_EMPL_0352.show()}
+  }
+  if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+
   // 평가요소
   const controlWrap1 = new ControlAddItem({
     target: 'tabContents1'

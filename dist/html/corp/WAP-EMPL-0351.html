@@ -1,0 +1,209 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0351">
+  <section class="popup__container popup__size-l">
+    <div class="popup__header">
+      <h3 class="popup__title">불러오기</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <div class="box-flex">
+        <div class="box-flex__cell" style="flex: 1;">
+          <div class="input-box type-search" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="도구를 입력하세요." oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+        <div class="box-flex__cell box-flex">
+          <button class="base-btn type1__size-m">검색</button>
+        </div>
+      </div>
+
+      <div class="base-tab tab-type1 content-mt4" data-ref="popTabContents">
+        <ul class="tab__list" role="tablist">
+          <li class="tab__item">
+            <button role="tab" aria-selected="true">표준형(23)</button>
+          </li>
+          <li class="tab__item">
+            <button role="tab" aria-selected="false">맞춤형(23)</button>
+          </li> 
+        </ul>
+      </div>
+
+      <script>
+        const popTabContents = new TabContents({target: 'popTabContents'});
+      </script>
+
+      <div class="board-body content-mt2">
+        <div class="table table-type1">
+          <table id="popupTable1" class="type-line">
+            <colgroup>
+              <col style="width: 64px;">
+              <col style="width: 44px;">
+              <col style="width: auto;">
+              <col style="width: 110px;">
+              <col style="width: 110px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>선택</th>
+                <th>번호</th>
+                <th>채용공고명</th>
+                <th>채용분야명</th>
+                <th>채용전형명</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0"></tbody>
+          </table>
+        </div>
+        <script>
+          $('#popupTable1').DataTable({
+            data: [
+              {
+                '번호': '10',
+                '채용공고명': '각 부문 신입/경력사원 모집',
+                '채용분야명' : '인턴',
+                '채용전형명' : '팀장면접'
+              },
+              {
+                '번호': '9',
+                '채용공고명': '[AI음성기술전문] Linux C/C++ 개발자(경력)',
+                '채용분야명' : '선임/검사 컨설턴트',
+                '채용전형명' : '실무면접'
+              },
+              {
+                '번호': '8',
+                '채용공고명': '모바일App개발자 (andrioid)',
+                '채용분야명' : '인턴',
+                '채용전형명' : '실무면접'
+              },
+              {
+                '번호': '7',
+                '채용공고명': '모바일App개발자 (andrioid)',
+                '채용분야명' : '인턴',
+                '채용전형명' : '실무면접'
+              },
+              {
+                '번호': '6',
+                '채용공고명': '모바일App개발자 (andrioid)',
+                '채용분야명' : '인턴',
+                '채용전형명' : '실무면접'
+              }
+            ],
+            columns: [
+              {
+                data: '',
+                render: function() {
+                  return `
+                    <label class="input-chk">
+                      <input type="radio" name="sample">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  `
+                }
+              },
+              { data: '번호' },
+              { data: '채용공고명' },
+              { data: '채용분야명' },
+              { data: '채용전형명' }
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          });
+        </script>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="popupTable2" class="type-line">
+            <colgroup>
+              <col style="width: 64px;">
+              <col style="width: 68px;">
+              <col style="width: 100px;">
+              <col style="width: auto;">
+              <col style="width: 200px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem" value="chkAll" onchange="inputCheckAll('chkItem')">
+                    <span class="isHidden">선택</span>
+                  </label>
+                </th>
+                <th>면접유형</th>
+                <th>구분</th>
+                <th>도구명</th>
+                <th>평가요소</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <script>
+          $('#popupTable2 ').DataTable({
+            data: [
+              {
+                '면접유형': '상황면접',
+                '구분': '표준형',
+                '도구명' : '논리적사고도구',
+                '평가요소' : '논리적 사고 기획력 목표설정'
+              },
+              {
+                '면접유형': '발표면접',
+                '구분': '맞춤형',
+                '도구명' : '의사소통도구',
+                '평가요소' : '의사소통'
+              },
+              {
+                '면접유형': '발표면접',
+                '구분': '맞춤형',
+                '도구명' : '의사소통도구',
+                '평가요소' : '의사소통'
+              },
+              {
+                '면접유형': '발표면접',
+                '구분': '맞춤형',
+                '도구명' : '의사소통도구',
+                '평가요소' : '의사소통'
+              },
+              {
+                '면접유형': '발표면접',
+                '구분': '맞춤형',
+                '도구명' : '의사소통도구',
+                '평가요소' : '의사소통'
+              },
+            ],
+            columns: [
+              {
+                data: '',
+                render: function() {
+                  return `
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  `
+                }
+              },
+              { data: '면접유형' },
+              { data: '구분' },
+              { data: '도구명' },
+              { data: '평가요소' }
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          });
+        </script>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0351.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0351 = new LayerPopup({target: "WAP-EMPL-0351"});
+</script>
