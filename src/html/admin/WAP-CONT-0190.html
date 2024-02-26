@@ -65,8 +65,18 @@
       </div>
 
       <div class="form-row">
-        <h5 class="title-sub2 fz-inherit">평가요소</h5>
-        <div class="form-inner">
+        <div class="d-flex jc-sb ai-c">
+          <h5 class="title-sub2 fz-inherit">평가요소</h5>
+          <div class="d-flex type-gap">
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-add__color1__size-s">추가</span>
+            </button>
+            <button class="base-btn type2__size-s" id="directInputBtn">
+              <span class="base-icon">직접입력</span>
+            </button>            
+          </div>
+        </div>
+        <div class="form-inner content-mt1">
           <button type="button" class="dropdown-btn ellipsis size-s"
             data-dropdown='{
               "name": "evaluation-factors",
@@ -99,15 +109,8 @@
               ]
             }'
           >선택하세요</button>
-          <button class="base-btn type2__size-s">
-            <span class="base-icon icon-add__color1__size-s">추가</span>
-          </button>
-          <button class="base-btn type2__size-s" id="directInputBtn">
-            <span class="base-icon">직접입력</span>
-          </button>
         </div>
       </div>
-
       <div class="ee-info-wrap"></div>
 
       <div class="form-row">
