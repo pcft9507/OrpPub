@@ -1,0 +1,135 @@
+<div class="layer-popup type-modal" data-ref="WAP-CONT-0273">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">척도 불러오기</h3>
+    </div>
+    <div class="popup__contents">
+      <div class="box-flex">
+        <div class="box-flex__cell" style="flex: 1;">
+          <div class="input-box type-search" style="width: 100%;">
+            <input type="text" id="inputField" class="input-txt" placeholder="채용명을 입력하세요." oninput="inputValueChk()" onkeydown="if(event.key === 'Enter'){event.preventDefault(); addTag();}">
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+        <div class="box-flex__cell box-flex">
+          <button class="base-btn type1__size-m" onclick="addTag()">추가</button>
+        </div>
+      </div>
+
+      <div id="loadTagBox" class="tag__box content-mt2"></div>
+            
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="tableCont0273" class="type-s type-line">
+            <colgroup>
+              <col style="width: 50px"/>
+              <col style="width: 50px"/>
+              <col style="width: 80px"/>
+              <col style="width: 120px"/>
+              <col style="width: auto">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem" value="chkAll" onchange="inputCheckAll('chkItem')">
+                    <span class="isHidden">선택</span>
+                  </label>
+                </th>
+                <th scope="col">번호</th>
+                <th scope="col">척도코드</th>
+                <th scope="col">척도명</th>
+                <th scope="col">척도구간</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+        </div>
+
+        <script>
+          $('#tableCont0273').DataTable({
+            data: [
+              {
+                '번호': '23',
+                '척도코드': '100',
+                '척도명': '3구간 척도',
+                '척도구간': ''
+              },
+              {
+                '번호': '23',
+                '척도코드': '100',
+                '척도명': '3구간 척도',
+                '척도구간': ''
+              },
+            ],
+            columns: [
+              { data: '선택',
+                render: function() {
+                    return `
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                    `
+                  }
+              },
+              { data: '번호'},
+              { data: '척도코드'},
+              { data: '척도명'},
+              { data: '척도구간'}
+            ],
+            columnDefs: [
+              {
+                "targets": 3, // 'name' 열의 인덱스. 첫 번째 열이라면 0, 두 번째 열이라면 1을 설정합니다.
+                "render": function(data, type, row) {
+                  // data는 현재 셀의 데이터, type은 처리 유형, row는 현재 행의 전체 데이터입니다.
+                  return data ? data : `<div class="input-box" style="width: 100%;">
+                      <input type="text" class="input-txt" placeholder="입력하는 부분입니다." oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>`; // 데이터가 있으면 그대로 반환, 없으면 'N/A' 반환
+                }
+              }
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          })
+        </script>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">사용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_CONT_0273.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_CONT_0273 = new LayerPopup({target: "WAP-CONT-0273"});
+
+  function addTag() {
+    const inputField = document.querySelector('#inputField');
+    const inputValue = inputField.value.trim();
+
+    if (inputValue) {
+      // 여기서 '#tag__box'를 '#loadTagBox'로 수정해야 합니다.
+      const tagBox = document.querySelector('#loadTagBox');
+      const newTag = document.createElement('div');
+      newTag.classList.add('tag__item', 'tag__item--type1');
+      newTag.innerHTML = `
+        <span class="txt">${inputValue}</span>
+        <button type="button" class="del" onclick="removeTag(this)">신입</button>
+      `;
+
+      tagBox.appendChild(newTag);
+      inputField.value = ''; // 입력 필드 초기화
+    }
+  }
+
+  function removeTag(button) {
+    const tagItem = button.closest('.tag__item');
+    tagItem.remove();
+  }
+</script>
