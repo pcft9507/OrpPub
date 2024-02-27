@@ -166,6 +166,19 @@
         onConfirm: ()=>console.log('confirm'),
         onCancel: ()=>console.log('cancel')
       })
+      
+      /**
+      * 데이트피커
+      */
+      // 선택자 초기화 후 달력 설정
+      const datepicker = document.getElementById('calendar');
+      const calendar = new Datepicker(datepicker, {
+        ...CALENDAR_DEFAULT_OPTION,
+        ...{
+          "minDate": "2000.12.06",   // 선택가능 날짜 최소범위
+          "maxDate": "2024.12.20",   // 선택가능 날짜 최대범위
+        }
+      });
 
       /**
       * class CreateTag - 태그 생성 스크립트
