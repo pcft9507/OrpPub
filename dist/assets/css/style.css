@@ -5666,4 +5666,13 @@ textarea.default-h2 {
   display: block;
   height: 286px;
 }
+
+.pop-esr .hide-form-inner .form-inner {
+  display: none;
+}
+.pop-esr .hide-form-inner .form-inner.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 /*# sourceMappingURL=style.css.map */

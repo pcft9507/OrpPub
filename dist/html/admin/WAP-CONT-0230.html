@@ -533,7 +533,7 @@
     <!-- //container -->
     
   </div>
-  <div class="layer-popup type-modal" data-ref="WAP-CONT-0240">
+  <div class="layer-popup type-modal pop-esr" data-ref="WAP-CONT-0240">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
       <h3 class="popup__title">평가척도 등록</h3>
@@ -541,7 +541,7 @@
         <h3 class="popup__title">평가척도 수정</h3>
        -->
     </div>
-    <div class="popup__contents popup__scroll-view" style="max-height: 485px;">
+    <div class="popup__contents popup__scroll-view">
 
       <div class="form-row">
         <h4 class="title-sub2">척도명</h4>
@@ -569,6 +569,12 @@
                 "type" : "single",
                 "option": [
                   {
+                    "name": "1",
+                    "value": "1",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
                     "name": "2",
                     "value": "2",
                     "disabled": false,
@@ -579,43 +585,165 @@
                     "value": "3",
                     "disabled": false,
                     "checked": true
+                  },
+                  {
+                    "name": "4",
+                    "value": "4",
+                    "disabled": false,
+                    "checked": true
+                  },
+                  {
+                    "name": "5",
+                    "value": "5",
+                    "disabled": false,
+                    "checked": true
+                  },
+                  {
+                    "name": "6",
+                    "value": "6",
+                    "disabled": false,
+                    "checked": true
+                  },
+                  {
+                    "name": "7",
+                    "value": "7",
+                    "disabled": false,
+                    "checked": true
+                  },
+                  {
+                    "name": "8",
+                    "value": "8",
+                    "disabled": false,
+                    "checked": true
+                  },
+                  {
+                    "name": "9",
+                    "value": "9",
+                    "disabled": false,
+                    "checked": true
+                  },
+                  {
+                    "name": "10",
+                    "value": "10",
+                    "disabled": false,
+                    "checked": true
                   }
                 ]
               }'
             >선택하세요</button>
           </div>
         </div>
-        <div class="form-inner type-mt2">
-          <div style="width: 38px;">1점</div>
-          <div class="input-box" style="width: 140px;">
-            <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="미흡">
-            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+
+        <div class="hide-form-inner content-mt2">
+          <div class="form-inner active type-mt2">
+            <div style="width: 38px;">1점</div>
+            <div class="input-box" style="width: 140px;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="미흡">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-box" style="flex: 1;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 거의 드러나지 않음">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
           </div>
-          <div class="input-box" style="flex: 1;">
-            <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 거의 드러나지 않음">
-            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          <div class="form-inner type-mt2">
+            <div style="width: 38px;">2점</div>
+            <div class="input-box" style="width: 140px;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="양호">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-box" style="flex: 1;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 중간정도 드러남">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
           </div>
-        </div>
-        <div class="form-inner type-mt2">
-          <div style="width: 38px;">2점</div>
-          <div class="input-box" style="width: 140px;">
-            <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="양호">
-            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          <div class="form-inner type-mt2">
+            <div style="width: 38px;">3점</div>
+            <div class="input-box" style="width: 140px;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="탁월">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-box" style="flex: 1;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 매우 많이 드러남">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
           </div>
-          <div class="input-box" style="flex: 1;">
-            <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 중간정도 드러남">
-            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          <div class="form-inner type-mt2">
+            <div style="width: 38px;">4점</div>
+            <div class="input-box" style="width: 140px;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="탁월">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-box" style="flex: 1;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 매우 많이 드러남">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
           </div>
-        </div>
-        <div class="form-inner type-mt2">
-          <div style="width: 38px;">3점</div>
-          <div class="input-box" style="width: 140px;">
-            <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="탁월">
-            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          <div class="form-inner type-mt2">
+            <div style="width: 38px;">5점</div>
+            <div class="input-box" style="width: 140px;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="탁월">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-box" style="flex: 1;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 매우 많이 드러남">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
           </div>
-          <div class="input-box" style="flex: 1;">
-            <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 매우 많이 드러남">
-            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          <div class="form-inner type-mt2">
+            <div style="width: 38px;">6점</div>
+            <div class="input-box" style="width: 140px;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="탁월">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-box" style="flex: 1;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 매우 많이 드러남">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+          </div>
+          <div class="form-inner type-mt2">
+            <div style="width: 38px;">7점</div>
+            <div class="input-box" style="width: 140px;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="탁월">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-box" style="flex: 1;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 매우 많이 드러남">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+          </div>
+          <div class="form-inner type-mt2">
+            <div style="width: 38px;">8점</div>
+            <div class="input-box" style="width: 140px;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="탁월">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-box" style="flex: 1;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 매우 많이 드러남">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+          </div>
+          <div class="form-inner type-mt2">
+            <div style="width: 38px;">9점</div>
+            <div class="input-box" style="width: 140px;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="탁월">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-box" style="flex: 1;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 매우 많이 드러남">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+          </div>
+          <div class="form-inner type-mt2">
+            <div style="width: 38px;">10점</div>
+            <div class="input-box" style="width: 140px;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급명" oninput="inputValueChk()" value="탁월">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <div class="input-box" style="flex: 1;">
+              <input type="text" class="input-txt font-weight-s" placeholder="등급 설명" oninput="inputValueChk()" value="평가지표의 증거가 매우 많이 드러남">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
           </div>
         </div>
       </div>
@@ -639,6 +767,30 @@
 </div>
 <script>
   const WAP_CONT_0240 = new LayerPopup({target: "WAP-CONT-0240"});
+
+  // 척도구분 드롭다운 콜백
+  dropdown.init('dropdown', {
+    name: 'pointSortDropdown',
+    onChange: (_this)=>{ 
+      const formArray = document.querySelectorAll('.hide-form-inner .form-inner');
+      // 모든 요소에서 'active' 클래스 제거
+      formArray.forEach(function(formElement) {
+        formElement.classList.remove('active');
+      });
+
+      // _this.value를 숫자로 변환하여 인덱스로 사용
+      const index = parseInt(_this.value, 10);
+
+      // 유효한 숫자인지 확인 후, 해당 인덱스까지 모든 요소에 'active' 클래스 추가
+      if (!isNaN(index)) {
+        for (let i = 0; i < index; i++) {
+          if (formArray[i]) { // 유효한 요소가 있는지 확인
+              formArray[i].classList.add('active');
+          }
+        }
+      }
+    }
+  })
 </script>;
   <div class="layer-popup type-modal" data-ref="WAP-CONT-0250">
   <section class="popup__container popup__size-m">
