@@ -735,6 +735,11 @@
           "url" : "./html/eval/WAP-ASES-0030.html?popup=WAP_ASES_0031"
         },
         {
+          "dep2" : "평가하기(서류,면접평가리포트)",
+          "name" : "WAP-ASES-0034",
+          "url" : "./html/eval/WAP-ASES-0034.html"
+        },
+        {
           "dep2" : "평가하기(면접과제)",
           "name" : "WAP-ASES-0036",
           "url" : "./html/eval/WAP-ASES-0036.html"
