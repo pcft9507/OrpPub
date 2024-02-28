@@ -1663,7 +1663,6 @@ textarea {
       color: var(--primary);
       text-decoration: underline;
     }
-    word-break: break-all;
   }
   .btn-toggle-show {
     width: 24px; height: 24px;
@@ -1697,6 +1696,9 @@ textarea {
       &.selected-row {
         background: #dadde5;
       }
+    }
+    td {
+      word-break: break-all;
     }
   }
 }
