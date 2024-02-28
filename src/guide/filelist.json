@@ -547,6 +547,11 @@
           "name" : "WAP-CONT-0273",
           "url" : "./html/corp/WAP-CONT-0270.html?popup=WAP_CONT_0273"
         },
+        {
+          "dep3" : "popup - 만족도조사미리보기",
+          "name" : "WAP-CONT-0274",
+          "url" : "./html/corp/WAP-CONT-0270.html?popup=WAP_CONT_0274"
+        },        
         { 
           "dep1" : "기업정보",
           "name" : "WAP-CORP-0022",

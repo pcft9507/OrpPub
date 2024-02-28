@@ -381,6 +381,10 @@ a.reset_time {
   font-size: 16px;
 }
 
+.font-size-xl {
+  font-size: 18px;
+}
+
 .font-weight-s {
   font-weight: 400;
 }
