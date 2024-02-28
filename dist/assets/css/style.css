@@ -2418,6 +2418,9 @@ textarea.default-h2 {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.table .td {
+  word-break: break-all;
+}
 .table .td--category {
   color: var(--font-color4);
 }
