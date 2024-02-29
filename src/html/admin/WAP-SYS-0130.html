@@ -1,0 +1,276 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "관리자", dep1: "3", dep2: "3"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">권한 관리</h3>
+
+        <!-- 검색영역 -->
+        <div class="box-type1" style="padding-top:24px;">
+          <div class="type-table2">
+            <table>
+              <colgroup>
+                <col style="width:116px;">
+                <col style="width:calc(50% - 116px);">
+                <col style="width:116px;">
+                <col style="width:calc(50% - 116px);">
+              </colgroup>
+              <tbody>
+              <tr>
+                <th><div class="th-wrap">구분</div></th>
+                <td>
+                  <div class="td-wrap">
+                    <div class="dropdown" style="width: 100%;">
+                    <button type="button" class="dropdown-btn"
+                            data-dropdown='{
+                              "name": "selCate",
+                              "type" : "single",
+                              "option": [
+                                {
+                                  "name": "선택",
+                                  "value": "선택",
+                                  "disabled": false,
+                                  "checked": false
+                                },
+                                {
+                                  "name": "MASTER",
+                                  "value": "MASTER",
+                                  "disabled": false,
+                                  "checked": false
+                                },
+                                {
+                                  "name": "ORP",
+                                  "value": "ORP",
+                                  "disabled": false,
+                                  "checked": true
+                                },
+                                {
+                                  "name": "외부관리자(채용대행사)",
+                                  "value": "외부관리자(채용대행사)",
+                                  "disabled": false,
+                                  "checked": false
+                                },
+                                {
+                                  "name": "기업관리자",
+                                  "value": "기업관리자",
+                                  "disabled": false,
+                                  "checked": false
+                                },
+                                {
+                                  "name": "평가자",
+                                  "value": "평가자",
+                                  "disabled": false,
+                                  "checked": false
+                                }
+                              ]
+                            }'
+                             disabled>선택</button>
+                    </div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <div class="td-wrap">
+                    <div class="dropdown" style="width: 100%;">
+                      <button type="button" class="dropdown-btn"
+                              data-dropdown='{
+                              "name": "selCate",
+                              "type" : "single",
+                              "option": [
+                                {
+                                  "name": "TEST",
+                                  "value": "TEST",
+                                  "disabled": false,
+                                  "checked": true
+                                }
+                              ]
+                            }'
+                              disabled>선택</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th><div class="th-wrap"> 권한명</div></th>
+                <td>
+                  <div class="td-wrap">
+                    <div class="input-box" style="width:100%;">
+                      <input type="text" class="input-txt" placeholder="입력하세요." oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                </td>
+                <th><div class="th-wrap">사용여부</div></th>
+                <td>
+                  <div class="td-wrap">
+                    <label class="btn-toggle">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th><div class="th-wrap">사용여부</div></th>
+                <td colspan="3">
+                  <div class="td-wrap">
+                    <div class="input-box" style="width:100%;">
+                      <input type="text" class="input-txt" placeholder="입력하세요." oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="btn-wrap" style="margin-top:8px;">
+            <button type="" class="base-btn type2__size-m2">취소</button>
+            <button type="" class="base-btn type1__size-m2">저장</button>
+          </div>
+        </div>
+        <!-- 검색영역 -->
+
+        <div class="board-body">
+          <div class="table table-type1 line-ver mt-48">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 130px;"/>
+                <col style="width: 160px;"/>
+                <col style="width: 130px;"/>
+                <col/>
+                <col style="width: 120px;"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">메뉴구분</th>
+                  <th scope="col">상위메뉴명</th>
+                  <th scope="col">메뉴명</th>
+                  <th scope="col">버튼목록</th>
+                  <th scope="col">사용여부</th>
+                </tr>
+              </thead>
+            </table>
+            <script>
+              $('#table').DataTable({
+                data: [
+                  {
+                    '메뉴구분': '대메뉴',
+                    '상위메뉴명': 'wiselection 안내',
+                    '메뉴명': '기업관리',
+                    '버튼목록': '',
+                    '사용여부': '사용',
+                  },
+                  {
+                    '메뉴구분': '프로그램',
+                    '상위메뉴명': 'wiselection 안내',
+                    '메뉴명': '공지사항 관리',
+                    '버튼목록': '',
+                    '사용여부': '사용',
+                  },
+                  {
+                    '메뉴구분': '프로그램',
+                    '상위메뉴명': 'wiselection 안내',
+                    '메뉴명': '팝업 관리',
+                    '버튼목록': '',
+                    '사용여부': '사용',
+                  },
+                  {
+                    '메뉴구분': '대메뉴',
+                    '상위메뉴명': '콘텐츠 관리',
+                    '메뉴명': '',
+                    '버튼목록': '',
+                    '사용여부': '사용',
+                  },
+                  {
+                    '메뉴구분': '프로그램',
+                    '상위메뉴명': '콘텐츠관리',
+                    '메뉴명': '서류도구',
+                    '버튼목록': ['지원서  미리보기','지원서 설계','지원서 취소','복사','삭제','서류도구 신규등록','지원서 저장'],
+                    '사용여부': '사용',
+                  },
+                ],
+                columns: [
+                  {
+                    data: '',
+                    className: 'pd-type1',
+                    render: function() {
+                      return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                    }
+                  },
+                  {
+                    data: '메뉴구분' ,
+                  },
+                  {
+                    data: '상위메뉴명',
+                  },
+                  {
+                    data: '메뉴명'
+                  },
+                  {
+                    data: '버튼목록',
+                    render: function (data, type, row) {
+                      // 여기서 버튼을 생성하고 반환
+                      let buttons = '';
+                      if (Array.isArray(data)) {
+                        data.forEach(function (button) {
+                          buttons += `<button type="button" class="base-btn type3" style="margin-right:10px;">${button}</button>`;
+                        });
+                      }
+                      return buttons;
+                    },
+                  },
+                  {
+                    data: '사용여부',
+                  },
+                ],
+                paging: false,
+                searching: false,
+                showing: false,
+                info: false,
+              });
+            </script>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/admin/WAP-SYS-0130-pop1.html');
+  @@include('../html/admin/WAP-SYS-0130-pop2.html');
+
+  
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_SYS_0130_pop1" : ()=>{WAP_SYS_0130_pop1.show()},
+      "WAP_SYS_0130_pop2" : ()=>{WAP_SYS_0130_pop2.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

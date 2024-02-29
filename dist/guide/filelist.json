@@ -197,6 +197,22 @@
           "dep2" : "권한 관리"
         },
         {
+          "dep3" : "권한 등록",
+          "name" : "WAP-SYS-0130",
+          "url" : "./html/admin/WAP-SYS-0130.html"
+        },
+        {
+          "dep3" : "권한 등록 - pop1",
+          "name" : "WAP-SYS-0130-pop1",
+          "url" : "./html/admin/WAP-SYS-0130.html?popup=WAP_SYS_0130_pop1"
+        },
+        {
+          "dep3" : "권한 등록 - pop2",
+          "name" : "WAP-SYS-0130-pop2",
+          "url" : "./html/admin/WAP-SYS-0130.html?popup=WAP_SYS_0130_pop2"
+        },
+
+        {
           "dep2" : "메뉴얼 관리"
         },
         {
@@ -605,9 +621,14 @@
           "url" : "./html/corp/WAP-ETPR-0110.html"
         },
         {
+          "dep4" : "popup - 공지사항 상세",
+          "name" : "WAP-ETPR-0111",
+          "url" : "./html/corp/WAP-ETPR-0110.html?popup=WAP_ETPR_0111"
+        },
+        {
           "dep4" : "popup - 공지사항 등록",
           "name" : "WAP-ETPR-0112",
-          "url" : "./html/corp/WAP-ETPR-0112.html?popup=WAP-ETPR-0112"
+          "url" : "./html/corp/WAP-ETPR-0110.html?popup=WAP_ETPR_0112"
         },
         {
           "dep3" : "FAQ",
@@ -736,8 +757,23 @@
         },
         {
           "dep2" : "평가하기(서류,면접평가요소)",
+          "name" : "WAP-ASES-0030-ver1",
+          "url" : "./html/eval/WAP-ASES-0030-ver1.html"
+        },
+        {
+          "dep2" : "평가하기(서류,면접평가요소)",
+          "name" : "WAP-ASES-0030-ver2",
+          "url" : "./html/eval/WAP-ASES-0030-ver2.html"
+        },
+        {
+          "dep2" : "평가하기(서류,면접평가요소)",
           "name" : "WAP-ASES-0031",
           "url" : "./html/eval/WAP-ASES-0030.html?popup=WAP_ASES_0031"
+        },
+        {
+          "dep2" : "평가하기(서류,면접평가리포트)",
+          "name" : "WAP-ASES-0033",
+          "url" : "./html/eval/WAP-ASES-0034.html?popup=WAP_ASES_0033"
         },
         {
           "dep2" : "평가하기(서류,면접평가리포트)",

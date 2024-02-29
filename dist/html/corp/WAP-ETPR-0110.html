@@ -356,6 +356,43 @@
     <!-- //container -->
     
   </div>
+  <div class="layer-popup type-modal" data-ref="WAP-ETPR-0111">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">상세보기</h3>
+    </div>
+    <div class="popup__contents">
+
+      <div class="board-view__header type-line">
+        <h3 class="title-sub">입사지원서 유의사항</h3>
+
+        <div class="board-view__info">
+          <div class="board-view__info__cell2">
+            <span class="board-view__info--th">등록정보: </span>
+            <span class="board-view__info--td">이진욱 (2021-08-10 16:00:00)</span>
+          </div>
+          <div class="board-view__info__cell2">
+            <span class="board-view__info--th">최종수정일: </span>
+            <span class="board-view__info--td">이진욱</span>
+          </div>
+        </div>
+      </div>
+
+      <pre class="board-view__cont popup__scroll-view" style="height: 366px">
+      지원서 최종 제출 이후에는 수정이 불가능 합니다.
+      지원서를 임시 저장하고 최종제출 하지 않은 상태라면 가능합니다.
+      </pre>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type2__size-m">수정</button>
+    </div>
+
+    <button class="btn-close" onclick="WAP_ETPR_0111.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ETPR_0111 = new LayerPopup({target: "WAP-ETPR-0111"});
+</script>;
   <div class="layer-popup type-modal" data-ref="WAP-SYS-0112">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
@@ -397,6 +434,7 @@
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
+      "WAP_ETPR_0111" : ()=>{WAP_ETPR_0111.show()},
       "WAP_ETPR_0112" : ()=>{WAP_ETPR_0112.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();

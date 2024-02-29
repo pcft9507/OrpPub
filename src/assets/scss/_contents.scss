@@ -1005,6 +1005,17 @@
     align-content:center;
     gap:16px;
   }
+  &.mb-24{
+    margin-bottom:24px;
+  }
+
+  h3{
+    font-size:20px;
+  }
+}
+
+.box-type1 + .top-title-box{
+  margin-top:40px;
 }
 
 .link-btn-wrap{
@@ -1288,6 +1299,34 @@
   }
 }
 
+.type-table2{
+  th {
+    text-align:left;
+    .th-wrap{
+      display:flex;
+      align-items:center;
+      padding:0 8px;
+    }
+  }
+
+  td {
+    text-align:left;
+    .td-wrap{
+      padding:8px;
+      display:flex;
+      align-items:center;
+    }
+  }
+
+  td + td,
+
+  td + th{
+    .th-wrap{
+      /*padding-left:24px;*/
+    }
+  }
+}
+
 /* 서약서 */
 .pledge-box{
   display:flex;
@@ -1320,6 +1359,14 @@
   &.sticky-ver{
     position: sticky;
     top: 100px;
+
+    &.ver1{
+      top:130px;
+    }
+
+    &.ver2{
+      top:330px;
+    }
   }
 
   .calc-top {
@@ -1515,6 +1562,19 @@
   font-size:16px;
   font-weight:700;
   margin-bottom:16px;
+  letter-spacing:-0.03rem;
+
+  &.ver2{
+    font-size:14px;
+  }
+
+  &.color-ver{
+    color:var(--primary);
+    > span{
+      display:inline-block;
+      margin-right:8px;
+    }
+  }
 }
 
 .pop-desc{
@@ -1537,21 +1597,20 @@
 }
 
 /* 점수 그래프 */
-.progress-box{
+.score-box{
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
 
-  .progress-label-list + .progress-bar-box{
+  .score-label-list + .score-bar-box{
     margin-top:32px;
   }
 }
-.progress-label-list{
+.score-label-list{
   display:flex;
   align-items:center;
   gap:33px;
-  border:1px solid #1661Ae;
 
   > li{
     display:flex;
@@ -1572,8 +1631,6 @@
       background-color:#1661AE;
     }
   }
-
-
   .label-text{
     display:flex;
     align-items:center;
@@ -1582,28 +1639,28 @@
     color:#707070;
   }
 }
-.progress-bar-box{
+.score-bar-box{
   width:100%;
   height:98px;
   position:relative;
-  border:1px solid #1661AE;
 }
-.progress-desc-box{
+.score-desc-box{
   padding:14px 0;
   display:flex;
   justify-content:space-between;
 
-  .pg-start , .pg-end{
+  .sc-start , .sc-end{
     font-size:14px;
     font-weight:500;
     color:var(--gray);
   }
 
-  .pg-now{
+  .sc-now{
     display:inline-block;
     padding-top:24px;
     position:absolute;
     bottom:0;
+    transform:translateX(-50%);
     font-size:24px;
     font-weight:700;
     color:#1661AE;
@@ -1612,22 +1669,108 @@
   }
 }
 
-.progress-bar{
+.score-bar{
   width:100%;
   height:24px;
   position:relative;
   border-radius:16px;
-  background-color:#1661AE;
+  background-color:/*#1661AE*/var(--gray);
   overflow:hidden;
 }
-.progress-amount-bar{
+.score-amount-bar{
   display:inline-block;
-  width:10%;
   height:100%;
   position:absolute;
-  left:0;
   top:0;
-  background-color:var(--primary-light2);
+  transform:translateX(-50%);
+
+  /* 색상 */
+  &.state1{
+    background-color:var(--primary-light2);
+  }
+
+  &.state2{
+    background-color:#1661Ae;
+  }
+}
+
+.sc-desc{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+
+  .sc-score{
+    font-size:14px;
+    font-weight:500;
+    color:var(--black);
+  }
+
+  .sc-rate{
+    display:inline-flex;
+    align-items:center;
+    font-size:14px;
+    color:var(--gray);
+
+    &.identical {
+      .sc-arrow{
+        display:none;
+      }
+    }
+
+    .sc-arrow{
+      display:inline-flex;
+      width:20px;
+      height:20px;
+    }
+
+    &.minus{
+      .sc-arrow{
+        background: url($image-url + 'ico-down.svg') center center no-repeat;
+        background-size:contain;
+      }
+    }
+
+    &.plus{
+      .sc-arrow{
+        background: url($image-url + 'ico-up.svg') center center no-repeat;
+        background-size:contain;
+      }
+    }
+  }
+}
+
+.board-title{
+  > h4 {
+    font-size: 16px;
+    font-weight:700;
+  }
+}
+
+.label-desc-list{
+  display:flex;
+  align-items:center;
+  gap:16px;
+
+  > li {
+    padding-left:28px;
+    font-size:14px;
+    font-weight:500;
+    color:#707070;
+
+    &.plus{
+      background:url($image-url + 'ico-up.svg') left center no-repeat;
+      background-size:20px;
+    }
+    &.minus{
+      background:url($image-url + 'ico-down.svg') left center no-repeat;
+      background-size:20px;
+    }
+    &.identical{
+      background:url($image-url + 'ico-identical.svg') left center no-repeat;
+      background-size:20px;
+    }
+  }
 }
 
 

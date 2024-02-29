@@ -108,6 +108,12 @@ hr {
   color:#707070;
 }
 
+.sub-text2{
+  font-size:14px;
+  font-weight:500;
+  color:#707070;
+}
+
 .required-mark {
   font-size: 0;
   &:before {
@@ -138,10 +144,10 @@ hr {
     border-radius: var(--radius2);
     background: var(--bg-color);
     &.type-pd2 {padding: 16px;}
-    &.pop-ver{
-      + .pop-ver{
-      margin-top:16px;
-    }
+      &.pop-ver{
+        + .pop-ver{
+        margin-top:16px;
+      }
     }
   }
   &-type4 {
@@ -1265,6 +1271,7 @@ textarea {
 .popup {
   &__size-m {width: 640px;}
   &__size-l {width: 800px;}
+  &__size-xl {width: 1265px;}
   &__container {
     display: flex;
     flex-direction: column;
@@ -1285,6 +1292,20 @@ textarea {
       background: var(--icon-url) no-repeat 100% 0;
       font-size: 0;
     }
+
+    .btn-resize {
+      @include pos(absolute, 31px, $r: 72px);
+      width: 32px; height: 32px;
+      background: url($image-url + 'ico-resize.svg') center center no-repeat;
+      font-size: 0;
+    }
+
+    .btn-mover {
+      @include pos(absolute, 31px, $r: 112px);
+      width: 32px; height: 32px;
+      background: url($image-url + 'ico-mover.svg') center center no-repeat;
+      font-size: 0;
+    }
   }
   &__header {
     position: relative;
@@ -1299,6 +1320,26 @@ textarea {
   &__contents {
     box-sizing: border-box;
     padding: 32px 40px;
+  }
+
+  &__flex-box{
+    display:flex;
+    > .pf-box{
+      width:50%;
+
+      > .box-type3.pop-ver{
+        height:calc(100% - 43px);
+      }
+      &:nth-child(1){
+        padding-right:16px;
+        border-right:1px solid var(--gray6);
+      }
+      &:nth-child(2){
+        padding-left:16px;
+      }
+    }
+
+
   }
   &__btn-wrap {
     display: flex;
@@ -1414,6 +1455,19 @@ textarea {
         color: var(--font-color3);
       }
       &--date ~ &--date {margin-left: var(--content-margin2);}
+
+      &__cell2{
+        font-size:14px;
+        color:var(--font-color3);
+
+        .board-view__info--td {
+          margin-left:0;
+        }
+      }
+
+      &__cell2 + &__cell2{
+        margin-left:16px;
+      }
     }
     &__cont {
       font-weight: 400;
@@ -1514,6 +1568,17 @@ textarea {
         > td{
           padding-top:24px;
         }
+      }
+    }
+  }
+
+  &-type1.mt-48{
+    margin-top:48px;
+  }
+  &-type1.line-ver {
+    tbody{
+      tr + tr{
+        border-top:1px solid var(--gray6);
       }
     }
   }

@@ -1,0 +1,103 @@
+<div class="layer-popup type-modal" data-ref="WAP-SYS-0130-pop1">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">권한 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="height: 404px;">
+
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 100px;">
+          구분
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 100%;">
+            <button type="button" class="dropdown-btn"
+                    data-dropdown='{
+                    "name": "a1",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "컨설턴트",
+                        "value": "컨설턴트",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "기업명",
+                        "value": "기업명",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고기간",
+                        "value": "공고기간",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "필기전형",
+                        "value": "필기전형",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "공고번호",
+                        "value": "공고번호",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+            >전체</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 100px;">
+          권한명
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()" required>
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-row__flex type2">
+        <div class="form-th" style="width: 100px;">
+          사용여부
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <label class="btn-toggle">
+            <input type="checkbox" checked>
+            <span>버튼</span>
+          </label>
+        </div>
+      </div>
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 100px;">
+          권한명
+        </div>
+        <div class="form-td" style="flex: 1;">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()" required>
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">저장</button>
+    </div>
+    <button class="btn-close" onclick="WAP_SYS_0130_pop1.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_SYS_0130_pop1 = new LayerPopup({target: "WAP-SYS-0130-pop1"});
+</script>

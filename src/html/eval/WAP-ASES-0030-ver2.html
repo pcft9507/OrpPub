@@ -1,92 +1,14 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="../../assets/css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <script src="../../assets/js/ui.js"></script>
-</head>
+@@include('./head.html', {title: ""})
 <body>
   <div class="wrap">
 
-    <!-- header -->
-    <header class="header">
-      <div class="header__inner">
-        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
-        <div class="header__info">
-
-        </div>
-        <div class="header__util">
-          <span>면접의원 A님 환영합니다.</span>
-          <a href="#">로그아웃</a>
-        </div>
-      </div>
-    </header>
-    <!-- //header -->
+    @@include('./header2.html')
     
     <!-- container -->
     <div class="container">
-      <!-- snb -->
-      <nav class="snb" data-ref="sideNav">
-        
+      @@include('./snb.html', {type: "평가시스템", dep1: "1", dep2: "1"})
 
-        
-
-        
-        
-        <div class="link-btn-wrap">
-          <button class="base-btn type2__size-s" onclick="WAP_ASES_0031.show();">
-            <span>GPT평가 보기</span>
-          </button>
-        </div>
-        
-        <ul class="snb__menu">
-          <li class="isCurrent">
-          <button
-                  type="button"
-                  class="snb__depth1--btn icon8 has-child"
-                  aria-expanded="true"
-          aria-controls="snbSubMenu1"
-          ><span>평가하기</span></button>
-          <div id="snbSubMenu1" class="snb__depth2 isOpen">
-          <ul>
-            <li class="isCurrent"><a href="WAP-ASES-0030.html">입사지원서</a></li>
-            <li><a href="">서류 평가요소</a></li>
-          </ul>
-          </div>
-          </li>
-          <li>
-          <button
-                  type="button"
-                  class="snb__depth1--btn icon9 has-child"
-                  aria-expanded="false"
-          aria-controls="snbSubMenu2"
-          ><span>협의/조정</span></button>
-          <div id="snbSubMenu2" class="snb__depth2">
-          <ul>
-            <li><a href="">평가자별점수열람</a></li>
-            <li><a href="">서류점수통계</a></li>
-          </ul>
-          </div>
-          </li>
-          <li><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon10">확인/제출</a></li>
-        </ul>
-        
-
-        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
-      </nav>
-      <script>
-        const sideNav = new SideNav({target: "sideNav"});
-      </script>
-      <!-- //snb -->
-
-      <div class="top-contents">
+      <div class="top-contents sticky-ver">
         <div class="member-list-box">
           <div class="swiper member-swiper">
             <ul class="swiper-wrapper">
@@ -372,9 +294,8 @@
         </script>
       </div>
 
-
       <!-- contents -->
-      <div class="contents small-ver flex-ver">
+      <div class="contents small-ver flex-ver" style="padding-bottom:90px;">
         <div class="contents-divide1">
           <div class="title d-flex jc-sb ai-c">
             <h3 class="title-sub">교육사항</h3>
@@ -908,7 +829,7 @@
 
         <!-- 2. 평가점수 입력 -->
         <div class="contents-divide2">
-          <div class="calc-box sticky-ver">
+          <div class="calc-box sticky-ver ver2">
             <div class="calc-top">
               <h4>평가 점수 입력</h4>
               <ul>
@@ -992,40 +913,7 @@
     <!-- //container -->
     
   </div>
-  <div class="layer-popup type-modal" data-ref="WAP-ASES-0031">
-  <section class="popup__container popup__size-m">
-    <div class="popup__header">
-      <h3 class="popup__title">평가요소 상세</h3>
-    </div>
-    <div class="popup__contents popup__scroll-view2">
-      <h4 class="chk-title">평가요소</h4>
-      <div class="box-type3 pop-ver">
-        <h5 class="pop-tit">논리적사고</h5>
-        <p class="pop-desc">주어진 정보들의 논리적 연계성을 명확히 파악하고, 명확한 논리적 근거를 바탕으로 합리적인 의견을 제시한다</p>
-        <ul class="dot-list">
-          <li>논리적 연계성 파악: 다양한 정보나 자료 간 연계성을 파악하여 논리적으로 설명한다</li>
-          <li>명확한 논리 제시: 논리적 모순에 빠지지 않고 일관된 맥락으로 자신의 의견을 제시한다</li>
-          <li>합리적 의견 제시: 타당한 논리적 근거를 바탕으로 어떤 현상에 대한 합리적인 의견을 제시한다</li>
-        </ul>
-      </div>
-
-      <div class="box-type3 pop-ver">
-        <h5 class="pop-tit">리더십</h5>
-        <ul class="dot-list">
-          <li>하위요소 : 설명</li>
-          <li>평가자 가이드 : 평가자 가이드</li>
-        </ul>
-      </div>
-    <button class="btn-close" onclick="WAP_ASES_0031.hide()">닫기</button>
-    </div>
-    <div class="popup__btn-wrap">
-      <button class="base-btn type2__size-m" onclick="WAP_ASES_0031.hide()">닫기</button>
-    </div>
-  </section>
-</div>
-<script>
-  const WAP_ASES_0031 = new LayerPopup({target: "WAP-ASES-0031"});
-</script>;
+  @@include('../html/eval/WAP-ASES-0031.html');
 
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>

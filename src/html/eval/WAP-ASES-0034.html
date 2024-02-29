@@ -240,15 +240,15 @@
       <!-- contents -->
       <div class="contents small-ver2 flex-ver" style="padding-bottom:64px;">
         <div class="contents-divide1">
-          <div class="top-title-box">
+          <div class="top-title-box mb-24">
             <div>
               <h3 class="title-sub2 type2">면접점수</h3>
               <p class="sub-text2">아래 그래프는 해당 대상자가 집단에서 어디에 위치하는지 요약/비교하여 보여줍니다.</p>
             </div>
           </div>
           <div class="box-type1">
-            <div class="progress-box">
-              <ul class="progress-label-list">
+            <div class="score-box">
+              <ul class="score-label-list">
                 <li>
                   <span class="label-badge state1"></span>
                   <span class="label-text">평균<img src="../../assets/images/ico-plusMinus.svg" alt="">표준편차</span>
@@ -258,17 +258,354 @@
                   <span class="label-text">평균<img src="../../assets/images/ico-plusMinus.svg" alt="">표준편차</span>
                 </li>
               </ul>
-              <div class="progress-bar-box">
-                <div class="progress-bar">
-                  <span class="progress-amount-bar"></span>
+              <div class="score-bar-box">
+                <!-- 각 score-amount-bar width값 계산 필요 + left 값 원점수에 따라 수정 필요 -->
+                <div class="score-bar">
+                  <span class="score-amount-bar state1" style="left:85%;width:80px;"></span><!-- 표준편차가 a 일 경우 -->
+                  <span class="score-amount-bar state2" style="left:85%;width:60px;"></span><!-- 표준편차가 b 일 경우 -->
                 </div>
-                <div class="progress-desc-box">
-                  <span class="pg-start">0</span>
-                  <span class="pg-end">100</span>
-                  <span class="pg-now" style="left:85%;">85</span>
+                <div class="score-desc-box">
+                  <span class="sc-start">0</span>
+                  <span class="sc-end">100</span>
+                  <span class="sc-now" style="left:85%;">85</span><!-- 원점수 입력란 ,  style태그 left값 수정 필요 -->
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="top-title-box mb-24">
+            <div>
+              <h3 class="title-sub2 type2">면접결과 상세</h3>
+              <p class="sub-text2">총평(종합):각 평가자의 총평을 모두 나열함</p>
+            </div>
+          </div>
+          <div class="board-head">
+            <div class="board-title">
+              <h4>서류유형명</h4>
+            </div>
+            <div>
+              <ul class="label-desc-list">
+                <li class="plus">평균보다 높음</li>
+                <li class="minus">평균보다 낮음</li>
+                <li class="identical">평균과 같음</li>
+              </ul>
+            </div>
+          </div>
+          <div class="board-body">
+            <div class="table table-type1 line-ver">
+              <table id="table">
+                <colgroup>
+                  <col style="width: 100px;"/>
+                  <col style="width: 90px"/>
+                  <col/>
+                  <col/>
+                  <col/>
+                  <col/>
+                  <col/>
+                  <col/>
+                  <col/>
+                  <col/>
+                  <col/>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th scope="col"><button type="button">성명</button></th>
+                  <th scope="col"><button type="button">소계</button></th>
+                  <th scope="col"><button type="button">평가요소1</button></th>
+                  <th scope="col"><button type="button">평가요소2</button></th>
+                  <th scope="col"><button type="button">평가요소3</button></th>
+                  <th scope="col"><button type="button">평가요소4</button></th>
+                  <th scope="col"><button type="button">평가요소5</button></th>
+                  <th scope="col"><button type="button">평가요소6</button></th>
+                  <th scope="col"><button type="button">평가요소7</button></th>
+                  <th scope="col"><button type="button">평가요소8</button></th>
+                  <th scope="col"><button type="button">평가요소9</button></th>
+                </tr>
+                </thead>
+              </table>
+            </div>
+            <script>
+              $('#table').DataTable({
+                data: [
+                  {
+                    '성명' : '대상자1',
+                    '소계' : [51.00 , -0.75],
+                    '평가요소1' : [4.00 , 0.75],
+                    '평가요소2' : [3.25 , 0.20],
+                    '평가요소3' : [20.00 , 0.45],
+                    '평가요소4' : [15.00 , -0.15],
+                    '평가요소5' : [35.00 , -0.10],
+                    '평가요소6' : [35.00 , 0.10],
+                    '평가요소7' : [50.00 , 0.20],
+                    '평가요소8' : [42.00 , 0.15],
+                    '평가요소9' : [42.00 , 0.15],
+                  },
+                  {
+                    '성명' : '대상자2',
+                    '소계' : [51.00 , -0.75],
+                    '평가요소1' : [4.00 , 0.75],
+                    '평가요소2' : [3.25 , 0.20],
+                    '평가요소3' : [20.00 , 0.45],
+                    '평가요소4' : [15.00 , -0.15],
+                    '평가요소5' : [35.00 , -0.10],
+                    '평가요소6' : [35.00 , 0.10],
+                    '평가요소7' : [50.00 , 0.20],
+                    '평가요소8' : [42.00 , 0.15],
+                    '평가요소9' : [42.00 , 0.15],
+                  },
+                ],
+                columns: [
+                  {
+                    data: '성명',
+                    className: 'pd-type1',
+                  },
+                  {
+                    data: '소계',
+                    render: function(data, type){
+                      let num1 = data[0].toFixed(2);
+                      let num2 = data[1].toFixed(2);
+                      let className = '';
+
+                      switch (true) {
+                        case num2 < 0:
+                          className = 'minus';
+                          break;
+                        case Object.is(num2, -0):
+                          className = 'minus';
+                          break;
+                        case num2 === 0:
+                          className = 'identical';
+                          break;
+                        case num2 > 0:
+                          className = 'plus';
+                          break;
+                      }
+                      return '<div class="sc-desc"><span class="sc-score">' + num1 + '</span>' + '<span class="sc-rate '+ className  +'">( ' + num2 + '<span class="sc-arrow"></span>)</span>' + '</div>'
+                    }
+                  },
+                  {
+                    data: '평가요소1',
+                    render: function(data, type){
+                      let num1 = data[0].toFixed(2);
+                      let num2 = data[1].toFixed(2);
+                      let className = '';
+
+                      switch (true) {
+                        case num2 < 0:
+                          className = 'minus';
+                          break;
+                        case Object.is(num2, -0):
+                          className = 'minus';
+                          break;
+                        case num2 === 0:
+                          className = 'identical';
+                          break;
+                        case num2 > 0:
+                          className = 'plus';
+                          break;
+                      }
+                      return '<div class="sc-desc"><span class="sc-score">' + num1 + '</span>' + '<span class="sc-rate '+ className  +'">( ' + num2 + '<span class="sc-arrow"></span>)</span>' + '</div>'
+                    }
+                  },
+                  {
+                    data: '평가요소2',
+                    render: function(data, type){
+                      let num1 = data[0].toFixed(2);
+                      let num2 = data[1].toFixed(2);
+                      let className = '';
+
+                      switch (true) {
+                        case num2 < 0:
+                          className = 'minus';
+                          break;
+                        case Object.is(num2, -0):
+                          className = 'minus';
+                          break;
+                        case num2 === 0:
+                          className = 'identical';
+                          break;
+                        case num2 > 0:
+                          className = 'plus';
+                          break;
+                      }
+                      return '<div class="sc-desc"><span class="sc-score">' + num1 + '</span>' + '<span class="sc-rate '+ className  +'">( ' + num2 + '<span class="sc-arrow"></span>)</span>' + '</div>'
+                    }
+                  },
+                  {
+                    data: '평가요소3',
+                    render: function(data, type){
+                      let num1 = data[0].toFixed(2);
+                      let num2 = data[1].toFixed(2);
+                      let className = '';
+
+                      switch (true) {
+                        case num2 < 0:
+                          className = 'minus';
+                          break;
+                        case Object.is(num2, -0):
+                          className = 'minus';
+                          break;
+                        case num2 === 0:
+                          className = 'identical';
+                          break;
+                        case num2 > 0:
+                          className = 'plus';
+                          break;
+                      }
+                      return '<div class="sc-desc"><span class="sc-score">' + num1 + '</span>' + '<span class="sc-rate '+ className  +'">( ' + num2 + '<span class="sc-arrow"></span>)</span>' + '</div>'
+                    }
+                  },
+                  {
+                    data: '평가요소4',
+                    render: function(data, type){
+                      let num1 = data[0].toFixed(2);
+                      let num2 = data[1].toFixed(2);
+                      let className = '';
+
+                      switch (true) {
+                        case num2 < 0:
+                          className = 'minus';
+                          break;
+                        case Object.is(num2, -0):
+                          className = 'minus';
+                          break;
+                        case num2 === 0:
+                          className = 'identical';
+                          break;
+                        case num2 > 0:
+                          className = 'plus';
+                          break;
+                      }
+                      return '<div class="sc-desc"><span class="sc-score">' + num1 + '</span>' + '<span class="sc-rate '+ className  +'">( ' + num2 + '<span class="sc-arrow"></span>)</span>' + '</div>'
+                    }
+                  },
+                  {
+                    data: '평가요소5',
+                    render: function(data, type){
+                      let num1 = data[0].toFixed(2);
+                      let num2 = data[1].toFixed(2);
+                      let className = '';
+
+                      switch (true) {
+                        case num2 < 0:
+                          className = 'minus';
+                          break;
+                        case Object.is(num2, -0):
+                          className = 'minus';
+                          break;
+                        case num2 === 0:
+                          className = 'identical';
+                          break;
+                        case num2 > 0:
+                          className = 'plus';
+                          break;
+                      }
+                      return '<div class="sc-desc"><span class="sc-score">' + num1 + '</span>' + '<span class="sc-rate '+ className  +'">( ' + num2 + '<span class="sc-arrow"></span>)</span>' + '</div>'
+                    }
+                  },
+                  {
+                    data: '평가요소6',
+                    render: function(data, type){
+                      let num1 = data[0].toFixed(2);
+                      let num2 = data[1].toFixed(2);
+                      let className = '';
+
+                      switch (true) {
+                        case num2 < 0:
+                          className = 'minus';
+                          break;
+                        case Object.is(num2, -0):
+                          className = 'minus';
+                          break;
+                        case num2 === 0:
+                          className = 'identical';
+                          break;
+                        case num2 > 0:
+                          className = 'plus';
+                          break;
+                      }
+                      return '<div class="sc-desc"><span class="sc-score">' + num1 + '</span>' + '<span class="sc-rate '+ className  +'">( ' + num2 + '<span class="sc-arrow"></span>)</span>' + '</div>'
+                    }
+                  },
+                  {
+                    data: '평가요소7',
+                    render: function(data, type){
+                      let num1 = data[0].toFixed(2);
+                      let num2 = data[1].toFixed(2);
+                      let className = '';
+
+                      switch (true) {
+                        case num2 < 0:
+                          className = 'minus';
+                          break;
+                        case Object.is(num2, -0):
+                          className = 'minus';
+                          break;
+                        case num2 === 0:
+                          className = 'identical';
+                          break;
+                        case num2 > 0:
+                          className = 'plus';
+                          break;
+                      }
+                      return '<div class="sc-desc"><span class="sc-score">' + num1 + '</span>' + '<span class="sc-rate '+ className  +'">( ' + num2 + '<span class="sc-arrow"></span>)</span>' + '</div>'
+                    }
+                  },
+                  {
+                    data: '평가요소8',
+                    render: function(data, type){
+                      let num1 = data[0].toFixed(2);
+                      let num2 = data[1].toFixed(2);
+                      let className = '';
+
+                      switch (true) {
+                        case num2 < 0:
+                          className = 'minus';
+                          break;
+                        case Object.is(num2, -0):
+                          className = 'minus';
+                          break;
+                        case num2 === 0:
+                          className = 'identical';
+                          break;
+                        case num2 > 0:
+                          className = 'plus';
+                          break;
+                      }
+                      return '<div class="sc-desc"><span class="sc-score">' + num1 + '</span>' + '<span class="sc-rate '+ className  +'">( ' + num2 + '<span class="sc-arrow"></span>)</span>' + '</div>'
+                    }
+                  },
+                  {
+                    data: '평가요소9',
+                    render: function(data, type){
+                      let num1 = data[0].toFixed(2);
+                      let num2 = data[1].toFixed(2);
+                      let className = '';
+
+                      switch (true) {
+                        case num2 < 0:
+                          className = 'minus';
+                          break;
+                        case Object.is(num2, -0):
+                          className = 'minus';
+                          break;
+                        case num2 === 0:
+                          className = 'identical';
+                          break;
+                        case num2 > 0:
+                          className = 'plus';
+                          break;
+                      }
+                      return '<div class="sc-desc"><span class="sc-score">' + num1 + '</span>' + '<span class="sc-rate '+ className  +'">( ' + num2 + '<span class="sc-arrow"></span>)</span>' + '</div>'
+                    }
+                  },
+                ],
+                paging: false,
+                searching: false,
+                showing: false,
+                info: false
+              });
+            </script>
           </div>
 
 
@@ -440,12 +777,12 @@
     <!-- //container -->
     
   </div>
-  @@include('../html/eval/WAP-ASES-0031.html');
+  @@include('../html/eval/WAP-ASES-0033.html');
 
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
-      "WAP_ASES_0031" : ()=>{WAP_ASES_0031.show()},
+      "WAP_ASES_0033" : ()=>{WAP_ASES_0033.show()},
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

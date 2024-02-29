@@ -378,4 +378,9 @@
     margin-top:0;
   }
 
+  &.sticky-ver{
+    position: sticky;
+    top:64px;
+    z-index:100;
+  }
 }
