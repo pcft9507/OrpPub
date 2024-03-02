@@ -5600,6 +5600,43 @@ textarea.default-h2 {
   background-size: 20px;
 }
 
+/* 툴팁 */
+.tooltip-btn {
+  position: relative;
+}
+
+.tool-tip {
+  display: none;
+  min-width: 120px;
+  color: var(--black);
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  font-size: 11px;
+  border-radius: 6px;
+  background-color: #bddee8;
+}
+
+.tool-tip::after {
+  content: "";
+  display: inline-block;
+  width: 11px;
+  height: 8px;
+  position: absolute;
+  left: 8px;
+  top: -6px;
+  background: url("../images/ico-tooltip.svg") center top no-repeat;
+}
+
+.tooltip-btn:hover .tool-tip {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  min-width: 130px;
+  padding: 8px;
+  font-size: 11px;
+}
+
 .error-page {
   margin-top: -150px;
 }
