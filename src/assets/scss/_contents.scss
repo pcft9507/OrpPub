@@ -468,11 +468,19 @@
 }
 
 .categori-control {
-  @include pos(fixed, 220px, $r: 0);
-  &__inner {
-    width: 280px;
-    @include pos(sticky, 0, 0);
+  &.height-ver{
+    max-height:calc(100vh - 210px);
+    overflow-y:auto;
   }
+  &.sticky-ver{
+    position:sticky;
+    top:100px;
+  }
+  //@include pos(fixed, 220px, $r: 0);
+  //&__inner {
+  //  width: 280px;
+  //  @include pos(sticky, 0, 0);
+  //}
   &__item {
     position: relative;
     width: 182px;
@@ -1005,6 +1013,10 @@
     align-content:center;
     gap:16px;
   }
+  &.mb-16{
+    margin-bottom:16px;
+  }
+
   &.mb-24{
     margin-bottom:24px;
   }
@@ -1392,6 +1404,12 @@
       }
     }
 
+    > ul + ul{
+      border-top:1px solid var(--gray6);
+      padding-top:12px;
+      margin-top:12px;
+    }
+
     textarea{
       height:136px;
     }
@@ -1403,6 +1421,11 @@
       > button {
         width:50%;
         height:44px;
+
+        &:active{
+          background-color:var(--primary);
+          color:var(--white);
+        }
 
         &:nth-child(1){
           border:1px solid var(--gray6);

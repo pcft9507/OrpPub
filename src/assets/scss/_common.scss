@@ -205,6 +205,32 @@ hr {
   transition: background .3s, color .3s, border-color .3s;
   text-align: center;
   white-space: nowrap;
+  &.base-icon2{
+    padding-left:34.5px;
+    position:relative;
+
+    &.type2__size-s{
+      padding-left:34.5px;
+    }
+    &::before{
+      content:'';
+      background:red;
+      width:16px;
+      height:16px;
+      position:absolute;
+      left:16px;
+      top:50%;
+      transform:translateY(-50%);
+    }
+    &.icon-email::before {
+      background:url($image-url + 'icon-email.svg')center center no-repeat;
+    }
+
+    &.icon-sms::before {
+      background:url($image-url + 'icon-sms.svg')center center no-repeat;
+    }
+
+  }
   &[class*="type1__"] {
     background: var(--primary);
     border-color: var(--primary);
@@ -258,6 +284,7 @@ hr {
   &[class*="__size-s3"] {
     padding: 6px 12px;
   }
+
   &[class*="__size-m"] {
     padding: 11.5px 19px 10.5px;
     @include font(16px, $w: 700);
@@ -482,6 +509,13 @@ hr {
     }
     &.jc-c {
       justify-content: center;
+    }
+    &.line-ver{
+      border-top:1px solid var(--gray6);
+      border-bottom:1px solid var(--gray6);
+    }
+    &.line-ver + &.line-ver{
+      border-top:0;
     }
   }
   &-inner ~ &-inner {margin-top: var(--content-margin2);}
@@ -781,8 +815,15 @@ textarea {
     &.pr-0 {
       padding-right: 0;
     }
+    &.pr-ori {
+      padding-right:12px;
+      text-align:center;
+    }
     &.pop-table-height {
       height: 32px;
+    }
+    &.pop-txt-regular{
+      font-size:14px;
     }
   }
   .btn-del {
@@ -1267,6 +1308,43 @@ textarea {
     max-width: 300px;
     @include font(16px, 700);
   }
+
+  /* 팝업 위치 */
+  &.popup__place-rightTop{
+    align-items: flex-start;
+    justify-content:flex-end;
+    .popup__container{
+      margin-top:20px;
+      margin-right:20px;
+    }
+  }
+
+  &.popup__place-centerTop{
+    align-items: flex-start;
+    justify-content:center;
+    .popup__container{
+      margin-top:20px;
+    }
+  }
+
+  &.popup__place-leftTop{
+    align-items: flex-start;
+    justify-content:flex-start;
+    .popup__container{
+      margin-top:20px;
+      margin-left:20px;
+    }
+  }
+
+  &.popup__place-centerCenter{
+    align-items: center;
+    justify-content:center;
+    .popup__container{
+      margin-top:20px;
+      margin-left:20px;
+    }
+  }
+
 }
 .popup {
   &__size-m {width: 640px;}
@@ -1279,6 +1357,7 @@ textarea {
     background: var(--bg-color2);
     box-sizing: border-box;
     transform: translateY(100%);
+    overflow-y:auto;
     opacity: 0;
     transition: transform .3s, opacity .3s;
     border-radius: var(--radius3);
@@ -1338,8 +1417,6 @@ textarea {
         padding-left:16px;
       }
     }
-
-
   }
   &__btn-wrap {
     display: flex;
@@ -1365,6 +1442,28 @@ textarea {
   &__scroll-view2{
     overflow: auto;
     max-height: 552px;
+  }
+
+  /* 팝업 사이즈 */
+  &__size-pop-s{
+    width:300px;
+    .popup__container{
+      min-width:auto;
+    }
+  }
+
+  &__size-pop-r{
+    width:500px;
+    .popup__container{
+      min-width:auto;
+    }
+  }
+
+  &__size-pop-l{
+    width:640px;
+    .popup__container{
+      min-width:auto;
+    }
   }
 }
 
@@ -2053,6 +2152,9 @@ textarea {
   .title-sub {
     margin-bottom: 0;
   }
+  &.mb-16{
+    margin-bottom:16px;
+  }
   .wave {
     display: flex;
     justify-content: center;
@@ -2192,4 +2294,8 @@ textarea {
 }
 .fw-500 {
   font-weight: 500;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
 }

@@ -622,6 +622,30 @@ hr {
   text-align: center;
   white-space: nowrap;
 }
+.base-btn.base-icon2 {
+  padding-left: 34.5px;
+  position: relative;
+}
+.base-btn.base-icon2.type2__size-s {
+  padding-left: 34.5px;
+}
+.base-btn.base-icon2::before {
+  content: "";
+  background: red;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.base-btn.base-icon2.icon-email::before {
+  background: url("../images/icon-email.svg") center center no-repeat;
+}
+.base-btn.base-icon2.icon-sms::before {
+  background: url("../images/icon-sms.svg") center center no-repeat;
+}
 .base-btn[class*=type1__] {
   background: var(--primary);
   border-color: var(--primary);
@@ -957,6 +981,13 @@ hr {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.form-inner.line-ver {
+  border-top: 1px solid var(--gray6);
+  border-bottom: 1px solid var(--gray6);
+}
+.form-inner.line-ver + .form-inner.line-ver {
+  border-top: 0;
 }
 .form-inner ~ .form-inner {
   margin-top: var(--content-margin2);
@@ -1343,8 +1374,15 @@ textarea.default-h2 {
 .input-box .input-txt.pr-0 {
   padding-right: 0;
 }
+.input-box .input-txt.pr-ori {
+  padding-right: 12px;
+  text-align: center;
+}
 .input-box .input-txt.pop-table-height {
   height: 32px;
+}
+.input-box .input-txt.pop-txt-regular {
+  font-size: 14px;
 }
 .input-box .btn-del {
   display: none;
@@ -1931,6 +1969,7 @@ textarea.default-h2 {
   bottom: 0;
   left: 0;
   background: var(--dim);
+  /* 팝업 위치 */
 }
 .layer-popup.isShow {
   display: -webkit-box;
@@ -1952,7 +1991,57 @@ textarea.default-h2 {
   font-weight: 700;
   line-height: 1.5;
 }
+.layer-popup.popup__place-rightTop {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.layer-popup.popup__place-rightTop .popup__container {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.layer-popup.popup__place-centerTop {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.layer-popup.popup__place-centerTop .popup__container {
+  margin-top: 20px;
+}
+.layer-popup.popup__place-leftTop {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.layer-popup.popup__place-leftTop .popup__container {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.layer-popup.popup__place-centerCenter {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.layer-popup.popup__place-centerCenter .popup__container {
+  margin-top: 20px;
+  margin-left: 20px;
+}
 
+.popup {
+  /* 팝업 사이즈 */
+}
 .popup__size-m {
   width: 640px;
 }
@@ -1976,6 +2065,7 @@ textarea.default-h2 {
           box-sizing: border-box;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
+  overflow-y: auto;
   opacity: 0;
   -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
   transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -2085,6 +2175,24 @@ textarea.default-h2 {
 .popup__scroll-view2 {
   overflow: auto;
   max-height: 552px;
+}
+.popup__size-pop-s {
+  width: 300px;
+}
+.popup__size-pop-s .popup__container {
+  min-width: auto;
+}
+.popup__size-pop-r {
+  width: 500px;
+}
+.popup__size-pop-r .popup__container {
+  min-width: auto;
+}
+.popup__size-pop-l {
+  width: 640px;
+}
+.popup__size-pop-l .popup__container {
+  min-width: auto;
 }
 
 .box-flex {
@@ -2904,6 +3012,9 @@ textarea.default-h2 {
 .d-flex .title-sub {
   margin-bottom: 0;
 }
+.d-flex.mb-16 {
+  margin-bottom: 16px;
+}
 .d-flex .wave {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3059,6 +3170,10 @@ textarea.default-h2 {
 
 .fw-500 {
   font-weight: 500;
+}
+
+input[type=time]::-webkit-calendar-picker-indicator {
+  display: none;
 }
 
 .header {
@@ -3437,6 +3552,9 @@ textarea.default-h2 {
 .contents .contents-divide1.ver2 {
   width: 75%;
 }
+.contents .contents-divide1.ver3 {
+  width: calc(100% - 274px);
+}
 .contents .contents-divide2 {
   width: 20%;
   min-width: 246px;
@@ -3444,6 +3562,10 @@ textarea.default-h2 {
 .contents .contents-divide2.ver2 {
   width: 25%;
   min-width: 280px;
+}
+.contents .contents-divide2.ver3 {
+  width: 248px;
+  min-width: 248px;
 }
 
 .categori-control ~ .contents {
@@ -3501,6 +3623,9 @@ textarea.default-h2 {
 }
 .contents-nav.type2 ~ .contents {
   margin-bottom: 140px;
+}
+.contents-nav.type2 ~ .contents.mb-0 {
+  margin-bottom: 0;
 }
 .contents-nav.type2 .contents-nav__inner {
   padding-right: 35px;
@@ -4265,16 +4390,13 @@ textarea.default-h2 {
   bottom: 24px;
 }
 
-.categori-control {
-  position: fixed;
-  top: 220px;
-  right: 0;
+.categori-control.height-ver {
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
 }
-.categori-control__inner {
-  width: 280px;
+.categori-control.sticky-ver {
   position: sticky;
-  top: 0;
-  left: 0;
+  top: 100px;
 }
 .categori-control__item {
   position: relative;
@@ -4780,6 +4902,9 @@ textarea.default-h2 {
       align-content: center;
   gap: 16px;
 }
+.top-title-box.mb-16 {
+  margin-bottom: 16px;
+}
 .top-title-box.mb-24 {
   margin-bottom: 24px;
 }
@@ -5185,6 +5310,11 @@ textarea.default-h2 {
 .calc-box .calc-top > ul > li + li {
   margin-top: 24px;
 }
+.calc-box .calc-top > ul + ul {
+  border-top: 1px solid var(--gray6);
+  padding-top: 12px;
+  margin-top: 12px;
+}
 .calc-box .calc-top textarea {
   height: 136px;
 }
@@ -5200,6 +5330,10 @@ textarea.default-h2 {
 .calc-box .calc-top .btn-type-wrap > button {
   width: 50%;
   height: 44px;
+}
+.calc-box .calc-top .btn-type-wrap > button:active {
+  background-color: var(--primary);
+  color: var(--white);
 }
 .calc-box .calc-top .btn-type-wrap > button:nth-child(1) {
   border: 1px solid var(--gray6);

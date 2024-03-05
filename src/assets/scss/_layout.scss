@@ -251,14 +251,23 @@
     &.ver2{
       width:75%;
     }
+
+    &.ver3{
+      width:calc(100% - 274px);
+    }
   }
 
   .contents-divide2{
     width:20%;
     min-width:246px;
+
     &.ver2{
       width:25%;
       min-width:280px;
+    }
+    &.ver3{
+      width:248px;
+      min-width:248px;
     }
   }
 }
@@ -294,6 +303,9 @@
     background: var(--bg-color2);
     ~ .contents {
       margin-bottom: 140px;
+    }
+    ~ .contents.mb-0 {
+      margin-bottom:0;
     }
   }
   &.type2 &__inner {

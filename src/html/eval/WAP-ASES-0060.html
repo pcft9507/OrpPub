@@ -1,0 +1,190 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header2.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "평가시스템", dep1: "", dep2: ""})
+
+      <!-- contents -->
+      <div class="contents">
+        <h3 class="title-sub2 type2">평가리스트</h3>
+
+        <div class="board-head content-mt4">
+          <div class="board-head__cell type-gap2">
+            <span class="title-sub4" style="min-width:72px;">총 2개</span>
+            <div class="dropdown">
+              <button type="button" class="dropdown-btn size-s" style="width:136px;"
+                      data-dropdown='{
+                  "name": "boardDropdown1",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "50개씩",
+                      "value": "50개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "100개씩",
+                      "value": "100개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "200개씩",
+                      "value": "200개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown1',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-body">
+          <div class="table table-type1 line-ver ph4">
+            <table id="table">
+              <colgroup>
+                <col style="width: 90px;">
+                <col style="width: 90px;">
+                <col style="width: 150px;">
+                <col style="width: 150px;">
+                <col style="width: 180px;">
+                <col style="width: 180px;">
+                <col style="width: auto">
+                <col style="width: auto">
+                <col style="width: auto">
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col" class="pd-type1" rowspan="2">
+                  <label class="input-chk">
+                    <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                    <span class="isHidden">선택</span>
+                  </label>
+                </th>
+                <th scope="col" rowspan="2"><button type="button" class="btn-align-cell">NO</button></th>
+                <th scope="col" rowspan="2">수험번호</th>
+                <th scope="col" rowspan="2">성명</th>
+                <th scope="col" rowspan="2">상태</th>
+                <th scope="col" rowspan="2">등급</th>
+                <th scope="col" rowspan="2">종합</th>
+                <th scope="col" colspan="2" style="padding:10.5px 8px 2px 8px">평가요소</th>
+              </tr>
+              <tr>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;">논리적 사고</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;">끈기</th>
+              </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <script>
+              $('#table').DataTable({
+                data: [
+                  {
+                    'NO': '1',
+                    '수험번호': '01-000012',
+                    '성명': '응시자7',
+                    '상태': '평가완료',
+                    '등급': 'D',
+                    '종합': 60.00,
+                    '논리적 사고': 60.00,
+                    '끈기': 60.00,
+                  },
+                  {
+                    'NO': '1',
+                    '수험번호': '01-000012',
+                    '성명': '응시자7',
+                    '상태': '평가완료',
+                    '등급': 'D',
+                    '종합': 60.00,
+                    '논리적 사고': 60.00,
+                    '끈기': 60.00,
+                  },
+                  {
+                    'NO': '1',
+                    '수험번호': '01-000012',
+                    '성명': '응시자7',
+                    '상태': '평가예정',
+                    '등급': 'D',
+                    '종합': 60.00,
+                    '논리적 사고': 60.00,
+                    '끈기': 60.00,
+                  },
+                ],
+                columns: [
+                  { data: '선택',
+                    render: function() {
+                      return `
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                    `
+                    }
+                  },
+                  { data: 'NO'},
+                  { data: '수험번호'},
+                  { data: '성명'},
+                  {
+                    data: '상태',
+                    render: function(data) {
+                      let temp;
+                      if (data === '평가예정') {
+                        temp = `<span class="point-color6">${data}</span>`;
+                      } else if (data === '제적/회피') {
+                        temp = `<span class="point-color4">${data}</span>`;
+                      } else if (data === '평가완료') {
+                        temp = `<span class="point-color3">${data}</span>`;
+                      } else if (data === '평가제외') {
+                        temp = `<span class="point-color1">${data}</span>`;
+                      } else {
+                        temp = data;
+                      }
+
+                      return temp;
+                    }
+                  },
+                  { data: '등급'},
+                  { data: '종합'},
+                  { data: '논리적 사고'},
+                  { data: '끈기'},
+                ],
+                paging: false,
+                searching: false,
+                showing: false,
+                info: false
+              })
+            </script>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

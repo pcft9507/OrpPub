@@ -1,0 +1,229 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0083">
+  <section class="popup__container popup__size-l" style="height:649px;">
+    <div class="popup__header">
+      <h3 class="popup__title">추가서류 관리</h3>
+    </div>
+    <div class="popup__contents">
+      <div class="board-body content-mt4">
+        <div class="d-flex ai-c jc-sb mb-16">
+          <div class="dropdown" style="width: 172px;">
+            <button type="button" class="dropdown-btn size-s"
+                    data-dropdown='{
+          "name": "dropdownMulti",
+          "type" : "multi",
+          "option": [
+            {
+              "name": "전체",
+              "value": "전체",
+              "all": true,
+              "disabled": false,
+              "checked": true
+            },
+            {
+              "name": "채용분야",
+              "value": "채용분야",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "수험번호",
+              "value": "수험번호",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "성명",
+              "value": "성명",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "추가서류제출여부",
+              "value": "추가서류제출여부",
+              "disabled": false,
+              "checked": false
+            }
+          ]
+        }'
+            >
+              <span class="dropdown-btn__label">분야</span>
+              <span class="dropdown-btn__checked">전체</span>
+            </button>
+          </div>
+          <div class="d-flex ai-c type-gap">
+            <div class="dropdown" style="width: 112px;">
+              <button type="button" class="dropdown-btn size-s"
+                      data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "엑셀 다운로드",
+                      "value": "엑셀 다운로드",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "첨부파일 다운로드",
+                      "value": "첨부파일 다운로드",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >다운로드</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+            <button type="button" class="base-btn base-icon2 type2__size-s icon-sms">SMS 발송</button>
+            <button type="button" class="base-btn base-icon2 type2__size-s icon-email">이메일 발송</button>
+          </div>
+        </div>
+
+        <div class="table table-type1">
+          <table id="table" class="type-s type-line">
+            <colgroup>
+              <col style="width: 50px;"/>
+              <col style="width: 50px;"/>
+              <col style="width: 70px;"/>
+              <col style="width: 80px;"/>
+              <col style="width: auto;"/>
+              <col style="width: 120px;"/>
+              <col style="width: 120px;"/>
+              <col style="width: auto;"/>
+              <col style="width: auto;"/>
+            </colgroup>
+            <thead>
+            <tr>
+              <th scope="col">
+                <label class="input-chk">
+                  <input type="checkbox" data-ref="chkItem" value="chkAll" onchange="inputCheckAll('chkItem')">
+                  <span class="isHidden">선택</span>
+                </label>
+              </th>
+              <th scope="col">No</th>
+              <th scope="col">채용분야</th>
+              <th scope="col">수험번호</th>
+              <th scope="col">성명</th>
+              <th scope="col">연락처</th>
+              <th scope="col">이메일</th>
+              <th scope="col">졸업증명서</th>
+              <th scope="col">성적증명서</th>
+            </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+          <!-- fg-toolbar -->
+          <div class="fg-toolbar ui-toolbar ui-widget-header ui-helper-clearfix ui-corner-bl ui-corner-br">
+            <div class="dataTables_paginate fg-buttonset">
+              <a class="fg-button ui-button ui-state-default first">처음</a>
+              <a class="fg-button ui-button ui-state-default previous">이전</a>
+              <span>
+                  <a class="fg-button ui-button ui-state-default">1</a>
+                  <a class="fg-button ui-button ui-state-default">16</a>
+                  <a class="fg-button ui-button ui-state-default">17</a>
+                  <a class="fg-button ui-button ui-state-default">18</a>
+                  <a class="fg-button ui-button ui-state-default">19</a>
+                  <a class="fg-button ui-button ui-state-default ui-state-disabled">20</a></span>
+              <a class="fg-button ui-button ui-state-default next ui-state-disabled">다음</a>
+              <a class="fg-button ui-button ui-state-default last ui-state-disabled">마지막</a>
+            </div>
+          </div>
+          <!-- // fg-toolbar -->
+        </div>
+
+        <script>
+          $('#table').DataTable({
+            data: [
+              {
+                'No': '705',
+                '채용분야': '컨설턴트',
+                '수험번호': '00-000001',
+                '성명': '홍길동',
+                '연락처': '010-9999-9999',
+                '이메일': 'aaa@aaa.com',
+                '졸업증명서': '미제출',
+                '성적증명서': '제출'
+              },
+              {
+                'No': '705',
+                '채용분야': '컨설턴트',
+                '수험번호': '00-000001',
+                '성명': '홍길동',
+                '연락처': '010-9999-9999',
+                '이메일': 'aaabbb@aaa.com',
+                '졸업증명서': '미제출',
+                '성적증명서': '제출'
+              },
+              {
+                'No': '705',
+                '채용분야': '컨설턴트',
+                '수험번호': '00-000001',
+                '성명': '홍길동',
+                '연락처': '010-9999-9999',
+                '이메일': 'aaa@aaa.com',
+                '졸업증명서': '미제출',
+                '성적증명서': '제출'
+              },
+              {
+                'No': '705',
+                '채용분야': '컨설턴트',
+                '수험번호': '00-000001',
+                '성명': '홍길동',
+                '연락처': '010-9999-9999',
+                '이메일': 'aaa@aaa.com',
+                '졸업증명서': '미제출',
+                '성적증명서': '제출'
+              },
+              {
+                'No': '705',
+                '채용분야': '컨설턴트',
+                '수험번호': '00-000001',
+                '성명': '홍길동',
+                '연락처': '010-9999-9999',
+                '이메일': 'aaa@aaa.com',
+                '졸업증명서': '미제출',
+                '성적증명서': '제출'
+              },
+            ],
+            columns: [
+              { data: '선택',
+                render: function() {
+                  return `
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                    `
+                }
+              },
+              { data: 'No'},
+              { data: '채용분야'},
+              { data: '수험번호'},
+              { data: '성명'},
+              { data: '연락처'},
+              { data: '이메일'},
+              { data: '졸업증명서'},
+              { data: '성적증명서'},
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          })
+        </script>
+      </div>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0083.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0083 = new LayerPopup({target: "WAP-EMPL-0083"});
+</script>
