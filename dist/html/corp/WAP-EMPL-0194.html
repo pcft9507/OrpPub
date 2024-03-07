@@ -284,8 +284,11 @@
                   <div class="sch-comp__in">
                     <div class="sch-comp__inp-wrap">
                       <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
-                      <div class="sch-comp__inp" data-type="search-select">
-                        <button class="sch-comp__ss-btn dropdown-btn">선택</button>
+                      <div class="sch-comp__inp" data-type="search-select" style="display:block!important;">
+                        <!-- 피그마에 맞춰 디자인을 다시 했는데, 살펴보시고 적정한 걸로 넣어주세요! -->
+                        <button class="sch-comp__ss-btn search-btn">자격증 검색</button>
+                        <!--<button class="sch-comp__ss-btn dropdown-btn">자격증 검색</button>-->
+
                         <div class="sch-comp__ss">
                           <div class="input-box type-search">
                             <input type="text" class="input-txt" placeholder="자격증 검색" oninput="inputValueChk()">

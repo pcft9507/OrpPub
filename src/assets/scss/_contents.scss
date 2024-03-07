@@ -681,21 +681,72 @@
 
   [contenteditable="true"] {
     cursor: pointer;
-    padding-right: 3px;
+    padding-right:12px;
+    padding-left:12px;
+    position:relative;
+    outline:none;
+    min-width:50px;
+    display:inline-block;
+    box-sizing: border-box;
+    border:1px solid transparent;
+
+    &:focus{
+      border:1px solid var(--primary-light2);
+      border-radius:0 4px 4px 4px;
+      box-sizing:border-box;
+    }
+    &::after{
+      content:'';
+      display:block;
+      width:8px;
+      height:8px;
+      background: url($image-url + "icon-editTri.svg") center center no-repeat;
+      background-size:cover;
+      position:absolute;
+      left:0;
+      top:0;
+    }
   }
 
   .form-th {
     width: 155px;
 
     .has-placeholder {
+      position: relative;
+      display: inline-block;
+      padding:4px 12px;
+      min-width: 80px;
+      line-height: 1;
 
-      &.empty {
+      &[contenteditable="true"]{
+        &::placeholder {
+          color: #aaa;
+          position: absolute;
+          top: 4px;
+          left: 12px;
+          pointer-events: none;
+          display: block;
+        }
 
-        &:after {
+        &:empty::before {
           content: attr(placeholder);
           color: #aaa;
+          position: absolute;
+          top: 4px;
+          left: 12px;
+          pointer-events: none;
+          display: block;
+        }
+
+        &:empty::placeholder {
+          display: none;
+        }
+
+        &:empty:focus::before {
+          content: none;
         }
       }
+
     }
   }
 }
@@ -1826,6 +1877,10 @@
   min-width:130px;
   padding:8px;
   font-size:11px;
+}
+
+.value-box{
+  padding:2px 16px;
 }
 
 

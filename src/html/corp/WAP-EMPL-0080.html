@@ -225,7 +225,7 @@
                 <button class="base-btn type2__size-m2">
                   <span class="base-icon icon-add__size-s__color1">발표문 테스트</span>
                 </button>
-                <button class="base-btn type2__size-m2">
+                <button class="base-btn type2__size-m2" onclick="WAP_EMPL_0086.show()">
                   <span class="base-icon icon-add__size-s__color1">추가서류 관리</span>
                 </button>
               </div>
@@ -240,8 +240,16 @@
     <!-- //container -->
     
   </div>
-
+  @@include('../html/corp/WAP-EMPL-0086.html');
   <script src="../../assets/js/timepicki.js"></script>
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_EMPL_0086" : ()=>{WAP_EMPL_0086.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
   <script>
     // 데이트피커
     const calendars = document.querySelectorAll('.datepicker-input');

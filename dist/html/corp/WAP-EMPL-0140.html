@@ -3,7 +3,7 @@
     <div class="popup__header">
       <h3 class="popup__title">자격증</h3>
     </div>
-    <div class="popup__contents">
+    <div class="popup__contents popup__scroll-view" style="max-height:520px;">
       <p><strong>지원자에게 자격증 목록을 제시하고 이 중에서 선택하여 작성할 수 있게 합니다.</strong></p>
 
       <div class="box-flex align-center content-mt3">
@@ -37,35 +37,21 @@
               </tr>
             </thead>
             <tbody class="first-td-bdt0">
+              <tr>
+                <td>국가기술자격</td>
+                <td>정보처리기사</td>
+                <td><button class="base-btn type2__size-s pop-table-height" onclick="deleteRow(this);">삭제</button></td>
+              </tr>
+              <tr>
+                <td>국가기술자격</td>
+                <td>정보처리기사</td>
+                <td><button class="base-btn type2__size-s pop-table-height" onclick="deleteRow(this);">삭제</button></td>
+              </tr>
             </tbody>
           </table>
         </div>
         <script>
-          $('#table2').DataTable({
-            data: [
-              {
-                '구분': '국가기술자격',
-                '자격증': '정보처리기사',
-              },
-              {
-                '구분': '국가기술자격',
-                '자격증': '정보처리기사',
-              },
-            ],
-            columns: [
-            { data: '구분'},
-            { data: '자격증'},
-              { data: '선택',
-                render: function() {
-                    return `<button class="base-btn type2__size-s pop-table-height">삭제</button>`
-                  }
-              }
-            ],
-            paging: false,
-            searching: false,
-            showing: false,
-            info: false
-          })
+
         </script>
       </div>
 
@@ -92,4 +78,36 @@
 </div>
 <script>
   const WAP_EMPL_0140 = new LayerPopup({target: "WAP-EMPL-0140"});
+
+  // 새로운 행을 추가하는 함수
+  function addRow(button) {
+    // 클릭한 버튼에서 가장 가까운 tbody를 찾습니다.
+    const currentTr = button.closest('tr');
+    const tbody = currentTr.closest('tbody');
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+      <td>
+        <div class="form-inner">
+          <button type="button" class="btn-item--del" onclick="deleteRow(this)">
+            <span>삭제</span>
+          </button>
+          <div class="input-box" style="flex: 1;">
+            <input type="text" class="input-txt size-s" placeholder="기타사항 입력하세요">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </td>
+    `;
+
+    // 새로운 행을 현재 "추가" 버튼이 있는 tr의 바로 앞에 삽입합니다.
+    tbody.insertBefore(newRow, currentTr);
+  }
+
+  // 특정 행을 삭제하는 함수
+  function deleteRow(element) {
+    // 삭제 버튼이 속한 tr 요소를 찾아 제거합니다.
+    const parentTr = element.closest('tr');
+    parentTr.remove();
+  }
+
 </script>

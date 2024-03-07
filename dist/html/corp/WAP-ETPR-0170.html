@@ -385,24 +385,31 @@
   <div class="layer-popup type-modal" data-ref="WAP-ETPR-0140">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
+      <h3 class="popup__title">1:1문의</h3>
     </div>
-    <div class="popup__contents">
+    <div class="popup__contents popup__scroll-view">
 
       <div class="board-view__header type-line">
+        <!-- 응답완료 -->
         <p class="board-view--state">
           <strong>응답완료</strong>
         </p>
+        <!-- 응답전 -->
+        <!--<p class="board-view&#45;&#45;state no-answer">
+          <strong>미응답</strong>
+        </p>-->
 
         <h3 class="title-sub">합격자 발표 확인 오류</h3>
+        <p class="point-color6 txt-regular">채용공고: 검사개발팀 컨설튼트 채용</p>
 
-        <div class="board-view__info">
+        <div class="board-view__info content-mt2">
           <p class="board-view__info--date">김한솔 (2021-08-10 16:00:00)</p>
           <p class="board-view__info--date">이메일: tmf1583@naver.co</p>
           <p class="board-view__info--date">연락처: 010-1234-1243</p>
         </div>
       </div>
 
-      <div class="board-view__cont popup__scroll-view" style="height: 204px">
+      <div class="board-view__cont" style="padding-bottom:24px;border-bottom:1px solid #E0E7ED;">
         <p class="font-size-l">
           안녕하세요, 지원자 김한솔입니다.<br>
           지난 금요일 오후에 문자로 합격자 발표를 확인하라는 연락을 받았습니다.<br>
@@ -412,14 +419,17 @@
           감사합니다.
         </p>
       </div>
-      <div class="board-view__footer">
-        <p class="footer-txt">채용공고: 검사개발팀 컨설턴트 채용</p>
-        <p class="footer-txt">마지막 답변자: 엄설영 (2023-12-12 11:11:00)</p>
+      <!-- 응답 후 :  응답 전에는 해당 부분 제거 필요 -->
+      <div class="box-type5 type-pd3 content-mt3">
+        <p class="point-color6 txt-regular">마지막 답변자: 엄설영(2023-12-12 11:11:00)</p>
+        <p class="content-mt2 txt-regular">전화로 안내드렸습니다.</p>
       </div>
 
     </div>
     <div class="popup__btn-wrap">
-      <button class="base-btn type1__size-m">답변하기</button>
+      <button class="base-btn type2__size-m">수정</button>
+      <!-- 응답전 -->
+      <!--<button class="base-btn type1__size-m">답변달기</button>-->
     </div>
     <button class="btn-close" onclick="WAP_ETPR_0140.hide()">닫기</button>
   </section>
@@ -430,56 +440,45 @@
   <div class="layer-popup type-modal" data-ref="WAP-ETPR-0150">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
-      <h3 class="popup__title">1:1문의</h3>
+      <h3 class="popup__title">1:1문의 답변달기</h3>
     </div>
-    <div class="popup__contents popup__scroll-view" style="height: 485px;">
+    <div class="popup__contents popup__scroll-view">
 
-      <div class="form-row__flex">
-        <div class="form-th" style="width: 100px;">
-          이메일
-          <span class="required-mark">필수</span>
-        </div>
-        <div class="form-td" style="flex: 1;">
-          <div class="input-box" style="width: 100%;">
-            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()" required>
-            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-          </div>
-        </div>
-      </div>
-      <div class="form-row__flex type2">
-        <div class="form-th" style="width: 100px;">
-          연락처
-          <span class="required-mark">필수</span>
-        </div>
-        <div class="form-td" style="flex: 1;">
-          <div class="input-box" style="width: 100%;">
-            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()" required>
-            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-          </div>
+      <div class="board-view__header type-line">
+        <!-- 응답중 -->
+        <p class="board-view--state ing-answer">
+          <strong>응답중</strong>
+        </p>
+
+
+        <h3 class="title-sub">합격자 발표 확인 오류</h3>
+        <p class="point-color6 txt-regular">채용공고: 검사개발팀 컨설튼트 채용</p>
+
+        <div class="board-view__info content-mt2">
+          <p class="board-view__info--date">김한솔 (2021-08-10 16:00:00)</p>
+          <p class="board-view__info--date">이메일: tmf1583@naver.co</p>
+          <p class="board-view__info--date">연락처: 010-1234-1243</p>
         </div>
       </div>
-      <div class="form-row__flex type2">
-        <div class="form-th" style="width: 100px;">
-          제목
-        </div>
-        <div class="form-td" style="flex: 1;">
-          <div class="input-box" style="width: 100%;">
-            <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-          </div>
-        </div>
+
+      <div class="board-view__cont" style="padding-bottom:24px;border-bottom:1px solid #E0E7ED;">
+        <p class="font-size-l">
+          안녕하세요, 지원자 김한솔입니다.<br>
+          지난 금요일 오후에 문자로 합격자 발표를 확인하라는 연락을 받았습니다.<br>
+          합격자 발표 기간이 아니라며 현 시간까지 조회가 되지 않습니다.<br>
+          <br>
+          확인 부탁드립니다.<br>
+          감사합니다.
+        </p>
       </div>
-      
-      <div class="form-row type2">
-        <h4 class="title-sub2">내용</h4>
-        <div class="form-inner">
-          <textarea style="height:286px;" placeholder="입력하세요"></textarea>
-        </div>
+      <div class="content-mt3">
+        <textarea style="height:153px;"></textarea>
       </div>
+
 
     </div>
     <div class="popup__btn-wrap">
-      <button class="base-btn type1__size-m" disabled>등록</button>
+      <button class="base-btn type1__size-m">저장</button>
     </div>
     <button class="btn-close" onclick="WAP_ETPR_0150.hide()">닫기</button>
   </section>

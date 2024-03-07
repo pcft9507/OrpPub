@@ -1,0 +1,148 @@
+<div class="layer-popup type-modal" data-ref="WAP-ASES-0061">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">제출</h3>
+    </div>
+    <div class="popup__contents  popup__scroll-view" style="display:flex;flex-direction:column;justify-content:space-between">
+      <div class="board-body">
+        <div class="table table-type1 line-ver">
+          <table id="table1">
+            <colgroup>
+              <col style="width: 50px;">
+              <col style="width: 100px;">
+              <col style="width: 80px;">
+              <col style="width: auto;">
+              <col style="width: auto;">
+              <col style="width: auto;">
+              <col style="width: auto;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th scope="col" rowspan="2">NO</th>
+              <th scope="col" rowspan="2">수험번호</th>
+              <th scope="col" rowspan="2">성명</th>
+              <th scope="col" rowspan="2">상태</th>
+              <th scope="col" rowspan="2">종합</th>
+              <th scope="col" colspan="2" style="padding:10.5px 8px 2px 8px">평가요소</th>
+            </tr>
+            <tr>
+              <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;font-size:12px;">논리적 사고</th>
+              <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;font-size:12px;">끈기</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <script>
+            $('#table1').DataTable({
+              data: [
+                {
+                  'NO': '1',
+                  '수험번호': '01-000012',
+                  '성명': '응시자7',
+                  '상태': '평가완료',
+                  '종합': 60.00,
+                  '논리적 사고': 60.00,
+                  '끈기': 60.00,
+                },
+                {
+                  'NO': '1',
+                  '수험번호': '01-000012',
+                  '성명': '응시자7',
+                  '상태': '평가완료',
+                  '종합': 60.00,
+                  '논리적 사고': 60.00,
+                  '끈기': 60.00,
+                },
+                {
+                  'NO': '1',
+                  '수험번호': '01-000012',
+                  '성명': '응시자7',
+                  '상태': '평가예정',
+                  '종합': 60.00,
+                  '논리적 사고': 60.00,
+                  '끈기': 60.00,
+                },
+                {
+                  'NO': '1',
+                  '수험번호': '01-000012',
+                  '성명': '응시자7',
+                  '상태': '평가예정',
+                  '종합': 60.00,
+                  '논리적 사고': 60.00,
+                  '끈기': 60.00,
+                },
+                {
+                  'NO': '1',
+                  '수험번호': '01-000012',
+                  '성명': '응시자7',
+                  '상태': '평가예정',
+                  '종합': 60.00,
+                  '논리적 사고': 60.00,
+                  '끈기': 60.00,
+                },
+              ],
+              columns: [
+                { data: 'NO'},
+                { data: '수험번호'},
+                { data: '성명'},
+                {
+                  data: '상태',
+                  render: function(data) {
+                    let temp;
+                    if (data === '평가예정') {
+                      temp = `<span class="point-color6">${data}</span>`;
+                    } else if (data === '제적/회피') {
+                      temp = `<span class="point-color4">${data}</span>`;
+                    } else if (data === '평가완료') {
+                      temp = `<span class="point-color3">${data}</span>`;
+                    } else if (data === '평가제외') {
+                      temp = `<span class="point-color1">${data}</span>`;
+                    } else {
+                      temp = data;
+                    }
+
+                    return temp;
+                  }
+                },
+                {
+                  data: '종합',
+                  render: function(data, type){
+                    return data.toFixed(2);
+                  }
+                },
+                {
+                  data: '논리적 사고',
+                  render: function(data, type){
+                    return data.toFixed(2);
+                  }
+                },
+                {
+                  data: '끈기',
+                  render: function(data, type){
+                    return data.toFixed(2);
+                  }
+                },
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            })
+          </script>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:16px;font-weight:400;line-height:1.5;margin-top:40px;">
+        총 1명에 대해서 최종 점수를 제출하시겠습니까?<br>
+        제출 시 재평가가 진행되지 않습니다.
+      </p>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">제출하기</button>
+    </div>
+    <button class="btn-close" onclick="WAP_ASES_0061.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ASES_0061 = new LayerPopup({target: "WAP-ASES-0061"});
+</script>

@@ -329,7 +329,7 @@
                 <button class="base-btn type2__size-m2">
                   <span class="base-icon icon-add__size-s__color1">발표문 테스트</span>
                 </button>
-                <button class="base-btn type2__size-m2">
+                <button class="base-btn type2__size-m2" onclick="WAP_EMPL_0086.show()">
                   <span class="base-icon icon-add__size-s__color1">추가서류 관리</span>
                 </button>
               </div>
@@ -344,8 +344,163 @@
     <!-- //container -->
     
   </div>
+  <div class="layer-popup type-modal" data-ref="WAP-EMPL-0086">
+  <section class="popup__container popup__size-l">
+    <div class="popup__header">
+      <h3 class="popup__title">추가서류 등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="height:547px;">
+      <div class="board-body">
+        <div class="d-flex ai-c jc-sb mb-16">
+          <h4 class="title-sub1" style="margin-bottom:0;">추가서류 제출 마감일</h4>
+          <div class="d-flex ai-c type-gap">
+            <div class="input-box type-calendar" style="width:170px;">
+              <input type="text" id="calendar1" class="input-txt size-s pop-txt-regular" placeholder="일자 선택">
+              <script>
+                const calendar1 = new Datepicker(document.getElementById('calendar1'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
+            </div>
+            <div class="input-box" style="width: 69px;">
+              <input class="input-txt size-s pop-txt-regular timepicker ph-0 tac" type='text' name='timepicker' value="00:00" placeholder="시간 선택">
+            </div>
+          </div>
+        </div>
+        <div class="table table-type1">
+          <table class="type-s type-line">
+            <colgroup>
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">추가서류 제출 마감일</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            <tr>
+                <td>
+                  <div class="form-inner">
+                    <button type="button" class="btn-item&#45;&#45;del" onclick="deleteRow(this)">
+                      <span>삭제</span>
+                    </button>
+                    <div class="value-box">졸업증명서</div>
+                  </div>
+                </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="form-inner">
+                  <button type="button" class="btn-item&#45;&#45;del" onclick="deleteRow(this)">
+                    <span>삭제</span>
+                  </button>
+                  <div class="value-box">성적증명서</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                  <div class="form-inner content-mt1">
+                    <button type="button" class="btn-item--add" onclick="addRow(this)">
+                      <span>추가</span>
+                    </button>
+                  </div>
+                </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0086.hide()">닫기</button>
+  </section>
+</div>
+<script src="../../assets/js/timepicki.js"></script>
+<script>
+  const WAP_EMPL_0086 = new LayerPopup({target: "WAP-EMPL-0086"});
+  // 타임 피커
+  $('.timepicker').timepicki({
+    show_meridian:false,
+    min_hour_value:0,
+    max_hour_value:23
+  });
 
+  // 새로운 행을 추가하는 함수
+  function addRow(button) {
+    // 클릭한 버튼에서 가장 가까운 tbody를 찾습니다.
+    const currentTr = button.closest('tr');
+    const tbody = currentTr.closest('tbody');
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+      <td>
+        <div class="form-inner">
+          <button type="button" class="btn-item--del blue-ver" onclick="deleteRow(this)">
+            <span>삭제</span>
+          </button>
+          <div class="input-wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+            <input type="text" class="input-txt no-bd size-s" placeholder="추가서류 명을 입력하세요">
+            <button type="button" class="point-color" style="min-width:80px;" onclick="confirmAddRow(this); ">등록</button>
+          </div>
+        </div>
+      </td>
+    `;
+
+    // 새로운 행을 현재 "추가" 버튼이 있는 tr의 바로 앞에 삽입합니다.
+    tbody.insertBefore(newRow, currentTr);
+  }
+
+  // 특정 행을 삭제하는 함수
+  function deleteRow(element) {
+    // 삭제 버튼이 속한 tr 요소를 찾아 제거합니다.
+    const parentTr = element.closest('tr');
+    parentTr.remove();
+  }
+
+  // 추가 된 행을 확정하는 함수
+  function confirmAddRow(element) {
+    const inputElement = element.closest('.input-wrap').querySelector('input');
+    const tdName = inputElement.value.trim();  // 값 양 끝의 공백을 제거하여 비어 있는지 확인
+    if (tdName === "") {
+      alert("값을 입력하세요.");  // 빈 값일 경우 경고창 표시 또는 원하는 처리를 추가할 수 있습니다.
+      return;
+    }
+
+    const currentTr = element.closest('tr');
+    const tbody = currentTr.closest('tbody');
+    const newRow = document.createElement('tr');
+
+    newRow.innerHTML = `
+    <td>
+      <div class="form-inner">
+        <button type="button" class="btn-item&#45;&#45;del" onclick="deleteRow(this)">
+          <span>삭제</span>
+        </button>
+        <div class="value-box">${tdName}</div>
+      </div>
+    </td>
+  `;
+
+    tbody.insertBefore(newRow, currentTr.nextSibling);
+    currentTr.remove();
+  }
+</script>
+;
   <script src="../../assets/js/timepicki.js"></script>
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_EMPL_0086" : ()=>{WAP_EMPL_0086.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
   <script>
     // 데이트피커
     const calendars = document.querySelectorAll('.datepicker-input');

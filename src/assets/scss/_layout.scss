@@ -284,6 +284,10 @@
     align-items: center;
     width: 1070px; height: 64px;
     margin: 0 auto;
+
+    &.flex-end{
+      justify-content:flex-end;
+    }
   }
   &__btn-box {
     display: flex;

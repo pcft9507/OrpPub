@@ -926,11 +926,141 @@
 <script>
   const WAP_EMPL_0170 = new LayerPopup({target: "WAP-EMPL-0170"});
 </script>;
+  <div class="layer-popup type-modal" data-ref="WAP-EMPL-0320">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">지원자 설정</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="max-height: 485px;">
+      <div class="form-row__flex pd-ver">
+        <div class="form-th no-pd" style="width: 116px;">수험번호</div>
+        <div class="form-td" style="flex: 1;">01-000012</div>
+      </div>
+      <div class="form-row__flex pd-ver">
+        <div class="form-th no-pd" style="width: 116px;">성명</div>
+        <div class="form-td" style="flex: 1;">김가나(25세)</div>
+      </div>
+      <div class="form-row__flex pd-ver">
+        <div class="form-th no-pd" style="width: 116px;">이메일</div>
+        <div class="form-td" style="flex: 1;">asdfasdf@naver.com</div>
+      </div>
+      <div class="form-row__flex pd-ver">
+        <div class="form-th no-pd" style="width: 116px;">연락처</div>
+        <div class="form-td" style="flex: 1;">010-9999-9999</div>
+      </div>
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">평가실</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width:118px;">
+            <button type="button" class="dropdown-btn"
+                    data-dropdown='{
+                "name": "Dropdown1",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "평가실 선택",
+                    "value": "평가실 선택",
+                    "disabled": false,
+                    "checked": false
+                  },
+
+                ]
+              }'
+            >선택</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'addUserAuthDropdown',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+          <label class="input-chk" style="margin-left:16px;">
+            <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+            <span>결시</span>
+          </label>
+        </div>
+      </div>
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">전형결과</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width:118px;">
+            <button type="button" class="dropdown-btn"
+                    data-dropdown='{
+                "name": "Dropdown2",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "전형결과 선택",
+                    "value": "전형결과 선택",
+                    "disabled": false,
+                    "checked": false
+                  },
+
+                ]
+              }'
+            >선택</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'addUserAuthDropdown',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <!-- 비고 란 -->
+      <div style="margin-top:32px;">
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">비고1</div>
+          <div class="form-td" style="flex: 1;">
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%;">
+                <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">비고2</div>
+          <div class="form-td" style="flex: 1;">
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%;">
+                <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- // 비고 란 -->
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m" disabled>다음</button>
+    </div>
+    <!-- 인적사항 버튼
+      <div class="popup__btn-wrap">
+        <button class="base-btn type2__size-m">이전</button>
+        <button class="base-btn type1__size-m" disabled>등록</button>
+      </div>
+    -->
+    <button class="btn-close" onclick="WAP_EMPL_0320.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0320 = new LayerPopup({target: "WAP-EMPL-0320"});
+</script>;
 
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
-      "WAP_EMPL_0170" : ()=>{WAP_EMPL_0170.show()}
+      "WAP_EMPL_0170" : ()=>{WAP_EMPL_0170.show()},
+      "WAP_EMPL_0320" : ()=>{WAP_EMPL_0320.show()},
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

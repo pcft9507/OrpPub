@@ -10,7 +10,7 @@
 
       <!-- contents -->
       <div class="contents">
-        <h3 class="title-sub2 type2">평가리스트</h3>
+        <h3 class="title-sub2 type2">평가완료 리스트</h3>
 
         <div class="board-head content-mt4">
           <div class="board-head__cell type-gap2">
@@ -60,7 +60,6 @@
             </div>
           </div>
         </div>
-
         <div class="board-body">
           <div class="table table-type1 line-ver ph4">
             <table id="table">
@@ -167,9 +166,24 @@
                     }
                   },
                   { data: '등급'},
-                  { data: '종합'},
-                  { data: '논리적 사고'},
-                  { data: '끈기'},
+                  {
+                    data: '종합',
+                    render: function(data, type){
+                      return data.toFixed(2);
+                    }
+                  },
+                  {
+                    data: '논리적 사고',
+                    render: function(data, type){
+                      return data.toFixed(2);
+                    }
+                  },
+                  {
+                    data: '끈기',
+                    render: function(data, type){
+                      return data.toFixed(2);
+                    }
+                  },
                 ],
                 paging: false,
                 searching: false,
@@ -182,9 +196,26 @@
 
       </div>
       <!-- //contents -->
+      <div class="contents-nav type2">
+        <div class="contents-nav__inner flex-end">
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type1__size-m">평가완료</button>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- //container -->
-    
   </div>
+  @@include('../html/eval/WAP-ASES-0061.html');
+
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_ASES_0061" : ()=>{WAP_ASES_0061.show()},
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+
 </body>
 </html>

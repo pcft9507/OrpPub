@@ -3,7 +3,7 @@
     <div class="popup__header">
       <h3 class="popup__title">추가서류 등록</h3>
     </div>
-    <div class="popup__contents" style="height:547px;">
+    <div class="popup__contents popup__scroll-view" style="height:547px;">
       <div class="board-body">
         <div class="d-flex ai-c jc-sb mb-16">
           <h4 class="title-sub1" style="margin-bottom:0;">추가서류 제출 마감일</h4>
@@ -42,10 +42,7 @@
                     <button type="button" class="btn-item&#45;&#45;del" onclick="deleteRow(this)">
                       <span>삭제</span>
                     </button>
-                    <div class="input-box" style="flex: 1;">
-                      <input type="text" class="input-txt size-s"  value="졸업증명서" placeholder="추가서류명 입력하세요" oninput="inputValueChk()">
-                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                    </div>
+                    <div class="value-box">졸업증명서</div>
                   </div>
                 </td>
             </tr>
@@ -55,10 +52,7 @@
                   <button type="button" class="btn-item&#45;&#45;del" onclick="deleteRow(this)">
                     <span>삭제</span>
                   </button>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt size-s"  value="성적증명서" placeholder="추가서류명 입력하세요" oninput="inputValueChk()">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
+                  <div class="value-box">성적증명서</div>
                 </div>
               </td>
             </tr>
@@ -101,12 +95,12 @@
     newRow.innerHTML = `
       <td>
         <div class="form-inner">
-          <button type="button" class="btn-item--del" onclick="deleteRow(this)">
+          <button type="button" class="btn-item--del blue-ver" onclick="deleteRow(this)">
             <span>삭제</span>
           </button>
-          <div class="input-box" style="flex: 1;">
-            <input type="text" class="input-txt size-s" placeholder="추가서류 명을 입력하세요">
-            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          <div class="input-wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+            <input type="text" class="input-txt no-bd size-s" placeholder="추가서류 명을 입력하세요">
+            <button type="button" class="point-color" style="min-width:80px;" onclick="confirmAddRow(this); ">등록</button>
           </div>
         </div>
       </td>
@@ -121,5 +115,33 @@
     // 삭제 버튼이 속한 tr 요소를 찾아 제거합니다.
     const parentTr = element.closest('tr');
     parentTr.remove();
+  }
+
+  // 추가 된 행을 확정하는 함수
+  function confirmAddRow(element) {
+    const inputElement = element.closest('.input-wrap').querySelector('input');
+    const tdName = inputElement.value.trim();  // 값 양 끝의 공백을 제거하여 비어 있는지 확인
+    if (tdName === "") {
+      alert("값을 입력하세요.");  // 빈 값일 경우 경고창 표시 또는 원하는 처리를 추가할 수 있습니다.
+      return;
+    }
+
+    const currentTr = element.closest('tr');
+    const tbody = currentTr.closest('tbody');
+    const newRow = document.createElement('tr');
+
+    newRow.innerHTML = `
+    <td>
+      <div class="form-inner">
+        <button type="button" class="btn-item&#45;&#45;del" onclick="deleteRow(this)">
+          <span>삭제</span>
+        </button>
+        <div class="value-box">${tdName}</div>
+      </div>
+    </td>
+  `;
+
+    tbody.insertBefore(newRow, currentTr.nextSibling);
+    currentTr.remove();
   }
 </script>
