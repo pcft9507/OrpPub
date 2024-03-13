@@ -1,0 +1,43 @@
+<div class="laywap-sys-0080er-popup type-modal" data-ref="WAP-SYS-0080">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">상세보기</h3>
+    </div>
+    <div class="popup__contents">
+
+      <div class="board-view__header type-line">
+        <h3 class="title-sub">테스트 팝업1</h3>
+
+        <div class="board-view__info">
+          <div class="board-view__info__cell2">
+            <span class="board-view__info--th">기간: </span>
+            <span class="board-view__info--td">2000-00-00 00:00~ 2000-00-00 00:00</span>
+          </div>
+          <div class="board-view__info__cell2">
+            <span class="board-view__info--th">작성자: </span>
+            <span class="board-view__info--td">이진욱</span>
+          </div>
+          <div class="board-view__info__cell2">
+            <span class="board-view__info--th">작성일: </span>
+            <span class="board-view__info--td">2000-00-00 00:00</span>
+          </div>
+        </div>
+      </div>
+
+      <pre class="board-view__cont popup__scroll-view" style="height: 366px">
+      테스트 팝업 관련 내용이 적혀있습니다.
+      테스트 팝업 관련 내용이 적혀있습니다.
+      테스트 팝업 관련 내용이 적혀있습니다.
+      </pre>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type2__size-m">수정</button>
+      <button class="base-btn type1__size-m">취소</button>
+    </div>
+
+    <button class="btn-close" onclick="WAP_SYS_0080.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_SYS_0080 = new LayerPopup({target: "WAP-SYS-0080"});
+</script>

@@ -547,7 +547,7 @@ hr {
 .box-type3.type-pd2 {
   padding: 16px;
 }
-.box-type3.pop-ver + .pop-ver {
+.box-type3.pop-ver + .pop-ver, .box-type3.pop-ver + .chk-ver, .box-type3.chk-ver + .pop-ver, .box-type3.chk-ver + .chk-ver {
   margin-top: 16px;
 }
 .box-type4 {
@@ -1118,8 +1118,22 @@ hr {
           align-items: center;
   margin-bottom: var(--content-margin2);
 }
+.form-set__header .form-set__cell:first-child {
+  width: 100%;
+  max-width: calc(100% - 120px);
+}
+.form-set__header .form-set__cell + .form-set__cell {
+  width: auto;
+}
 .form-set__cell [class*=title-sub] {
   margin: 0;
+  width: 100%;
+}
+.form-set__cell [class*=title-sub] span[contenteditable=true] {
+  max-width: calc(100% - 76px);
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .form-set__btn {
   display: -webkit-box;
@@ -1828,6 +1842,9 @@ textarea.default-h2 {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.dropdown-btn.size-xs {
+  height: 32px;
+}
 .dropdown-btn.size-s {
   height: 44px;
 }
@@ -2117,6 +2134,7 @@ textarea.default-h2 {
 .layer-popup .type-msg {
   padding: 32px 54px 40px;
   max-width: 300px;
+  text-align: center;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
@@ -2516,8 +2534,18 @@ textarea.default-h2 {
 .table-type1 {
   text-align: center;
   color: var(--font-color2);
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
 }
 .table-type1 .dataTables_length {
+  display: none;
+}
+.table-type1.fixed-ver thead {
+  /* 20240312 */
+  z-index: 4;
+  background: var(--bg-color5);
+}
+.table-type1.fixed-ver thead::before {
   display: none;
 }
 .table-type1 table {
@@ -3317,6 +3345,64 @@ textarea.default-h2 {
 
 input[type=time]::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+/* Fixed-ver data-table-reset code */
+.table-type1.fixed-ver table.dataTable > thead > tr > th {
+  position: relative;
+  padding: 24px 8px;
+  border-bottom: 0;
+  text-align: center;
+}
+.table-type1.fixed-ver table.dataTable > thead > tr > th.colgroup {
+  padding: 13px 8px 0;
+}
+.table-type1.fixed-ver table.dataTable > thead > tr > th.colgroup-sub {
+  padding: 10px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.table-type1.fixed-ver div.dt-container.dt-empty-footer .dt-scroll-body {
+  margin-top: 20px;
+}
+.table-type1.fixed-ver table.dataTable > tbody > tr > td {
+  border-bottom: 0;
+  padding: 16px 8px;
+  text-align: center;
+}
+.table-type1.fixed-ver .pd-type1.dt-orderable-asc.dt-orderable-desc.dt-ordering-asc.dtfc-fixed-start.dtfc-fixed-left {
+  border-radius: 8px 0 0 8px;
+}
+.table-type1.fixed-ver div.dt-container.dt-empty-footer .dt-scroll-body,
+.table-type1.fixed-ver div.dt-container.dt-empty-footer tbody > tr:last-child > * {
+  border-bottom: 0;
+}
+.table-type1.fixed-ver div.dt-container div.dt-layout-cell {
+  padding-top: 0;
+}
+.table-type1.fixed-ver table.dataTable.display tbody tr.odd > .sorting_1, .table-type1.fixed-ver table.dataTable.order-column.stripe tbody tr.odd > .sorting_1 {
+  background-color: var(--gray5);
+}
+.table-type1.fixed-ver table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order,
+.table-type1.fixed-ver table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order,
+.table-type1.fixed-ver table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order,
+.table-type1.fixed-ver table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order,
+.table-type1.fixed-ver table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order,
+.table-type1.fixed-ver table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order,
+.table-type1.fixed-ver table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order,
+.table-type1.fixed-ver table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order {
+  display: none;
+}
+.table-type1.fixed-ver table.dataTable thead tr > .dtfc-fixed-start,
+.table-type1.fixed-ver table.dataTable thead tr > .dtfc-fixed-end,
+.table-type1.fixed-ver table.dataTable tfoot tr > .dtfc-fixed-start,
+.table-type1.fixed-ver table.dataTable tfoot tr > .dtfc-fixed-end {
+  background-color: var(--gray5);
+}
+.table-type1.fixed-ver table.dataTable tbody tr > .dtfc-fixed-start,
+.table-type1.fixed-ver table.dataTable tbody tr > .dtfc-fixed-end {
+  background-color: var(--gray7);
 }
 
 .header {
@@ -4575,6 +4661,14 @@ input[type=time]::-webkit-calendar-picker-indicator {
 .categori-control__item ~ .categori-control__item {
   margin-top: var(--content-margin2);
 }
+.categori-control .key {
+  display: inline-block;
+  width: 85px;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 .corp-class {
   width: 522px;
@@ -4773,13 +4867,31 @@ input[type=time]::-webkit-calendar-picker-indicator {
   top: 0;
 }
 .set-box .form-th {
-  width: 155px;
+  width: 205px;
+}
+.set-box .form-th.default-ver.no-edit {
+  width: 173px;
+  margin-left: 32px;
+}
+.set-box .form-th.default-ver.no-edit > span {
+  display: inline-block;
+  padding: 4px 3px 4px 12px;
+  margin-left: 10px;
+}
+.set-box .form-th.default-ver .has-placeholder {
+  margin-left: 42px;
+}
+.set-box .form-th span.pd-ver {
+  display: inline-block;
+  padding: 4px 3px 4px 12px;
+  margin-left: 10px;
+  line-height: 1;
 }
 .set-box .form-th .has-placeholder {
   position: relative;
   display: inline-block;
-  padding: 4px 12px;
-  min-width: 80px;
+  padding: 4px 3px 4px 12px;
+  margin-left: 10px;
   line-height: 1;
 }
 .set-box .form-th .has-placeholder[contenteditable=true]::-webkit-input-placeholder {
@@ -5408,6 +5520,9 @@ input[type=time]::-webkit-calendar-picker-indicator {
   top: 10px;
 }
 
+.type-table .rows-wrap + .rows-wrap {
+  margin-top: 32px;
+}
 .type-table .rows {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5535,7 +5650,7 @@ input[type=time]::-webkit-calendar-picker-indicator {
   top: 130px;
 }
 .calc-box.sticky-ver.ver2 {
-  top: 330px;
+  top: 312px;
 }
 .calc-box .calc-top {
   padding: 24px;
@@ -5739,24 +5854,24 @@ input[type=time]::-webkit-calendar-picker-indicator {
 }
 
 /* 팝업 박스 */
-.pop-tit {
+.pop-tit, .chk-tit {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 16px;
   letter-spacing: -0.03rem;
 }
-.pop-tit.ver2 {
+.pop-tit.ver2, .chk-tit.ver2 {
   font-size: 14px;
 }
-.pop-tit.color-ver {
+.pop-tit.color-ver, .chk-tit.color-ver {
   color: var(--primary);
 }
-.pop-tit.color-ver > span {
+.pop-tit.color-ver > span, .chk-tit.color-ver > span {
   display: inline-block;
   margin-right: 8px;
 }
 
-.pop-desc {
+.pop-desc, .chk-desc {
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 16px;
@@ -5773,6 +5888,11 @@ input[type=time]::-webkit-calendar-picker-indicator {
   margin-bottom: 16px;
   background: url("../images/ico-chk.svg") left 0 top 0;
   background-repeat: no-repeat;
+}
+
+.eval-top.sticky-ver {
+  position: sticky;
+  top: 266px;
 }
 
 /* 점수 그래프 */

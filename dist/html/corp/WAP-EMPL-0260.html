@@ -5,6 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
+<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Datatable -->
+  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
+  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
+
+  <!-- Timepicker -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <!-- personal -->
+  <script src="../../assets/js/ui.js"></script>
+</head>
+
+<!--
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -14,6 +45,7 @@
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
+-->
 <body>
   <div class="wrap">
 
@@ -568,11 +600,109 @@
 <script>
   const WAP_EMPL_0270 = new LayerPopup({target: "WAP-EMPL-0270"});
 </script>;
+  <div class="layer-popup type-modal" data-ref="WAP-EMPL-0290">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">온라인 설정</h3>
+    </div>
+    <div class="popup__contents">
+      <div class="board-body">
+        <div class="table table-type1">
+          <table id="table1" class="type-s type-line">
+            <colgroup>
+              <col style="width: 50px"/>
+              <col style="width: 50px"/>
+              <col style="width: 100px"/>
+              <col>
+              <col style="width: 100px;">
+              <col style="width: 100px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">
+                    <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem" value="chkAll" onchange="inputCheckAll('chkItem')">
+                    <span class="isHidden">전체 체크</span>
+                  </label>
+                </th>
+                <th scope="col">NO</th>
+                <th scope="col">도구명</th>
+                <th scope="col">정의</th>
+                <th scope="col">총점</th>
+                <th scope="col">검사시간</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $('#table1').DataTable({
+            data: [
+              {
+                'NO': '1',
+                '도구명': 'OCAT-C',
+                '정의': '2020년 규준',
+                '총점': '인성검사',
+                '검사시간': '전체(30분)'
+              },
+              {
+                'NO': '1',
+                '도구명': 'OCAT-C',
+                '정의': '2020년 규준',
+                '총점': '인성검사',
+                '검사시간': '전체(30분)'
+              },
+              {
+                'NO': '1',
+                '도구명': 'OCAT-C',
+                '정의': '2020년 규준',
+                '총점': '인성검사',
+                '검사시간': '전체(30분)'
+              }
+            ],
+            columns: [
+              { data: '선택',
+                render: function() {
+                    return `
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                    `
+                  }
+              },
+              { data: 'NO' },
+              { data: '도구명'},
+              { data: '정의'},
+              { data: '총점'},
+              { data: '검사시간'}
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          })
+        </script>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type2__size-m" onclick="layerMsg({ 'type': 'confirm','msg':'해당 필기도구를 지원자에게 적용시키겠습니까?'})">적용</button>
+      <button class="base-btn type1__size-m" onclick="WAP_EMPL_0290.hide();">취소</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0290.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0290 = new LayerPopup({target: "WAP-EMPL-0290"});
+</script>;
 
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
-      "WAP_EMPL_0270" : ()=>{WAP_EMPL_0270.show()}
+      "WAP_EMPL_0270" : ()=>{WAP_EMPL_0270.show()},
+      "WAP_EMPL_0290" : ()=>{WAP_EMPL_0290.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

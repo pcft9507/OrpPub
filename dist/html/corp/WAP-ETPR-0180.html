@@ -5,6 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
+<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Datatable -->
+  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
+  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
+
+  <!-- Timepicker -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/datepicker.min.js"></script>
+  <!-- personal -->
+  <script src="../../assets/js/ui.js"></script>
+</head>
+
+<!--
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>wiselection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -14,6 +45,7 @@
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
+-->
 <body>
   <div class="wrap">
 
@@ -432,61 +464,92 @@
   <div class="layer-popup type-modal" data-ref="WAP-ETPR-0160">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
-      <h3 class="popup__title">알림설정</h3>
+      <h3 class="popup__title">1:1문의 알림설정</h3>
     </div>
     <div class="popup__contents" style="height: 485px;">
 
-      <div class="box-flex align-center">
-        <div class="box-flex__cell" style="width: 64px;">
-          <strong>수신자</strong>
-        </div>
-        <div class="box-flex__cell" style="flex: 1;">
-          <div class="dropdown" style="width: 100%;">
-            <button type="button" class="dropdown-btn" data-dropdown='{
-              "name": "alermSetSearchdropdown",
-              "type" : "single",
-              "option": [
-                {
-                  "name": "옵션1",
-                  "value": "val1",
-                  "disabled": false,
-                  "checked": false
-                },
-                {
-                  "name": "옵션2",
-                  "value": "val2",
-                  "disabled": false,
-                  "checked": false
-                },
-                {
-                  "name": "옵션3",
-                  "value": "val3",
-                  "disabled": false,
-                  "checked": false
-                }
+      <div class="">
+        <div class="box-flex">
+          <div class="box-flex__cell" style="min-width: 136px;">
+            <div class="dropdown" style="width: 100%;">
+              <button type="button" class="dropdown-btn"
+                      data-dropdown='{
+               "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "검색어 입력",
+                        "value": "검색어 입력",
+                        "disabled": false,
+                        "checked": true
+                      }
+
+                    ]
+                  }'
+              >검색어 입력</button>
+            </div>
+          </div>
+          <div class="box-flex__cell" style="width: 100%;min-width:337px;">
+            <div class="input-box type-search" style="width: 100%;">
+              <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            </div>
+            <script>
+              const SAMPLE_DATA = [
+                {"name": "키워드"},
+                {"name": "키워드드"},
+                {"name": "키워드드드"}
               ]
-            }'>담당자를 추가해주세요</button> 
+              dropdown.addItem({
+                target: document.querySelector('[name="inputKeyword"]'),
+                data: {
+                  "name": "inputKeyword",
+                  "type" : "input",
+                  "option": SAMPLE_DATA,
+                }
+              });
+            </script>
+          </div>
+          <div class="box-flex__cell">
+            <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
           </div>
         </div>
-        <div class="box-flex__cell">
-          <button class="base-btn type1__size-m">추가</button>
+
+        <div class="search-tag content-mt2" id="searchTag" style="display: none;">
+          <div class="tag__box">
+          </div>
         </div>
+
+        <script>
+          const searchTag = new CreateTag({
+            target: document.getElementById('searchTag'),
+            tagType: 1,
+          });
+        </script>
       </div>
 
       <div class="board-body content-mt4">
         <div class="table table-type1">
           <table id="popTable0160" class="type-s">
             <colgroup>
+              <col/>
+              <col/>
+              <col/>
+              <col/>
               <col style="width: 100px"/>
-              <col style="width: 177px"/>
-              <col style="width: 177px"/>
               <col style="width: 80px"/>
+              <col style="width: 50px"/>
             </colgroup>
             <thead>
               <tr>
                 <th scope="col">성명</th>
-                <th scope="col">ID</th>
+                <th scope="col">부서</th>
+                <th scope="col">직급</th>
                 <th scope="col">이메일</th>
+                <th scope="col">1:1 문의 알림</th>
                 <th scope="col">삭제</th>
               </tr>
             </thead>
@@ -498,25 +561,40 @@
           $('#popTable0160').DataTable({
             data: [
               {
-                '성명': '김보경',
-                'ID': 'taeyulkim',
-                '이메일' : 'asdfasdf@asdfdfd.com'
+                '성명': '김태율',
+                '부서': '인사',
+                '직급' : '대리',
+                '이메일' : 'taeyulkim@orp.co.kr',
               },
               {
-                '성명': '김보경',
-                'ID': 'taeyulkim',
-                '이메일' : 'asdfasdf@asdfdfd.com'
+                '성명': '김태율',
+                '부서': '인사',
+                '직급' : '대리',
+                '이메일' : 'taeyulkim@orp.co.kr',
               },
               {
-                '성명': '김보경',
-                'ID': 'taeyulkim',
-                '이메일' : 'asdfasdf@asdfdfd.com'
-              }
+                '성명': '김태율',
+                '부서': '인사',
+                '직급' : '대리',
+                '이메일' : 'taeyulkim@orp.co.kr',
+              },
+
             ],
             columns: [
               { data: '성명' },
-              { data: 'ID' },
-              { data: '이메일' },
+              { data: '부서' },
+              { data: '직급' },
+              { data: '이메일'},
+              { data: '1:1문의 알림',
+                render:function(){
+                return `
+                    <label class="btn-toggle">
+                      <input type="checkbox">
+                      <span>버튼</span>
+                    </label>
+                `
+                }
+              },
               { data: '삭제',
                 render: function() {
                   return `

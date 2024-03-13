@@ -500,6 +500,15 @@
   &__item ~ &__item {
     margin-top: var(--content-margin2);
   }
+
+  .key{
+    display:inline-block;
+    width:85px;
+    word-break: break-all;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+  }
 }
 
 .corp-class {
@@ -709,13 +718,37 @@
   }
 
   .form-th {
-    width: 155px;
+    width: 205px;
+
+    &.default-ver{
+      &.no-edit{
+        width:173px;
+        margin-left:32px;
+
+        > span{
+          display:inline-block;
+          padding:4px 3px 4px 12px;
+          margin-left:10px;
+        }
+      }
+      .has-placeholder{
+      margin-left:42px;
+      }
+    }
+
+    span.pd-ver{
+      display: inline-block;
+      padding:4px 3px 4px 12px;
+      margin-left:10px;
+      line-height: 1;
+    }
+
 
     .has-placeholder {
       position: relative;
       display: inline-block;
-      padding:4px 12px;
-      min-width: 80px;
+      padding:4px 3px 4px 12px;
+      margin-left:10px;
       line-height: 1;
 
       &[contenteditable="true"]{
@@ -1306,6 +1339,9 @@
 }
 
 .type-table{
+  .rows-wrap + .rows-wrap{
+    margin-top:32px;
+  }
   .rows{
     display:flex;
     align-items:flex-start;
@@ -1428,7 +1464,7 @@
     }
 
     &.ver2{
-      top:330px;
+      top:312px;
     }
   }
 
@@ -1632,7 +1668,7 @@
 }
 
 /* 팝업 박스 */
-.pop-tit{
+.pop-tit,.chk-tit{
   font-size:16px;
   font-weight:700;
   margin-bottom:16px;
@@ -1651,7 +1687,7 @@
   }
 }
 
-.pop-desc{
+.pop-desc,.chk-desc{
   font-size:14px;
   font-weight:400;
   margin-bottom:16px;
@@ -1668,6 +1704,13 @@
   margin-bottom:16px;
   background:url($image-url + "ico-chk.svg") left 0 top 0;
   background-repeat:no-repeat;
+}
+
+.eval-top{
+  &.sticky-ver{
+    position:sticky;
+    top:266px;
+  }
 }
 
 /* 점수 그래프 */

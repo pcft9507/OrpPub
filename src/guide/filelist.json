@@ -435,6 +435,11 @@
           "url" : "./html/corp/WAP-EMPL-0260.html?popup=WAP_EMPL_0270"
         },
         {
+          "dep4" : "popup - 평가설정",
+          "name" : "WAP-EMPL-0290",
+          "url" : "./html/corp/WAP-EMPL-0260.html?popup=WAP_EMPL_0290"
+        },
+        {
           "dep2" : "면접전형",
           "name" : "WAP-EMPL-0310",
           "url" : "./html/corp/WAP-EMPL-0310.html"
@@ -602,6 +607,11 @@
           "dep2" : "popup - 기업정보 수정",
           "name" : "WAP-SYS-0110",
           "url" : "./html/corp/WAP-CORP-0022.html?popup=WAP_SYS_0110 "
+        },
+        {
+          "dep3" : "popup - 팝업 상세보기",
+          "name" : "WAP-SYS-0080",
+          "url" : "./html/corp/WAP-SYS-0050.html?popup=WAP_SYS_0080"
         },
         {
           "dep2" : "사용자",

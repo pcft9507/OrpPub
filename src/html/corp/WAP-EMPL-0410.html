@@ -384,41 +384,33 @@
           </div>
         </div>
         <div class="board-body">
-          <div class="table table-type1">
+        <div class="table table-type1 fixed-ver line-ver">
             <table id="table">
-              <colgroup>
-                <col style="width: 56px;"/>
-                <col style="width: 50px;"/>
-                <col style="width: 100px;"/>
-                <col style="width: 150px"/>
-                <col style="width: 100px"/>
-                <col style="width: 100px"/>
-                <col/>
-                <col style="width: 185px"/>
-                <col style="width: 185px"/>
-                <col style="width: 185px"/>
-              </colgroup>
               <thead>
                 <tr>
-                  <th scope="col" class="pd-type1">
+                  <th scope="col" rowspan="2" class="pd-type1">
                     <label class="input-chk">
                       <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
                       <span class="isHidden">선택</span>
                     </label>
                   </th>
-                  <th scope="col">
-                    <span class="base-icon icon-mark__color1__size-m">
-                      <span class="isHidden">마크</span>
-                    </span>
-                  </th>
-                  <th scope="col">NO</th>
-                  <th scope="col">수험번호</th>
-                  <th scope="col">성명</th>
-                  <th scope="col">연락처</th>
-                  <th scope="col">이메일</th>
-                  <th scope="col">최종결과</th>
-                  <th scope="col">서류전형</th>
-                  <th scope="col">면접전형</th>
+                  <th scope="col" rowspan="2">NO</th>
+                  <th scope="col" rowspan="2">수험번호</th>
+                  <th scope="col" rowspan="2">성명</th>
+                  <th scope="col" rowspan="2">연락처</th>
+                  <th scope="col" rowspan="2">이메일</th>
+                  <th scope="colgroup" colspan="9" style="padding:10.5px 8px 2px 8px">최종결과</th>
+                </tr>
+                <tr>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">최종결과</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고1</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고2</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고3</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고4</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고5</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고6</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">전형결과</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">종합점수</th>
                 </tr>
               </thead>
             </table>
@@ -427,65 +419,53 @@
             $('#table').DataTable({
               data: [
                 {
-                  'NO': '24',
+                  'NO': '1',
                   '수험번호': '01-00000001',
                   '성명' : '홍길동',
                   '연락처' : '01099999999',
                   '이메일' : 'ts.hwang@wiselection.com',
-                  '최종결과' : {state: 1, data : '합격 (비대상)'},
-                  '서류전형' : {state: 1, data : '합격 (3)'},
-                  '면접전형' : {state: 1, data : '합격 (0)'},
+                  '최종결과' : '합격',
+                  '비고1' :'1',
+                  '비고2' :'2',
+                  '비고3' :'3',
+                  '비고4' :'4',
+                  '비고5' :'5',
+                  '비고6' :'6',
+                  '전형결과' :'합격',
+                  '종합점수' :80,
                 },
                 {
-                  'NO': '24',
+                  'NO': '2',
                   '수험번호': '01-00000001',
                   '성명' : '홍길동',
                   '연락처' : '01099999999',
                   '이메일' : 'ts.hwang@wiselection.com',
-                  '최종결과' : {state: 2, data : '합격 (비대상)'},
-                  '서류전형' : {state: 2, data : '합격 (3)'},
-                  '면접전형' : {state: 2, data : '합격 (0)'},
+                  '최종결과':'불합격',
+                  '비고1' :'1',
+                  '비고2' :'2',
+                  '비고3' :'3',
+                  '비고4' :'4',
+                  '비고5' :'5',
+                  '비고6' :'6',
+                  '전형결과' :'합격',
+                  '종합점수' :80,
                 },
                 {
-                  'NO': '24',
+                  'NO': '3',
                   '수험번호': '01-00000001',
                   '성명' : '홍길동',
                   '연락처' : '01099999999',
                   '이메일' : 'ts.hwang@wiselection.com',
-                  '최종결과' : {state: 2, data : '불합격'},
-                  '서류전형' : {state: 2, data : '합격 (3)'},
-                  '면접전형' : {state: 2, data : '합격 (0)'},
+                  '최종결과':'합격',
+                  '비고1' :'1',
+                  '비고2' :'2',
+                  '비고3' :'3',
+                  '비고4' :'4',
+                  '비고5' :'5',
+                  '비고6' :'6',
+                  '전형결과' :'합격',
+                  '종합점수' :80,
                 },
-                {
-                  'NO': '24',
-                  '수험번호': '01-00000001',
-                  '성명' : '홍길동',
-                  '연락처' : '01099999999',
-                  '이메일' : 'ts.hwang@wiselection.com',
-                  '최종결과' : {state: 2, data : '합격 (비대상)'},
-                  '서류전형' : {state: 2, data : '합격 (3)'},
-                  '면접전형' : {state: 2, data : '합격 (0)'},
-                },
-                {
-                  'NO': '24',
-                  '수험번호': '01-00000001',
-                  '성명' : '홍길동',
-                  '연락처' : '01099999999',
-                  '이메일' : 'ts.hwang@wiselection.com',
-                  '최종결과' : {state: 2, data : '합격 (비대상)'},
-                  '서류전형' : {state: 2, data : '합격 (3)'},
-                  '면접전형' : {state: 2, data : '합격 (0)'},
-                },
-                {
-                  'NO': '24',
-                  '수험번호': '01-00000001',
-                  '성명' : '홍길동',
-                  '연락처' : '01099999999',
-                  '이메일' : 'ts.hwang@wiselection.com',
-                  '최종결과' : {state: 2, data : '합격 (비대상)'},
-                  '서류전형' : {state: 2, data : '합격 (3)'},
-                  '면접전형' : {state: 2, data : '합격 (0)'},
-                }
               ],
               columns: [
                 {
@@ -501,61 +481,92 @@
                   }
                 },
                 {
-                  data: '',
-                  render: function() {
-                    return `
-                      <label class="icon-chk type-mark">
-                        <input type="checkbox">
-                        <span>마크</span>
-                      </label>
-                    `
-                  }
+                  data: 'NO',
+                  width: '60px',
                 },
-                { data: 'NO'},
                 { data: '수험번호',
+                  width: '150px',
                   render: function(data) {
                     return `<span class="point-color">${data}</span>`
                   }
                 },
                 { data: '성명',
+                  width: '100px',
                   render: function(data) {
                     return `<span class="point-color">${data}</span>`
                   }
                 },
-                { data: '연락처' },
-                { data: '이메일' },
-                { data: '최종결과',
+                {
+                  data: '연락처',
+                  width: '150px',
+                },
+                {
+                  data: '이메일',
+                  width: '250px',
+                },
+                {
+                  data: '최종결과',
+                  width: '120px',
                   render: function(data) {
                     let temp;
-                    (data.state === 1)
-                      ? temp = `<span class="point-color3">${data.data}</span>`
-                      : temp = data.data;
+                    (data === '합격')
+                            ? temp = `<span class="point-color3">${data}</span>`
+                            : temp = data;
                     return temp;
                   }
                 },
-                { data: '서류전형',
-                  render: function(data) {
-                    let temp;
-                    (data.state === 1)
-                      ? temp = `<span class="point-color3">${data.data}</span>`
-                      : temp = data.data;
-                    return temp;
-                  }
+                {
+                  data: '비고1',
+                  width: '80px',
                 },
-                { data: '면접전형',
-                  render: function(data) {
+                {
+                  data: '비고2',
+                  width: '80px',
+                },
+                {
+                  data: '비고3',
+                  width: '80px',
+                },
+                {
+                  data: '비고4',
+                  width: '80px',
+                },
+                {
+                  data: '비고5',
+                  width: '80px',
+                },
+                {
+                  data: '비고6',
+                  width: '80px',
+                },
+                {
+                  data: '전형결과',
+                  width: '80px',
+                  /*render: function(data) {
                     let temp;
-                    (data.state === 1)
-                      ? temp = `<span class="point-color3">${data.data}</span>`
-                      : temp = data.data;
+                    (data === '합격')
+                            ? temp = `<span class="point-color3">${data}</span>`
+                            : temp = data;
                     return temp;
-                  }
-                }
+                  }*/
+                },
+                {
+                  data: '종합점수',
+                  width: '80px',
+                },
               ],
+
               paging: false,
               searching: false,
               showing: false,
-              info: false
+              info: false,
+              /* 컬럼 고정 관련 */
+              scrollX: true,
+              scrollCollapse: true,
+              autoWidth:false,
+              fixedColumns: {
+                leftColumns: 6, // 왼쪽으로 고정할 열의 개수
+              },
             });
           </script>
         </div>

@@ -132,7 +132,7 @@
 
                 <!-- 구분 -->
                 <div class="form-row__flex">
-                  <div class="form-th  base-icon after icon-mod-after__size-s__fix">
+                  <div class="form-th default-ver base-icon after icon-mod-after__size-s__fix">
                     <span class="has-placeholder limit-letter" contenteditable="true" data-editText="text2" placeholder="구분" style="display:inline-block;min-width:50px;">구분</span>
                   </div>
                   <div class="form-td" style="flex: 1;">
@@ -169,7 +169,10 @@
                 <!-- 희망연봉 -->
                 <div class="form-row__flex">
                   <div class="form-th base-icon after icon-mod-after__size-s__fix">
-                    <span class="has-placeholder limit-letter" contenteditable="true" placeholder="희망연봉" data-editText="text3">희망연봉</span>
+                    <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                      <span>삭제</span>
+                    </button>
+                    <span class="has-placeholder limit-letter" contenteditable="true" placeholder="희망연봉" data-editText="text1-0">희망연봉</span>
                   </div>
                   <div class="form-td" style="flex: 1;">
 
@@ -178,10 +181,303 @@
                       <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                     </div>
                     <strong style="margin-left: 8px;">만원</strong>
-
                   </div>
                 </div>
                 <!-- //희망연봉 -->
+
+                <!-- 예시 [레이아웃 확인용] -->
+                <div class="form-row__flex" style="gap:24px;">
+                  <div class="form-cell type-gap2" style="flex: 1;">
+                    <div class="form-th base-icon after icon-mod-after__size-s__fix">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel(1);">
+                        <span>삭제</span>
+                      </button>
+                      <span class="has-placeholder limit-letter" contenteditable="true" placeholder="희망연봉" data-editText="text1-3">희망연봉</span>
+                    </div>
+                    <div class="form-td" style="flex: 1;">
+
+                      <div class="input-box" style="width: 136px;">
+                        <input type="number" class="input-txt" oninput="inputValueChk()" value="0">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <strong style="margin-left: 8px;">만원</strong>
+                    </div>
+                  </div>
+
+                  <!-- 장애여부 -->
+                  <div class="form-cell type-gap2" style="flex: 1;">
+                    <div class="form-th">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                        <span>삭제</span>
+                      </button>
+                      <span class="has-placeholder limit-letter" contenteditable="true" placeholder="장애여부" data-editText="text1-1">장애여부</span>
+                      <span class="required-mark">필수</span>
+
+                    </div>
+                    <div class="form-td" style="flex: 1;">
+                      <div class="form-inner">
+                        <div class="form-inner" style="flex: 1;">
+                          <div class="dropdown" style="width: 100%;">
+                            <button type="button" class="dropdown-btn" data-dropdown='{
+                            "name": "dropdown4_1",
+                            "type" : "single",
+                            "option": [
+                              {
+                                "name": "옵션1",
+                                "value": "val1",
+                                "disabled": false,
+                                "checked": false
+                              },
+                              {
+                                "name": "옵션2",
+                                "value": "val2",
+                                "disabled": false,
+                                "checked": false
+                              },
+                              {
+                                "name": "옵션3",
+                                "value": "val3",
+                                "disabled": false,
+                                "checked": false
+                              }
+                            ]
+                          }'>선택하세요</button>
+                          </div>
+                        </div>
+                        <div class="form-row__option">
+                          <label class="input-chk type2">
+                            <input type="checkbox">
+                            <span>필수</span>
+                          </label>
+                          <label class="toggle-show">
+                            <input type="checkbox" checked>
+                            <span>체크</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- //장애여부 -->
+                </div>
+                <div class="form-row__flex" style="gap:24px;">
+                  <!-- 장애등급 -->
+                  <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                    <div class="form-th default-ver no-edit">
+                      <span>장애등급</span>
+                    </div>
+                    <div class="form-td" style="flex: 1;">
+                      <div class="form-inner">
+                        <div class="form-inner" style="flex: 1;">
+                          <div class="dropdown" style="width: 100%;">
+                            <button type="button" class="dropdown-btn" data-dropdown='{
+                            "name": "dropdown4_2",
+                            "type" : "single",
+                            "option": [
+                              {
+                                "name": "옵션1",
+                                "value": "val1",
+                                "disabled": false,
+                                "checked": false
+                              },
+                              {
+                                "name": "옵션2",
+                                "value": "val2",
+                                "disabled": false,
+                                "checked": false
+                              },
+                              {
+                                "name": "옵션3",
+                                "value": "val3",
+                                "disabled": false,
+                                "checked": false
+                              }
+                            ]
+                          }'>선택하세요</button>
+                          </div>
+                        </div>
+                        <div class="form-row__option">
+                          <label class="input-chk type2">
+                            <input type="checkbox">
+                            <span>필수</span>
+                          </label>
+                          <label class="toggle-show">
+                            <input type="checkbox" checked>
+                            <span>체크</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- //장애등급 -->
+                  <!-- 장애여부 -->
+                  <div class="form-cell type-gap2" style="flex: 1;">
+                    <div class="form-th">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                        <span>삭제</span>
+                      </button>
+                      <span class="pd-ver">
+                        장애여부
+                      </span>
+                      <span class="required-mark">필수</span>
+                    </div>
+                    <div class="form-td" style="flex: 1;">
+                      <div class="form-inner">
+                        <div class="form-inner" style="flex: 1;">
+                          <div class="dropdown" style="width: 100%;">
+                            <button type="button" class="dropdown-btn" data-dropdown='{
+                            "name": "dropdown4_1",
+                            "type" : "single",
+                            "option": [
+                              {
+                                "name": "옵션1",
+                                "value": "val1",
+                                "disabled": false,
+                                "checked": false
+                              },
+                              {
+                                "name": "옵션2",
+                                "value": "val2",
+                                "disabled": false,
+                                "checked": false
+                              },
+                              {
+                                "name": "옵션3",
+                                "value": "val3",
+                                "disabled": false,
+                                "checked": false
+                              }
+                            ]
+                          }'>선택하세요</button>
+                          </div>
+                        </div>
+                        <div class="form-row__option">
+                          <label class="input-chk type2">
+                            <input type="checkbox">
+                            <span>필수</span>
+                          </label>
+                          <label class="toggle-show">
+                            <input type="checkbox" checked>
+                            <span>체크</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- //장애여부 -->
+                </div>
+                <div class="form-row__flex" style="gap:24px;">
+                  <!-- 장애등급 -->
+                  <div class="form-cell type-gap2 type-th" style="flex: 1;">
+                    <div class="form-th">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                        <span>삭제</span>
+                      </button>
+                      <span class="has-placeholder limit-letter" contenteditable="true" placeholder="장애여부" data-editText="text1-2">
+                        장애여부
+                      </span>
+                      <span class="required-mark">필수</span>
+
+                    </div>
+                    <div class="form-td" style="flex: 1;">
+                      <div class="form-inner">
+                        <div class="form-inner" style="flex: 1;">
+                          <div class="dropdown" style="width: 100%;">
+                            <button type="button" class="dropdown-btn" data-dropdown='{
+                            "name": "dropdown4_2",
+                            "type" : "single",
+                            "option": [
+                              {
+                                "name": "옵션1",
+                                "value": "val1",
+                                "disabled": false,
+                                "checked": false
+                              },
+                              {
+                                "name": "옵션2",
+                                "value": "val2",
+                                "disabled": false,
+                                "checked": false
+                              },
+                              {
+                                "name": "옵션3",
+                                "value": "val3",
+                                "disabled": false,
+                                "checked": false
+                              }
+                            ]
+                          }'>선택하세요</button>
+                          </div>
+                        </div>
+                        <div class="form-row__option">
+                          <label class="input-chk type2">
+                            <input type="checkbox">
+                            <span>필수</span>
+                          </label>
+                          <label class="toggle-show">
+                            <input type="checkbox" checked>
+                            <span>체크</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- //장애등급 -->
+                  <!-- 장애여부 -->
+                  <div class="form-cell type-gap2" style="flex: 1;">
+                    <div class="form-th">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel(2);">
+                        <span>삭제</span>
+                      </button>
+                      <span class="has-placeholder limit-letter" contenteditable="true" placeholder="장애여부" data-editText="text1-5">장애여부</span>
+                      <span class="required-mark">필수</span>
+                    </div>
+                    <div class="form-td" style="flex: 1;">
+                      <div class="form-inner">
+                        <div class="form-inner" style="flex: 1;">
+                          <div class="dropdown" style="width: 100%;">
+                            <button type="button" class="dropdown-btn" data-dropdown='{
+                            "name": "dropdown4_1",
+                            "type" : "single",
+                            "option": [
+                              {
+                                "name": "옵션1",
+                                "value": "val1",
+                                "disabled": false,
+                                "checked": false
+                              },
+                              {
+                                "name": "옵션2",
+                                "value": "val2",
+                                "disabled": false,
+                                "checked": false
+                              },
+                              {
+                                "name": "옵션3",
+                                "value": "val3",
+                                "disabled": false,
+                                "checked": false
+                              }
+                            ]
+                          }'>선택하세요</button>
+                          </div>
+                        </div>
+                        <div class="form-row__option">
+                          <label class="input-chk type2">
+                            <input type="checkbox">
+                            <span>필수</span>
+                          </label>
+                          <label class="toggle-show">
+                            <input type="checkbox" checked>
+                            <span>체크</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- //장애여부 -->
+                </div>
+                <!-- // 예시 항목 -->
+
 
               </div>
             </section>
@@ -4152,14 +4448,13 @@
     focus: function () {
       $(this).parent().addClass("active");
       var dataEditText = $(this).attr('data-editText');
-      var textValue = $(this).text();
+      var textFirstValue = $(this).text().replace(/(\r\n|\n|\r|\s)/gm, '');
 
       // 객체에 저장 (업데이트하지 않음)
       if (dataTextMapping[dataEditText] === undefined) {
-        dataTextMapping[dataEditText] = textValue;
-        console.log("Saving initial value for", dataEditText, ":", textValue);
+        dataTextMapping[dataEditText] = textFirstValue;
+        console.log(dataTextMapping)
       }
-      console.log("Data-EditText Mapping:", dataTextMapping);
     },
 
     keydown: function (event) {
@@ -4173,8 +4468,8 @@
           $(this).html(initialTextValue);
           updateKeySpan($(this), initialTextValue);
         }
-
         $(this).blur(); // 포커스 아웃
+
       }
     },
     focusout: function () {
@@ -4196,7 +4491,7 @@
       if ($(this).closest('.title-sub').length > 0) {
         console.log(dataEditText)
 
-        if (!currentTextValue || currentTextValue === '') {
+        if (!currentTextValue.trim()) {
           keySpan.text(dataTextMapping[dataEditText]);
         } else {
           keySpan.text(currentTextValue);

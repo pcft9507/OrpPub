@@ -312,11 +312,13 @@
     
   </div>
   @@include('../html/corp/WAP-EMPL-0270.html');
+  @@include('../html/corp/WAP-EMPL-0290.html');
 
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
-      "WAP_EMPL_0270" : ()=>{WAP_EMPL_0270.show()}
+      "WAP_EMPL_0270" : ()=>{WAP_EMPL_0270.show()},
+      "WAP_EMPL_0290" : ()=>{WAP_EMPL_0290.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

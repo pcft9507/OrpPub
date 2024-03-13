@@ -1,0 +1,97 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0290">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">온라인 설정</h3>
+    </div>
+    <div class="popup__contents">
+      <div class="board-body">
+        <div class="table table-type1">
+          <table id="table1" class="type-s type-line">
+            <colgroup>
+              <col style="width: 50px"/>
+              <col style="width: 50px"/>
+              <col style="width: 100px"/>
+              <col>
+              <col style="width: 100px;">
+              <col style="width: 100px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">
+                    <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem" value="chkAll" onchange="inputCheckAll('chkItem')">
+                    <span class="isHidden">전체 체크</span>
+                  </label>
+                </th>
+                <th scope="col">NO</th>
+                <th scope="col">도구명</th>
+                <th scope="col">정의</th>
+                <th scope="col">총점</th>
+                <th scope="col">검사시간</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $('#table1').DataTable({
+            data: [
+              {
+                'NO': '1',
+                '도구명': 'OCAT-C',
+                '정의': '2020년 규준',
+                '총점': '인성검사',
+                '검사시간': '전체(30분)'
+              },
+              {
+                'NO': '1',
+                '도구명': 'OCAT-C',
+                '정의': '2020년 규준',
+                '총점': '인성검사',
+                '검사시간': '전체(30분)'
+              },
+              {
+                'NO': '1',
+                '도구명': 'OCAT-C',
+                '정의': '2020년 규준',
+                '총점': '인성검사',
+                '검사시간': '전체(30분)'
+              }
+            ],
+            columns: [
+              { data: '선택',
+                render: function() {
+                    return `
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                    `
+                  }
+              },
+              { data: 'NO' },
+              { data: '도구명'},
+              { data: '정의'},
+              { data: '총점'},
+              { data: '검사시간'}
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          })
+        </script>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type2__size-m" onclick="layerMsg({ 'type': 'confirm','msg':'해당 필기도구를 지원자에게 적용시키겠습니까?'})">적용</button>
+      <button class="base-btn type1__size-m" onclick="WAP_EMPL_0290.hide();">취소</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0290.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0290 = new LayerPopup({target: "WAP-EMPL-0290"});
+</script>
