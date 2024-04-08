@@ -1,640 +1,156 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <script src="../../assets/js/ui.js"></script>
-</head>
--->
-<body>
-  <div class="wrap">
-
-    <!-- header -->
-    <header class="header">
-      <div class="header__inner">
-        <h1 class="header--logo"><a href="/"><img src="../../assets/images/logo.png" alt="wiselection"></a></h1>
-        <div class="header__info">
-          <div class="header__info__cell header__page-sort">
-            <span>관리자 페이지</span>
-          </div>
-          <ul class="header__info__cell header__list-count">
-            <li>
-              <span class="key">전체</span>
-              <span class="val point-color">10건</span>
-            </li>
-            <li>
-              <span class="key">전체</span>
-              <span class="val point-color">8건</span>
-            </li>
-            <li>
-              <span class="key">계약만료</span>
-              <span class="val point-color">2건</span>
-            </li>
-          </ul>
-          <div class="header__info__cell header__input-search">
-            <div class="input-box type-search">
-              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-              <input type="text" class="input-txt" placeholder="기업명, 공고명 검색" oninput="inputValueChk()">
-            </div>
-          </div>
-        </div>
-        <div class="header__util">
-          <a href="#">홍길동님</a>
-          <a href="#">도움말</a>
-          <a href="#">로그아웃</a>
-        </div>
-      </div>
-    </header>
-    <!-- //header -->
-    
-    <!-- container -->
-    <div class="container">
-      <!-- snb -->
-      <nav class="snb" data-ref="sideNav">
-        
-
-        
-        <ul class="snb__menu">
-          <li><a href="WAP-HOM-0020.html" class="snb__depth1--btn icon3">홈</a></li>
-          <li><a href="WAP-EMPL-0010.html" class="snb__depth1--btn icon4">채용등록</a></li>
-          <li><a href="WAP-EMPL-0020.html" class="snb__depth1--btn icon7">채용목록</a></li>
-          <li>
-            <button
-              type="button"
-              class="snb__depth1--btn icon5"
-              aria-expanded="false"
-              aria-controls="snbSubMenu1"
-            ><span>보관함</span></button>
-            <div id="snbSubMenu1" class="snb__depth2">
-              <ul>
-                <li><a href="WAP-CONT-0010.html">입사 원서</a></li>
-                <li><a href="WAP-CONT-0060.html">서류 도구</a></li>
-                <li><a href="WAP-CONT-0110.html" class="isMark">필기 도구</a></li>
-                <li><a href="WAP-CONT-0170.html">면접 도구</a></li>
-                <li><a href="WAP-CONT-0230.html">평가 척도</a></li>
-                <li><a href="WAP-CONT-0270.html">만족도조사</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="isCurrent">
-            <button
-              type="button"
-              class="snb__depth1--btn icon6"
-              aria-expanded="true"
-              aria-controls="snbSubMenu2"
-            ><span>기업정보</span></button>
-            <div id="snbSubMenu2" class="snb__depth2 isOpen">
-              <ul>
-                <li><a href="WAP-CORP-0022.html">기업정보</a></li>
-                <li><a href="WAP-SYS-0090.html">사용자</a></li>
-                <li class="isCurrent"><a href="WAP-ETPR-0070.html">채용홈페이지</a></li>
-                <li><a href="WAP-ETPR-0200.html">개인정보 삭제기준</a></li>
-                <li><a href="WAP-ETPR-0210.html">발송이력</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-
-        
-
-        <button type="button" class="snb__btn-toggle" data-ref="btn-toggle">축소/확대 버튼</button>
-      </nav>
-      <script>
-        const sideNav = new SideNav({target: "sideNav"});
-      </script>
-      <!-- //snb -->
-
-      <!-- contents navigation -->
-      <div class="contents-nav type2">
-        <div class="contents-nav__inner">
-          <div class="contents-nav__btn-box">
-            <button type="button" class="base-btn type2__size-m">초기화</button>
-          </div>
-          <div class="contents-nav__btn-box">
-            <button type="button" class="base-btn type2__size-m">취소</button>
-            <button type="button" class="base-btn type1__size-m">저장</button>
-          </div>
-        </div>
-      </div>
-      <!-- //contents navigation -->
-
-      <!-- contents -->
-      <div class="contents">
-        <h3 class="title-sub">팝업등록</h3>
-
-        <section class="content-mt4">
-          <h4 class="title-sub">기본세팅</h4>
-
-          <div class="box-type1">
-
-            <div class="form-row__flex">
-              <!-- 제목 -->
-              <div class="form-th" style="width: 99px;">제목</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="input-box" style="width: 100%;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-              </div>
-              <!-- //제목 -->
-              <!-- 노출여부 -->
-              <div class="form-th" style="width: 99px; margin-left: 64px;">노출여부</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="dropdown" style="width: 100%;">
-                  <button type="button" class="dropdown-btn size-s" data-dropdown='{
-                    "name": "dropdown1",
-                    "type" : "single",
-                    "option": [
-                      {
-                        "name": "옵션1",
-                        "value": "val1",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션2",
-                        "value": "val2",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션3",
-                        "value": "val3",
-                        "disabled": false,
-                        "checked": false
-                      }
-                    ]
-                  }'>선택하세요</button> 
-                </div>
-              </div>
-              <!-- //노출여부 -->
-            </div>
-            <!-- 노출기간 -->
-            <div class="form-row__flex type2">
-
-              <div class="form-th" style="width: 99px;">노출기간</div>
-              <div class="form-td form-inner" style="flex: 1;">
-                <div class="input-box type-calendar" style="flex:1">
-                  <input type="text" class="input-txt" id="calendar1_1" placeholder="일자 선택" oninput="inputValueChk()">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  <script>
-                    const calendar1_1 = new Datepicker(document.getElementById('calendar1_1'), {
-                      ...CALENDAR_DEFAULT_OPTION,
-                      ...{
-                        "minDate": "2023.12.06",
-                        "maxDate": "2023.12.20"
-                      }
-                    });
-                  </script>
-                </div>
-                <div class="input-box" style="width: 160px;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-                <div> ~ </div>
-                <div class="input-box type-calendar" style="flex:1">
-                  <input type="text" class="input-txt" id="calendar1_2" placeholder="일자 선택" oninput="inputValueChk()">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  <script>
-                    const calendar1_2 = new Datepicker(document.getElementById('calendar1_2'), {
-                      ...CALENDAR_DEFAULT_OPTION,
-                      ...{
-                        "minDate": "2023.12.06",
-                        "maxDate": "2023.12.20"
-                      }
-                    });
-                  </script>
-                </div>
-                <div class="input-box" style="width: 160px;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-              </div>
-            </div>
-            <!-- //노출기간 -->
-            <!-- 노출위치 -->
-            <div class="form-row__flex" style="width: calc(50% - 32px);">
-              <div class="form-th" style="width: 99px;">노출위치</div>
-              <div class="form-td form-inner" style="flex: 1;">
-                <div class="dropdown" style="flex: 1;">
-                  <button type="button" class="dropdown-btn size-s" data-dropdown='{
-                    "name": "dropdown2",
-                    "type" : "single",
-                    "option": [
-                      {
-                        "name": "옵션1",
-                        "value": "val1",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션2",
-                        "value": "val2",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션3",
-                        "value": "val3",
-                        "disabled": false,
-                        "checked": false
-                      }
-                    ]
-                  }'>채용홈페이지</button> 
-                </div>
-                <div class="dropdown" style="flex: 1;">
-                  <button type="button" class="dropdown-btn size-s" data-dropdown='{
-                    "name": "dropdown3",
-                    "type" : "single",
-                    "option": [
-                      {
-                        "name": "옵션1",
-                        "value": "val1",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션2",
-                        "value": "val2",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션3",
-                        "value": "val3",
-                        "disabled": false,
-                        "checked": false
-                      }
-                    ]
-                  }'>선택</button> 
-                </div>
-              </div>
-            </div>
-            <!-- //노출위치 -->
-
-            <div class="form-row__flex">
-              <!-- 화면 위치 -->
-              <div class="form-th" style="width: 99px;">화면 위치</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="form-inner">
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="TOP 간격">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="LEFT 간격">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-              </div>
-              <!-- //화면 위치 -->
-              <!-- 화면 크기 -->
-              <div class="form-th" style="width: 99px; margin-left: 64px;">화면 크기</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="form-inner">
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="가로사이즈">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="세로사이즈">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-              </div>
-              <!-- //화면 크기 -->
-            </div>
-          </div>
-        </section>
-        <section class="content-mt6">
-          <h4 class="title-sub">내용 입력</h4>
-          <div style="display:flex;align-items:center;justify-content:center;height:650px;background:gainsboro;">에디터 영역</div>
-        </section>
-
-      </div>
-      <!-- //contents -->
-    </div>
-    <!-- //container -->
-    
-  </div>
-  <div class="layer-popup type-modal" data-ref="WAP-ETPR-0140">
+<div class="layer-popup type-modal pop-interview-tools" data-ref="WAP-ETPR-0180">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
-      <h3 class="popup__title">1:1문의</h3>
+      <h3 class="popup__title">팝업등록</h3>
     </div>
     <div class="popup__contents popup__scroll-view">
-
-      <div class="board-view__header type-line">
-        <!-- 응답완료 -->
-        <p class="board-view--state">
-          <strong>응답완료</strong>
-        </p>
-        <!-- 응답전 -->
-        <!--<p class="board-view&#45;&#45;state no-answer">
-          <strong>미응답</strong>
-        </p>-->
-
-        <h3 class="title-sub">합격자 발표 확인 오류</h3>
-        <p class="point-color6 txt-regular">채용공고: 검사개발팀 컨설튼트 채용</p>
-
-        <div class="board-view__info content-mt2">
-          <p class="board-view__info--date">김한솔 (2021-08-10 16:00:00)</p>
-          <p class="board-view__info--date">이메일: tmf1583@naver.co</p>
-          <p class="board-view__info--date">연락처: 010-1234-1243</p>
-        </div>
-      </div>
-
-      <div class="board-view__cont" style="padding-bottom:24px;border-bottom:1px solid #E0E7ED;">
-        <p class="font-size-l">
-          안녕하세요, 지원자 김한솔입니다.<br>
-          지난 금요일 오후에 문자로 합격자 발표를 확인하라는 연락을 받았습니다.<br>
-          합격자 발표 기간이 아니라며 현 시간까지 조회가 되지 않습니다.<br>
-          <br>
-          확인 부탁드립니다.<br>
-          감사합니다.
-        </p>
-      </div>
-      <!-- 응답 후 :  응답 전에는 해당 부분 제거 필요 -->
-      <div class="box-type5 type-pd3 content-mt3">
-        <p class="point-color6 txt-regular">마지막 답변자: 엄설영(2023-12-12 11:11:00)</p>
-        <p class="content-mt2 txt-regular">전화로 안내드렸습니다.</p>
-      </div>
-
-    </div>
-    <div class="popup__btn-wrap">
-      <button class="base-btn type2__size-m">수정</button>
-      <!-- 응답전 -->
-      <!--<button class="base-btn type1__size-m">답변달기</button>-->
-    </div>
-    <button class="btn-close" onclick="WAP_ETPR_0140.hide()">닫기</button>
-  </section>
-</div>
-<script>
-  const WAP_ETPR_0140 = new LayerPopup({target: "WAP-ETPR-0140"});
-</script>;
-  <div class="layer-popup type-modal" data-ref="WAP-ETPR-0150">
-  <section class="popup__container popup__size-m">
-    <div class="popup__header">
-      <h3 class="popup__title">1:1문의 답변달기</h3>
-    </div>
-    <div class="popup__contents popup__scroll-view">
-
-      <div class="board-view__header type-line">
-        <!-- 응답중 -->
-        <p class="board-view--state ing-answer">
-          <strong>응답중</strong>
-        </p>
-
-
-        <h3 class="title-sub">합격자 발표 확인 오류</h3>
-        <p class="point-color6 txt-regular">채용공고: 검사개발팀 컨설튼트 채용</p>
-
-        <div class="board-view__info content-mt2">
-          <p class="board-view__info--date">김한솔 (2021-08-10 16:00:00)</p>
-          <p class="board-view__info--date">이메일: tmf1583@naver.co</p>
-          <p class="board-view__info--date">연락처: 010-1234-1243</p>
-        </div>
-      </div>
-
-      <div class="board-view__cont" style="padding-bottom:24px;border-bottom:1px solid #E0E7ED;">
-        <p class="font-size-l">
-          안녕하세요, 지원자 김한솔입니다.<br>
-          지난 금요일 오후에 문자로 합격자 발표를 확인하라는 연락을 받았습니다.<br>
-          합격자 발표 기간이 아니라며 현 시간까지 조회가 되지 않습니다.<br>
-          <br>
-          확인 부탁드립니다.<br>
-          감사합니다.
-        </p>
-      </div>
-      <div class="content-mt3">
-        <textarea style="height:153px;"></textarea>
-      </div>
-
-
-    </div>
-    <div class="popup__btn-wrap">
-      <button class="base-btn type1__size-m">저장</button>
-    </div>
-    <button class="btn-close" onclick="WAP_ETPR_0150.hide()">닫기</button>
-  </section>
-</div>
-<script>
-  const WAP_ETPR_0150 = new LayerPopup({target: "WAP-ETPR-0150"});
-</script>;
-  <div class="layer-popup type-modal" data-ref="WAP-ETPR-0160">
-  <section class="popup__container popup__size-m">
-    <div class="popup__header">
-      <h3 class="popup__title">1:1문의 알림설정</h3>
-    </div>
-    <div class="popup__contents" style="height: 485px;">
-
-      <div class="">
-        <div class="box-flex">
-          <div class="box-flex__cell" style="min-width: 136px;">
-            <div class="dropdown" style="width: 100%;">
-              <button type="button" class="dropdown-btn"
-                      data-dropdown='{
-               "name": "selCate",
-                    "type" : "single",
-                    "option": [
-                      {
-                        "name": "검색어 입력",
-                        "value": "검색어 입력",
-                        "disabled": false,
-                        "checked": true
-                      }
-
-                    ]
-                  }'
-              >검색어 입력</button>
+      <!-- 제목 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">제목</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box" style="width: 100%;">
+              <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
             </div>
+            <label class="btn-toggle">
+              <input type="checkbox">
+              <span>버튼</span>
+            </label>
           </div>
-          <div class="box-flex__cell" style="width: 100%;min-width:337px;">
-            <div class="input-box type-search" style="width: 100%;">
-              <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
-              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
-            </div>
+        </div>
+      </div>
+
+      <!-- 노출위치 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">노출위치</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 100%;">
+            <button type="button" class="dropdown-btn"
+                    data-dropdown='{
+                "name": "addUserAuthDropdown",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "시스템접속후",
+                    "value": "시스템접속후",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "채용공고상세",
+                    "value": "채용공고상세",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "지원서작성",
+                    "value": "지원서작성",
+                    "disabled": false,
+                    "checked": false
+                  }
+                ]
+              }'
+            >선택하세요</button>
             <script>
-              const SAMPLE_DATA = [
-                {"name": "키워드"},
-                {"name": "키워드드"},
-                {"name": "키워드드드"}
-              ]
-              dropdown.addItem({
-                target: document.querySelector('[name="inputKeyword"]'),
-                data: {
-                  "name": "inputKeyword",
-                  "type" : "input",
-                  "option": SAMPLE_DATA,
+              dropdown.init('dropdown', {
+                name: 'addUserAuthDropdown',
+                onChange: _this=>{
+                  console.log(_this.value);
                 }
               });
             </script>
           </div>
-          <div class="box-flex__cell">
-            <button class="base-btn type1__size-m" onclick="searchTag.addTag(
-                dropdown.items.selCate.value,
-                dropdown.items.inputKeyword.target.value
-              );">추가</button>
-          </div>
         </div>
-
-        <div class="search-tag content-mt2" id="searchTag" style="display: none;">
-          <div class="tag__box">
-          </div>
-        </div>
-
-        <script>
-          const searchTag = new CreateTag({
-            target: document.getElementById('searchTag'),
-            tagType: 1,
-          });
-        </script>
       </div>
 
-      <div class="board-body content-mt4">
-        <div class="table table-type1">
-          <table id="popTable0160" class="type-s">
-            <colgroup>
-              <col/>
-              <col/>
-              <col/>
-              <col/>
-              <col style="width: 100px"/>
-              <col style="width: 80px"/>
-              <col style="width: 50px"/>
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope="col">성명</th>
-                <th scope="col">부서</th>
-                <th scope="col">직급</th>
-                <th scope="col">이메일</th>
-                <th scope="col">1:1 문의 알림</th>
-                <th scope="col">삭제</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
+      <!-- 노출기간 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">노출기간</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box type-calendar" >
+              <input type="text" class="input-txt" id="calendarShow1_1" placeholder="일자 선택" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              <script>
+                const calendarShow1_1 = new Datepicker(document.getElementById('calendarShow1_1'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
+            </div>
+            <div class="input-box" style="width: 80px;">
+              <input class="input-txt timepicker ph-0 tac" type='text'name='timepicker' value="00:00" placeholder="시간 선택">
+            </div>
+            <div> ~ </div>
+            <div class="input-box type-calendar" >
+              <input type="text" class="input-txt" id="calendarShow1_2" placeholder="일자 선택" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              <script>
+                const calendarShow1_2 = new Datepicker(document.getElementById('calendarShow1_2'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
+            </div>
+            <div class="input-box" style="width: 80px;">
+              <input class="input-txt timepicker ph-0 tac" type='text'name='timepicker' value="00:00" placeholder="시간 선택">
+            </div>
+          </div>
         </div>
-        <script>
-          $('#popTable0160').DataTable({
-            data: [
-              {
-                '성명': '김태율',
-                '부서': '인사',
-                '직급' : '대리',
-                '이메일' : 'taeyulkim@orp.co.kr',
-              },
-              {
-                '성명': '김태율',
-                '부서': '인사',
-                '직급' : '대리',
-                '이메일' : 'taeyulkim@orp.co.kr',
-              },
-              {
-                '성명': '김태율',
-                '부서': '인사',
-                '직급' : '대리',
-                '이메일' : 'taeyulkim@orp.co.kr',
-              },
-
-            ],
-            columns: [
-              { data: '성명' },
-              { data: '부서' },
-              { data: '직급' },
-              { data: '이메일'},
-              { data: '1:1문의 알림',
-                render:function(){
-                return `
-                    <label class="btn-toggle">
-                      <input type="checkbox">
-                      <span>버튼</span>
-                    </label>
-                `
-                }
-              },
-              { data: '삭제',
-                render: function() {
-                  return `
-                    <button class="base-icon icon-trash__color3__size-m">
-                      <span class="isHidden">
-                        알림설정
-                      </span>
-                    </button>
-                  `
-                }
-              }
-            ],
-            paging: false,
-            searching: false,
-            showing: false,
-            info: false
-          })
-        </script>
       </div>
 
+      <!-- 첨부 이미지 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">첨부 이미지</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box h-full">
+              <input type="text" class="input-txt" placeholder="입력해주세요." readonly>
+            </div>
+            <button class="base-btn type2__size-m" onclick="attachFile();">
+              <span class="base-icon">파일 첨부</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 내용 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">내용</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <textarea  style="height:474px;" name="" id="" title="내용입력 하기" placeholder="입력하세요"></textarea>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="popup__btn-wrap">
-      <button class="base-btn type1__size-m">저장</button>
+      <button class="base-btn type1__size-m">닫기</button>
     </div>
-    <button class="btn-close" onclick="WAP_ETPR_0160.hide()">닫기</button>
+    <button class="btn-close" onclick="WAP_ETPR_0180.hide()">닫기</button>
   </section>
 </div>
 <script>
-  const WAP_ETPR_0160 = new LayerPopup({target: "WAP-ETPR-0160"});
-</script>;
-  
-  <!-- **** 팝업 확인 용 스크립트 **** -->
-  <script>
-    const pop = {
-      "WAP_ETPR_0140" : ()=>{WAP_ETPR_0140.show()},
-      "WAP_ETPR_0150" : ()=>{WAP_ETPR_0150.show()},
-      "WAP_ETPR_0160" : ()=>{WAP_ETPR_0160.show()}
-    }
-    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
-  </script>
-  <!-- ///**** 팝업 확인 용 스크립트 **** -->
-</body>
-</html>
+  const WAP_ETPR_0180 = new LayerPopup({target: "WAP-ETPR-0180"});
+
+  /* 파일 업로드 */
+  function attachFile() {
+    var input = $('.base-btn.type2__size-m').closest('.form-inner').find('.input-txt');
+    var fileInput = $('<input type="file">');
+
+    fileInput.change(function() {
+      var file = fileInput.prop('files')[0];
+      input.val(file.name);
+    });
+
+    // 파일 첨부 버튼을 클릭하면 가상의 파일 input을 클릭하는 것으로 대체됩니다.
+    fileInput.click();
+  }
+</script>

@@ -127,10 +127,10 @@
         <!-- 학력사항 합 -->
         <div class="board-head content-mt4">
           <div class="board-head__cell">
-            <h5 class="title-sub1">학력사항 합</h5>
+            <h5 class="title-sub1">학력사항 최대 점수</h5>
 
             <div class="input-box" style="width:100px;">
-              <input type="text" class="input-txt pr-0" disabled value="자동입력">
+              <input type="text" class="input-txt pr-ori tac" value="0"  >
             </div>
             점
           </div>
@@ -158,8 +158,17 @@
         <!-- 학교구분 합 -->
         <div class="board-head content-mt4">
           <div class="board-head__cell">
-            <h5 class="title-sub1">학교구분 합</h5>
-
+            <h5 class="title-sub1">학교점수</h5>
+            <div class="d-flex ai-c type-gap2">
+              <label class="input-chk">
+                <input type="radio">
+                <span>상위배점</span>
+              </label>
+              <label class="input-chk">
+                <input type="radio">
+                <span>합산</span>
+              </label>
+            </div>
             <div class="input-box" style="width:100px;">
               <input type="text" class="input-txt pr-0" disabled value="자동입력">
             </div>
@@ -167,8 +176,8 @@
           </div>
         </div>
         <div class="box-type1 content-mt3">
-          <div class="table table-type1">
-            <table class="type-input type-line">
+          <div class="table table-type1" style="overflow-x: auto;">
+            <table class="type-input type-line" style="min-width:1200px;">
               <colgroup>
                 <col style="width:56px;">
                 <col>
@@ -197,7 +206,7 @@
                     </button>
                   </td>
                   <td>
-                    <div class="dropdown" style="width: 170px;">
+                    <div class="dropdown" style="width:100%;min-width:119px;">
                       <button type="button" class="dropdown-btn size-s"
                         data-dropdown='{
                           "name": "controlTable1_0_1",
@@ -297,25 +306,106 @@
             </table>
           </div>
           <div class="board-add-row">
-            <button type="button" class="btn-item--add" onclick="controlTable1.add();">
+            <button type="button" class="btn-item--add controlTable1-btn" onclick="controlTable1.add(count1);">
               <span>추가</span>
             </button>
           </div>
+
           <script>
-            const controlTable1 = new ControlAddItem({
-              target: 'controlTable1',
-              wrapTag: 'tr',
-              template: `
+            $(document).ready(function(){
+              datePickerInTable();
+            });
+            /* 테이블 내 데이트 피커 존재 시에 fixed로 나올 수 있게 함. */
+            function datePickerInTable (){
+              $(document).on("mousedown", ".datepicker-input", function(event) {
+                event.stopPropagation(); // 이벤트 전파 방지
+                let datepicker = $(this).next(".datepicker");
+                $(this).next().nextAll(".datepicker ").remove();
+                datepicker.hide()
+              });
+
+              $(document).on("mouseup", ".datepicker-input", function(event) {
+                event.stopPropagation(); // 이벤트 전파 방지
+                let datepicker = $(this).next(".datepicker");
+                let inputOffset = $(this).offset();
+                let scrollTop = $(window).scrollTop(); // 윈도우의 스크롤 위치
+
+                let inputOffsetTop = inputOffset.top - scrollTop;
+                let inputOffsetLeft = inputOffset.left - $(window).scrollLeft(); // x 축으로 스크롤된 만큼을 고려
+                let inputHeight = $(this).outerHeight();
+
+                // 이전에 열려있는 다른 데이트 피커를 모두 숨깁니다.
+                $(".datepicker").hide();
+
+                // 데이트 피커의 위치를 조정합니다.
+                datepicker.css({
+                  "position": "fixed",
+                  "top": inputOffsetTop + inputHeight + "px",
+                  "left": inputOffsetLeft + "px",
+                  "display":"block!important"
+                });
+
+                // 데이트 피커가 제대로 위치된 후에만 노출합니다.
+                setTimeout(function() {
+                  $(".datepicker").hide();
+                  datepicker.show();
+
+                }, 100); // 즉시 실행
+              });
+
+              $(window).scroll(function() {
+                // 가로 스크롤의 위치를 확인합니다.
+                let scrollLeft = $(this).scrollLeft();
+
+                // 세로 스크롤의 위치를 확인합니다.
+                let scrollTop = $(this).scrollTop();
+
+                $(".datepicker-input").each(function() {
+                  let datepickerInput = $(this);
+                  let datepicker = datepickerInput.next(".datepicker");
+                  let inputOffset = datepickerInput.offset();
+                  let inputHeight = datepickerInput.outerHeight();
+
+                  // X축으로 스크롤이 발생한 경우 데이트 피커를 닫습니다.
+                  if (scrollLeft > 0) {
+                    $(".datepicker").hide();
+                  }
+
+                  // Y축으로 스크롤이 발생한 경우
+                  if (scrollTop > 0) {
+                    // 요소의 위치에 따라 데이트 피커의 위치를 조정합니다.
+                    datepicker.css({
+                      "position": "fixed",
+                      "top": inputOffset.top + inputHeight - scrollTop + "px",
+                      "left": inputOffset.left + "px"
+                    });
+                  }
+                });
+              });
+
+              $(window).resize(function(){
+                $(".datepicker").hide();
+              });
+
+              $("table").parent().scroll(function() {
+                // 스크롤이 발생하면 데이트 피커를 닫습니다.
+                $(".datepicker").hide();
+              });
+            }
+
+            /* 템플릿 추가시 드롭다운 이름 변경 */
+            let count1 = 1;
+            let templateSource1 = `
               <td class="pd-type1">
                 <button type="button" class="btn-item--del" onclick="controlTable1.del('tr')">
                   <span>삭제</span>
                 </button>
               </td>
               <td>
-                <div class="dropdown" style="width: 170px;">
+                <div class="dropdown" style="width:100%;min-width:119px;">
                   <button type="button" class="dropdown-btn size-s"
                     data-dropdown='{
-                      "name": "controlTable1_0_1",
+                      "name": "controlTable1_copy1${count1}",
                       "type" : "single",
                       "option": [
                         {
@@ -366,7 +456,7 @@
                 <div class="dropdown" style="width: 134px;">
                   <button type="button" class="dropdown-btn size-m"
                     data-dropdown='{
-                      "name": "controlTable1_0_2",
+                      "name": "controlTable1_copy2${count1}",
                       "type" : "single",
                       "option": [
                         {
@@ -407,7 +497,122 @@
                   점
                 </div>
               </td>
-              `
+            `;
+            let controlTable1 = new ControlAddItem({
+              target: 'controlTable1',
+              wrapTag: 'tr',
+              template: templateSource1
+            });
+            $(".controlTable1-btn").on("click", function (){
+              count1++;
+              templateSource1 = `
+              <td class="pd-type1">
+                <button type="button" class="btn-item--del" onclick="controlTable1.del('tr')">
+                  <span>삭제</span>
+                </button>
+              </td>
+              <td>
+                <div class="dropdown" style="width:100%;min-width:119px;">
+                  <button type="button" class="dropdown-btn size-s"
+                    data-dropdown='{
+                      "name": "controlTable1_copy1${count1}",
+                      "type" : "single",
+                      "option": [
+                        {
+                          "name": "옵션1",
+                          "value": "val1",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "옵션2",
+                          "value": "val2",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "옵션3",
+                          "value": "val3",
+                          "disabled": false,
+                          "checked": false
+                        }
+                      ]
+                    }'>고등학교</button>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex jc-c">
+                  <div class="chk-group type-column-left">
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>일반입학</span>
+                    </label>
+                    <label class="input-chk type2">
+                      <input type="checkbox">
+                      <span>편입</span>
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex ai-c type-gap">
+                  <div class="input-box type-calendar" style="width:170px;">
+                    <input type="text" class="input-txt" value="일자선택">
+                  </div>
+                  <span class="nowrap">이후(이상) 입학</span>
+                </div>
+              </td>
+              <td>
+                <div class="dropdown" style="width: 134px;">
+                  <button type="button" class="dropdown-btn size-m"
+                    data-dropdown='{
+                      "name": "controlTable1_copy2${count1}",
+                      "type" : "single",
+                      "option": [
+                        {
+                          "name": "옵션1",
+                          "value": "val1",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "옵션2",
+                          "value": "val2",
+                          "disabled": false,
+                          "checked": false
+                        },
+                        {
+                          "name": "옵션3",
+                          "value": "val3",
+                          "disabled": false,
+                          "checked": false
+                        }
+                      ]
+                    }'>선택하세요</button>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex ai-c type-gap">
+                  <div class="input-box type-calendar" style="width:170px;">
+                    <input type="text" class="input-txt" value="일자선택">
+                  </div>
+                  <span class="nowrap">전(미만) 졸업</span>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex ai-c jc-c type-gap">
+                  <div class="input-box" style="width:80px;">
+                    <input type="text" class="input-txt tac ph-0" placeholder="0">
+                  </div>
+                  점
+                </div>
+              </td>
+            `;
+              controlTable1 = new ControlAddItem({
+                target: 'controlTable1',
+                wrapTag: 'tr',
+                template: templateSource1
+              });
             });
           </script>
           <!-- //학력사항 -->
@@ -417,8 +622,17 @@
         <!-- 전공/소재지 -->
         <div class="board-head content-mt4">
           <div class="board-head__cell">
-            <h5 class="title-sub1">전공 소재지 합</h5>
-
+            <h5 class="title-sub1">전공점수</h5>
+            <div class="d-flex ai-c type-gap2">
+              <label class="input-chk">
+                <input type="radio">
+                <span>상위배점</span>
+              </label>
+              <label class="input-chk">
+                <input type="radio">
+                <span>합산</span>
+              </label>
+            </div>
             <div class="input-box" style="width:100px;">
               <input type="text" class="input-txt pr-0" disabled value="자동입력">
             </div>
@@ -426,22 +640,20 @@
           </div>
         </div>
         <div class="box-type1 content-mt3">
-          <div class="table table-type1">
-            <table class="type-input type-line">
+          <div class="table table-type1" style="overflow-x:auto;width: 100%;">
+            <table class="type-input type-line" style="min-width:1190px;">
               <colgroup>
                 <col style="width:56px;">
+                <col style="width: 180px;">
                 <col>
                 <col>
-                <col style="width:290px;">
-                <col style="width:290px;">
-                <col>
+                <col style="width:160px;">
               </colgroup>
               <thead>
                 <tr>
                   <th></th>
                   <th>학력기준</th>
-                  <th>구분</th>
-                  <th colspan="2">전공분야 / 소재지</th>
+                  <th colspan="2">전공분야</th>
                   <th>배점</th>
                 </tr>
               </thead>
@@ -453,7 +665,7 @@
                     </button>
                   </td>
                   <td>
-                    <div class="dropdown" style="width: 170px;">
+                    <div class="dropdown" style="width: 100%">
                       <button type="button" class="dropdown-btn size-s"
                         data-dropdown='{
                           "name": "controlTable2_0_1",
@@ -482,36 +694,7 @@
                     </div>
                   </td>
                   <td>
-                    <div class="dropdown" style="width: 170px;">
-                      <button type="button" class="dropdown-btn size-s"
-                        data-dropdown='{
-                          "name": "controlTable2_0_2",
-                          "type" : "single",
-                          "option": [
-                            {
-                              "name": "옵션1",
-                              "value": "val1",
-                              "disabled": false,
-                              "checked": false
-                            },
-                            {
-                              "name": "옵션2",
-                              "value": "val2",
-                              "disabled": false,
-                              "checked": false
-                            },
-                            {
-                              "name": "옵션3",
-                              "value": "val3",
-                              "disabled": false,
-                              "checked": false
-                            }
-                          ]
-                        }'>전공</button>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="dropdown" style="width: 258px;">
+                    <div class="dropdown" style="width:100%;">
                       <button type="button" class="dropdown-btn size-s"
                         data-dropdown='{
                           "name": "controlTable2_0_3",
@@ -540,7 +723,7 @@
                     </div>
                   </td>
                   <td>
-                    <div class="dropdown" style="width: 258px;">
+                    <div class="dropdown" style="width: 100%;">
                       <button type="button" class="dropdown-btn size-s"
                         data-dropdown='{
                           "name": "controlTable2_0_4",
@@ -569,7 +752,7 @@
                     </div>
                   </td>
                   <td>
-                    <div class="d-flex ai-c type-gap">
+                    <div class="d-flex ai-c jc-c type-gap">
                       <div class="input-box" style="width:80px;">
                         <input type="text" class="input-txt tac ph-0" placeholder="0">
                       </div>
@@ -581,24 +764,24 @@
             </table>
           </div>
           <div class="board-add-row">
-            <button type="button" class="btn-item--add" onclick="controlTable2.add();">
+            <button type="button" class="btn-item--add controlTable2-btn" onclick="controlTable2.add(count2);">
               <span>추가</span>
             </button>
           </div>
           <script>
-            const controlTable2 = new ControlAddItem({
-              target: 'controlTable2',
-              wrapTag: 'tr',
-              template: `
+            /* 템플릿 추가시 드롭다운 이름 변경 */
+            let count2 = 1;
+            let templateSource2 =`
                   <td class="pd-type1">
                     <button type="button" class="btn-item--del" onclick="controlTable2.del('tr');">
                       <span>삭제</span>
                     </button>
                   </td>
                   <td>
-                    <div class="dropdown" style="width: 170px;">
+                    <div class="dropdown" style="width: 100%">
                       <button type="button" class="dropdown-btn size-s"
                         data-dropdown='{
+                          "name": "controlTable2_copy${count2}",
                           "type" : "single",
                           "option": [
                             {
@@ -624,37 +807,10 @@
                     </div>
                   </td>
                   <td>
-                    <div class="dropdown" style="width: 170px;">
+                    <div class="dropdown" style="width:100%;">
                       <button type="button" class="dropdown-btn size-s"
                         data-dropdown='{
-                          "type" : "single",
-                          "option": [
-                            {
-                              "name": "옵션1",
-                              "value": "val1",
-                              "disabled": false,
-                              "checked": false
-                            },
-                            {
-                              "name": "옵션2",
-                              "value": "val2",
-                              "disabled": false,
-                              "checked": false
-                            },
-                            {
-                              "name": "옵션3",
-                              "value": "val3",
-                              "disabled": false,
-                              "checked": false
-                            }
-                          ]
-                        }'>전공</button>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="dropdown" style="width: 258px;">
-                      <button type="button" class="dropdown-btn size-s"
-                        data-dropdown='{
+                          "name": "controlTable2_copy2${count2}",
                           "type" : "single",
                           "option": [
                             {
@@ -680,9 +836,10 @@
                     </div>
                   </td>
                   <td>
-                    <div class="dropdown" style="width: 258px;">
+                    <div class="dropdown" style="width: 100%;">
                       <button type="button" class="dropdown-btn size-s"
                         data-dropdown='{
+                          "name": "controlTable_copy3${count2}",
                           "type" : "single",
                           "option": [
                             {
@@ -708,14 +865,130 @@
                     </div>
                   </td>
                   <td>
-                    <div class="d-flex ai-c type-gap">
+                    <div class="d-flex ai-c jc-c type-gap">
                       <div class="input-box" style="width:80px;">
                         <input type="text" class="input-txt tac ph-0" placeholder="0">
                       </div>
                       점
                     </div>
                   </td>
-                `
+            `;
+
+            let controlTable2 = new ControlAddItem({
+              target: 'controlTable2',
+              wrapTag: 'tr',
+              template: templateSource2
+            });
+
+            $(".controlTable2-btn").on("click", function (){
+              count2++;
+              templateSource2 =`
+                  <td class="pd-type1">
+                    <button type="button" class="btn-item--del" onclick="controlTable2.del('tr');">
+                      <span>삭제</span>
+                    </button>
+                  </td>
+                  <td>
+                    <div class="dropdown" style="width: 100%">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "name": "controlTable2_copy${count2}",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>고등학교</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="dropdown" style="width:100%;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "name": "controlTable2_copy2${count2}",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>인문계열</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="dropdown" style="width: 100%;">
+                      <button type="button" class="dropdown-btn size-s"
+                        data-dropdown='{
+                          "name": "controlTable_copy3${count2}",
+                          "type" : "single",
+                          "option": [
+                            {
+                              "name": "옵션1",
+                              "value": "val1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션2",
+                              "value": "val2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "옵션3",
+                              "value": "val3",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'>언어•문학</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width:80px;">
+                        <input type="text" class="input-txt tac ph-0" placeholder="0">
+                      </div>
+                      점
+                    </div>
+                  </td>
+            `;
+              controlTable2 = new ControlAddItem({
+                target: 'controlTable2',
+                wrapTag: 'tr',
+                template: templateSource2
+              });
             });
           </script>
         </div>

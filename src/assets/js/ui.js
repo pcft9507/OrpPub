@@ -801,6 +801,7 @@ class LayerPopup {
 			remove: null
 		}
 		this.prevLayer = false;
+		this.sharedIndex = null;
 		this.init(params);
 	}
 	init() {
@@ -810,7 +811,8 @@ class LayerPopup {
 			});
 		}
 	}
-	show(callBack) {
+	show(callBack, index, addRowName) {
+		this.sharedIndex = index;
 		if (document.body.classList.contains('isLayerShow')) this.prevLayer = true;
 		document.body.classList.add('isLayerShow');
 		this.state = 'show';
@@ -820,7 +822,281 @@ class LayerPopup {
 		}, 1);
 		if (typeof callBack === 'function') callBack(this);
 		if (this.callBack.show) this.callBack.show(this);
+
+		if(addRowName === "addRow"){
+		}
 	}
+
+	addRadioColumn(button){
+		if (this.sharedIndex !== null) {
+			let radioAddName = button.getAttribute('data-radioAdd');
+			const radioInputs = document.querySelectorAll('div.layer-popup [data-inputParent] input[type="radio"][name="etc-input-ver"]');
+			let selectedValue = null;
+			radioInputs.forEach(input => {
+				if (input.checked) {
+					selectedValue = input.value;
+				}else{
+
+				}
+			});
+			if (selectedValue !== null) {
+				count++;
+				if(selectedValue === "text-ver"){
+					$(`[data-radioAdd=${radioAddName}] > .form-inner`).eq(this.sharedIndex).html(`
+					<button type="button" class="btn-item--del" onclick="rowItemDel();">
+				  <span>삭제</span>
+				</button>
+				<div class="input-box" style="width: 108px;">
+				  <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
+				  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+				</div>
+				<div class="input-box" style="flex: 1;">
+				  <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+				  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+				</div>
+				<div class="form-row__option">
+				  <label class="input-chk type2">
+					<input type="checkbox">
+					<span>필수</span>
+				  </label>
+				  <label class="toggle-show">
+					<input type="checkbox" checked>
+					<span>체크</span>
+				  </label>
+				</div>
+					`);
+					WAP_EMPL_0001.hide();
+				}else if(selectedValue === "list-ver"){
+					$(`[data-radioAdd=${radioAddName}] > .form-inner`).eq(this.sharedIndex).html(`
+					<button type="button" class="btn-item--del" onclick="rowItemDel();">
+				  <span>삭제</span>
+				</button>
+			  	<div class="form-inner" style="flex: 1;">
+					<div class="input-box" style="width: 108px;">
+					  <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
+					  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+					</div>
+					<div class="dropdown" style="width: 136px;">
+					  <button type="button" class="dropdown-btn" data-dropdown='{
+					  "name": "${count}",
+					  "type" : "single",
+					  "option": [
+						{
+						  "name": "옵션1",
+						  "value": "val1",
+						  "disabled": false,
+						  "checked": false
+						},
+						{
+						  "name": "옵션2",
+						  "value": "val2",
+						  "disabled": false,
+						  "checked": false
+						},
+						{
+						  "name": "옵션3",
+						  "value": "val3",
+						  "disabled": false,
+						  "checked": false
+						}
+					  ]
+					}'>년</button>
+
+					</div>
+				</div>
+				
+				
+				<div class="form-row__option">
+				  <label class="input-chk type2">
+					<input type="checkbox">
+					<span>필수</span>
+				  </label>
+				  <label class="toggle-show">
+					<input type="checkbox" checked>
+					<span>체크</span>
+				  </label>
+				</div>
+					
+					
+					`);
+					/* 드롭다운 실행 */
+					dropdown.init('dropdown', {
+						onChange: _this => {
+							console.log(_this.value);
+						}
+					});
+					WAP_EMPL_0001.hide();
+				}else if(selectedValue ==="date-ver"){
+					/* 데이트피커 실행 */
+					const radioInputs2 = document.querySelectorAll('div.layer-popup [data-inputParent] input[type="radio"][name="date-long"] ');
+
+					// 라디오 버튼 선택 여부를 확인하는 변수
+					let isRadioChecked = false;
+
+					radioInputs2.forEach(input => {
+						// 세부 인풋(월년일,월일)인지 선택되었을 때 템플릿 추가
+						if(input.checked){
+							console.log("체크됨")
+							isRadioChecked = true;
+							/* 선택된 값이 date-long-ver 일경우 해당 사항에 맞는 데이트 피커 기능 넣기 */
+							if(input.value === "date-long-ver"){
+								console.log("date-long-ver");
+                                $(`[data-radioAdd=${radioAddName}] > .form-inner`).eq(this.sharedIndex).html(`
+                                    <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                                      <span>삭제</span>
+                                    </button>
+                                    <div class="form-inner" style="flex: 1;">
+										<div class="input-box" style="width: 108px;">
+										  <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
+										  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+										</div>
+                                        <div class="input-box type-calendar">
+                                          <input type="text" id="calendar-choice1-${count}" class="input-txt" placeholder="일자 선택">
+                                        </div>
+								    </div>
+                                    <div class="form-row__option">
+                                        <label class="input-chk type2">
+                                          <input type="checkbox">
+                                          <span>필수</span>
+                                        </label>
+                        
+                                        <label class="toggle-show">
+                                          <input type="checkbox" checked>
+                                          <span>체크</span>
+                                        </label>
+                                      </div>
+                                    `);
+								const idChoice1 = 'calendar-choice1-' + count;
+								new Datepicker(document.getElementById(idChoice1), {
+									...CALENDAR_DEFAULT_OPTION,
+                                    ...{
+                                        "minDate": "2023.12.06",
+                                        "maxDate": "2023.12.20",
+                                    }
+								});
+                                /* 1. 처음: 만들어진 데이트 피커 창 안보이게 */
+								$("#"+idChoice1).next().css({"opacity":"0"});
+
+								/* 2. 클릭했을 때, 두번 클릭해서 년도 화면 보인 뒤 opacity 1로 하여 화면 보이게 설정*/
+                                $("#"+idChoice1).on("click", function(){
+									$(".datepicker-picker button.view-switch").click();
+									$(".datepicker-picker button.view-switch").click();
+                                    setTimeout(() => { // 화살표 함수 사용
+                                        /* 2.클릭 두번 후 년도 수 화면이 보여졌을 때 다시 화면 보이게 */
+                                        $(this).next().css({"opacity":"1"}); // 'this'가 lexical로 바인딩됨
+                                    }, 10);
+                                });
+
+								/* 3. focusout되었을 시 다시 opacity 0 : 다시 클릭했을 때 깜빡거림 방지 위함. */
+								$("#"+idChoice1).focusout(function (){
+									$(this).next().css({"opacity":"0"});
+								})
+							} else {
+								console.log("date-short-ver");
+                                $(`[data-radioAdd=${radioAddName}] > .form-inner`).eq(this.sharedIndex).html(`
+                                    <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                                      <span>삭제</span>
+                                    </button>
+                                    <div class="form-inner" style="flex: 1;">
+                                      <div class="input-box" style="width: 108px;">
+										  <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
+										  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+									  </div>
+									  <div class="input-box type-calendar">
+                                          <input type="text" id="calendar-choice2-${count}" class="input-txt" placeholder="일자 선택">
+									  </div>
+								    </div>
+                                    <div class="form-row__option">
+                                        <label class="input-chk type2">
+                                          <input type="checkbox">
+                                          <span>필수</span>
+                                        </label>
+                        
+                                        <label class="toggle-show">
+                                          <input type="checkbox" checked>
+                                          <span>체크</span>
+                                        </label>
+                                      </div>
+                                    `);
+								/* 선택된 값이 date-short-ver일 경우 해당 사항에 맞는 데이트 피커 기능 넣기 */
+								const idChoice2 = 'calendar-choice2-' + count;
+								new Datepicker(document.getElementById(idChoice2), {
+									...CALENDAR_DEFAULT_OPTION,
+									...{
+										"minDate": "2023.12.06",
+										"maxDate": "2023.12.20"
+									}
+								});
+							}
+						}
+					});
+
+					// 선택된 라디오 버튼이 없는 경우 알림을 표시하고 종료 아닐 경우 팝업창 닫기
+					if(isRadioChecked === false){
+						alert("선택된 세부내용이<br> 없습니다.");
+					} else{
+						WAP_EMPL_0001.hide();
+					}
+				}else{
+					$(`[data-radioAdd=${radioAddName}] > .form-inner`).eq(this.sharedIndex).html(`
+					<button type="button" class="btn-item--del" onclick="rowItemDel();">
+					  <span>삭제</span>
+					</button>
+                      <div class="form-inner" style="flex:1">
+						<div class="input-box" style="width: 108px;">
+						  <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
+						  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+					    </div>
+                      
+                        <div class="input-box type-calendar" style="flex:1">
+                          <input type="text" class="input-txt" id="calendar-add1-${count}" placeholder="일자 선택" oninput="inputValueChk()">
+                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        </div>
+                        <div> ~ </div>
+                        <div class="input-box type-calendar" style="flex:1">
+                          <input type="text" class="input-txt" id="calendar-add2-${count}" placeholder="일자 선택" oninput="inputValueChk()">
+                          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                        </div>
+                      </div>
+                      <div class="form-row__option">
+                        <label class="input-chk type2">
+                          <input type="checkbox">
+                          <span>필수</span>
+                        </label>
+
+                        <label class="toggle-show">
+                          <input type="checkbox" checked>
+                          <span>체크</span>
+                        </label>
+                      </div>
+					`);
+					/* 데이트피커 실행 */
+					const id = 'calendar-add1-' + count;
+					new Datepicker(document.getElementById(id), {
+						...CALENDAR_DEFAULT_OPTION,
+						...{
+							"minDate": "2023.12.06",
+							"maxDate": "2023.12.20"
+						}
+					});
+					const id2 = 'calendar-add2-' + count;
+					new Datepicker(document.getElementById(id2), {
+						...CALENDAR_DEFAULT_OPTION,
+						...{
+							"minDate": "2023.12.06",
+							"maxDate": "2023.12.20"
+						}
+					});
+
+					WAP_EMPL_0001.hide();
+				}
+
+			} else {
+				alert("기타사항 입력방식이<br> 선택되지 않았습니다.");
+			}
+		}
+	}
+
 	hide(callBack) {
 		this.state = 'hide';
 		this.container.classList.remove('isShow');
@@ -829,8 +1105,8 @@ class LayerPopup {
 			if (this.prevLayer === false) document.body.classList.remove('isLayerShow');
 			if (this.params.target === 'layerDialog') this.wrap.remove();
 			if (this.params.target === 'layerMsg') {
-				if ($('.layer-popup[data-ref="layerMsg"').length > 1) {
-					$('.layer-popup[data-ref="layerMsg"').remove();
+				if ($('.layer-popup[data-ref="layerMsg"]').length > 1) {
+					$('.layer-popup[data-ref="layerMsg"]').remove();
 				} else {
 					this.wrap.remove();
 				}
@@ -1029,8 +1305,9 @@ class CreateTag {
 /**
  * 인풋 엘리먼트 삭제
  * @param {Numer} num 삭제할 클래스명 숫자로 구분
+ * count는 dropdown 혹은 겹치면 안되는 함수에서 이름 랜덤값 추출을 위해 넣는 값.
  */
-const rowItemDel = (num, delTableRow) => {
+const rowItemDel = (num, delTableRow, count) => {
 	const _this = event.target;
 	let target;
 	switch (num) {
@@ -1086,29 +1363,29 @@ const rowItemAdd = (num, targetEl) => {
 		}
 		case 2: {
 			template = `
-      <div class="form-inner">
-        <button type="button" class="btn-item--del" onclick="rowItemDel();">
-          <span>삭제</span>
-        </button>
-        <div class="input-box" style="width: 108px;">
-          <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
-          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-        </div>
-        <div class="input-box" style="flex: 1;">
-          <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-          <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-        </div>
-        <div class="form-row__option">
-          <label class="input-chk type2">
-            <input type="checkbox">
-            <span>필수</span>
-          </label>
-          <label class="toggle-show">
-            <input type="checkbox" checked>
-            <span>체크</span>
-          </label>
-        </div>
-      </div>
+			  <div class="form-inner">
+				<button type="button" class="btn-item--del" onclick="rowItemDel();">
+				  <span>삭제</span>
+				</button>
+				<div class="input-box" style="width: 108px;">
+				  <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
+				  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+				</div>
+				<div class="input-box" style="flex: 1;">
+				  <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+				  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+				</div>
+				<div class="form-row__option">
+				  <label class="input-chk type2">
+					<input type="checkbox">
+					<span>필수</span>
+				  </label>
+				  <label class="toggle-show">
+					<input type="checkbox" checked>
+					<span>체크</span>
+				  </label>
+				</div>
+			  </div>
       `;
 			break;
 		}
@@ -1462,6 +1739,181 @@ const rowItemAdd = (num, targetEl) => {
       `
 			break;
 		}
+		case 16: {
+			template = `
+                <tr>
+                  <td class="pd-type1">
+                    <div class="td-wrap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel(5);">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력해주세요." oninput="inputValueChk()" value="효율성 추구">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="td-wrap center">
+                      <label class="input-chk">
+                        <input type="radio" name="type" value="척도형" onclick="changeInputType(this)">
+                        <span>척도형</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="type" value="입력형" onclick="changeInputType(this)">
+                        <span>입력형</span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="td-wrap">
+                      <button class="base-btn type2__size-s" style="display:none;">
+                        <span class="base-icon icon-excel__size-s__color1">불러오기</span>
+                      </button>
+                      <div class="input-box" style="width: 100%; display:none;">
+                        <input type="text" class="input-txt" placeholder="내용을 입력하세요." oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="td-wrap center">
+                      <button type="button" onclick="rowItemUp('tr');">
+                            <span class="base-icon icon-up__size-m__color3">
+                                <span class="isHidden">위로</span>
+                            </span>
+                      </button>
+                      <button type="button" onclick="rowItemDown('tr');">
+                            <span class="base-icon icon-down2__size-m__color3">
+                                <span class="isHidden">아래로</span>
+                            </span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+      `
+			break;
+		}
+		case 17: {
+			template = `
+				                <div class="form-inner">
+                  <button type="button" class="btn-item--del" onclick="rowItemDel();">
+                    <span>삭제</span>
+                  </button>
+                  <div class="input-box" style="flex: 1;">
+                    <textarea class="" placeholder="질의내용을 입력해주세요." rows="5" oninput="inputValueChk()"></textarea>
+                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                  </div>
+                  <div class="form-row__option_wrap" style="height:131px;">
+                    <div class="form-row__option col-ver">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show txt-ver">
+                        <input type="checkbox" checked>
+                        <span>AI</span>
+                      </label>
+                    </div>
+                    <div class="txt-limit">
+                      <p>답변글자 수 제한</p>
+                      <ul>
+                        <li>
+                          최소 <input type="text" placeholder="100" > 자
+                        </li>
+                        <li>
+                          최대 <input type="text" placeholder="500" > 자
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+      `;
+			break;
+		}
+		case 18: {
+			template = `
+				<div class="form-inner type-mt2 type-gap2">
+				  <button type="button" class="btn-item--del" onclick="rowItemDel();">
+					<span>삭제</span>
+				  </button>
+				  <div class="d-flex ai-c jc-c type-gap">
+					<div class="input-box" style="width:80px;">
+					  <input type="text" class="input-txt size-s2 tac ph-0" placeholder="배점">
+					</div>
+					점
+				  </div>
+				  <div class="d-flex ai-c jc-c type-gap" style="width:100%;">
+					<div class="input-box" style="width:100%;">
+					  <input type="text" placeholder="척도 설명" class="input-txt size-s2" placeholder="0" oninput="inputValueChk();">
+					  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+					</div>
+				  </div>
+				  <button type="button" onclick="rowItemUp('.form-inner')">
+					<span class="base-icon icon-up__size-m__color3">
+					  <span class="isHidden">위로</span>
+					</span>
+				  </button>
+				  <button type="button" onclick="rowItemDown('.form-inner')">
+					<span class="base-icon icon-down2__size-m__color3">
+					  <span class="isHidden">아래로</span>
+					</span>
+				  </button>
+				</div>	               
+      `;
+			break;
+		}
+		case 20: {
+			template = `
+			<div class="form-inner type-mt2 type-gap2">
+			  <button type="button" class="btn-item--del" onclick="rowItemDel();">
+				<span>삭제</span>
+			  </button>
+			  <div class="d-flex ai-c jc-c type-gap">
+				<div class="input-box" style="width:80px;">
+				  <input type="text" class="input-txt tac ph-0" placeholder="0">
+				</div>
+				개월 이상
+			  </div>
+			  ~
+			  <div class="d-flex ai-c jc-c type-gap">
+				<div class="input-box" style="width:80px;">
+				  <input type="text" class="input-txt tac ph-0" placeholder="0">
+				</div>
+				개월 미만
+			  </div>
+			</div>
+      `
+			break;
+		}
+		case 21: {
+			template = `
+			<div class="form-inner">
+				<button type="button" class="btn-item--del" onclick="rowItemDel();">
+				  <span>삭제</span>
+				</button>
+				<div class="form-inner" style="flex:1;">
+				  <div class="input-box" style="width: 108px;">
+					<input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
+					<button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+				  </div>
+				  <button class="base-btn type2__size-m" onclick="WAP_EMPL_0001.show(false, $(this).closest('.form-inner').parent().index(), 'addRow');"><span class="base-icon icon-setup2__size-s__color1">설정</span></button>
+				</div>
+	
+				<div class="form-row__option">
+				  <label class="input-chk type2">
+					<input type="checkbox">
+					<span>필수</span>
+				  </label>
+				  <label class="toggle-show">
+					<input type="checkbox" checked>
+					<span>체크</span>
+				  </label>
+				</div>
+			  </div>
+      `
+			break;
+		}
 		default: {
 			template = `
         <div class="form-inner">
@@ -1625,7 +2077,7 @@ class ControlAddItem {
 			const searchList = new SearchList(_this, {/* 옵션 객체 */});
 		})
 	}
-	add() {
+	add(count) {
 		const wrap = document.createElement(this.wrapTag);
 		wrap.innerHTML = this.template;
 		if (this.wrapClassName) wrap.classList.add(this.wrapClassName);
@@ -1707,11 +2159,13 @@ Datepicker.locales.ko = {
 const CALENDAR_DEFAULT_OPTION = {
 	language: 'ko',
 	todayHighlight: true,
+	appendTo: 'body', // Datepicker를 body에 추가
+	zIndex: 9999,
 	beforeShowDay: (date) => {
 		return {
 			content: `<span class="inner">${date.getDate()}</span>`,
 		};
-	}
+	},
 }
 
 // 토글 버튼으로 라디오 제어
@@ -1918,7 +2372,10 @@ class SearchList {
 		this.ssOpt = this.element.querySelector('.sch-comp__ss');
 		this.ssInp = this.element.querySelector('.sch-comp__ss .input-txt');
 		this.ssResult = this.element.querySelector('.sch-comp__ss-result');
-
+		const directDescendantCount = this.tagBox.children.length;
+		if(directDescendantCount >= 1){
+			this.searchTag.style.display = 'block';
+		}
 		this.bindEvents();
 	}
 
@@ -1935,14 +2392,102 @@ class SearchList {
 		});
 
 		this.element.addEventListener('click', (e) => {
+			let isDuplicate;
+			let dataToAdd
 			if (e.target.matches('.sch-comp__btn-result')) {
+				let licenseCd = e.target.getAttribute("data-licenseCd");
+				let licenseNm = e.target.getAttribute("data-licenseNm");
+				let licenseAdd = e.target.getAttribute("data-addColumn");
+				let licenseDef = e.target.getAttribute("data-def");
+				let licenseTable = e.target.getAttribute("data-licenseTable");
+				let licenseName = e.target.textContent;
 				this.selectItem(e);
+
+				if (e.target.hasAttribute('data-addColumn')) {
+					// data-licenseTable 속성이 licenseTable 값인 요소를 선택하여 DataTable으로 초기화
+					const table = document.querySelector(`table[data-licenseTable="${licenseTable}"]`);
+					const dataTable = $(table).DataTable();
+
+					// 중복된 데이터를 확인합니다.
+					isDuplicate = dataTable.rows().data().toArray().some(row => {
+						return row['외국어시험명'] === licenseName;
+					});
+
+					// 중복된 데이터가 없는 경우에만 추가
+					if (!isDuplicate) {
+						dataToAdd = {
+							'외국어시험명': licenseName, // 클릭 이벤트에서 얻은 값으로 변경
+							'외국어성적': '', // 클릭 이벤트에서 얻은 값으로 변경
+							'케이스': licenseDef
+						};
+
+
+
+
+						// 테이블에 데이터 추가
+						dataTable.row.add(dataToAdd).draw(false);
+						//데이터 toArray 대로 재정렬
+						dataTable.order([]).draw();
+
+						if(licenseDef !== 'case1') {
+							count++;
+							dropdown.init('dropdown', {
+								onChange: _this => {
+									console.log(_this.value);
+								}
+							});
+						}
+					}
+				}
 			} else if (e.target.matches('.del')) {
+				// table에 관련 동작 추가하는 경우에만 해당 기능 작동
+				if (e.target.closest('.search-tag').querySelector('[data-licenseTable]')){
+					let licenseTable = e.target.closest('.search-tag').querySelector('[data-licenseTable]').getAttribute('data-licenseTable');
+					let tagItem = e.target.closest('.tag__item');
+					let textToDelete = tagItem.querySelector('.txt').textContent;
+					var table = document.querySelector(`table[data-licenseTable="${licenseTable}"]`);
+
+					const dataTable = $(table).DataTable();
+					// 중복된 데이터를 확인합니다.
+					isDuplicate = dataTable.rows().data().toArray().some(row => {
+						return row['외국어시험명'] === textToDelete;
+					});
+
+					if (isDuplicate) {
+						// 테이블에서 해당 값을 가진 행을 찾습니다.
+						const rowIndex = dataTable.rows().data().toArray().findIndex(row => {
+							return row['외국어시험명'] === textToDelete;
+						});
+
+						if (rowIndex !== -1) {
+							dataTable.row(rowIndex).remove().draw(false);
+							this.deleteTag(e);
+							return;
+						}
+					}
+
+
+				}
+
 				this.deleteTag(e);
 			}
 		});
 
-		this.ssInp.addEventListener('input', () => this.filterResults());
+		if (this.ssInp) {
+			this.ssInp.addEventListener('input', () => {
+				// 주석 처리된 입력 상자의 값이 변경되었을 때만 filterResults() 메서드 호출
+				if (this.ssInp.value.trim() !== '') {
+					this.filterResults();
+				}
+			});
+		}
+
+		/*document.addEventListener('click', (e) => {
+			if (!this.element.contains(e.target)) {
+				this.ssBtn.classList.remove('active');
+				this.ssOpt.style.display = 'none';
+			}
+		});*/
 	}
 
 	toggleDropdown() {
@@ -1958,7 +2503,10 @@ class SearchList {
 			return;
 		}
 		const currentValue = btn.textContent;
-		this.ssInp.value = currentValue;
+
+		if(this.ssInp){
+			this.ssInp.value = currentValue;
+		}
 		btn.classList.add('selected');
 		this.ssBtn.classList.remove('active');
 		this.ssOpt.style.display = 'none';
@@ -1999,8 +2547,10 @@ class SearchList {
 	}
 
 	resetSearch() {
-		this.ssInp.value = ''; // 검색 필드 초기화
-		this.filterResults(); // filterResults 메서드를 호출하여 모든 결과를 다시 표시
+		if(this.ssInp){
+			this.ssInp.value = ''; // 검색 필드 초기화
+			this.filterResults(); // filterResults 메서드를 호출하여 모든 결과를 다시 표시
+		}
 	}
 
 	updateSearchTagActive() {

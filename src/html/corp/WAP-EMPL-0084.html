@@ -1,0 +1,98 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container__type2 pt0">
+      <!-- contents -->
+      <div class="contents">
+        <div class="page-title__wrap">
+          <h3 class="title-sub">합격자 발표 미리보기</h3>
+        </div>
+
+        <h3 class="title-sub">하반기 공개채용</h3>
+        <div class="content-mt2">
+          <ul class="info-list">
+            <li>
+              <span>채용전형: </span>
+              서류전형 1차
+            </li>
+            <li>
+              <span>채용분야: </span>
+              컨설턴트
+            </li>
+          </ul>
+        </div>
+        <div class="box-type1 content-mt3">
+         <!-- 삭제할 영역 -->
+          <div style="display:flex;align-items:center;justify-content:center;height:401px;color:#acacac;">
+            발표문 영역
+          </div>
+         <!-- // 삭제할 영역 -->
+        </div>
+
+
+        <h3 class="title-sub content-mt4">추가서류 제출</h3>
+        <div class="box-type1 content-mt3">
+          <div class="form-row__flex align-center">
+            <div class="form-th" style="width: 130px;">성적 증명서</div>
+            <div class="form-td" style="flex:1;">
+              <div class="form-inner">
+                <div class="input-box h-full">
+                  <input type="text" class="input-txt" placeholder="입력해주세요." readonly>
+                </div>
+                <button class="base-btn type2__size-m">
+                  <span class="base-icon">파일 삭제</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row__flex align-center">
+            <div class="form-th" style="width: 130px;">졸업 증명서</div>
+            <div class="form-td" style="flex:1;">
+              <div class="form-inner">
+                <div class="input-box h-full">
+                  <input type="text" class="input-txt" placeholder="입력해주세요." readonly>
+                </div>
+                <button class="base-btn type2__size-m">
+                  <span class="base-icon">파일 첨부</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-mt4 d-flex ai-c jc-c">
+          <a href="#" class="underline-ver">만족도조사 바로가기</a>
+        </div>
+
+      </div>
+      <!-- //contents -->
+
+      <!-- contents navigation -->
+      <div class="contents-nav type2">
+        <div class="contents-nav__inner flex-end">
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type1__size-m">확인</button>
+          </div>
+        </div>
+      </div>
+      <!-- //contents navigation -->
+
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/corp/WAP-EMPL-0090.html');
+  </div>
+  <script>
+    const pop = {
+      "WAP_EMPL_0090" : ()=>{WAP_EMPL_0090.show()},
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+</body>
+</html>

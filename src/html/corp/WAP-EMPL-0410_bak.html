@@ -1,0 +1,580 @@
+@@include('./head2.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "3"})
+
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[ORP연구소] 2021년 하반기 인턴 채용</h2>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                data-dropdown='{
+                  "name": "headerDropdown",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "사무",
+                      "value": "사무",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                data-dropdown='{
+                  "name": "headerDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "서류전형",
+                      "value": "서류전형",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "옵션2",
+                      "value": "옵션2",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="contents-header__btns">
+          <a href="#" class="btn">
+            <span class="base-icon icon-folder__size-m__color5">전형관리</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-trophy__size-m__color5">합격자 발표</span>
+          </a>
+          <a href="#" class="btn">
+            <span class="base-icon icon-graph__size-m__color5">통계</span>
+          </a>
+        </div>
+      </div>
+
+
+      <!-- contents -->
+      <div class="contents">
+        <h3 class="title-sub">최종결과</h3>
+        
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell">
+              <div class="dropdown" style="width: 136px;">
+                <button type="button" class="dropdown-btn"
+                  data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "통합검색",
+                        "value": "통합검색",
+                        "disabled": false,
+                        "checked": true
+                      }
+                    ]
+                  }'
+                >통합검색</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="flex: 1;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <script>
+                const SAMPLE_DATA = [
+                  {"name": "키워드"},
+                  {"name": "키워드드"},
+                  {"name": "키워드드드"}
+                ]
+                dropdown.addItem({
+                  target: document.querySelector('[name="inputKeyword"]'),
+                  data: {
+                    "name": "inputKeyword",
+                    "type" : "input",
+                    "option": SAMPLE_DATA,
+                  }
+                });
+              </script>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
+            </div>
+          </div>
+
+          <div class="search-tag content-mt4" id="searchTag" style="display: none;">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m" onclick="searchTag.reset();">초기화</button>
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType: 1,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt5">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "수험번호",
+                      "value": "수험번호",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "성명",
+                      "value": "성명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "연락처",
+                      "value": "연락처",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "이메일",
+                      "value": "이메일",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "최종결과",
+                      "value": "최종결과",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "1차서류전형",
+                      "value": "1차서류전형",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "1차필기전형",
+                      "value": "1차필기전형",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "1차면접전형",
+                      "value": "1차면접전형",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >전체</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown1",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown1',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+
+          <div class="board-head__cell type-gap2">
+            <div class="dropdown" style="width: 110px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown8",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "SMS",
+                      "value": "SMS",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "EMAIL",
+                      "value": "EMAIL",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >발송</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown8',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 110px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown3",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "합격",
+                      "value": "합격",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "불합격",
+                      "value": "불합격",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "예비합격",
+                      "value": "예비합격",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "미정",
+                      "value": "미정",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "업로드",
+                      "value": "업로드",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >결과관리</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown3',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+            <button class="base-btn type2__size-s"><span class="base-icon icon-add__size-s__color1">지원자</span></button>
+            <a href="#" class="base-btn type2__size-s">
+              <span class="base-icon icon-down__size-s__color1">다운로드</span>
+            </a>
+
+          </div>
+        </div>
+        <div class="board-body">
+        <div class="table table-type1 fixed-ver line-ver">
+            <table id="table">
+              <thead>
+                <tr>
+                  <th scope="col" rowspan="2" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col" rowspan="2">NO</th>
+                  <th scope="col" rowspan="2">수험번호</th>
+                  <th scope="col" rowspan="2">성명</th>
+                  <th scope="col" rowspan="2">연락처</th>
+                  <th scope="col" rowspan="2">이메일</th>
+                  <th scope="colgroup" colspan="7" style="padding:10.5px 8px 2px 8px">최종결과</th>
+                  <th scope="colgroup" colspan="8" style="padding:10.5px 8px 2px 8px">서류전형</th>
+                  <th scope="colgroup" colspan="7" style="padding:10.5px 8px 2px 8px">1기 필기전형</th>
+                  <th scope="colgroup" colspan="8" style="padding:10.5px 8px 2px 8px">면접전형</th>
+                </tr>
+                <tr>
+                  <!-- 최종결과 -->
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">최종결과</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고1</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고2</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고3</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고4</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고5</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고6</th>
+                  <!-- 서류전형 -->
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">전형결과</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">종합점수</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고1</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고2</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고3</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고4</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고5</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고6</th>
+                  <!-- 1기 필기전형 -->
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">전형결과</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고1</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고2</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고3</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고4</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고5</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고6</th>
+                  <!-- 면접전형 -->
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">전형결과</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">종합점수</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고1</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고2</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고3</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고4</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고5</th>
+                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고6</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '1',
+                  '수험번호': '01-00000001',
+                  '성명' : '홍길동',
+                  '연락처' : '01099999999',
+                  '이메일' : 'ts.hwang@wiselection.com',
+                  '최종결과' : '합격',
+                  '비고1' :'1',
+                  '비고2' :'2',
+                  '비고3' :'3',
+                  '비고4' :'4',
+                  '비고5' :'5',
+                  '비고6' :'6',
+                  '전형결과' :'합격',
+                  '종합점수' :80,
+                },
+                {
+                  'NO': '2',
+                  '수험번호': '01-00000001',
+                  '성명' : '홍길동',
+                  '연락처' : '01099999999',
+                  '이메일' : 'ts.hwang@wiselection.com',
+                  '최종결과':'불합격',
+                  '비고1' :'1',
+                  '비고2' :'2',
+                  '비고3' :'3',
+                  '비고4' :'4',
+                  '비고5' :'5',
+                  '비고6' :'6',
+                  '전형결과' :'합격',
+                  '종합점수' :80,
+                },
+                {
+                  'NO': '3',
+                  '수험번호': '01-00000001',
+                  '성명' : '홍길동',
+                  '연락처' : '01099999999',
+                  '이메일' : 'ts.hwang@wiselection.com',
+                  '최종결과':'합격',
+                  '비고1' :'1',
+                  '비고2' :'2',
+                  '비고3' :'3',
+                  '비고4' :'4',
+                  '비고5' :'5',
+                  '비고6' :'6',
+                  '전형결과' :'합격',
+                  '종합점수' :80,
+                },
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  }
+                },
+                {
+                  data: 'NO',
+                  width: '60px',
+                },
+                { data: '수험번호',
+                  width: '150px',
+                  render: function(data) {
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '성명',
+                  width: '100px',
+                  render: function(data) {
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                {
+                  data: '연락처',
+                  width: '150px',
+                },
+                {
+                  data: '이메일',
+                  width: '250px',
+                },
+                {
+                  data: '최종결과',
+                  width: '120px',
+                  render: function(data) {
+                    let temp;
+                    (data === '합격')
+                            ? temp = `<span class="point-color3">${data}</span>`
+                            : temp = data;
+                    return temp;
+                  }
+                },
+                {
+                  data: '비고1',
+                  width: '80px',
+                },
+                {
+                  data: '비고2',
+                  width: '80px',
+                },
+                {
+                  data: '비고3',
+                  width: '80px',
+                },
+                {
+                  data: '비고4',
+                  width: '80px',
+                },
+                {
+                  data: '비고5',
+                  width: '80px',
+                },
+                {
+                  data: '비고6',
+                  width: '80px',
+                },
+                {
+                  data: '전형결과',
+                  width: '80px',
+                  /*render: function(data) {
+                    let temp;
+                    (data === '합격')
+                            ? temp = `<span class="point-color3">${data}</span>`
+                            : temp = data;
+                    return temp;
+                  }*/
+                },
+                {
+                  data: '종합점수',
+                  width: '80px',
+                },
+              ],
+
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false,
+              /* 컬럼 고정 관련 */
+              scrollX: true,
+              scrollCollapse: true,
+              autoWidth:false,
+              fixedColumns: {
+                leftColumns: 6, // 왼쪽으로 고정할 열의 개수
+              },
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+</body>
+</html>

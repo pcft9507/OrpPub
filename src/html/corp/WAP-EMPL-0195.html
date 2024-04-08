@@ -126,9 +126,26 @@
         </script>
 
         <h5 class="title-sub content-mt5">어학사항</h5>
-
-        <!-- 자격증 -->
+        <!-- 어학사항 -->
         <div class="box-type1 content-mt3">
+          <!-- 사용여부 -->
+          <div class="form-row__flex">
+            <div class="form-th no-pd" style="width: 130px;">사용여부</div>
+            <div class="form-td font-weight-s" style="flex: 1;">
+              <div class="form-inner type-gap2">
+                <label class="input-chk">
+                  <input type="radio" name="uses">
+                  <span>사용</span>
+                </label>
+                <label class="input-chk">
+                  <input type="radio" name="uses">
+                  <span>미사용</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- //사용여부 -->
+
           <!-- 만료일 -->
           <div class="form-row__flex content-mt4">
             <div class="form-th" style="width: 130px;">만료일</div>
@@ -156,7 +173,7 @@
                     });
                   </script>
                 </div>
-                까지 만료일이 남아있는 자격증에 적용
+                까지 적격
               </div>
             </div>
           </div>
@@ -180,8 +197,8 @@
                   <div class="sch-comp__in">
                     <div class="sch-comp__inp-wrap">
                       <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
-                      <div class="sch-comp__inp" data-type="search-select">
-                        <button class="sch-comp__ss-btn dropdown-btn">선택</button>
+                      <div class="sch-comp__inp" data-type="search-select" style="display:block!important;">
+                        <button class="sch-comp__ss-btn search-btn">어학시험 검색</button>
                         <div class="sch-comp__ss">
                           <div class="input-box type-search">
                             <input type="text" class="input-txt" placeholder="어학시험 검색" oninput="inputValueChk()">
@@ -189,11 +206,13 @@
                           </div>
                           <div class="sch-comp__ss-result">
                             <ul class="sch-comp__result-list">
-                              <li><a href="#" class="sch-comp__btn-result">TOEIC</a></li>
-                              <li><a href="#" class="sch-comp__btn-result">TOEIC2</a></li>
-                              <li><a href="#" class="sch-comp__btn-result">TOEIC3</a></li>
-                              <li><a href="#" class="sch-comp__btn-result">TOEIC4</a></li>
-                              <li><a href="#" class="sch-comp__btn-result">TOEIC5</a></li>
+                              <li><a href="#" class="sch-comp__btn-result selected"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case1">OPIC1</a></li>
+                              <li><a href="#" class="sch-comp__btn-result selected"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case1">OPIC2</a></li>
+                              <li><a href="#" class="sch-comp__btn-result"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case2">TOEIC</a></li>
+                              <li><a href="#" class="sch-comp__btn-result"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case2">TOEIC2</a></li>
+                              <li><a href="#" class="sch-comp__btn-result"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case3">TOEIC3</a></li>
+                              <li><a href="#" class="sch-comp__btn-result"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case3">TOEIC4</a></li>
+                              <li><a href="#" class="sch-comp__btn-result"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1"  data-def="case3">TOEIC5</a></li>
                             </ul>
                           </div>
                         </div>
@@ -202,8 +221,10 @@
                     </div>
                   </div>
 
-                  <div class="search-tag content-mt4" id="searchTag">
-                    <div class="tag__box">
+                  <div class="search-tag content-mt2" id="searchTag">
+                    <div class="tag__box" data-licenseTable="table1">
+                      <div class="tag__item tag__item--type1"><span class="txt">OPIC1</span><button type="button" class="del"></button></div>
+                      <div class="tag__item tag__item--type1"><span class="txt">OPIC2</span><button type="button" class="del"></button></div>
                     </div>
                   </div>
                 </div>
@@ -212,7 +233,161 @@
           </div>
           <!-- //병역구분 -->
         </div>
-        <!-- //교육사항 -->
+        <!-- // 어학사항 -->
+
+        <h5 class="title-sub content-mt5">인정기준</h5>
+        <!-- 인정기준 -->
+        <div class="box-type1 content-mt3">
+          <div class="board-body">
+            <div class="table table-type1 line-ver" >
+              <table id="table" class="mix tr-line" data-licenseTable="table1">
+                <colgroup>
+                  <col style="width:226px;">
+                  <col style="width:668px;">
+                  <col>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th>외국어시험명</th>
+                  <th>외국어성적</th>
+                  <th>케이스</th>
+                </tr>
+                </thead>
+              </table>
+            </div>
+            <script>
+              let count = 0;
+              $('#table').DataTable({
+                rowGroup: {
+                  className: 'table-group'
+                },
+                data: [
+                  {
+                    '외국어시험명': 'OPIC1',
+                    '외국어성적' : [0,20],
+                    '케이스': 'case1'
+                  },
+                  {
+                    '외국어시험명': 'OPIC2',
+                    '외국어성적' : [0,20],
+                    '케이스': 'case1'
+                  }
+                ],
+                columns: [
+                  { data: '외국어시험명' },
+                  {
+                    data: '외국어성적',
+                    render: function (data, type, row) {
+                      let defaultScore = 0;
+                      let caseValue = row['케이스'];
+
+                      if (caseValue === 'case1') {
+                        // Case 1에 따른 렌더링
+                        if (data === '') {
+                          return `
+                              <div class="with-txt">
+                                  <input type="text" class="input-txt size-s center" value="${defaultScore}" style="width: 80px;">
+                                  점 이상 ~
+                                  <input type="text" class="input-txt size-s center" value="${defaultScore}" style="width: 80px;">
+                                  점 이하
+                              </div>
+                          `;
+                        } else {
+                          return `
+                            <div class="with-txt">
+                                <input type="text" class="input-txt size-s center" value="${data[0]}" style="width: 80px;">
+                                점 이상 ~
+                                <input type="text" class="input-txt size-s center" value="${data[1]}" style="width: 80px;">
+                                점 이하
+                            </div>
+                        `;
+                        }
+                      } else if (caseValue === 'case2') {
+                        // Case 2에 따른 렌더링
+                        if (data === '') {
+                          return `
+                            <div class="dropdown" style="width: 250px;">
+                              <button type="button" class="dropdown-btn"
+                                data-dropdown='{
+                                  "name": "headerDropdown1-${count}",
+                                  "type" : "single",
+                                  "option": [
+                                    {
+                                      "name": "사무",
+                                      "value": "사무",
+                                      "disabled": false,
+                                      "checked": true
+                                    },
+                                    {
+                                      "name": "옵션2",
+                                      "value": "옵션2",
+                                      "disabled": false,
+                                      "checked": false
+                                    }
+                                  ]
+                                }'
+                              >선택하세요</button>
+                            </div>
+                        `;
+                        }
+                      } else {
+                        let defaultScore = 0;
+
+                        if(data === ''){
+                          return `
+                            <div class="d-flex type-gap2 ai-c">
+                             <div class="with-txt">
+                                <input type="text" class="input-txt size-s center" value="${defaultScore}" style="width: 80px;">
+                                점 이상 ~
+                                <input type="text" class="input-txt size-s center" value="${defaultScore}" style="width: 80px;">
+                                점 이하
+                            </div>
+                            <div class="dropdown" style="width: 250px;">
+                              <button type="button" class="dropdown-btn"
+                                data-dropdown='{
+                                  "name": "headerDropdown2-${count}",
+                                  "type" : "single",
+                                  "option": [
+                                    {
+                                      "name": "사무",
+                                      "value": "사무",
+                                      "disabled": false,
+                                      "checked": true
+                                    },
+                                    {
+                                      "name": "옵션2",
+                                      "value": "옵션2",
+                                      "disabled": false,
+                                      "checked": false
+                                    }
+                                  ]
+                                }'
+                              >선택하세요</button>
+                            </div>
+
+                        </div>
+                        `;
+                        }
+
+                        // 그 외의 경우 기본 렌더링
+                      }
+                    }
+                  },
+                  {
+                    data: '케이스',
+                    visible:false,
+                  },
+                ],
+                paging: false,
+                searching: false,
+                showing: false,
+                info: false
+              });
+            </script>
+          </div>
+        </div>
+        <!-- // 인정기준 -->
+
       </div>
       <!-- //contents -->
     </div>

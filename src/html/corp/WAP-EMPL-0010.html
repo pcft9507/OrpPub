@@ -90,6 +90,93 @@
               </div>
             </div>
             <div class="form-row__flex">
+              <div class="form-th no-pd" style="width: 130px;">NCS조회</div>
+              <div class="form-td" style="flex: 1;">
+                <button type="button" class="toggle-btn point-color open ">▲ 접기</button>
+                <div class="box-type4 content-mt2">
+                  <div class="toggle-box">
+                    <ul class="ncs-wrap">
+                      <li>
+                        <div class="ncs-tit-wrap">
+                          <p>공통</p>
+                          <button class="base-btn type3 small-ver">조회</button>
+                        </div>
+                        <ul class="ncs-list">
+                          <li>
+                            <a href="#" class="point-color">01.사업관리>01.사업관리>01.프로젝트관리>02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                          <li>
+                            <a href="#" class="point-color">01.사업관리>01.사업관리>01.프로젝트관리>02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                          <li>
+                            <a href="#" class="point-color">01.사업관리>01.사업관리>01.프로젝트관리>02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                          <li>
+                            <a href="#" class="point-color">01.사업관리>01.사업관리>01.프로젝트관리>02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                          <li>
+                            <a href="#" class="point-color">01.사업관리>01.사업관리>01.프로젝트관리>02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="ncs-tit-wrap">
+                          <p>사무지원</p>
+                          <button class="base-btn type3 small-ver">조회</button>
+                        </div>
+                        <ul class="ncs-list">
+                          <li>
+                            <a href="#" class="point-color">01.사업관리 > 01.사업관리 > 01.프로젝트관리 > 02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                          <li>
+                            <a href="#" class="point-color">01.사업관리 > 01.사업관리 > 01.프로젝트관리 > 02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="ncs-tit-wrap">
+                          <p>IT</p>
+                          <button class="base-btn type3 small-ver">조회</button>
+                        </div>
+                        <ul class="ncs-list">
+                          <li>
+                            <a href="#" class="point-color">01.사업관리 > 01.사업관리 > 01.프로젝트관리 > 02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                        </ul>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <script>
+                $(".toggle-btn").on("click",function(){
+                  if(!$(this).hasClass("open")){
+                    $(this).addClass("open");
+                    $(this).text("▲ 접기");
+                    $(this).next().css({"display":"block"});
+                  }else{
+                    $(this).removeClass("open");
+                    $(this).text("▼ 펼치기");
+                    $(this).next().css({"display":"none"});
+                  }
+                });
+
+                /* NCS 삭제 버튼 클릭시 */
+                $(".ncs-del").on("click",function(){
+                  $(this).closest("li").remove();
+                });
+              </script>
+            </div>
+            <div class="form-row__flex">
               <div class="form-th no-pd" style="width: 130px;">채용분야 중복지원</div>
               <div class="form-td" style="flex: 1;">
                 <div class="form-inner type-gap2">
@@ -443,6 +530,7 @@
   </div>
 
   @@include('../html/corp/WAP-EMPL-0011.html');
+  @@include('../html/corp/WAP-EMPL-0014.html');
   @@include('../html/admin/WAP-CORP-0020.html');
 
   <script>
@@ -564,6 +652,7 @@
     ]);
 
     const pop = {
+      "WAP_EMPL_0014" : ()=>{WAP_EMPL_0014.show()},
       "WAP_EMPL_0011" : ()=>{WAP_EMPL_0011.show()},
       "WAP_CORP_0020" : ()=>{WAP_CORP_0020.show()}
     }

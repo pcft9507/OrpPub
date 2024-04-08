@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -806,6 +777,504 @@
     <!-- //container -->
     
   </div>
+  <div class="layer-popup type-modal" data-ref="WAP-EMPL-0103">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">다운로드</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="max-height: 485px;">
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">정렬기준</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 136px;">
+            <button type="button" class="dropdown-btn size-s"
+                    data-dropdown='{
+                  "name": "popBoardDropdown1",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+            >선택</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'popBoardDropdown1',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">출력기준</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 136px;">
+            <button type="button" class="dropdown-btn size-s"
+                    data-dropdown='{
+                  "name": "popBoardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+            >선택</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'popBoardDropdown2',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">출력기준</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 136px;">
+            <button type="button" class="dropdown-btn size-s"
+                    data-dropdown='{
+                  "name": "popBoardDropdown3",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+            >선택</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'popBoardDropdown3',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">블라인드 구분</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="d-flex type-gap2 content-mt2">
+            <label class="input-chk">
+              <input type="radio" name="sample1" checked="">
+              <span>전체</span>
+            </label>
+            <label class="input-chk">
+              <input type="radio" name="sample1">
+              <span>블라인드</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">지정항목 선택</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="d-flex type-gap content-mt2">
+            <label class="input-chk">
+              <input type="radio" name="sample2" checked="">
+              <span>지원서</span>
+            </label>
+            <label class="input-chk">
+              <input type="radio" name="sample2">
+              <span>지원서 항목별 첨부파일</span>
+            </label>
+            <label class="input-chk">
+              <input type="radio" name="sample2">
+              <span>지원서+항목별 첨부파일</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex ai-c type-gap2 content-mt3">
+        <button class="base-btn type2__size-m w-full">PDF 생성요청</button>
+        <button class="base-btn type1__size-m w-full">다운로드</button>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="downloadTable" class="type-s type-line">
+            <colgroup>
+              <col style="width: 40px;"/>
+              <col style="width: 86px;"/>
+              <col style="width: 60px;"/>
+              <col />
+              <col style="width: 50px;"/>
+              <col style="width: 50px;"/>
+              <col style="width: 50px;"/>
+              <col style="width: 50px;"/>
+            </colgroup>
+            <thead>
+            <tr>
+              <th scope="col">NO</th>
+              <th scope="col">수험번호</th>
+              <th scope="col">성명</th>
+              <th scope="col">이메일</th>
+              <th scope="col">비고1</th>
+              <th scope="col">비고2</th>
+              <th scope="col">비고3</th>
+              <th scope="col">인쇄</th>
+            </tr>
+            </thead>
+          </table>
+        </div>
+        <script>
+          $('#downloadTable').DataTable({
+            data: [
+              {
+                'NO': '1',
+                '수험번호' : '01-000012',
+                '성명' : '김기나',
+                '이메일' : 'awerasd@naver.com',
+                '비고1' : 1,
+                '비고2' : 2,
+                '비고3' : 3,
+                '인쇄' : '',
+              },
+
+            ],
+            columns: [
+              { data: 'NO' },
+              { data: '수험번호' },
+              { data: '성명' },
+              { data: '이메일' },
+              { data: '비고1' },
+              { data: '비고2' },
+              { data: '비고3' },
+              {
+                data: '인쇄',
+                render: function(data) {
+                  return `<button type="button" class="base-btn type3">인쇄</button>`
+                }
+              },
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          });
+        </script>
+      </div>
+
+
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0103.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0103 = new LayerPopup({target: "WAP-EMPL-0103"});
+</script>;
+  <div class="layer-popup type-modal" data-ref="WAP-EMPL-0104">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">지원자 요약정보</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="max-height: 485px;">
+      <div class="type-table2 ver2">
+        <table>
+          <colgroup>
+            <col style="width:180px;">
+            <col />
+          </colgroup>
+          <tbody>
+          <tr>
+            <td rowspan="6">
+              <div class="td-img">
+                <img src="../../assets/images/applicant-demo.png" alt="지원자 사진" />
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                <div class="td-tit">수험번호</div>
+                <div class="td-desc">01-000012</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-wrap">
+                <div class="td-tit">성명</div>
+                <div class="td-desc">김가나 (25세)</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-wrap">
+                <div class="td-tit">지원분야</div>
+                <div class="td-desc">사무직</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-wrap">
+                <div class="td-tit">경력기간</div>
+                <div class="td-desc">0개월</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-wrap">
+                <div class="td-tit">학력</div>
+                <div class="td-desc">숭실대학교 졸업 (4.0/4.5)</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-wrap">
+                <button class="base-btn type3__size-s5">입사지원서 보기</button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="popTable0104" class="type-s type-line">
+            <colgroup>
+              <col style="width: 33.33%"/>
+              <col style="width: 33.33%"/>
+              <col style="width: 33.33%"/>
+            </colgroup>
+            <thead>
+            <tr>
+              <th scope="col">전형구분</th>
+              <th scope="col">결과</th>
+              <th scope="col">점수</th>
+            </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $('#popTable0104').DataTable({
+            data: [
+              {
+                '전형구분': '서류전형',
+                '결과': '합격',
+                '점수': 80,
+              },
+              {
+                '전형구분': '필기전형',
+                '결과': '-',
+                '점수': 80,
+              },
+              {
+                '전형구분': '면접전형',
+                '결과': '-',
+                '점수': 80,
+              }
+            ],
+            columns: [
+              { data: '전형구분'},
+              {
+                data: '결과',
+                render: function(data) {
+                  if(data === '합격') {
+                    return `<span class="point-color3">${data}</span>`
+                  } else {
+                    return data;
+                  }
+                }
+              },
+              { data: '점수'}
+            ],
+            order: [],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          });
+        </script>
+      </div>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0104.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0104 = new LayerPopup({target: "WAP-EMPL-0104"});
+</script>;
+  <div class="layer-popup type-modal" data-ref="WAP-EMPL-0107">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">정량평가 항목별 점수 상세</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <div class="form-row__flex pd-ver">
+        <div class="form-th no-pd" style="width: 116px;">성명</div>
+        <div class="form-td" style="flex: 1;">김가나(25세)</div>
+      </div>
+      <div class="form-row__flex pd-ver">
+        <div class="form-th no-pd" style="width: 116px;">수험번호</div>
+        <div class="form-td" style="flex: 1;">01-000012</div>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="table1" class="type-s type-line">
+            <colgroup>
+              <col style="width: 33.33%"/>
+              <col style="width: 33.33%"/>
+              <col style="width: 33.33%"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">입사지원서항목</th>
+                <th scope="col">평가점수</th>
+                <th scope="col">최대점수</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $(document).ready(function() {
+            var data = [
+              // 실제 데이터
+              {
+                '입사지원서항목': '학력사항',
+                '평가점수': 7,
+                '최대점수': 10,
+              },
+              {
+                '입사지원서항목': '학력사항',
+                '평가점수': 7,
+                '최대점수': 10,
+              },
+              {
+                '입사지원서항목': '학력사항',
+                '평가점수': 7,
+                '최대점수': 10,
+              },              {
+                '입사지원서항목': '학력사항',
+                '평가점수': 7,
+                '최대점수': 10,
+              },
+              {
+                '입사지원서항목': '학력사항',
+                '평가점수': 7,
+                '최대점수': 10,
+              },
+              // 다른 데이터를 이어서 추가할 수 있습니다.
+            ];
+
+            // 총점을 계산합니다.
+            var totalScore = data.reduce(function(sum, row) {
+              // 평가점수가 0인 경우 '-'으로 표시합니다.
+              var score = row['평가점수'] === 0 ? '-' : row['평가점수'];
+              return sum + row['평가점수'];
+            }, 0);
+
+            // 총점을 계산합니다.
+            var totalMaxScore = data.reduce(function(sum, row) {
+              return sum + row['최대점수'];
+            }, 0);
+
+            // 첫 번째 행에 총점을 추가합니다.
+            var totalRow = {
+              '입사지원서항목': '총점',
+              '평가점수': totalScore,
+              '최대점수': totalMaxScore, // 첫 번째 행의 최대점수에 값 설정
+            };
+            data.unshift(totalRow); // 이 부분을 데이터 처리 이후에 옮깁니다.
+
+            $('#table1').DataTable({
+              data: data,
+              columns: [
+                { data: '입사지원서항목' },
+                {
+                  data: '평가점수',
+                  render: function(data, type, row) {
+                    // 평가점수가 0인 경우 '-'으로 표시합니다.
+                    return data === 0 ? '-' : data + "점";
+                  }
+                },
+                {
+                  data: '최대점수',
+                  render: function(data, type, row) {
+                    // 평가점수가 0인 경우 '-'으로 표시합니다.
+                    return row['평가점수'] === 0 ? '-' : data + "점";
+                  }
+                },
+              ],
+              paging: false,
+              searching: false,
+              info: false,
+              createdRow: function(row, data, dataIndex) {
+                if (dataIndex === 0) {
+                  // 첫 번째 행에만 특별한 클래스를 추가합니다.
+                  $(row).addClass('first-row');
+                }
+              }
+            });
+          });
+
+        </script>
+        <style>
+          #table1 tbody tr:first-child {
+            background-color: #F0F8FC; /* 원하는 배경색으로 변경하세요 */
+          }
+          #table1 tbody tr:first-child > td{
+            color:#029ED0;
+            font-weight:700;
+          }
+        </style>
+      </div>
+
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0107.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0107 = new LayerPopup({target: "WAP-EMPL-0107"});
+</script>;
   <div class="layer-popup type-modal" data-ref="WAP-EMPL-0170">
   <section class="popup__container popup__size-l">
     <div class="popup__header">
@@ -961,92 +1430,202 @@
   <div class="layer-popup type-modal" data-ref="WAP-EMPL-0320">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
-      <h3 class="popup__title">지원자 설정</h3>
+      <h3 class="popup__title">지원자 정보등록</h3>
     </div>
     <div class="popup__contents popup__scroll-view" style="max-height: 485px;">
       <div class="form-row__flex pd-ver">
-        <div class="form-th no-pd" style="width: 116px;">수험번호</div>
-        <div class="form-td" style="flex: 1;">01-000012</div>
-      </div>
-      <div class="form-row__flex pd-ver">
-        <div class="form-th no-pd" style="width: 116px;">성명</div>
-        <div class="form-td" style="flex: 1;">김가나(25세)</div>
-      </div>
-      <div class="form-row__flex pd-ver">
-        <div class="form-th no-pd" style="width: 116px;">이메일</div>
-        <div class="form-td" style="flex: 1;">asdfasdf@naver.com</div>
-      </div>
-      <div class="form-row__flex pd-ver">
-        <div class="form-th no-pd" style="width: 116px;">연락처</div>
-        <div class="form-td" style="flex: 1;">010-9999-9999</div>
-      </div>
-      <div class="form-row__flex pd-ver">
-        <div class="form-th" style="width: 116px;">평가실</div>
+        <div class="form-th" style="width: 116px;">수험번호</div>
         <div class="form-td" style="flex: 1;">
-          <div class="dropdown" style="width:118px;">
-            <button type="button" class="dropdown-btn"
-                    data-dropdown='{
-                "name": "Dropdown1",
-                "type" : "single",
-                "option": [
-                  {
-                    "name": "평가실 선택",
-                    "value": "평가실 선택",
-                    "disabled": false,
-                    "checked": false
-                  },
-
-                ]
-              }'
-            >선택</button>
-            <script>
-              dropdown.init('dropdown', {
-                name: 'addUserAuthDropdown',
-                onChange: _this=>{
-                  console.log(_this.value);
-                }
-              });
-            </script>
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" oninput="inputValueChk()" value="14789635" disabled>
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
           </div>
-          <label class="input-chk" style="margin-left:16px;">
-            <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
-            <span>결시</span>
-          </label>
         </div>
       </div>
       <div class="form-row__flex pd-ver">
-        <div class="form-th" style="width: 116px;">전형결과</div>
+        <div class="form-th" style="width: 116px;">성명</div>
         <div class="form-td" style="flex: 1;">
-          <div class="dropdown" style="width:118px;">
-            <button type="button" class="dropdown-btn"
-                    data-dropdown='{
-                "name": "Dropdown2",
-                "type" : "single",
-                "option": [
-                  {
-                    "name": "전형결과 선택",
-                    "value": "전형결과 선택",
-                    "disabled": false,
-                    "checked": false
-                  },
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" oninput="inputValueChk()" value="">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </div>
 
-                ]
-              }'
-            >선택</button>
-            <script>
-              dropdown.init('dropdown', {
-                name: 'addUserAuthDropdown',
-                onChange: _this=>{
-                  console.log(_this.value);
-                }
-              });
-            </script>
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">이메일</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" oninput="inputValueChk()" value="">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">연락처</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" oninput="inputValueChk()" value="">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
           </div>
         </div>
       </div>
 
       <!-- 비고 란 -->
       <div style="margin-top:32px;">
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">면접실</div>
+          <div class="form-td" data-autoAdd="interview" style="flex: 1;">
+          </div>
+        </div>
+        <script>
+          // 드롭다운 실행
+          dropdown.init('dropdown', {
+            onChange: _this => {
+              console.log(_this.value);
+            }
+          });
+
+          // 데이터 추가 시 드롭다운 실행 (이름 중복 방지)
+          // 배열
+
+
+          let arrs = [
+            {
+              "interviewName": "토론면접"
+            },
+            {
+              "interviewName": "일반면접"
+            },
+            {
+              "interviewName": "단체면접"
+            },
+            {
+              "interviewName": "토론면접"
+            },
+            {
+              "interviewName": "일반면접"
+            },
+            {
+              "interviewName": "단체면접"
+            },
+            {
+              "interviewName": "토론면접"
+            },
+            {
+              "interviewName": "일반면접"
+            },
+            {
+              "interviewName": "단체면접"
+            },
+            {
+              "interviewName": "토론면접"
+            },
+            {
+              "interviewName": "일반면접"
+            },
+            {
+              "interviewName": "단체면접"
+            },
+          ];
+
+          // form-inner 요소 가져오기
+          const formInner = document.querySelector('[data-autoAdd="interview"]');
+
+          // 배열을 반복하며 HTML 요소 생성 및 추가
+          arrs.forEach((item, index) => {
+            // div.form-inner 요소 생성
+            const innerDiv = document.createElement('div');
+            innerDiv.classList.add('form-inner', 'line-ver2'); // form-inner와 line-ver2 클래스 추가
+
+            // div.form-th 요소 생성
+            const formTh = document.createElement('div');
+            formTh.classList.add('form-th');
+            formTh.style.width = '100px';
+            formTh.textContent = item.interviewName;
+
+            // div.form-td 요소 생성
+            const formTd = document.createElement('div');
+            formTd.classList.add('form-td');
+
+            // div.dropdown 요소 생성
+            const dropdownDiv = document.createElement('div');
+            dropdownDiv.classList.add('dropdown');
+            dropdownDiv.style.width = '200px';
+
+            // button.dropdown-btn 요소 생성
+            const dropdownBtn = document.createElement('button');
+            dropdownBtn.type = 'button';
+            dropdownBtn.classList.add('dropdown-btn');
+            dropdownBtn.textContent = '면접실 선택';
+            dropdownBtn.setAttribute('data-dropdown', JSON.stringify({
+              "name": "interviewPlace-add" + (index + 1), // count 대신 인덱스를 사용하여 동적으로 생성
+              "type": "single",
+              "option": [
+                {
+                  "name": "면접실1",
+                  "value": "면접실1",
+                  "disabled": false,
+                  "checked": true
+                },
+                {
+                  "name": "면접실2",
+                  "value": "면접실2",
+                  "disabled": false,
+                  "checked": false
+                }
+              ]
+            }));
+
+            // div.input-box 요소 생성
+            const inputBoxDiv = document.createElement('div');
+            inputBoxDiv.classList.add('input-box');
+            inputBoxDiv.style.width = '80px';
+
+            // input 요소 생성
+            const inputTxt = document.createElement('input');
+            inputTxt.type = 'text';
+            inputTxt.classList.add('input-txt');
+            inputTxt.setAttribute('oninput', 'inputValueChk()');
+            inputTxt.value = '';
+
+            // button.btn-del 요소 생성
+            const btnDel = document.createElement('button');
+            btnDel.type = 'button';
+            btnDel.classList.add('btn-del');
+            btnDel.textContent = '입력 삭제';
+            btnDel.setAttribute('onclick', 'inputValueDel()');
+
+            // "조" 글자 요소 생성
+            const textNode = document.createTextNode(' 조');
+
+            // 빈 텍스트 노드 생성 (공백)
+            const spaceNode = document.createTextNode(' ');
+
+            // input-box에 input 및 btn-del 요소 추가
+            inputBoxDiv.appendChild(inputTxt);
+            inputBoxDiv.appendChild(btnDel);
+
+            // dropdownDiv에 dropdownBtn 요소 추가
+            dropdownDiv.appendChild(dropdownBtn);
+
+            // form-td에 dropdown, 공백, input-box 요소 추가
+            formTd.appendChild(dropdownDiv);
+            formTd.appendChild(spaceNode); // 공백 노드 추가
+            formTd.appendChild(inputBoxDiv);
+            formTd.appendChild(textNode); // "조" 글자 추가
+
+            // innerDiv에 form-th와 form-td 요소 추가
+            innerDiv.appendChild(formTh);
+            innerDiv.appendChild(formTd);
+
+            // formInner에 innerDiv 추가
+            formInner.appendChild(innerDiv);
+          });
+        </script>
+
+        <!-- 비고 -->
         <div class="form-row__flex pd-ver">
           <div class="form-th" style="width: 116px;">비고1</div>
           <div class="form-td" style="flex: 1;">
@@ -1069,18 +1648,60 @@
             </div>
           </div>
         </div>
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">비고3</div>
+          <div class="form-td" style="flex: 1;">
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%;">
+                <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">비고4</div>
+          <div class="form-td" style="flex: 1;">
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%;">
+                <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">비고5</div>
+          <div class="form-td" style="flex: 1;">
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%;">
+                <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">비고6</div>
+          <div class="form-td" style="flex: 1;">
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%;">
+                <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- // 비고 란 -->
     </div>
-    <div class="popup__btn-wrap">
-      <button class="base-btn type1__size-m" disabled>다음</button>
-    </div>
-    <!-- 인적사항 버튼
+
+    <!-- 버튼 -->
       <div class="popup__btn-wrap">
-        <button class="base-btn type2__size-m">이전</button>
-        <button class="base-btn type1__size-m" disabled>등록</button>
+        <button class="base-btn type1__size-m">등록</button>
+        <button class="base-btn type2__size-m" onclick="WAP_EMPL_0320.hide()">취소</button>
       </div>
-    -->
+
     <button class="btn-close" onclick="WAP_EMPL_0320.hide()">닫기</button>
   </section>
 </div>
@@ -1091,9 +1712,13 @@
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
+      "WAP_EMPL_0103" : ()=>{WAP_EMPL_0103.show()},
+      "WAP_EMPL_0104" : ()=>{WAP_EMPL_0104.show()},
+      "WAP_EMPL_0107" : ()=>{WAP_EMPL_0107.show()},
       "WAP_EMPL_0170" : ()=>{WAP_EMPL_0170.show()},
       "WAP_EMPL_0320" : ()=>{WAP_EMPL_0320.show()},
     }
+
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>
   <!-- ///**** 팝업 확인 용 스크립트 **** -->

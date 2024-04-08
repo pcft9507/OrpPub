@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -264,22 +235,24 @@
         </script>
 
         <h4 class="title-sub4 content-mt5">평가시스템 노출항목</h4>
-        <div class="board-body content-mt3">
-          <div class="table table-type1">
-            <table class="type-line">
-              <colgroup>
-                <col style="width:200px;">
-                <col>
-              </colgroup>
-              <thead>
+        <div class="box-type1 content-mt3">
+          <div class="board-body">
+            <div class="table table-type1">
+              <table class="type-line">
+                <colgroup>
+                  <col style="width:100px;">
+                  <col style="width:100px;">
+                  <col>
+                </colgroup>
+                <thead>
                 <tr>
-                  <th>구분</th>
+                  <th colspan="2">구분</th>
                   <th>항목</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr>
-                  <td>메뉴 구성</td>
+                  <td colspan="2" style="border-right:1px solid #E0E7ED">메뉴 구성</td>
                   <td>
                     <div class="chk-group left font-weight-s">
                       <label class="input-chk">
@@ -301,119 +274,189 @@
                     </div>
                   </td>
                 </tr>
+                <!-- 평가하기 -->
                 <tr>
-                  <td>확인/제출</td>
+                  <td rowspan="5" style="border-right:1px solid #E0E7ED">평가하기</td>
+                  <td style="border-right:1px solid #E0E7ED">표시</td>
                   <td>
                     <div class="chk-group left font-weight-s">
-                      <span>제출 후 점수 수정</span>
                       <label class="input-chk">
-                        <input type="radio" name="row2">
-                        <span>가능</span>
+                        <input type="radio" name="eval1">
+                        <span>평가</span>
                       </label>
                       <label class="input-chk">
-                        <input type="radio" name="row2">
-                        <span>불가능</span>
+                        <input type="radio" name="eval1">
+                        <span>점수통계</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="eval1">
+                        <span>협의/조정</span>
                       </label>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td>대상자 표시</td>
+                  <td style="border-right:1px solid #E0E7ED">정보</td>
                   <td>
                     <div class="chk-group left font-weight-s">
                       <label class="input-chk">
-                        <input type="radio" name="row3">
-                        <span>수험번호</span>
-                      </label>
-                      <label class="input-chk">
-                        <input type="radio" name="row3">
-                        <span>이름</span>
-                      </label>
-                      <label class="input-chk">
-                        <input type="radio" name="row3">
-                        <span>넘버링</span>
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>대상자 정보</td>
-                  <td>
-                    <div class="chk-group left font-weight-s">
-                      <label class="input-chk">
-                        <input type="checkbox">
+                        <input type="checkbox" name="eval2">
                         <span>평가실</span>
                       </label>
                       <label class="input-chk">
-                        <input type="checkbox">
+                        <input type="checkbox" name="eval2">
                         <span>비고1</span>
                       </label>
                       <label class="input-chk">
-                        <input type="checkbox">
+                        <input type="checkbox" name="eval2">
                         <span>비고2</span>
                       </label>
                       <label class="input-chk">
-                        <input type="checkbox">
+                        <input type="checkbox" name="eval2">
                         <span>비고3</span>
                       </label>
                       <label class="input-chk">
-                        <input type="checkbox">
+                        <input type="checkbox" name="eval2">
                         <span>비고4</span>
                       </label>
                       <label class="input-chk">
-                        <input type="checkbox">
+                        <input type="checkbox" name="eval2">
                         <span>비고5</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox" name="eval2">
+                        <span>비고6</span>
                       </label>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td>점수체계</td>
+                  <td style="border-right:1px solid #E0E7ED">평가자료</td>
                   <td>
                     <div class="chk-group left font-weight-s">
                       <label class="input-chk">
-                        <input type="checkbox">
+                        <input type="checkbox" name="eval3">
+                        <span>입사지원서</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox" name="eval3">
+                        <span>질문지</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox" name="eval3">
+                        <span>과제</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="checkbox" name="eval3">
+                        <span>이전 전형결과</span>
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="border-right:1px solid #E0E7ED">점수체계</td>
+                  <td>
+                    <div class="chk-group left font-weight-s">
+                      <label class="input-chk">
+                        <input type="checkbox" name="eval4">
                         <span>점수</span>
                       </label>
                       <label class="input-chk">
-                        <input type="checkbox">
+                        <input type="checkbox" name="eval4">
                         <span>등급</span>
                       </label>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td>평가내용요약</td>
+                  <td style="border-right:1px solid #E0E7ED">내용요약</td>
                   <td>
                     <div class="chk-group left font-weight-s">
                       <label class="input-chk">
-                        <input type="checkbox">
+                        <input type="checkbox" name="eval5">
                         <span>총평</span>
                       </label>
                       <label class="input-chk">
-                        <input type="checkbox">
+                        <input type="checkbox" name="eval5">
                         <span>메모</span>
                       </label>
                     </div>
                   </td>
                 </tr>
-              </tr>
-              <tr>
-                <td>입사지원서</td>
-                <td>
-                  <div class="chk-group left font-weight-s">
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span>지원서 블라인드 설정</span>
-                    </label>
-                  </div>
-                </td>
-              </tr>
-              </tbody>
-            </table>
+
+                <!-- 협의조정 (2)-->
+                <tr>
+                  <td rowspan="2" style="border-right:1px solid #E0E7ED">협의조정</td>
+                  <td style="border-right:1px solid #E0E7ED">다른 평가자<br>점수열람</td>
+                  <td>
+                    <div class="chk-group left font-weight-s">
+                      <label class="input-chk">
+                        <input type="radio" name="row2">
+                        <span>활성화</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="row2">
+                        <span>비활성화</span>
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="border-right:1px solid #E0E7ED">점수통계</td>
+                  <td>
+                    <div class="chk-group left font-weight-s">
+                      <label class="input-chk">
+                        <input type="radio" name="row3">
+                        <span>활성화</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="row3">
+                        <span>비활성화</span>
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- 확인 제출 -->
+                <tr>
+                  <td style="border-right:1px solid #E0E7ED">확인제출</td>
+                  <td style="border-right:1px solid #E0E7ED">제출 후 <br>점수수정</td>
+                  <td>
+                    <div class="chk-group left font-weight-s">
+                      <label class="input-chk">
+                        <input type="radio" name="row4">
+                        <span>가능</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="row4">
+                        <span>불가능</span>
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- 입사지원서 블라인드 -->
+                <tr>
+                  <td colspan="2" style="border-right:1px solid #E0E7ED">입사지원서<br>블라인드</td>
+                  <td style="border-right:1px solid #E0E7ED">
+                    <div class="chk-group left font-weight-s">
+                      <label class="input-chk">
+                        <input type="radio" name="row5">
+                        <span>활성화</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="row5">
+                        <span>비활성화</span>
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-        
+
         <div class="btn-wrap type-mt2 btn-size-type2">
           <button class="base-btn type2__size-m">테스트</button>
         </div>

@@ -679,12 +679,14 @@
   </div>
   @@include('../html/corp/WAP-EMPL-0312.html');
   @@include('../html/corp/WAP-EMPL-0313.html');
+  @@include('../html/corp/WAP-EMPL-0315.html');
 
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
       "WAP_EMPL_0312" : ()=>{WAP_EMPL_0312.show()},
-      "WAP_EMPL_0313" : ()=>{WAP_EMPL_0313.show()}
+      "WAP_EMPL_0313" : ()=>{WAP_EMPL_0313.show()},
+      "WAP_EMPL_0315" : ()=>{WAP_EMPL_0315.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

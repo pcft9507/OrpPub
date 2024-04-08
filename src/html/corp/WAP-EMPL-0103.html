@@ -1,0 +1,228 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0103">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">다운로드</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="max-height: 485px;">
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">정렬기준</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 136px;">
+            <button type="button" class="dropdown-btn size-s"
+                    data-dropdown='{
+                  "name": "popBoardDropdown1",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+            >선택</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'popBoardDropdown1',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">출력기준</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 136px;">
+            <button type="button" class="dropdown-btn size-s"
+                    data-dropdown='{
+                  "name": "popBoardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+            >선택</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'popBoardDropdown2',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">출력기준</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 136px;">
+            <button type="button" class="dropdown-btn size-s"
+                    data-dropdown='{
+                  "name": "popBoardDropdown3",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+            >선택</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'popBoardDropdown3',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">블라인드 구분</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="d-flex type-gap2 content-mt2">
+            <label class="input-chk">
+              <input type="radio" name="sample1" checked="">
+              <span>전체</span>
+            </label>
+            <label class="input-chk">
+              <input type="radio" name="sample1">
+              <span>블라인드</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">지정항목 선택</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="d-flex type-gap content-mt2">
+            <label class="input-chk">
+              <input type="radio" name="sample2" checked="">
+              <span>지원서</span>
+            </label>
+            <label class="input-chk">
+              <input type="radio" name="sample2">
+              <span>지원서 항목별 첨부파일</span>
+            </label>
+            <label class="input-chk">
+              <input type="radio" name="sample2">
+              <span>지원서+항목별 첨부파일</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex ai-c type-gap2 content-mt3">
+        <button class="base-btn type2__size-m w-full">PDF 생성요청</button>
+        <button class="base-btn type1__size-m w-full">다운로드</button>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="downloadTable" class="type-s type-line">
+            <colgroup>
+              <col style="width: 40px;"/>
+              <col style="width: 86px;"/>
+              <col style="width: 60px;"/>
+              <col />
+              <col style="width: 50px;"/>
+              <col style="width: 50px;"/>
+              <col style="width: 50px;"/>
+              <col style="width: 50px;"/>
+            </colgroup>
+            <thead>
+            <tr>
+              <th scope="col">NO</th>
+              <th scope="col">수험번호</th>
+              <th scope="col">성명</th>
+              <th scope="col">이메일</th>
+              <th scope="col">비고1</th>
+              <th scope="col">비고2</th>
+              <th scope="col">비고3</th>
+              <th scope="col">인쇄</th>
+            </tr>
+            </thead>
+          </table>
+        </div>
+        <script>
+          $('#downloadTable').DataTable({
+            data: [
+              {
+                'NO': '1',
+                '수험번호' : '01-000012',
+                '성명' : '김기나',
+                '이메일' : 'awerasd@naver.com',
+                '비고1' : 1,
+                '비고2' : 2,
+                '비고3' : 3,
+                '인쇄' : '',
+              },
+
+            ],
+            columns: [
+              { data: 'NO' },
+              { data: '수험번호' },
+              { data: '성명' },
+              { data: '이메일' },
+              { data: '비고1' },
+              { data: '비고2' },
+              { data: '비고3' },
+              {
+                data: '인쇄',
+                render: function(data) {
+                  return `<button type="button" class="base-btn type3">인쇄</button>`
+                }
+              },
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          });
+        </script>
+      </div>
+
+
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0103.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0103 = new LayerPopup({target: "WAP-EMPL-0103"});
+</script>

@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -263,83 +234,62 @@
           const tabContents1 = new TabContents({target: 'tabContents1'});
         </script>
 
-        <div class="box-type5 type-pd2 content-mt3">
-          <div class="form-inner">
-            <div class="form-th" style="width: 134px;">평가자</div>
-            <div class="dropdown" style="flex: 1;">
-              <button type="button" class="dropdown-btn"
-                data-dropdown='{
-                  "name": "dropdown1",
-                  "type" : "single",
-                  "option": [
-                    {
-                      "name": "옵션1",
-                      "value": "옵션1",
-                      "disabled": false,
-                      "checked": false
-                    },
-                    {
-                      "name": "옵션2",
-                      "value": "옵션2",
-                      "disabled": false,
-                      "checked": false
-                    }
-                  ]
-                }'
-              >선택하세요</button>
-            </div>
-            <button type="button" class="base-btn type1__size-m">추가</button>
-          </div>
-        </div>
-        
-        <div class="board-head content-mt5">
-          <div class="board-head__cell">
-            <h4 class="title-sub4">총 2명</h4>
-          </div>
-          <div class="board-head__cell">
-            <button type="button" class="base-btn type2__size-s">전체선택</button>
-          </div>
-        </div>
-        <div class="board-body">
-          <div class="table table-type1">
-            <table class="type-line">
-              <colgroup>
-                <col style="width:150px;">
-                <col style="width:200px;">
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col style="width:100px;">
-              </colgroup>
-              <thead>
+        <div class="box-type1 content-mt6">
+          <div class="board-body">
+            <div id="table" class="table table-type1">
+              <table class="type-line">
+                <colgroup>
+                  <col style="width:400px;">
+                  <col style="width:300px;">
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead>
                 <tr>
                   <th>평가자</th>
                   <th>ID</th>
-                  <th>전체</th>
-                  <th>1실</th>
-                  <th>2실</th>
-                  <th>3실</th>
-                  <th>4실</th>
-                  <th>5실</th>
-                  <th>6실</th>
-                  <th>7실</th>
-                  <th>8실</th>
-                  <th>9실</th>
-                  <th>10실</th>
-                  <th>삭제</th>
+                  <th>
+                    1실
+                    <button onclick="deleteColumn(this);">
+                        <span class="base-icon icon-trash__size-m__color3" >
+                          <span class="isHidden">삭제</span>
+                        </span>
+                    </button>
+                  </th>
+                  <th>
+                    2실
+                    <button onclick="deleteColumn(this);">
+                        <span class="base-icon icon-trash__size-m__color3">
+                          <span class="isHidden">삭제</span>
+                        </span>
+                    </button>
+                  </th>
+                  <th>
+                    3실
+                    <button onclick="deleteColumn(this);">
+                        <span class="base-icon icon-trash__size-m__color3">
+                          <span class="isHidden">삭제</span>
+                        </span>
+                    </button>
+                  </th>
+                  <th><button class="base-icon icon-add__size-s__color3 point-color5">실추가</button></th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody class="first-td-bdt0">
                 <tr>
-                  <td>김보경</td>
+                  <td class="pd-type1">
+                    <div class="form-inner type-gap2">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel(5);">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box type-search h-full">
+                        <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                      </div>
+                    </div>
+                  </td>
                   <td>bokyoung_kim@orp</td>
                   <td>
                     <label class="input-chk">
@@ -359,141 +309,17 @@
                       <span class="isHidden">선택</span>
                     </label>
                   </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <button type="button">
-                      <span class="base-icon icon-trash__size-m__color3">
-                        <span class="isHidden">삭제</span>
-                      </span>
-                    </button>
-                  </td>
+                  <td></td>
                 </tr>
-                <tr>
-                  <td>김태율</td>
-                  <td>taeyul_kim@rep</td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="input-chk">
-                      <input type="checkbox">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
-                  <td>
-                    <button type="button">
-                      <span class="base-icon icon-trash__size-m__color3">
-                        <span class="isHidden">삭제</span>
-                      </span>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+
+              <div class="form-inner content-mt2 pd-type1">
+                <button type="button" class="btn-item--add" onclick="addRow();">
+                  <span>추가</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -503,5 +329,137 @@
     <!-- //container -->
     
   </div>
+  <script>
+    // 실추가
+    document.addEventListener('DOMContentLoaded', function() {
+      const addButton = document.querySelector('.icon-add__size-s__color3');
+
+      addButton.addEventListener('click', function() {
+        const theadRow = document.querySelector('.type-line thead tr');
+        const tbodyRows = document.querySelectorAll('.type-line tbody tr');
+        const existingCols = theadRow.querySelectorAll('th').length;
+
+        // 최대 칼럼 수를 10으로 제한
+        if(existingCols - 1 > 11) { // 첫 번째 '평가자'와 'ID' 칼럼을 제외한 순수한 '실' 칼럼만 계산
+          alert('최대 10실까지만 추가 가능합니다.');
+          return;
+        }
+
+        const newColIndex = existingCols - 2; // '실추가' 버튼 칼럼을 제외한 새 칼럼의 인덱스
+        const newTh = document.createElement('th');
+        newTh.innerHTML = `${newColIndex}실
+                          <button type="button" onclick="deleteColumn(this);">
+                            <span class="base-icon icon-trash__size-m__color3">
+                              <span class="isHidden">삭제</span>
+                            </span>
+                          </button>`;
+
+        // '실추가' 버튼의 th 요소를 찾아 그 전에 새로운 th 요소 삽입
+        const addButtonTh = addButton.closest('th');
+        theadRow.insertBefore(newTh, addButtonTh);
+
+        // tbody의 각 행에 새로운 td 요소 추가
+        tbodyRows.forEach(row => {
+          const newTd = document.createElement('td');
+          newTd.innerHTML = `<label class="input-chk">
+                              <input type="checkbox">
+                              <span class="isHidden">선택</span>
+                            </label>`;
+          // 마지막 td 요소 전에 새로운 td 요소 삽입
+          const lastTd = row.querySelectorAll('td')[newColIndex-2]; // 새로운 칼럼을 '실추가' 버튼 전의 칼럼 위치에 삽입
+          row.insertBefore(newTd, lastTd ? lastTd.nextSibling : null);
+        });
+      });
+    });
+
+    // 행추가'addRow' 함수 정의
+    function addRow() {
+      // thead에서 칼럼의 수를 계산
+      const columnCount = document.querySelector("#table .type-line thead tr").childElementCount;
+
+      // 기본 템플릿을 시작
+      let template = `
+      <tr>
+        <td class="pd-type1">
+          <div class="form-inner type-gap2">
+            <button type="button" class="btn-item--del" onclick="rowItemDel(5);"><span>삭제</span></button>
+            <div class="input-box type-search h-full"><input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            </div>
+          </div>
+        </td>`;
+
+      // ID 칼럼
+      template += `<td>bokyoung_kim@orp</td>`;
+
+      // 나머지 칼럼에 대해서는 체크박스를 추가합니다.
+      for (let i = 3; i < columnCount; i++) { // 평가자, ID 칼럼을 제외하고 시작
+        template += `
+        <td>
+          <label class="input-chk">
+            <input type="checkbox">
+            <span class="isHidden">선택</span>
+          </label>
+        </td>`;
+      }
+
+
+      // 템플릿을 마무리하고 빈 td 추가(마지막 실추가 버튼 칼럼에 대응)
+      template += '<td></td></tr>';
+
+      // 'table' 요소 내의 'tbody'를 찾아 완성된 'template'을 추가
+      const tbody = document.querySelector("#table table tbody");
+      tbody.insertAdjacentHTML('beforeend', template);
+    }
+
+    function deleteColumn(element) {
+      const theadRow = element.closest('table').querySelector('thead tr');
+      const colCount = theadRow.querySelectorAll('th').length;
+
+      // 최소 3개의 칼럼이 유지되어야 함을 확인
+      if(colCount <= 6) { // '평가자', 'ID', 그리고 최소 1개의 '실' 칼럼을 포함하여 총 3개가 기본적으로 있어야 함
+        alert('기본값은 3실입니다.');
+        return; // 함수 실행을 여기서 중단
+      }
+
+      // 클릭된 버튼이 속한 th 요소의 인덱스를 찾음
+      const thIndex = element.closest('th').cellIndex;
+
+      // thead 내에서 해당 th 요소 삭제
+      element.closest('table').querySelector('thead tr').deleteCell(thIndex);
+
+      // tbody 내의 모든 행을 순회하면서 동일한 인덱스의 td 요소 삭제
+      document.querySelectorAll("#table .type-line tbody tr").forEach(row => {
+        if(row.cells.length > thIndex) { // 해당 인덱스에 td 요소가 존재하는 경우만 삭제
+          row.deleteCell(thIndex);
+        }
+      });
+
+      // colgroup 내에서 해당 인덱스의 <col> 요소 삭제
+      const colgroup = document.querySelector("#table colgroup");
+      if(colgroup && colgroup.children[thIndex]) {
+        colgroup.removeChild(colgroup.children[thIndex]);
+      }
+    }
+
+    function addColumn() {
+      // 새로운 <col> 요소 생성
+      const newCol = document.createElement('col');
+
+      // colgroup에 새로운 <col> 요소 추가
+      document.querySelector("#table colgroup").appendChild(newCol);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // 'thead'에 이벤트 리스너를 추가하여 '실 삭제' 버튼 클릭 이벤트를 위임합니다.
+      document.querySelector('#table thead').addEventListener('click', function(event) {
+        // 클릭된 요소가 '실 삭제' 버튼인지 확인합니다.
+        if (event.target.closest('.delete-column')) {
+          const element = event.target.closest('.delete-column');
+          deleteColumn(element);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

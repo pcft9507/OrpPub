@@ -1,0 +1,264 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header2.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "평가시스템", dep1: "", dep2: ""})
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[경영지원](2023년도 ㈜오알피연구소 신입/경력사원 공개채용</h2>
+          <div class="cell">
+            2023-09-13~2023-09-15
+          </div>
+          <div class="cell">
+            <div class="dropdown" style="width: 128px;">
+              <button type="button" class="dropdown-btn type3"
+                      data-dropdown='{
+                  "name": "headerDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "상태",
+                      "value": "상태",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "평가예정",
+                      "value": "평가예정",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "평가완료",
+                      "value": "평가완료",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "제적/회피",
+                      "value": "제적/회피",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "평가제외",
+                      "value": "평가제외",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'headerDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- contents -->
+      <div class="contents">
+        <h3 class="title-sub2 type2">평가자별 점수 열람</h3>
+
+        <div class="board-head content-mt4">
+          <div class="board-head__cell type-gap2">
+            <span class="title-sub4" style="min-width:72px;">총 2개</span>
+            <div class="dropdown">
+              <button type="button" class="dropdown-btn size-s" style="width:136px;"
+                      data-dropdown='{
+                  "name": "boardDropdown1",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "50개씩",
+                      "value": "50개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "100개씩",
+                      "value": "100개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "200개씩",
+                      "value": "200개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+
+                  ]
+                }'
+              >선택하세요</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown1',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-body">
+          <div class="table table-type1 ph4">
+            <table id="table">
+              <colgroup>
+                <col style="width: 90px;">
+                <col style="width: 90px;">
+                <col style="width: 150px;">
+                <col style="width: 150px;">
+                <col style="width: 160px;">
+                <col style="width: 160px;">
+                <col style="width: auto">
+                <col style="width: 160px;">
+                <col style="width: 160px;">
+                <col style="width: 160px;">
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col" rowspan="2"><button type="button" class="btn-align-cell">NO</button></th>
+                <th scope="col" rowspan="2">평가자</th>
+                <th scope="col" rowspan="2">수험번호</th>
+                <th scope="col" rowspan="2">성명</th>
+                <th scope="col" rowspan="2">등급</th>
+                <th scope="col" rowspan="2">종합</th>
+                <th scope="col" rowspan="2">메모</th>
+                <th scope="col" rowspan="2">최종의견</th>
+                <th scope="col" colspan="2" style="padding:10.5px 8px 2px 8px">평가요소</th>
+              </tr>
+              <tr>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;">논리적 사고</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;">끈기</th>
+              </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <script>
+              $('#table').DataTable({
+                data: [
+                  {
+                    'NO': '1',
+                    '평가자': '홍무개',
+                    '수험번호': '01-000012',
+                    '성명': '응시자7',
+                    '등급': 'D',
+                    '종합': 60.00,
+                    '메모': '-',
+                    '최종의견': '추천',
+                    '논리적 사고': 60.00,
+                    '끈기': 60.00,
+                  },
+                  {
+                    'NO': '1',
+                    '평가자': '홍무개',
+                    '수험번호': '01-000012',
+                    '성명': '응시자7',
+                    '등급': 'D',
+                    '종합': 60.00,
+                    '메모': '-',
+                    '최종의견': '추천',
+                    '논리적 사고': 60.00,
+                    '끈기': 60.00,
+                  },
+                  {
+                    'NO': '1',
+                    '평가자': '홍무개',
+                    '수험번호': '01-000012',
+                    '성명': '응시자7',
+                    '등급': 'D',
+                    '종합': 60.00,
+                    '메모': '-',
+                    '최종의견': '추천',
+                    '논리적 사고': 60.00,
+                    '끈기': 60.00,
+                  },
+                ],
+                columns: [
+                  { data: 'NO'},
+                  { data: '평가자'},
+                  { data: '수험번호'},
+                  { data: '성명'},
+                  { data: '등급'},
+                  {
+                    data: '종합',
+                    render: function(data, type){
+                      return ` <button type="button" onclick="WAP_ASES_0041.show(${data.toFixed(2)})"><span class="point-color" style="text-decoration:underline">${data.toFixed(2)}</button></button>`;
+                    }
+                  },
+                  { data: '메모'},
+                  {
+                    data: '최종의견',
+                    render: function (data) {
+                      if (data === '추천') {
+                        return ` <span class="point-color3">${data}</button>`
+                      } else {
+                        return data;
+                      }
+                    }
+                  },
+                  {
+                    data: '논리적 사고',
+                    render: function(data, type){
+                      return data.toFixed(2);
+                    }
+                  },
+                  {
+                    data: '끈기',
+                    render: function(data, type){
+                      return data.toFixed(2);
+                    }
+                  },
+                ],
+                paging: false,
+                searching: false,
+                showing: false,
+                info: false
+              })
+            </script>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+  </div>
+
+  @@include('../html/eval/WAP-ASES-0041.html');
+
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_ASES_0041" : ()=>{WAP_ASES_0041.show()},
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

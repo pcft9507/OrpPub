@@ -4,28 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
+  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.js"></script>
+  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/fixedColumns.dataTables.js"></script>
   <!-- Timepicker -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <!-- DatePicker -->
   <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
+  <!-- Personal -->
   <script src="../../assets/js/ui.js"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
 </head>
 
 <!--
@@ -306,20 +304,62 @@
                   "type" : "single",
                   "option": [
                     {
-                      "name": "옵션1",
-                      "value": "옵션1",
+                      "name": "전체",
+                      "value": "전체",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "수험번호",
+                      "value": "수험번호",
                       "disabled": false,
                       "checked": false
                     },
                     {
-                      "name": "옵션2",
-                      "value": "옵션2",
+                      "name": "성명",
+                      "value": "성명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "연락처",
+                      "value": "연락처",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "이메일",
+                      "value": "이메일",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "최종결과",
+                      "value": "최종결과",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "1차서류전형",
+                      "value": "1차서류전형",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "1차필기전형",
+                      "value": "1차필기전형",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "1차면접전형",
+                      "value": "1차면접전형",
                       "disabled": false,
                       "checked": false
                     }
                   ]
                 }'
-              >Display</button>
+              >전체</button>
               <script>
                 dropdown.init('dropdown', {
                   name: 'boardDropdown',
@@ -369,20 +409,20 @@
                   "type" : "single",
                   "option": [
                     {
-                      "name": "지원자",
-                      "value": "지원자",
+                      "name": "SMS",
+                      "value": "SMS",
                       "disabled": false,
-                      "checked": true
+                      "checked": false
                     },
                     {
-                      "name": "옵션2",
-                      "value": "옵션2",
+                      "name": "EMAIL",
+                      "value": "EMAIL",
                       "disabled": false,
                       "checked": false
                     }
                   ]
                 }'
-              >선택</button>
+              >발송</button>
               <script>
                 dropdown.init('dropdown', {
                   name: 'boardDropdown8',
@@ -400,20 +440,38 @@
                   "type" : "single",
                   "option": [
                     {
-                      "name": "발송",
-                      "value": "발송",
+                      "name": "합격",
+                      "value": "합격",
                       "disabled": false,
-                      "checked": true
+                      "checked": false
                     },
                     {
-                      "name": "옵션2",
-                      "value": "옵션2",
+                      "name": "불합격",
+                      "value": "불합격",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "예비합격",
+                      "value": "예비합격",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "미정",
+                      "value": "미정",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "업로드",
+                      "value": "업로드",
                       "disabled": false,
                       "checked": false
                     }
                   ]
                 }'
-              >선택</button>
+              >결과관리</button>
               <script>
                 dropdown.init('dropdown', {
                   name: 'boardDropdown3',
@@ -423,287 +481,190 @@
                 });
               </script>
             </div>
-
-            <div class="dropdown" style="width: 110px;">
-              <button type="button" class="dropdown-btn size-s"
-                data-dropdown='{
-                  "name": "boardDropdown5",
-                  "type" : "single",
-                  "option": [
-                    {
-                      "name": "결과",
-                      "value": "결과",
-                      "disabled": false,
-                      "checked": true
-                    },
-                    {
-                      "name": "옵션2",
-                      "value": "옵션2",
-                      "disabled": false,
-                      "checked": false
-                    }
-                  ]
-                }'
-              >선택</button>
-              <script>
-                dropdown.init('dropdown', {
-                  name: 'boardDropdown5',
-                  onChange: _this=>{
-                    console.log(_this.value);
-                  }
-                });
-              </script>
-            </div>
-
-            <div class="dropdown" style="width: 110px;">
-              <button type="button" class="dropdown-btn size-s"
-                data-dropdown='{
-                  "name": "boardDropdown6",
-                  "type" : "single",
-                  "option": [
-                    {
-                      "name": "다운로드",
-                      "value": "다운로드",
-                      "disabled": false,
-                      "checked": true
-                    },
-                    {
-                      "name": "옵션2",
-                      "value": "옵션2",
-                      "disabled": false,
-                      "checked": false
-                    }
-                  ]
-                }'
-              >선택</button>
-              <script>
-                dropdown.init('dropdown', {
-                  name: 'boardDropdown6',
-                  onChange: _this=>{
-                    console.log(_this.value);
-                  }
-                });
-              </script>
-            </div>
-
-            <div class="dropdown" style="width: 110px;">
-              <button type="button" class="dropdown-btn size-s"
-                data-dropdown='{
-                  "name": "boardDropdown77",
-                  "type" : "single",
-                  "option": [
-                    {
-                      "name": "종합점수",
-                      "value": "종합점수",
-                      "disabled": false,
-                      "checked": true
-                    },
-                    {
-                      "name": "옵션2",
-                      "value": "옵션2",
-                      "disabled": false,
-                      "checked": false
-                    }
-                  ]
-                }'
-              >선택</button>
-              <script>
-                dropdown.init('dropdown', {
-                  name: 'boardDropdown7',
-                  onChange: _this=>{
-                    console.log(_this.value);
-                  }
-                });
-              </script>
-            </div>
+            <button class="base-btn type2__size-s"><span class="base-icon icon-add__size-s__color1">지원자</span></button>
+            <a href="#" class="base-btn type2__size-s">
+              <span class="base-icon icon-down__size-s__color1">다운로드</span>
+            </a>
 
           </div>
         </div>
         <div class="board-body">
-        <div class="table table-type1 fixed-ver line-ver">
+           <div class="table table-type1 fixed-ver line-ver">
             <table id="table">
               <thead>
-                <tr>
-                  <th scope="col" rowspan="2" class="pd-type1">
-                    <label class="input-chk">
-                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </th>
-                  <th scope="col" rowspan="2">NO</th>
-                  <th scope="col" rowspan="2">수험번호</th>
-                  <th scope="col" rowspan="2">성명</th>
-                  <th scope="col" rowspan="2">연락처</th>
-                  <th scope="col" rowspan="2">이메일</th>
-                  <th scope="colgroup" colspan="9" style="padding:10.5px 8px 2px 8px">최종결과</th>
-                </tr>
-                <tr>
-                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">최종결과</th>
-                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고1</th>
-                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고2</th>
-                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고3</th>
-                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고4</th>
-                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고5</th>
-                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고6</th>
-                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">전형결과</th>
-                  <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">종합점수</th>
-                </tr>
+              <tr>
+                <th scope="col" rowspan="2" class="pd-type1">
+                  <label class="input-chk">
+                    <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                    <span class="isHidden">선택</span>
+                  </label>
+                </th>
+                <th scope="col" rowspan="2">NO</th>
+                <th scope="col" rowspan="2">수험번호</th>
+                <th scope="col" rowspan="2">성명</th>
+                <th scope="col" rowspan="2">연락처</th>
+                <th scope="col" rowspan="2" style="border-right:1px solid #DADDE5;">이메일</th>
+                <th scope="colgroup" colspan="7" class="table-border-top" style="padding:10.5px 8px 2px 8px;">최종결과</th>
+                <th scope="colgroup" colspan="8" class="table-border-top" style="padding:10.5px 8px 2px 8px;">서류전형</th>
+                <th scope="colgroup" colspan="7" class="table-border-top" style="padding:10.5px 8px 2px 8px;">1기 필기전형</th>
+                <th scope="colgroup" colspan="8" style="padding:10.5px 8px 2px 8px;">면접전형</th>
+              </tr>
+              <tr>
+                <!-- 최종결과(7) -->
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">최종결과</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고1</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고2</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고3</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고4</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고5</th>
+                <th scope="col" class="table-border-bottom" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고6</th>
+                <!-- 서류전형(8) -->
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">전형결과</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">종합점수</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고1</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고2</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고3</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고4</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고5</th>
+                <th scope="col" class="table-border-bottom" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고6</th>
+                <!-- 1기 필기전형(7) -->
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">전형결과</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고1</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고2</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고3</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고4</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고5</th>
+                <th scope="col" class="table-border-bottom" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고6</th>
+                <!-- 면접전형(8) -->
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">전형결과</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">종합점수</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고1</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고2</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고3</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고4</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고5</th>
+                <th scope="col" style="padding:2px 8px 10.5px 8px;font-weight:500;color:#222631;">비고6</th>
+              </tr>
               </thead>
+
             </table>
           </div>
           <script>
-            $('#table').DataTable({
-              data: [
-                {
-                  'NO': '1',
-                  '수험번호': '01-00000001',
-                  '성명' : '홍길동',
-                  '연락처' : '01099999999',
-                  '이메일' : 'ts.hwang@wiselection.com',
-                  '최종결과' : '합격',
-                  '비고1' :'1',
-                  '비고2' :'2',
-                  '비고3' :'3',
-                  '비고4' :'4',
-                  '비고5' :'5',
-                  '비고6' :'6',
-                  '전형결과' :'합격',
-                  '종합점수' :80,
-                },
-                {
-                  'NO': '2',
-                  '수험번호': '01-00000001',
-                  '성명' : '홍길동',
-                  '연락처' : '01099999999',
-                  '이메일' : 'ts.hwang@wiselection.com',
-                  '최종결과':'불합격',
-                  '비고1' :'1',
-                  '비고2' :'2',
-                  '비고3' :'3',
-                  '비고4' :'4',
-                  '비고5' :'5',
-                  '비고6' :'6',
-                  '전형결과' :'합격',
-                  '종합점수' :80,
-                },
-                {
-                  'NO': '3',
-                  '수험번호': '01-00000001',
-                  '성명' : '홍길동',
-                  '연락처' : '01099999999',
-                  '이메일' : 'ts.hwang@wiselection.com',
-                  '최종결과':'합격',
-                  '비고1' :'1',
-                  '비고2' :'2',
-                  '비고3' :'3',
-                  '비고4' :'4',
-                  '비고5' :'5',
-                  '비고6' :'6',
-                  '전형결과' :'합격',
-                  '종합점수' :80,
-                },
-              ],
-              columns: [
-                {
-                  data: '',
-                  className: 'pd-type1',
-                  render: function() {
-                    return `
-                      <label class="input-chk">
-                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
-                        <span class="isHidden">선택</span>
-                      </label>
-                    `
-                  }
-                },
-                {
-                  data: 'NO',
-                  width: '60px',
-                },
-                { data: '수험번호',
-                  width: '150px',
-                  render: function(data) {
-                    return `<span class="point-color">${data}</span>`
-                  }
-                },
-                { data: '성명',
-                  width: '100px',
-                  render: function(data) {
-                    return `<span class="point-color">${data}</span>`
-                  }
-                },
-                {
-                  data: '연락처',
-                  width: '150px',
-                },
-                {
-                  data: '이메일',
-                  width: '250px',
-                },
-                {
-                  data: '최종결과',
-                  width: '120px',
-                  render: function(data) {
-                    let temp;
-                    (data === '합격')
-                            ? temp = `<span class="point-color3">${data}</span>`
-                            : temp = data;
-                    return temp;
-                  }
-                },
-                {
-                  data: '비고1',
-                  width: '80px',
-                },
-                {
-                  data: '비고2',
-                  width: '80px',
-                },
-                {
-                  data: '비고3',
-                  width: '80px',
-                },
-                {
-                  data: '비고4',
-                  width: '80px',
-                },
-                {
-                  data: '비고5',
-                  width: '80px',
-                },
-                {
-                  data: '비고6',
-                  width: '80px',
-                },
-                {
-                  data: '전형결과',
-                  width: '80px',
-                  /*render: function(data) {
-                    let temp;
-                    (data === '합격')
-                            ? temp = `<span class="point-color3">${data}</span>`
-                            : temp = data;
-                    return temp;
-                  }*/
-                },
-                {
-                  data: '종합점수',
-                  width: '80px',
-                },
-              ],
+            $(document).ready(function() {
+              $('#table').DataTable({
+                data: [
+                  {
+                    'NO': '1',
+                    '수험번호': '01-00000001',
+                    '성명': '홍길동',
+                    '연락처': '01099999999',
+                    '이메일': 'ts.hwang@wiselection.com',
+                    '최종결과_결과': '합격',
+                    '최종결과_비고1': 1,
+                    '최종결과_비고2': 2,
+                    '최종결과_비고3': 3,
+                    '최종결과_비고4': 4,
+                    '최종결과_비고5': 5,
+                    '최종결과_비고6': 6,
+                    '서류전형_결과': '합격',
+                    '서류전형_종합점수': 60,
+                    '서류전형_비고1': 1,
+                    '서류전형_비고2': 2,
+                    '서류전형_비고3': 3,
+                    '서류전형_비고4': 4,
+                    '서류전형_비고5': 5,
+                    '서류전형_비고6': 6,
+                    '1기필기전형_결과': '합격',
+                    '1기필기전형_비고1': 1,
+                    '1기필기전형_비고2': 2,
+                    '1기필기전형_비고3': 3,
+                    '1기필기전형_비고4': 4,
+                    '1기필기전형_비고5': 5,
+                    '1기필기전형_비고6': 6,
+                    '면접전형_결과': '합격',
+                    '면접전형_종합점수': 60,
+                    '면접전형_비고1': 1,
+                    '면접전형_비고2': 2,
+                    '면접전형_비고3': 3,
+                    '면접전형_비고4': 4,
+                    '면접전형_비고5': 5,
+                    '면접전형_비고6': 6,
+                  },
+                ],
+                columns: [
+                  {
+                    data: '',
+                    className: 'pd-type1',
+                    render: function() {
+                      return `
+                        <label class="input-chk">
+                            <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                            <span class="isHidden">선택</span>
+                        </label>
+                      `;
+                    },
+                  },
+                  { data: 'NO', width: '60px' },
+                  { data: '수험번호', width: '200px', render: function(data) { return `<span class="point-color">${data}</span>`; } },
+                  {
+                    data: '성명',
+                    width: '100px',
+                    render: function(data) {
+                      return `<span class="point-color">${data}</span>`;
+                    }
+                  },
+                  {
+                    data: '연락처',
+                    width: '150px'
+                  },
+                  { data: '이메일', width: '250px' },
+                  { data: '최종결과_결과', width: '90px'},
+                  { data: '최종결과_비고1', width: '90px'},
+                  { data: '최종결과_비고2', width: '90px'},
+                  { data: '최종결과_비고3', width: '90px'},
+                  { data: '최종결과_비고4', width: '90px'},
+                  { data: '최종결과_비고5', width: '90px'},
+                  { data: '최종결과_비고6', width: '90px'},
+                  { data: '서류전형_결과', width: '90px'},
+                  { data: '서류전형_종합점수', width: '90px'},
+                  { data: '서류전형_비고1', width: '90px'},
+                  { data: '서류전형_비고2', width: '90px'},
+                  { data: '서류전형_비고3', width: '90px'},
+                  { data: '서류전형_비고4', width: '90px'},
+                  { data: '서류전형_비고5', width: '90px'},
+                  { data: '서류전형_비고6', width: '90px'},
+                  { data: '1기필기전형_결과', width: '90px'},
+                  { data: '1기필기전형_비고1', width: '90px'},
+                  { data: '1기필기전형_비고2', width: '90px'},
+                  { data: '1기필기전형_비고3', width: '90px'},
+                  { data: '1기필기전형_비고4', width: '90px'},
+                  { data: '1기필기전형_비고5', width: '90px'},
+                  { data: '1기필기전형_비고6', width: '90px'},
+                  { data: '면접전형_결과' , width: '90px'},
+                  { data: '면접전형_종합점수', width: '90px'},
+                  { data: '면접전형_비고1', width: '90px'},
+                  { data: '면접전형_비고2', width: '90px'},
+                  { data: '면접전형_비고3', width: '90px'},
+                  { data: '면접전형_비고4', width: '90px'},
+                  { data: '면접전형_비고5', width: '90px'},
+                  { data: '면접전형_비고6', width: '90px'},
+                ],
 
-              paging: false,
-              searching: false,
-              showing: false,
-              info: false,
-              /* 컬럼 고정 관련 */
-              scrollX: true,
-              scrollCollapse: true,
-              autoWidth:false,
-              fixedColumns: {
-                leftColumns: 6, // 왼쪽으로 고정할 열의 개수
-              },
+                // 페이징, 검색, 정보 표시 옵션 설정
+                paging: false,
+                searching: false,
+                info: false,
+                // 컬럼 고정 관련 설정
+                scrollX: true,
+                scrollCollapse: true,
+                autoWidth: false,
+                fixedColumns: {
+                  leftColumns: 6, // 왼쪽으로 고정할 열의 개수
+                },
+              });
             });
+
+
           </script>
         </div>
 

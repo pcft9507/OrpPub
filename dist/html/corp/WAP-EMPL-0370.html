@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -262,53 +233,27 @@
         <script>
           const tabContents1 = new TabContents({target: 'tabContents1'});
         </script>
-        
-        <div class="board-head content-mt5">
-          <div class="board-head__cell">
-            <h4 class="title-sub4">총 2명</h4>
-          </div>
-          <div class="board-head__cell">
-            <button type="button" class="base-btn type2__size-s">전체선택</button>
-          </div>
-        </div>
-        <div class="board-body">
-          <div class="table table-type1">
-            <table class="type-line td-pd2">
-              <colgroup>
-                <col style="width:56px;">
-                <col style="width:160px;">
-                <col style="width:160px;">
-                <col style="width:160px;">
-                <col style="width:140px;">
-                <col style="width:130px;">
-                <col>
-              </colgroup>
-              <thead>
+
+        <div class="box-type1 content-mt5">
+          <div class="board-body">
+            <div class="table table-type1">
+              <table class="type-line td-pd2">
+                <colgroup>
+                  <col style="width:270px;">
+                  <col style="width:160px;">
+                  <col style="width:calc(100% - 320px);">
+                </colgroup>
+                <thead>
                 <tr>
-                  <th>
-                    <label class="input-chk type2">
-                      <input type="checkbox" onchange="inputCheckAll('chkItem')" value="chkAll" data-ref="chkItem">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </th>
-                  <th>집계기준</th>
+                  <th colspan="2">집계기준 종합</th>
                   <th>면접명</th>
-                  <th>총점</th>
-                  <th colspan="2">비중</th>
-                  <th>배점</th>
                 </tr>
-              </thead>
-              <tbody class="left">
+                </thead>
+                <tbody class="left">
                 <tr>
-                  <td rowspan="2">
-                    <label class="input-chk type2">
-                      <input type="checkbox" onchange="inputCheckAll('chkItem')" value="chkAll" data-ref="chkItem">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </td>
                   <td rowspan="2" class="align-top">
                     <div class="chk-group type-column-left">
-                      <div class="point-color5">평가점수의</div>
+                      <div>평가점수의</div>
                       <label class="input-chk type2">
                         <input type="radio" name="row1_1">
                         <span><b class="small">평균</b></span>
@@ -323,95 +268,124 @@
                       </label>
                       <div class="chk-group type-column-left" style="margin-left: 24px;">
                         <div class="with-txt">
-                          <input type="text" class="input-txt size-s center" value="50" style="width: 46px;" disabled>
+                          <input type="text" class="input-txt size-s2 center" value="50" style="width: 46px;" disabled>
                           점
                         </div>
                         <div class="with-txt">
                           소수점
-                          <input type="text" class="input-txt size-s center" value="3" style="width: 32px;">
-                          째
+                          <input type="text" class="input-txt size-s2 center" value="3" style="width: 32px;">
+                          째 자리에서 반올림
                         </div>
-                        <div class="with-txt">자리에서 반올림</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td rowspan="2" class="left-line align-top">
-                    <div class="chk-group type-column">
-                      <div class="point-color5">A면접</div>
-                      <div class="with-txt">
-                        비중
-                        <input type="text" class="input-txt size-s center" value="1" style="width: 56px;">
-                        %
-                      </div>
-                    </div>
-                  </td>
-                  <td rowspan="2" class="left-line align-top">
-                    <div class="chk-group type-column-left">
-                      <div class="point-color5">평가점수의</div>
-                      <label class="input-chk type2">
-                        <input type="radio" name="row1_2">
-                        <span><b class="small">평균</b></span>
-                      </label>
-                      <label class="input-chk type2">
-                        <input type="radio" name="row1_2">
-                        <span><b class="small">합산</b></span>
-                      </label>
-                      <label class="input-chk type2">
-                        <input type="radio" name="row1_2">
-                        <span><b class="small">환산</b></span>
-                      </label>
-                      <div class="chk-group type-column-left" style="margin-left: 24px;">
-                        <div class="with-txt">
-                          <input type="text" class="input-txt size-s center" value="50" style="width: 46px;" disabled>
-                          점
-                        </div>
-                        <div class="with-txt">
-                          소수점
-                          <input type="text" class="input-txt size-s center" value="3" style="width: 32px;">
-                          째
-                        </div>
-                        <div class="with-txt">자리에서 반올림</div>
                       </div>
                     </div>
                   </td>
                   <td class="left-line align-top">
                     <div class="chk-group type-column">
-                      <div class="point-color5">논리적사고</div>
+                      <div>면접명</div>
                       <div class="with-txt">
                         비중
-                        <input type="text" class="input-txt size-s center" value="1" style="width: 56px;">
+                        <input type="text" class="input-txt size-s2 center" value="1" style="width: 56px;">
                         %
                       </div>
                     </div>
                   </td>
-                  <td class="align-top">
+                  <td class="align-top">면접명이 들어갑니다.</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-type1 content-mt5">
+          <div class="board-body">
+            <div class="table table-type1">
+              <table class="type-line td-pd2">
+                <colgroup>
+                  <col style="width:270px;">
+                  <col style="width:150px;">
+                  <col style="width:150px;">
+                  <col>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th>총점</th>
+                  <th>평가요소</th>
+                  <th>척도유형</th>
+                  <th>점수설정</th>
+                </tr>
+                </thead>
+                <tbody class="left">
+                <tr>
+                  <td rowspan="2" class="align-top">
+                    <div class="chk-group type-column-left">
+                      <div>평가점수의</div>
+                      <label class="input-chk type2">
+                        <input type="radio" name="row2_1">
+                        <span><b class="small">평균</b></span>
+                      </label>
+                      <label class="input-chk type2">
+                        <input type="radio" name="row2_1">
+                        <span><b class="small">합산</b></span>
+                      </label>
+                      <label class="input-chk type2">
+                        <input type="radio" name="row2_1">
+                        <span><b class="small">환산</b></span>
+                      </label>
+                      <div class="chk-group type-column-left" style="margin-left: 24px;">
+                        <div class="with-txt">
+                          <input type="text" class="input-txt size-s2 center" value="50" style="width: 46px;" disabled>
+                          점
+                        </div>
+                        <div class="with-txt">
+                          소수점
+                          <input type="text" class="input-txt size-s2 center" value="3" style="width: 32px;">
+                          째 자리에서 반올림
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="left-line align-top">
+                    <div class="chk-group type-column">
+                      <div>기획력</div>
+                      <div class="with-txt">
+                        비중
+                        <input type="text" class="input-txt size-s2 center" value="1" style="width: 56px;">
+                        %
+                      </div>
+                    </div>
+                  </td>
+                  <td class="align-top left-line">
                     <div class="chk-group type-column-left">
                       <label class="input-chk type2">
-                        <input type="radio" name="row1_3" onchange="this.closest('tr').querySelector('[data-ref=showTarget]').style.display = 'none'">
+                        <input type="radio" name="row1_4">
                         <span><b class="small">선택형</b></span>
                       </label>
                       <label class="input-chk type2">
-                        <input type="radio" name="row1_3" onchange="this.closest('tr').querySelector('[data-ref=showTarget]').style.display = 'block'">
+                        <input type="radio" name="row1_4">
                         <span><b class="small">자유기입형</b></span>
                       </label>
                     </div>
                   </td>
-                  <td>
-                    <div data-ref="showTarget" style="display: none;">
-                      <div data-ref="addTarget">
+                  <td class="left-line align-top">
+                    <div class="type-column">
+                      <div>선택형</div>
+                      <div class="add-target content-mt2" data-ref="addTarget">
                         <div class="form-inner type-mt2 type-gap2">
                           <button type="button" class="btn-item--del" onclick="rowItemDel();">
                             <span>삭제</span>
                           </button>
-                          <div class="with-txt">
-                            <input type="text" class="input-txt size-s center" value="10" style="width: 56px;" disabled> 점
+                          <div class="d-flex ai-c jc-c type-gap">
+                            <div class="input-box" style="width:80px;">
+                              <input type="text" class="input-txt size-s2 tac ph-0" placeholder="배점">
+                            </div>
+                            점
                           </div>
-                          <div>
-                            <input type="text" class="input-txt size-s" placeholder="척도명" style="width: 58px;">
-                          </div>
-                          <div class="input-box" style="flex: 1;">
-                            <input type="text" class="input-txt size-s" placeholder="척도 설명" oninput="inputValueChk()">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                          <div class="d-flex ai-c jc-c type-gap" style="width:100%;">
+                            <div class="input-box" style="width:100%;">
+                              <input type="text" placeholder="척도 설명" class="input-txt size-s2" placeholder="0" oninput="inputValueChk();">
+                              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                            </div>
                           </div>
                           <button type="button" onclick="rowItemUp('.form-inner')">
                             <span class="base-icon icon-up__size-m__color3">
@@ -423,16 +397,12 @@
                               <span class="isHidden">아래로</span>
                             </span>
                           </button>
+
                         </div>
                       </div>
-                      <div class="form-inner content-mt1" onclick="rowItemAdd(8, event.target.closest('td').querySelector('[data-ref=addTarget]'));">
-                        <button type="button" class="btn-item--add">
+                      <div class="form-inner content-mt1">
+                        <button type="button" class="btn-item--add" onclick="rowItemAdd(18, event.target.closest('.type-column').querySelector('[data-ref=addTarget]'));">
                           <span>추가</span>
-                        </button>
-                      </div>
-                      <div style="text-align: right;">
-                        <button type="button" class="base-btn type-icon__color1">
-                          <span class="base-icon icon-excel__size-s__color3">불러오기</span>
                         </button>
                       </div>
                     </div>
@@ -441,15 +411,15 @@
                 <tr>
                   <td class="left-line align-top">
                     <div class="chk-group type-column">
-                      <div class="point-color5">기획력</div>
+                      <div>창의력</div>
                       <div class="with-txt">
                         비중
-                        <input type="text" class="input-txt size-s center" value="1" style="width: 56px;">
+                        <input type="text" class="input-txt size-s2 center" value="1" style="width: 56px;">
                         %
                       </div>
                     </div>
                   </td>
-                  <td class="align-top">
+                  <td class="left-line align-top">
                     <div class="chk-group type-column-left">
                       <label class="input-chk type2">
                         <input type="radio" name="row1_4">
@@ -461,24 +431,432 @@
                       </label>
                     </div>
                   </td>
-                  <td class="align-top">
+                  <td class="left-line align-top">
                     <div class="with-txt">
-                      <input type="text" class="input-txt size-s center" placeholder="최소" style="width: 56px;"> 점
+                      최소
+                      <input type="text" class="input-txt size-s2 center" placeholder="점수" style="width: 56px;"> 점
                       ~
-                      <input type="text" class="input-txt size-s center" placeholder="최대" style="width: 56px;"> 점
+                      최대
+                      <input type="text" class="input-txt size-s2 center" placeholder="점수" style="width: 56px;"> 점
                     </div>
                   </td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-        
+
       </div>
       <!-- //contents -->
     </div>
     <!-- //container -->
-    
   </div>
+
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0371">
+  <section class="popup__container popup__size-l">
+    <div class="popup__header">
+      <h3 class="popup__title">불러오기</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="height: 500px;">
+
+      <div class="box-flex">
+        <div class="box-flex__cell" style="flex: 1;">
+          <div class="input-box type-search" style="width: 100%;">
+            <input type="text" class="input-txt" placeholder="채용공고를 입력하세요" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+          </div>
+        </div>
+        <div class="box-flex__cell box-flex">
+          <button class="base-btn type1__size-m">검색</button>
+        </div>
+      </div>
+
+      <div class="base-tab tab-type1 content-mt4" data-ref="tabPopContents2">
+        <ul class="tab__list" role="tablist">
+          <li class="tab__item">
+            <button role="tab" aria-selected="true">이전채용(23)</button>
+          </li>
+          <li class="tab__item">
+            <button role="tab" aria-selected="false">보관함(5)</button>
+          </li>
+        </ul>
+      </div>
+      <script>
+        const tabPopContents2 = new TabContents({target: 'tabPopContents2'});
+
+        $(document).ready(function (){
+          // 탭 클릭 시 이벤트 처리
+          $("[data-ref=tabPopContents2] [role=tab]").on("click", function() {
+            // 클릭한 탭에 해당하는 컨텐츠 보이기
+            var tabId = $(this).parent().index()+1;
+            console.log(tabId)
+            $("[data-tab]").css({"display":"none"});
+            $("[data-tab=poptab"+tabId+"]").css({"display":"block"});
+         });
+        });
+
+
+      </script>
+
+      <!-- 이전채용 선택시 -->
+      <div data-tab="poptab1" style="display:block;">
+        <div class="board-head flex-end content-mt2">
+          <div class="board-head__cell type-gap2">
+            <span class="title-sub4">총 23건</span>
+          </div>
+        </div>
+        <div class="board-body content-mt2">
+          <div class="table table-type1">
+            <table id="popupTable1" class="type-line">
+              <colgroup>
+                <col style="width: 80px;">
+                <col style="width: 60px;">
+                <col>
+                <col style="width: 140px;">
+                <col style="width: 120px;">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>선택</th>
+                <th>번호</th>
+                <th>채용공고명</th>
+                <th>채용분야명</th>
+                <th>채용전형명</th>
+              </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#popupTable1').DataTable({
+              data: [
+                {
+                  '선택': '',
+                  '번호' : '23',
+                  '채용공고명' : '각 부문 신입/경력사원 모집',
+                  '채용분야명' : '기술',
+                  '채용전형명' : '서류전형1차',
+                },
+                {
+                  '선택': '',
+                  '번호' : '23',
+                  '채용공고명' : '각 부문 신입/경력사원 모집',
+                  '채용분야명' : '기술',
+                  '채용전형명' : '서류전형1차',
+                },
+                {
+                  '선택': '',
+                  '번호' : '23',
+                  '채용공고명' : '[AI음성기술전문]Linux C/C++개발자(경력)',
+                  '채용분야명' : '선임/검사 컨설턴트',
+                  '채용전형명' : '실무면접',
+                },
+                {
+                  '선택': '',
+                  '번호' : '23',
+                  '채용공고명' : '각 부문 신입/경력사원 모집',
+                  '채용분야명' : '인턴',
+                  '채용전형명' : '임원면접',
+                },
+                {
+                  '선택': '',
+                  '번호' : '23',
+                  '채용공고명' : '각 부문 신입/경력사원 모집',
+                  '채용분야명' : '인턴',
+                  '채용전형명' : '기술',
+                },
+                {
+                  '선택': '',
+                  '번호' : '23',
+                  '채용공고명' : '각 부문 신입/경력사원 모집',
+                  '채용분야명' : '인턴',
+                  '채용전형명' : '기술',
+                },
+              ],
+              columns: [
+                {
+                  data: '선택',
+                  render: function() {
+                    return `
+                    <label class="input-chk">
+                      <input type="radio" name="employment">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  `
+                  }
+                },
+                { data: '번호' },
+                { data: '채용공고명' },
+                { data: '채용분야명' },
+                { data: '채용전형명' }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+
+          <!-- pagination -->
+          <div class="dataTables_paginate">
+            <a href="#" class="fg-button first">처음</a>
+            <a href="#" class="fg-button previous">이전</a>
+            <a href="#" class="fg-button ui-state-disabled">1</a>
+            <a href="#" class="fg-button">2</a>
+            <a href="#" class="fg-button">3</a>
+            <a href="#" class="fg-button">4</a>
+            <a href="#" class="fg-button">5</a>
+            <a href="#" class="fg-button">41</a>
+            <a href="#" class="fg-button next">다음</a>
+            <a href="#" class="fg-button last">마지막</a>
+          </div>
+        </div>
+        <div class="board-body content-mt5">
+          <div class="table table-type1">
+            <table id="popupTable2" class="type-line">
+              <colgroup>
+                <col style="width: 80px;">
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="input-chk">
+                    <input type="checkbox" data-ref="chkItem2" value="chkAll" onchange="inputCheckAll('chkItem2')">
+                    <span class="isHidden">선택</span>
+                  </label>
+                </th>
+                <th>척도명</th>
+                <th>척도</th>
+              </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#popupTable2').DataTable({
+              data: [
+                {
+                  '척도명': '1',
+                  '척도' : '23년 상반기 건보 경험면접'
+                },
+                {
+                  '척도명': '2',
+                  '척도' : '23년 상반기 아던트 경험면접'
+                },
+              ],
+              columns: [
+                {
+                  data: '',
+                  render: function() {
+                    return `
+                    <label class="input-chk">
+                      <input type="checkbox" data-ref="chkItem2" onchange="inputCheckAll('chkItem2')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  `
+                  }
+                },
+                { data: '척도명' },
+                { data: '척도' }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+      </div>
+
+      <!-- 보관함 선택시 -->
+      <div data-tab="poptab2" style="display: none;">
+        <div class="board-body content-mt2">
+          <div class="table table-type1">
+            <table id="popupTable3" class="type-line">
+              <colgroup>
+                <col style="width: 80px;">
+                <col>
+                <col style="width: 80px;">
+                <col style="width: 120px;">
+                <col>
+              </colgroup>
+              <thead>
+              <tr>
+                <th>선택</th>
+                <th>척도명</th>
+                <th>기본배경</th>
+                <th>척도</th>
+                <th>해설</th>
+              </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#popupTable3').DataTable({
+              data: [
+                {
+                  '선택': '',
+                  '척도명' : '매우 부적합-부적합-보통-적합-매우적합',
+                  '기본배점' : '1점',
+                  '척도' : '매우부적합',
+                  '해설' : '행동증거가 거의 드러나지 않음',
+                },
+                {
+                  '선택': '',
+                  '척도명' : '매우 부적합-부적합-보통-적합-매우적합',
+                  '기본배점' : '2점',
+                  '척도' : '부적합',
+                  '해설' : '행동증거가 미약하게 드러남',
+                },
+                {
+                  '선택': '',
+                  '척도명' : '매우 부적합-부적합-보통-적합-매우적합',
+                  '기본배점' : '3점',
+                  '척도' : '보통',
+                  '해설' : '행동증거가 중간정도로 드러남',
+                },
+                {
+                  '선택': '',
+                  '척도명' : '매우 부적합-부적합-보통-적합-매우적합',
+                  '기본배점' : '4점',
+                  '척도' : '적합',
+                  '해설' : '행동증거가 많이 드러남',
+                },
+                {
+                  '선택': '',
+                  '척도명' : '매우 부적합-부적합-보통-적합-매우적합',
+                  '기본배점' : '5점',
+                  '척도' : '매우적합',
+                  '해설' : '행동증거가 매우 많이 드러남',
+                },
+                {
+                  '선택': '',
+                  '척도명' : '부적합-보통-적합',
+                  '기본배점' : '1점',
+                  '척도' : '부적합',
+                  '해설' : '행동증거가 거의 드러나지 않음',
+                },
+                {
+                  '선택': '',
+                  '척도명' : '부적합-보통-적합',
+                  '기본배점' : '2점',
+                  '척도' : '보통',
+                  '해설' : '행동증거가 중간정도로 드러남',
+                },
+                {
+                  '선택': '',
+                  '척도명' : '부적합-보통-적합',
+                  '기본배점' : '3점',
+                  '척도' : '매우적합',
+                  '해설' : '행동증거가 매우 많이 드러남',
+                },
+
+              ],
+              columns: [
+                {
+                  data: '선택',
+                  defaultContent: '',
+                  render: function (data, type, row, meta) {
+                    // 첫 번째 행에만 라디오 버튼 렌더링
+                    if (meta.row === 0 || row['척도명'] !== data['척도명']) {
+                      return `
+                <label class="input-chk">
+                  <input type="radio" name="employment">
+                  <span class="isHidden">선택</span>
+                </label>`;
+                    } else {
+                      return ''; // 라디오 버튼이 이미 렌더링된 경우, 빈 문자열 반환
+                    }
+                  }
+                },
+                { data: '척도명' },
+                { data: '기본배점' },
+                { data: '척도' },
+                { data: '해설' }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false,
+              initComplete: function () {
+                let rowspanValues = {}; // rowspan 값을 저장할 객체
+
+                // 각 척도명에 대해 rowspan 값을 설정하기
+                $('#popupTable3 tbody tr').each(function () {
+                  let rowData = $(this).find('td:eq(1)').text(); // 척도명 가져오기
+
+                  if (rowspanValues[rowData] === undefined) {
+                    rowspanValues[rowData] = 1;
+                  } else {
+                    rowspanValues[rowData]++;
+                  }
+                });
+
+                // rowspan을 설정하기 위해 데이터 반복
+                $('#popupTable3 tbody tr').each(function () {
+                  let rowData0 = $(this).find('td:eq(0)').text(); // 척도명 가져오기
+                  let rowData = $(this).find('td:eq(1)').text(); // 척도명 가져오기
+
+                  // 척도명이 처음 등장한 경우 rowspan 속성을 설정하여 결합
+                  if (rowspanValues[rowData] !== undefined) {
+                    $(this).find('td:eq(1)').attr('rowspan', rowspanValues[rowData]);
+                    $(this).find('td:eq(0)').attr('rowspan', rowspanValues[rowData]);
+                    delete rowspanValues[rowData]; // 설정된 rowspan 값을 삭제하여 중복 방지
+                    delete rowspanValues[rowData0];
+                  } else {
+                    $(this).find('td:eq(1)').remove();
+                    $(this).find('td:eq(0)').remove(); // 첫 번째 셀의 rowspan이 이미 설정된 경우, 첫 번째 셀 제거
+                  }
+
+                });
+              }
+            });
+
+            function countRowsMatchingCondition(dataArray, condition) {
+              let count = 0;
+              dataArray.forEach(function (row) {
+                if (row['척도명'] === condition) {
+                  count++;
+                }
+              });
+              return count;
+            }
+
+          </script>
+
+          <!-- pagination -->
+          <div class="dataTables_paginate">
+            <a href="#" class="fg-button first">처음</a>
+            <a href="#" class="fg-button previous">이전</a>
+            <a href="#" class="fg-button ui-state-disabled">1</a>
+            <a href="#" class="fg-button">2</a>
+            <a href="#" class="fg-button">3</a>
+            <a href="#" class="fg-button">4</a>
+            <a href="#" class="fg-button">5</a>
+            <a href="#" class="fg-button">41</a>
+            <a href="#" class="fg-button next">다음</a>
+            <a href="#" class="fg-button last">마지막</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0371.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0371 = new LayerPopup({target: "WAP-EMPL-0371"});
+</script>;
+
+<script>
+  const pop = {
+    "WAP_EMPL_0371" : ()=>{WAP_EMPL_0371.show()},
+  }
+  if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+</script>
 </body>
 </html>

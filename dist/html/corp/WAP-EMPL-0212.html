@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -262,10 +233,10 @@
         <!-- 교육사항 합 -->
         <div class="board-head content-mt4">
           <div class="board-head__cell">
-            <h5 class="title-sub1">교육사항 합</h5>
+            <h5 class="title-sub1">교육사항 최대점수</h5>
 
             <div class="input-box" style="width:100px;">
-              <input type="text" class="input-txt pr-0" disabled value="자동입력">
+              <input type="text" class="input-txt pr-ori tac" value="0"  >
             </div>
             점
           </div>
@@ -290,292 +261,202 @@
         </div>
         <!-- //교육사항 합 -->
 
-        <!-- 배점 -->
+        <!-- 교육점수 -->
         <div class="board-head content-mt4">
           <div class="board-head__cell">
-            <h5 class="title-sub1">배점</h5>
+            <h5 class="title-sub1">교육점수</h5>
+            <div class="d-flex ai-c type-gap2">
+              <label class="input-chk">
+                <input type="radio">
+                <span>상위배점</span>
+              </label>
+              <label class="input-chk">
+                <input type="radio">
+                <span>합산</span>
+              </label>
+            </div>
+            <div class="input-box" style="width:100px;">
+              <input type="text" class="input-txt pr-0" disabled value="자동입력">
+            </div>
+            점
           </div>
         </div>
 
         <div class="box-type1 content-mt3">
-          <div class="form-row__flex">
-            <div class="form-th" style="width: 130px;">
-              <label class="input-chk">
-                <input type="radio" name="sample1">
-                <span>전체</span>
-              </label>
+          <div>
+            <div class="table table-type1">
+              <table class="type-input type-line">
+                <colgroup>
+                  <col style="width: 20%;">
+                  <col>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th >학교교육 배점</th>
+                  <th >과목 수</th>
+                </tr>
+                </thead>
+                <tbody class="" data-ref="controlTable">
+                <tr>
+                  <td>
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width: 80px;">
+                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="0">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <div>점</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box" style="width: 200px;">
+                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <div>개 이상~</div>
+                      <div class="input-box" style="width: 200px;">
+                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <div>개 미만</div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="form-td font-weight-s" style="flex: 1;">
-              <div class="table table-type1">
-                <table class="type-input type-line">
-                  <colgroup>
-                    <col style="width: 55%;">
-                    <col>
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th colspan="2">전체 배점</th>
-                    </tr>
-                  </thead>
-                  <tbody class="first-td-bdt0" data-ref="controlTable">
-                    <tr>
-                      <td>
-                        <div class="form-inner">
-                          <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
-                            <span>삭제</span>
-                          </button>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 이상~</div>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 미만</div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex ai-c jc-fe type-gap">
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>점</div>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="board-add-row2">
-                <button type="button" class="btn-item--add" onclick="controlTable.add();">
-                  <span>추가</span>
-                </button>
-              </div>
-              <script>
-                const controlTable = new ControlAddItem({
-                  target: 'controlTable',
-                  wrapTag: 'tr',
-                  template: `
-                      <td>
-                        <div class="form-inner">
-                          <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
-                            <span>삭제</span>
-                          </button>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 이상~</div>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 미만</div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex ai-c jc-fe type-gap">
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>점</div>
-                        </div>
-                      </td>
+            <div class="board-add-row2">
+              <button type="button" class="btn-item--add" onclick="controlTable.add();">
+                <span>추가</span>
+              </button>
+            </div>
+            <script>
+              const controlTable = new ControlAddItem({
+                target: 'controlTable',
+                wrapTag: 'tr',
+                template: `
+                              <td>
+                  <div class="d-flex ai-c jc-c type-gap">
+                    <div class="input-box" style="width: 80px;">
+                      <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="0">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div>점</div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-inner">
+                    <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
+                      <span>삭제</span>
+                    </button>
+                    <div class="input-box" style="width: 200px;">
+                      <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div>개 이상~</div>
+                    <div class="input-box" style="width: 200px;">
+                      <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div>개 미만</div>
+                  </div>
+                </td>
                     `
-                });
-              </script>
-            </div>
+              });
+            </script>
           </div>
-          <div class="form-row__flex">
-            <div class="form-th" style="width: 130px;">
-              <label class="input-chk">
-                <input type="radio" name="sample1">
-                <span>학교교육</span>
-              </label>
+
+          <div class="content-mt3">
+            <div class="table table-type1">
+              <table class="type-input type-line">
+                <colgroup>
+                  <col style="width: 20%;">
+                  <col>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th >직업교육 배점</th>
+                  <th >교육 수</th>
+                </tr>
+                </thead>
+                <tbody class="" data-ref="controlTable2">
+                <tr>
+                  <td>
+                    <div class="d-flex ai-c jc-c type-gap">
+                      <div class="input-box" style="width: 80px;">
+                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="0">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <div>점</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-inner">
+                      <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box" style="width: 200px;">
+                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <div>개 이상~</div>
+                      <div class="input-box" style="width: 200px;">
+                        <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <div>개 미만</div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="form-td font-weight-s" style="flex: 1;">
-              <div class="table table-type1">
-                <table class="type-input type-line">
-                  <colgroup>
-                    <col style="width: 55%;">
-                    <col>
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th colspan="2">학교교육 배점</th>
-                    </tr>
-                  </thead>
-                  <tbody class="first-td-bdt0" data-ref="controlTable2">
-                    <tr>
-                      <td>
-                        <div class="form-inner">
-                          <button type="button" class="btn-item--del" onclick="controlTable2.del('tr');">
-                            <span>삭제</span>
-                          </button>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 이상~</div>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 미만</div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex ai-c jc-fe type-gap">
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>점</div>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="board-add-row2">
-                <button type="button" class="btn-item--add" onclick="controlTable2.add();">
-                  <span>추가</span>
-                </button>
-              </div>
-              <script>
-                const controlTable2 = new ControlAddItem({
-                  target: 'controlTable2',
-                  wrapTag: 'tr',
-                  template: `
-                      <td>
-                        <div class="form-inner">
-                          <button type="button" class="btn-item--del" onclick="controlTable2.del('tr');">
-                            <span>삭제</span>
-                          </button>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 이상~</div>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 미만</div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex ai-c jc-fe type-gap">
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>점</div>
-                        </div>
-                      </td>
+            <div class="board-add-row2">
+              <button type="button" class="btn-item--add" onclick="controlTable2.add();">
+                <span>추가</span>
+              </button>
+            </div>
+            <script>
+              const controlTable2 = new ControlAddItem({
+                target: 'controlTable2',
+                wrapTag: 'tr',
+                template: `
+                              <td>
+                  <div class="d-flex ai-c jc-c type-gap">
+                    <div class="input-box" style="width: 80px;">
+                      <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="0">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div>점</div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-inner">
+                    <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
+                      <span>삭제</span>
+                    </button>
+                    <div class="input-box" style="width: 200px;">
+                      <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div>개 이상~</div>
+                    <div class="input-box" style="width: 200px;">
+                      <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    </div>
+                    <div>개 미만</div>
+                  </div>
+                </td>
                     `
-                });
-              </script>
-            </div>
+              });
+            </script>
           </div>
-          <div class="form-row__flex">
-            <div class="form-th" style="width: 130px;">
-              <label class="input-chk">
-                <input type="radio" name="sample1">
-                <span>직업교육</span>
-              </label>
-            </div>
-            <div class="form-td font-weight-s" style="flex: 1;">
-              <div class="table table-type1">
-                <table class="type-input type-line">
-                  <colgroup>
-                    <col style="width: 55%;">
-                    <col>
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th colspan="2">직업교육 배점</th>
-                    </tr>
-                  </thead>
-                  <tbody class="first-td-bdt0" data-ref="controlTable3">
-                    <tr>
-                      <td>
-                        <div class="form-inner">
-                          <button type="button" class="btn-item--del" onclick="controlTable3.del('tr');">
-                            <span>삭제</span>
-                          </button>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 이상~</div>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 미만</div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex ai-c jc-fe type-gap">
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>점</div>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="board-add-row2">
-                <button type="button" class="btn-item--add" onclick="controlTable3.add();">
-                  <span>추가</span>
-                </button>
-              </div>
-              <script>
-                const controlTable3 = new ControlAddItem({
-                  target: 'controlTable3',
-                  wrapTag: 'tr',
-                  template: `
-                      <td>
-                        <div class="form-inner">
-                          <button type="button" class="btn-item--del" onclick="controlTable.del('tr');">
-                            <span>삭제</span>
-                          </button>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 이상~</div>
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>개 미만</div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex ai-c jc-fe type-gap">
-                          <div class="input-box" style="width: 200px;">
-                            <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                          </div>
-                          <div>점</div>
-                        </div>
-                      </td>
-                    `
-                });
-              </script>
-            </div>
-          </div>
+
         </div>
-        <!-- //배점 -->
+        <!-- //교육점수 -->
       </div>
       <!-- //contents -->
     </div>

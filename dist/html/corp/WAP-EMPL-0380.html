@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -267,30 +238,26 @@
           <div class="board-head__cell">
             <h4 class="title-sub4">종합</h4>
           </div>
-          <div class="board-head__cell">
-            <button type="button" class="base-btn type2__size-s">
-              <span class="base-icon icon-add__size-s__color1">추가</span>
-            </button>
-          </div>
         </div>
-        <div class="board-body">
-          <div class="table table-type1">
-            <table class="type-line td-pd2">
-              <colgroup>
-                <col style="width:100px;">
-                <col>
-                <col>
-                <col style="width:100px;">
-              </colgroup>
-              <thead>
+        <div class="box-type1 content-mt2">
+          <div class="board-body">
+            <div class="table table-type1">
+              <table class="type-line td-pd2">
+                <colgroup>
+                  <col style="width:100px;">
+                  <col>
+                  <col>
+                  <col style="width:100px;">
+                </colgroup>
+                <thead>
                 <tr>
                   <th>우선순위</th>
                   <th>점수구간</th>
                   <th>점수구간</th>
                   <th>삭제</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody data-ref="controlWrap">
                 <tr>
                   <td>1</td>
                   <td>
@@ -308,7 +275,7 @@
                     </div>
                   </td>
                   <td>
-                    <button type="button" class="base-icon icon-trash__size-m__color3">
+                    <button type="button" class="base-icon icon-trash__size-m__color3" onclick="controlWrap.del('tr');">
                       <span class="isHidden">삭제</span>
                     </button>
                   </td>
@@ -330,44 +297,46 @@
                     </div>
                   </td>
                   <td>
-                    <button type="button" class="base-icon icon-trash__size-m__color3">
+                    <button type="button" class="base-icon icon-trash__size-m__color3" onclick="controlWrap.del('tr');">
                       <span class="isHidden">삭제</span>
                     </button>
                   </td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+              <div class="form-set__add">
+                <button type="button" class="btn-item--add" onclick="controlWrap.add()">
+                  <span>추가</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        
+
         <div class="board-head content-mt5">
           <div class="board-head__cell">
             <h4 class="title-sub4">팀장면접</h4>
           </div>
-          <div class="board-head__cell">
-            <button type="button" class="base-btn type2__size-s">
-              <span class="base-icon icon-add__size-s__color1">추가</span>
-            </button>
-          </div>
         </div>
-        <div class="board-body">
-          <div class="table table-type1">
-            <table class="type-line td-pd2">
-              <colgroup>
-                <col style="width:100px;">
-                <col>
-                <col>
-                <col style="width:100px;">
-              </colgroup>
-              <thead>
+        <div class="box-type1 content-mt2">
+          <div class="board-body">
+            <div class="table table-type1">
+              <table class="type-line td-pd2">
+                <colgroup>
+                  <col style="width:100px;">
+                  <col>
+                  <col>
+                  <col style="width:100px;">
+                </colgroup>
+                <thead>
                 <tr>
                   <th>우선순위</th>
                   <th>점수구간</th>
                   <th>점수구간</th>
                   <th>삭제</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody data-ref="controlWrap2">
                 <tr>
                   <td>1</td>
                   <td>
@@ -385,7 +354,7 @@
                     </div>
                   </td>
                   <td>
-                    <button type="button" class="base-icon icon-trash__size-m__color3">
+                    <button type="button" class="base-icon icon-trash__size-m__color3" onclick="controlWrap2.del('tr');">
                       <span class="isHidden">삭제</span>
                     </button>
                   </td>
@@ -407,21 +376,93 @@
                     </div>
                   </td>
                   <td>
-                    <button type="button" class="base-icon icon-trash__size-m__color3">
+                    <button type="button" class="base-icon icon-trash__size-m__color3" onclick="controlWrap2.del('tr');">
                       <span class="isHidden">삭제</span>
                     </button>
                   </td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+              <div class="form-set__add">
+                <button type="button" class="btn-item--add" onclick="controlWrap2.add();">
+                  <span>추가</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        
+
       </div>
       <!-- //contents -->
     </div>
     <!-- //container -->
     
   </div>
+<script>
+  /* 종합 템플릿 추가 */
+  const TR_TEMPLATE = `
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <div class="with-txt center">
+                      <input type="text" class="input-txt size-s center" style="width: 56px;">
+                      점 이상 ~
+                      <input type="text" class="input-txt size-s center" style="width: 56px;">
+                      점 이하
+                    </div>
+                  </td>
+                  <td>
+                    <div class="with-txt center">
+                      <input type="text" class="input-txt size-s center" style="width: 56px;">
+                      등급
+                    </div>
+                  </td>
+                  <td>
+                    <button type="button" class="base-icon icon-trash__size-m__color3" onclick="controlWrap.del('tr');">
+                      <span class="isHidden">삭제</span>
+                    </button>
+                  </td>
+                </tr>
+                `;
+  const controlWrap = new ControlAddItem({
+    target: 'controlWrap',
+    wrapTag: 'tr',
+    wrapClassName: '',
+    stateNum: 1,
+    template: TR_TEMPLATE
+  });
+
+  /* 면접명 템플릿 추가 */
+  const TR_TEMPLATE2 = `        <tr>
+                  <td>1</td>
+                  <td>
+                    <div class="with-txt center">
+                      <input type="text" class="input-txt size-s center" style="width: 56px;">
+                      점 이상 ~
+                      <input type="text" class="input-txt size-s center" style="width: 56px;">
+                      점 이하
+                    </div>
+                  </td>
+                  <td>
+                    <div class="with-txt center">
+                      <input type="text" class="input-txt size-s center" style="width: 56px;">
+                      등급
+                    </div>
+                  </td>
+                  <td>
+                    <button type="button" class="base-icon icon-trash__size-m__color3" onclick="controlWrap2.del('tr');">
+                      <span class="isHidden">삭제</span>
+                    </button>
+                  </td>
+                </tr>
+                `;
+  const controlWrap2 = new ControlAddItem({
+    target: 'controlWrap2',
+    wrapTag: 'tr',
+    wrapClassName: '',
+    stateNum: 1,
+    template: TR_TEMPLATE2
+  });
+</script>
 </body>
 </html>

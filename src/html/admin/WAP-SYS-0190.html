@@ -1,0 +1,170 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "관리자", dep1: "3", dep2: "6"})
+
+      <!-- contents -->
+      <div class="contents" style="padding-bottom:84px;">
+
+        <h3 class="title-sub no-mb">도움말 관리</h3>
+
+        <div class="base-tab tab-type1 content-mt3" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">도움말 정보</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">도움말 목록</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+
+        <div class="contents-wrap flex-ver ver2 content-mt3">
+          <div class="contents-divide2">
+            <!-- ztree -->
+            <div class="tree-box">
+              <ul id="treeDemo" class="ztree organization" data-ztreeDesign="file-ver" style="height:676px;"></ul>
+            </div>
+            <script>
+              var zTreeObj;
+              var setting = {
+                view: {
+                  selectedMulti: false
+                },
+                data: {
+                  simpleData: {
+                    enable: true
+                  }
+                },
+              };
+              var zNodes =[
+                { id:1, pId:10, name:"ORP", open:open,children:[
+                    { id:11, pId:1, name:"홈(기업관리)", open:false,children:[
+                        {name:"기업관리",open:true,id:111,pId:11, url:"", target:"_blank"},
+                        {name:"채용관리",open:true,id:112,pId:12, url:"", target:"_blank"},
+                      ]},
+                    { id:12, pId:2, name:"기업관리", open:true,children:[
+                        {name:"기업관리",open:true,id:211,pId:21, url:"", target:"_blank"},
+                        {name:"채용관리",open:true,id:212,pId:22, url:"", target:"_blank"},
+                      ]},
+                    { id:13, pId:3, name:"콘텐츠관리", open:open,children:[
+                        {name:"입사지원서",open:true,id:311,pId:31, url:"", target:"_blank"},
+                        {name:"서류도구",open:true,id:322,pId:32, url:"", target:"_blank"},
+                        {name:"필기도구",open:true,id:323,pId:33, url:"", target:"_blank"},
+                        {name:"면접도구",open:true,id:324,pId:34, url:"", target:"_blank"},
+                        {name:"평가척도",open:true,id:325,pId:35, url:"", target:"_blank"},
+                      ]},
+
+                    { id:14, pId:4, name:"시스템관리", open:false,children:[
+                        {name:"시스템관리",open:true,id:411,pId:41, url:"", target:"_blank"},
+                      ]},
+                  ]
+                },
+
+                { id:2, pId:20, name:"Test 수정", open:false,children:[
+                    { id:15, pId:5, name:"홈(기업관리)", open:false,children:[
+                        {name:"기업관리",open:true,id:511,pId:51, url:"", target:"_blank"},
+                        {name:"채용관리",open:true,id:512,pId:52, url:"", target:"_blank"},
+                      ]},
+                    { id:16, pId:6, name:"콘텐츠관리", open:false,children:[
+                        {name:"입사지원서",open:true,id:611,pId:61, url:"", target:"_blank"},
+                        {name:"서류도구",open:true,id:612,pId:62, url:"", target:"_blank"},
+                        {name:"필기도구",open:true,id:613,pId:63, url:"", target:"_blank"},
+                        {name:"면접도구",open:true,id:614,pId:64, url:"", target:"_blank"},
+                        {name:"평가척도",open:true,id:615,pId:65, url:"", target:"_blank"},
+                      ]},
+
+                    { id:17, pId:7, name:"시스템관리", open:false,children:[
+                        {name:"시스템관리1",open:true,id:711,pId:71, url:"", target:"_blank"},
+                      ]},
+                  ]
+                },
+                { id:3, pId:30, name:"상위메뉴 테스트", open:false}
+              ];
+              // 2. z-tree: 실행
+              $(document).ready(function(){
+                zTreeObj =$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+              });
+            </script>
+          </div>
+          <div class="contents-divide1 flex-initial">
+            <div class="type-table ver2">
+              <div class="rows con3">
+                <div class="cell">
+                  <div class="th" style="min-width:61px;">도움말 명:</div>
+                  <div class="td">
+                    <div class="input-box" style="flex:1">
+                      <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="cell">
+                  <div class="th" style="min-width:73px;">도움말 코드:</div>
+                  <div class="td">00000000</div>
+                </div>
+                <div class="cell">
+                  <div class="th" style="min-width:73px;">소속 메뉴명:</div>
+                  <div class="td">00000000</div>
+                </div>
+              </div>
+
+              <div class="rows con3">
+                <div class="cell">
+                  <div class="th" style="min-width: 90px;">소속 메뉴 코드:</div>
+                  <div class="td">000000</div>
+                </div>
+                <div class="cell long">
+                  <div class="th" style="min-width: 108px;">도움말 사용여부:</div>
+                  <div class="td">
+                    <div class="d-flex ai-c type-gap2">
+                      <label class="input-chk">
+                        <input type="radio" name="aa" value="use">
+                        <span>사용</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="aa" value="nouse">
+                        <span>미사용</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="content-mt2">
+              <textarea placeholder="도움말 내용 영역" style="height:574px;"></textarea>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+
+      <!-- contents navigation -->
+      <div class="contents-nav type2">
+        <div class="contents-nav__inner">
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type2__size-m">초기화</button>
+          </div>
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type2__size-m">취소</button>
+            <button type="button" class="base-btn type1__size-m">저장</button>
+          </div>
+        </div>
+      </div>
+      <!-- //contents navigation -->
+    </div>
+    <!-- //container -->
+
+  </div>
+</body>
+</html>

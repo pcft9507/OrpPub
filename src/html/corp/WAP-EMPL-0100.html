@@ -670,15 +670,22 @@
     <!-- //container -->
     
   </div>
+  @@include('../html/corp/WAP-EMPL-0103.html');
+  @@include('../html/corp/WAP-EMPL-0104.html');
+  @@include('../html/corp/WAP-EMPL-0107.html');
   @@include('../html/corp/WAP-EMPL-0170.html');
   @@include('../html/corp/WAP-EMPL-0320.html');
 
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
+      "WAP_EMPL_0103" : ()=>{WAP_EMPL_0103.show()},
+      "WAP_EMPL_0104" : ()=>{WAP_EMPL_0104.show()},
+      "WAP_EMPL_0107" : ()=>{WAP_EMPL_0107.show()},
       "WAP_EMPL_0170" : ()=>{WAP_EMPL_0170.show()},
       "WAP_EMPL_0320" : ()=>{WAP_EMPL_0320.show()},
     }
+
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>
   <!-- ///**** 팝업 확인 용 스크립트 **** -->

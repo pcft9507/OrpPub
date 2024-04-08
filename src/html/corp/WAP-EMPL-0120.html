@@ -3,7 +3,7 @@
   <div class="wrap">
 
     @@include('./header.html')
-    
+
     <!-- container -->
     <div class="container">
       @@include('./snb.html', {type: "기업담당자", dep1: "3"})
@@ -104,7 +104,7 @@
       <!-- //contents navigation -->
 
       <!-- contents -->
-      <div class="contents mb-0 small-ver flex-ver">
+      <div class="contents small-ver flex-ver">
 
         <div class="contents-divide1 ver3">
           <div class="page-title__wrap type-mt2">
@@ -127,7 +127,18 @@
                     <span contenteditable="true" data-editText="text1">기본 항목</span>
                   </h4>
                 </div>
+                <div class="form-set__cell form-set__btn">
+                  <button type="button" class="base-btn type-icon__color1" >
+                    <span class="base-icon icon-openEdit__size-s">안내문 작성</span>
+                  </button>
+                </div>
               </div>
+              <!-- 에디터 영역 -->
+              <div class="box-type1 editor-ver">
+                <div style="width:100%;height:200px;background-color:lightblue;resize:horizontal;"></div>
+                <button type="button" class="edit-resize-btn"></button>
+              </div>
+              <!-- // 에디터 -->
               <div class="box-type1">
 
                 <!-- 구분 -->
@@ -175,7 +186,6 @@
                     <span class="has-placeholder limit-letter" contenteditable="true" placeholder="희망연봉" data-editText="text1-0">희망연봉</span>
                   </div>
                   <div class="form-td" style="flex: 1;">
-
                     <div class="input-box" style="width: 136px;">
                       <input type="number" class="input-txt" oninput="inputValueChk()" value="0">
                       <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
@@ -3973,21 +3983,19 @@
                 </div>
               </div>
               <div class="box-type1">
-
-                <div class="form-row">
-
+                <div class="form-row"  data-radioAdd="etc" >
                   <div class="form-inner">
                     <button type="button" class="btn-item--del" onclick="rowItemDel();">
                       <span>삭제</span>
                     </button>
-                    <div class="input-box" style="width: 108px;">
-                      <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
-                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    <div class="form-inner" style="flex:1;">
+                      <div class="input-box" style="width: 108px;">
+                        <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <button class="base-btn type2__size-m"  onclick="WAP_EMPL_0001.show(false, $(this).closest('.form-inner').parent().index(), 'addRow')"><span class="base-icon icon-setup2__size-s__color1">설정</span></button>
                     </div>
-                    <div class="input-box" style="flex: 1;">
-                      <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                    </div>
+
                     <div class="form-row__option">
                       <label class="input-chk type2">
                         <input type="checkbox">
@@ -3999,12 +4007,13 @@
                       </label>
                     </div>
                   </div>
+                </div>
+                <div class="form-row__flex">
                   <div class="form-inner type-mt3">
-                    <button type="button" class="btn-item--add type-mr2" onclick="rowItemAdd(2);">
+                    <button type="button" class="btn-item--add type-mr2" onclick="rowItemAdd(21, event.target.closest('.box-type1').querySelector('[data-radioAdd=etc]'));">
                       <span>항목 추가</span>
                     </button>
                   </div>
-
                 </div>
 
                 <!-- 증명서 -->
@@ -4066,22 +4075,35 @@
                     <span>삭제</span>
                   </button>
                   <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                    <textarea class="" placeholder="질의내용을 입력해주세요." rows="5" oninput="inputValueChk()"></textarea>
                     <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                   </div>
-                  <div class="form-row__option">
-                    <label class="input-chk type2">
-                      <input type="checkbox">
-                      <span>필수</span>
-                    </label>
-                    <label class="toggle-show">
-                      <input type="checkbox" checked>
-                      <span>체크</span>
-                    </label>
+                  <div class="form-row__option_wrap" style="height:131px;">
+                    <div class="form-row__option col-ver">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show txt-ver">
+                        <input type="checkbox" checked>
+                        <span>AI</span>
+                      </label>
+                    </div>
+                    <div class="txt-limit">
+                      <p>답변글자 수 제한</p>
+                      <ul>
+                        <li>
+                          최소 <input type="text" placeholder="100" > 자
+                        </li>
+                        <li>
+                          최대 <input type="text" placeholder="500" > 자
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
                 <div class="form-inner type-mt3">
-                  <button type="button" class="btn-item--add type-mr2" onclick="rowItemAdd(3);">
+                  <button type="button" class="btn-item--add type-mr2" onclick="rowItemAdd(17);">
                     <span>기술서 추가</span>
                   </button>
                 </div>
@@ -4205,6 +4227,7 @@
     </div>
     <!-- //container -->
 
+    @@include('../html/corp/WAP-EMPL-0001.html');
     @@include('../html/corp/WAP-EMPL-0130.html');
     @@include('../html/corp/WAP-EMPL-0140.html');
     @@include('../html/corp/WAP-EMPL-0150.html');
@@ -4215,6 +4238,7 @@
 <script>
 
   const pop = {
+    "WAP_EMPL_0001" : ()=>{WAP_EMPL_0001.show()},
     "WAP_EMPL_0130" : ()=>{WAP_EMPL_0130.show()},
     "WAP_EMPL_0140" : ()=>{WAP_EMPL_0140.show()},
     "WAP_EMPL_0150" : ()=>{WAP_EMPL_0150.show()},
@@ -4222,7 +4246,7 @@
     "WAP_EMPL_0083" : ()=>{WAP_EMPL_0083.show()},
   }
   if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
-  
+
   // 모든 checkbox 요소와 form-set__box 요소를 선택합니다.
   const checkboxes = document.querySelectorAll('.categori-control__item input[type="checkbox"]');
   const formSetBoxes = document.querySelectorAll('.form-set__box');
@@ -4252,7 +4276,7 @@
     checkbox.addEventListener('change', (event) => {
       handleCheckboxChange(event, index);
     });
-  });  
+  });
 
   $.fn.hasPlaceholder = function (maxCharacters) {
     return this.each(function () {
@@ -4512,6 +4536,30 @@
       keySpan.text(value);
     }
   }
+
+  /* 안내문 작성 버튼 클릭시 에딧창 보이기 */
+  $(".icon-openEdit__size-s").on("click",function(){
+    if(!$(this).hasClass("on")){
+      $(this).addClass("on");
+      $(this).closest(".form-set__header").next().addClass("open");
+    } else{
+      $(this).removeClass("on");
+      $(this).closest(".form-set__header").next().removeClass("open");
+    }
+  });
+
+  /* 안내문 에딧창 하단 버튼 클릭시 영역 축소 확대 */
+  $(".edit-resize-btn").on("click",function(){
+    if(!$(this).hasClass("open")){
+      $(this).addClass("open");
+      $(this).prev().css({"height":"350px"});
+    }else{
+      $(this).removeClass("open");
+      $(this).prev().css({"height":"200px"});
+    }
+  });
+
+
 
 </script>
 </body>

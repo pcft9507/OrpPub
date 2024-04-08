@@ -1,0 +1,135 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0104">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">지원자 요약정보</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view" style="max-height: 485px;">
+      <div class="type-table2 ver2">
+        <table>
+          <colgroup>
+            <col style="width:180px;">
+            <col />
+          </colgroup>
+          <tbody>
+          <tr>
+            <td rowspan="6">
+              <div class="td-img">
+                <img src="../../assets/images/applicant-demo.png" alt="지원자 사진" />
+              </div>
+            </td>
+            <td>
+              <div class="td-wrap">
+                <div class="td-tit">수험번호</div>
+                <div class="td-desc">01-000012</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-wrap">
+                <div class="td-tit">성명</div>
+                <div class="td-desc">김가나 (25세)</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-wrap">
+                <div class="td-tit">지원분야</div>
+                <div class="td-desc">사무직</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-wrap">
+                <div class="td-tit">경력기간</div>
+                <div class="td-desc">0개월</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-wrap">
+                <div class="td-tit">학력</div>
+                <div class="td-desc">숭실대학교 졸업 (4.0/4.5)</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-wrap">
+                <button class="base-btn type3__size-s5">입사지원서 보기</button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="popTable0104" class="type-s type-line">
+            <colgroup>
+              <col style="width: 33.33%"/>
+              <col style="width: 33.33%"/>
+              <col style="width: 33.33%"/>
+            </colgroup>
+            <thead>
+            <tr>
+              <th scope="col">전형구분</th>
+              <th scope="col">결과</th>
+              <th scope="col">점수</th>
+            </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $('#popTable0104').DataTable({
+            data: [
+              {
+                '전형구분': '서류전형',
+                '결과': '합격',
+                '점수': 80,
+              },
+              {
+                '전형구분': '필기전형',
+                '결과': '-',
+                '점수': 80,
+              },
+              {
+                '전형구분': '면접전형',
+                '결과': '-',
+                '점수': 80,
+              }
+            ],
+            columns: [
+              { data: '전형구분'},
+              {
+                data: '결과',
+                render: function(data) {
+                  if(data === '합격') {
+                    return `<span class="point-color3">${data}</span>`
+                  } else {
+                    return data;
+                  }
+                }
+              },
+              { data: '점수'}
+            ],
+            order: [],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+          });
+        </script>
+      </div>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0104.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0104 = new LayerPopup({target: "WAP-EMPL-0104"});
+</script>

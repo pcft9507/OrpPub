@@ -150,11 +150,12 @@
 
         <div class="box-type1 content-mt6">
           <div class="board-body">
-            <div id="table" class="table table-type1">
+            <div id="table" class="table table-type1" style="width:100%;overflow-x: auto;">
               <table class="type-line">
                 <colgroup>
-                  <col style="width:450px;">
-                  <col style="width:337px;">
+                  <col style="width:230px;">
+                  <col style="width:180px;">
+                  <col style="width:180px;">
                   <col>
                   <col>
                   <col>
@@ -164,6 +165,7 @@
                   <tr>
                     <th>평가자</th>
                     <th>ID</th>
+                    <th>평가요소</th>
                     <th>
                       1실
                       <button onclick="deleteColumn(this);">
@@ -198,13 +200,60 @@
                         <button type="button" class="btn-item--del" onclick="rowItemDel(5);">
                           <span>삭제</span>
                         </button>
-                        <div class="input-box type-search h-full">
-                          <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
-                          <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                        <div class="sch-comp sch-comp1 h-full">
+                          <div class="sch-comp__in">
+                            <div class="sch-comp__inp-wrap">
+                              <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+                              <div class="sch-comp__inp" data-type="search-select" style="display:block!important;">
+                                <button class="sch-comp__ss-btn search-btn">검색</button>
+                                <div class="sch-comp__ss">
+                                  <div class="input-box type-search">
+                                    <input type="text" class="input-txt" placeholder="어학시험 검색" oninput="inputValueChk()">
+                                    <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                                  </div>
+                                  <div class="sch-comp__ss-result">
+                                    <ul class="sch-comp__result-list">
+                                      <li><a href="#" class="sch-comp__btn-result selected"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case1">OPIC1</a></li>
+                                      <li><a href="#" class="sch-comp__btn-result selected"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case1">OPIC2</a></li>
+                                      <li><a href="#" class="sch-comp__btn-result"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case2">TOEIC</a></li>
+                                      <li><a href="#" class="sch-comp__btn-result"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case2">TOEIC2</a></li>
+                                      <li><a href="#" class="sch-comp__btn-result"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case3">TOEIC3</a></li>
+                                      <li><a href="#" class="sch-comp__btn-result"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1" data-def="case3">TOEIC4</a></li>
+                                      <li><a href="#" class="sch-comp__btn-result"data-licenseCd="license1" data-licenseNm="a-12345" data-addColumn="" data-licenseTable="table1"  data-def="case3">TOEIC5</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+                            </div>
+                          </div>
+
+                          <div class="search-tag content-mt2" id="searchTag">
+                            <div class="tag__box" data-licenseTable="table1">
+                              <div class="tag__item tag__item--type1"><span class="txt">OPIC1</span><button type="button" class="del"></button></div>
+                              <div class="tag__item tag__item--type1"><span class="txt">OPIC2</span><button type="button" class="del"></button></div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td>bokyoung_kim@orp</td>
+                    <td>
+                      <div class="flex-col">
+                        <label class="input-chk">
+                          <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                          <span>지원동기</span>
+                        </label>
+                        <label class="input-chk">
+                          <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                          <span>직무동기성</span>
+                        </label>
+                        <label class="input-chk">
+                          <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                          <span>조작적합성</span>
+                        </label>
+                      </div>
+                    </td>
                     <td>
                       <label class="input-chk">
                         <input type="checkbox">
@@ -258,7 +307,7 @@
         return;
       }
       
-      const newColIndex = existingCols - 2; // '실추가' 버튼 칼럼을 제외한 새 칼럼의 인덱스
+      const newColIndex = existingCols - 3; // '실추가' 버튼 칼럼을 제외한 새 칼럼의 인덱스
       const newTh = document.createElement('th');
       newTh.innerHTML = `${newColIndex}실
                           <button type="button" onclick="deleteColumn(this);">
@@ -296,17 +345,63 @@
         <td class="pd-type1">
           <div class="form-inner type-gap2">
             <button type="button" class="btn-item--del" onclick="rowItemDel(5);"><span>삭제</span></button>
-            <div class="input-box type-search h-full"><input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
-              <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+            <div class="sch-comp sch-comp1 h-full">
+              <div class="sch-comp__in">
+                <div class="sch-comp__inp-wrap">
+                  <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+                  <div class="sch-comp__inp" data-type="search-select" style="display:block!important;">
+                    <button class="sch-comp__ss-btn search-btn">검색</button>
+                    <div class="sch-comp__ss">
+                      <div class="input-box type-search">
+                        <input type="text" class="input-txt" placeholder="어학시험 검색" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                      </div>
+                      <div class="sch-comp__ss-result">
+                        <ul class="sch-comp__result-list">
+                          <li><a href="#" class="sch-comp__btn-result" ></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+                </div>
+              </div>
+
+              <div class="search-tag content-mt2" id="searchTag">
+                <div class="tag__box" data-licenseTable="table1">
+                  <div class="tag__item tag__item--type1"><span class="txt"></span><button type="button" class="del"></button></div>
+                  <div class="tag__item tag__item--type1"><span class="txt"></span><button type="button" class="del"></button></div>
+                </div>
+              </div>
             </div>
           </div>
-        </td>`;
-    
-    // ID 칼럼
+        </td>
+    `;
+
     template += `<td>bokyoung_kim@orp</td>`;
+    // ID 칼럼
+    template += `
+            <td>
+          <div class="flex-col">
+            <label class="input-chk">
+              <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+              <span>지원동기</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+              <span>직무동기성</span>
+            </label>
+            <label class="input-chk">
+              <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+              <span>조작적합성</span>
+            </label>
+          </div>
+        </td>
+    `;
+
 
     // 나머지 칼럼에 대해서는 체크박스를 추가합니다.
-    for (let i = 3; i < columnCount; i++) { // 평가자, ID 칼럼을 제외하고 시작
+    for (let i = 3; i < columnCount - 1; i++) { // 평가자, ID 칼럼을 제외하고 시작
       template += `
         <td>
           <label class="input-chk">
@@ -372,7 +467,10 @@
         deleteColumn(element);
       }
     });
-  });  
+  });
+
+  /* 텍스트 자동 입력 */
+
 </script>
 </body>
 </html>

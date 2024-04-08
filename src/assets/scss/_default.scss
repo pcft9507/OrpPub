@@ -25,7 +25,8 @@
 
 body {
   -webkit-text-size-adjust: none;
-  min-width: var(--minWidth);
+  //min-width: var(--minWidth);
+  min-width: 1280px;
   margin: 0;
   background: var(--bg-color);
   color: var(--font-color);

@@ -1,92 +1,202 @@
 <div class="layer-popup type-modal" data-ref="WAP-EMPL-0320">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
-      <h3 class="popup__title">지원자 설정</h3>
+      <h3 class="popup__title">지원자 정보등록</h3>
     </div>
     <div class="popup__contents popup__scroll-view" style="max-height: 485px;">
       <div class="form-row__flex pd-ver">
-        <div class="form-th no-pd" style="width: 116px;">수험번호</div>
-        <div class="form-td" style="flex: 1;">01-000012</div>
-      </div>
-      <div class="form-row__flex pd-ver">
-        <div class="form-th no-pd" style="width: 116px;">성명</div>
-        <div class="form-td" style="flex: 1;">김가나(25세)</div>
-      </div>
-      <div class="form-row__flex pd-ver">
-        <div class="form-th no-pd" style="width: 116px;">이메일</div>
-        <div class="form-td" style="flex: 1;">asdfasdf@naver.com</div>
-      </div>
-      <div class="form-row__flex pd-ver">
-        <div class="form-th no-pd" style="width: 116px;">연락처</div>
-        <div class="form-td" style="flex: 1;">010-9999-9999</div>
-      </div>
-      <div class="form-row__flex pd-ver">
-        <div class="form-th" style="width: 116px;">평가실</div>
+        <div class="form-th" style="width: 116px;">수험번호</div>
         <div class="form-td" style="flex: 1;">
-          <div class="dropdown" style="width:118px;">
-            <button type="button" class="dropdown-btn"
-                    data-dropdown='{
-                "name": "Dropdown1",
-                "type" : "single",
-                "option": [
-                  {
-                    "name": "평가실 선택",
-                    "value": "평가실 선택",
-                    "disabled": false,
-                    "checked": false
-                  },
-
-                ]
-              }'
-            >선택</button>
-            <script>
-              dropdown.init('dropdown', {
-                name: 'addUserAuthDropdown',
-                onChange: _this=>{
-                  console.log(_this.value);
-                }
-              });
-            </script>
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" oninput="inputValueChk()" value="14789635" disabled>
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
           </div>
-          <label class="input-chk" style="margin-left:16px;">
-            <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
-            <span>결시</span>
-          </label>
         </div>
       </div>
       <div class="form-row__flex pd-ver">
-        <div class="form-th" style="width: 116px;">전형결과</div>
+        <div class="form-th" style="width: 116px;">성명</div>
         <div class="form-td" style="flex: 1;">
-          <div class="dropdown" style="width:118px;">
-            <button type="button" class="dropdown-btn"
-                    data-dropdown='{
-                "name": "Dropdown2",
-                "type" : "single",
-                "option": [
-                  {
-                    "name": "전형결과 선택",
-                    "value": "전형결과 선택",
-                    "disabled": false,
-                    "checked": false
-                  },
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" oninput="inputValueChk()" value="">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </div>
 
-                ]
-              }'
-            >선택</button>
-            <script>
-              dropdown.init('dropdown', {
-                name: 'addUserAuthDropdown',
-                onChange: _this=>{
-                  console.log(_this.value);
-                }
-              });
-            </script>
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">이메일</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" oninput="inputValueChk()" value="">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row__flex pd-ver">
+        <div class="form-th" style="width: 116px;">연락처</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="input-box" style="width: 100%;">
+            <input type="text" class="input-txt" oninput="inputValueChk()" value="">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
           </div>
         </div>
       </div>
 
       <!-- 비고 란 -->
       <div style="margin-top:32px;">
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">면접실</div>
+          <div class="form-td" data-autoAdd="interview" style="flex: 1;">
+          </div>
+        </div>
+        <script>
+          // 드롭다운 실행
+          dropdown.init('dropdown', {
+            onChange: _this => {
+              console.log(_this.value);
+            }
+          });
+
+          // 데이터 추가 시 드롭다운 실행 (이름 중복 방지)
+          // 배열
+
+
+          let arrs = [
+            {
+              "interviewName": "토론면접"
+            },
+            {
+              "interviewName": "일반면접"
+            },
+            {
+              "interviewName": "단체면접"
+            },
+            {
+              "interviewName": "토론면접"
+            },
+            {
+              "interviewName": "일반면접"
+            },
+            {
+              "interviewName": "단체면접"
+            },
+            {
+              "interviewName": "토론면접"
+            },
+            {
+              "interviewName": "일반면접"
+            },
+            {
+              "interviewName": "단체면접"
+            },
+            {
+              "interviewName": "토론면접"
+            },
+            {
+              "interviewName": "일반면접"
+            },
+            {
+              "interviewName": "단체면접"
+            },
+          ];
+
+          // form-inner 요소 가져오기
+          const formInner = document.querySelector('[data-autoAdd="interview"]');
+
+          // 배열을 반복하며 HTML 요소 생성 및 추가
+          arrs.forEach((item, index) => {
+            // div.form-inner 요소 생성
+            const innerDiv = document.createElement('div');
+            innerDiv.classList.add('form-inner', 'line-ver2'); // form-inner와 line-ver2 클래스 추가
+
+            // div.form-th 요소 생성
+            const formTh = document.createElement('div');
+            formTh.classList.add('form-th');
+            formTh.style.width = '100px';
+            formTh.textContent = item.interviewName;
+
+            // div.form-td 요소 생성
+            const formTd = document.createElement('div');
+            formTd.classList.add('form-td');
+
+            // div.dropdown 요소 생성
+            const dropdownDiv = document.createElement('div');
+            dropdownDiv.classList.add('dropdown');
+            dropdownDiv.style.width = '200px';
+
+            // button.dropdown-btn 요소 생성
+            const dropdownBtn = document.createElement('button');
+            dropdownBtn.type = 'button';
+            dropdownBtn.classList.add('dropdown-btn');
+            dropdownBtn.textContent = '면접실 선택';
+            dropdownBtn.setAttribute('data-dropdown', JSON.stringify({
+              "name": "interviewPlace-add" + (index + 1), // count 대신 인덱스를 사용하여 동적으로 생성
+              "type": "single",
+              "option": [
+                {
+                  "name": "면접실1",
+                  "value": "면접실1",
+                  "disabled": false,
+                  "checked": true
+                },
+                {
+                  "name": "면접실2",
+                  "value": "면접실2",
+                  "disabled": false,
+                  "checked": false
+                }
+              ]
+            }));
+
+            // div.input-box 요소 생성
+            const inputBoxDiv = document.createElement('div');
+            inputBoxDiv.classList.add('input-box');
+            inputBoxDiv.style.width = '80px';
+
+            // input 요소 생성
+            const inputTxt = document.createElement('input');
+            inputTxt.type = 'text';
+            inputTxt.classList.add('input-txt');
+            inputTxt.setAttribute('oninput', 'inputValueChk()');
+            inputTxt.value = '';
+
+            // button.btn-del 요소 생성
+            const btnDel = document.createElement('button');
+            btnDel.type = 'button';
+            btnDel.classList.add('btn-del');
+            btnDel.textContent = '입력 삭제';
+            btnDel.setAttribute('onclick', 'inputValueDel()');
+
+            // "조" 글자 요소 생성
+            const textNode = document.createTextNode(' 조');
+
+            // 빈 텍스트 노드 생성 (공백)
+            const spaceNode = document.createTextNode(' ');
+
+            // input-box에 input 및 btn-del 요소 추가
+            inputBoxDiv.appendChild(inputTxt);
+            inputBoxDiv.appendChild(btnDel);
+
+            // dropdownDiv에 dropdownBtn 요소 추가
+            dropdownDiv.appendChild(dropdownBtn);
+
+            // form-td에 dropdown, 공백, input-box 요소 추가
+            formTd.appendChild(dropdownDiv);
+            formTd.appendChild(spaceNode); // 공백 노드 추가
+            formTd.appendChild(inputBoxDiv);
+            formTd.appendChild(textNode); // "조" 글자 추가
+
+            // innerDiv에 form-th와 form-td 요소 추가
+            innerDiv.appendChild(formTh);
+            innerDiv.appendChild(formTd);
+
+            // formInner에 innerDiv 추가
+            formInner.appendChild(innerDiv);
+          });
+        </script>
+
+        <!-- 비고 -->
         <div class="form-row__flex pd-ver">
           <div class="form-th" style="width: 116px;">비고1</div>
           <div class="form-td" style="flex: 1;">
@@ -109,18 +219,60 @@
             </div>
           </div>
         </div>
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">비고3</div>
+          <div class="form-td" style="flex: 1;">
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%;">
+                <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">비고4</div>
+          <div class="form-td" style="flex: 1;">
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%;">
+                <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">비고5</div>
+          <div class="form-td" style="flex: 1;">
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%;">
+                <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row__flex pd-ver">
+          <div class="form-th" style="width: 116px;">비고6</div>
+          <div class="form-td" style="flex: 1;">
+            <div class="form-inner">
+              <div class="input-box" style="width: 100%;">
+                <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요.">
+                <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- // 비고 란 -->
     </div>
-    <div class="popup__btn-wrap">
-      <button class="base-btn type1__size-m" disabled>다음</button>
-    </div>
-    <!-- 인적사항 버튼
+
+    <!-- 버튼 -->
       <div class="popup__btn-wrap">
-        <button class="base-btn type2__size-m">이전</button>
-        <button class="base-btn type1__size-m" disabled>등록</button>
+        <button class="base-btn type1__size-m">등록</button>
+        <button class="base-btn type2__size-m" onclick="WAP_EMPL_0320.hide()">취소</button>
       </div>
-    -->
+
     <button class="btn-close" onclick="WAP_EMPL_0320.hide()">닫기</button>
   </section>
 </div>

@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -224,6 +195,93 @@
                 </script>
         
               </div>
+            </div>
+            <div class="form-row__flex">
+              <div class="form-th no-pd" style="width: 130px;">NCS조회</div>
+              <div class="form-td" style="flex: 1;">
+                <button type="button" class="toggle-btn point-color open ">▲ 접기</button>
+                <div class="box-type4 content-mt2">
+                  <div class="toggle-box">
+                    <ul class="ncs-wrap">
+                      <li>
+                        <div class="ncs-tit-wrap">
+                          <p>공통</p>
+                          <button class="base-btn type3 small-ver">조회</button>
+                        </div>
+                        <ul class="ncs-list">
+                          <li>
+                            <a href="#" class="point-color">01.사업관리>01.사업관리>01.프로젝트관리>02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                          <li>
+                            <a href="#" class="point-color">01.사업관리>01.사업관리>01.프로젝트관리>02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                          <li>
+                            <a href="#" class="point-color">01.사업관리>01.사업관리>01.프로젝트관리>02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                          <li>
+                            <a href="#" class="point-color">01.사업관리>01.사업관리>01.프로젝트관리>02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                          <li>
+                            <a href="#" class="point-color">01.사업관리>01.사업관리>01.프로젝트관리>02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="ncs-tit-wrap">
+                          <p>사무지원</p>
+                          <button class="base-btn type3 small-ver">조회</button>
+                        </div>
+                        <ul class="ncs-list">
+                          <li>
+                            <a href="#" class="point-color">01.사업관리 > 01.사업관리 > 01.프로젝트관리 > 02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                          <li>
+                            <a href="#" class="point-color">01.사업관리 > 01.사업관리 > 01.프로젝트관리 > 02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="ncs-tit-wrap">
+                          <p>IT</p>
+                          <button class="base-btn type3 small-ver">조회</button>
+                        </div>
+                        <ul class="ncs-list">
+                          <li>
+                            <a href="#" class="point-color">01.사업관리 > 01.사업관리 > 01.프로젝트관리 > 02.프로젝트관리</a>
+                            <button type="button" class="ncs-del">삭제</button>
+                          </li>
+                        </ul>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <script>
+                $(".toggle-btn").on("click",function(){
+                  if(!$(this).hasClass("open")){
+                    $(this).addClass("open");
+                    $(this).text("▲ 접기");
+                    $(this).next().css({"display":"block"});
+                  }else{
+                    $(this).removeClass("open");
+                    $(this).text("▼ 펼치기");
+                    $(this).next().css({"display":"none"});
+                  }
+                });
+
+                /* NCS 삭제 버튼 클릭시 */
+                $(".ncs-del").on("click",function(){
+                  $(this).closest("li").remove();
+                });
+              </script>
             </div>
             <div class="form-row__flex">
               <div class="form-th no-pd" style="width: 130px;">채용분야 중복지원</div>
@@ -935,6 +993,238 @@
     popCal02.hide(); // 달력을 숨김
   });
 </script>;
+  <div class="layer-popup type-modal" data-ref="WAP-EMPL-0014">
+  <section class="popup__container popup__size-l">
+    <div class="popup__header">
+      <h3 class="popup__title">NCS조회</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+        
+      <!-- 검색영역 -->
+      <div class="d-flex ai-c jc-c">
+        <div class="input-box type-search" style="flex:1;">
+          <input type="text" class="input-txt sch-data" placeholder="키워드를 입력하세요" oninput="inputValueChk()">
+          <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+        </div>
+        <div class="sch-comp__sch">
+          <button class="btn-sch base-btn type1__size-m">검색</button>
+        </div>
+      </div>
+      <!-- 검색영역 -->
+
+      <div class="content-mt2" style="margin-bottom:4px;">
+        <p class="sub-text3">ncs.go.kr</p>
+      </div>
+      <div class="categori-box">
+        <ul>
+          <!-- 대분류 -->
+          <li>
+            <p>대분류</p>
+            <div>
+              <ul class="categori-list" data-ctName="main">
+                <li><button type="button" data-ncsValue="category1">01.사업관리</button></li>
+                <li><button type="button" data-ncsValue="category2">02.경영 회계 사무</button></li>
+                <li><button type="button" data-ncsValue="category3">03.금융 보험</button></li>
+                <li><button type="button" data-ncsValue="category4">04.교육 자연 사회과학</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- 중분류 -->
+          <li>
+            <p>중분류</p>
+            <div>
+              <ul class="categori-list" data-ctName="middle" style="display: none;">
+                <li><button type="button" data-ncsValue="category1">01.사업관리</button></li>
+                <li><button type="button" data-ncsValue="category1">02.사업관리</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- 소분류 -->
+          <li>
+            <p>소분류</p>
+            <div>
+              <ul class="categori-list" data-ctName="sub" style="display: none;">
+                <li><button type="button">01.프로젝트관리</button></li>
+                <li><button type="button">02.해외관리</button></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <script>
+          $(".categori-list button").on("click",function (){
+            let categoryName = $(this).closest("ul").attr("data-ctName");
+
+            if(categoryName === "main"){
+              /* 대분류가 선택되었을 때 */
+              $(".categori-list[data-ctName=middle] button").removeClass("on");
+              $(".categori-list[data-ctName=sub] button").removeClass("on");
+
+              $(".categori-list[data-ctName=middle]").css({"display":"block"});
+            } else if(categoryName === "middle"){
+              /* 중분류가 선택되었을 때 */
+              $(".categori-list[data-ctName=sub] button").removeClass("on");
+
+              $(".categori-list[data-ctName=sub]").css({"display":"block"});
+            } else{
+              /* 소분류가 선택되었을 때 */
+            }
+
+            /* 한번에 하나씩만 수정하기 */
+            if(!$(this).hasClass("on")){
+              $(".categori-list[data-ctName='" + categoryName + "'] button").removeClass("on");
+              $(this).addClass("on");
+            }else{
+              $(this).removeClass("on");
+            }
+          });
+        </script>
+      </div>
+
+      <div class="board-body content-mt2">
+        <div class="table table-type1 ver4">
+          <table id="table" class="">
+            <colgroup>
+              <col style="width: 180px;"/>
+              <col />
+              <col style="width: 80px;"/>
+              <col style="width: 110px;"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">세분류</th>
+                <th scope="col">능력단위명</th>
+                <th scope="col">NCS</th>
+                <th scope="col">표준<br>직무기술서</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/rowgroup/1.1.3/js/dataTables.rowGroup.min.js"></script>
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  '세분류': '01.해외법인설립관리',
+                  '능력단위명': '01.해외법인 설립목적 파악',
+                  'NCS' : '링크1',
+                  '표준직무기술서' : '링크2',
+                },
+                {
+                  '세분류': '01.해외법인설립관리',
+                  '능력단위명': '02.해외법인 설립내부역량분석',
+                  'NCS' : '링크1',
+                  '표준직무기술서' : '링크2',
+                },
+                {
+                  '세분류': '01.해외법인설립관리',
+                  '능력단위명': '03.해외법인 설립대상국 분석',
+                  'NCS' : '링크1',
+                  '표준직무기술서' : '링크2',
+                },
+                {
+                  '세분류': '02.해외취업관리',
+                  '능력단위명': '01.해외법인 설립목적 파악',
+                  'NCS' : '링크1',
+                  '표준직무기술서' : '링크2',
+                },
+                {
+                  '세분류': '02.해외취업관리',
+                  '능력단위명': '02.해외법인 설립내부역량분석',
+                  'NCS' : '링크1',
+                  '표준직무기술서' : '링크2',
+                },
+                {
+                  '세분류': '02.해외취업관리',
+                  '능력단위명': '03.해외법인 설립대상국 분석',
+                  'NCS' : '링크1',
+                  '표준직무기술서' : '링크2',
+                },
+              ],
+              columns: [
+                { data: '세분류' },
+                { data: '능력단위명' },
+                {
+                  data: 'NCS',
+                  render: function(data) {
+                    return `
+                    <a href="${data}" class="point-color5">보기</a>
+                    `
+                  }
+                },
+                {
+                  data: '표준직무기술서',
+                  render: function(data) {
+                    return `
+                    <div class="d-flex ai-c jc-c"><a href="${data}" class="download-btn">보기</a></div>
+                    `
+                  }
+                }
+              ],
+              // RowGroup 플러그인을 사용하여 세분류를 그룹화합니다.
+              rowGroup: {
+                dataSrc: '세분류',
+                startRender: function(rows, group) {
+                  let buttonHtml = `<button type='button' class='toggle-childcell-btn'>${group}</button>`;
+                  return buttonHtml;
+                },
+              },
+              createdRow: function (row, data, dataIndex) {
+                // 세분류 텍스트를 없애고자 한다면 해당 열의 내용을 삭제합니다.
+                $('td:eq(0)', row).empty(); // 첫 번째 열을 선택하여 내용을 비웁니다.
+              },
+
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false,
+              ordering: false
+            });
+
+            // 그룹이 확장되거나 축소될 때마다 발생하는 이벤트를 감지합니다.
+            $(document).ready(function(){
+              $(".toggle-childcell-btn").closest('tr').nextUntil('tr.dtrg-group').hide();
+            })
+            $(".toggle-childcell-btn").on("click",function(){
+              let rows = $(this).closest('tr').nextUntil('tr.dtrg-group');
+              if(!$(this).hasClass("on")){
+                $(this).closest("td").css({"background-color":"#F0F8FC"});
+                $(this).addClass("on");
+                rows.show();
+              }else{
+                $(this).closest("td").css({"background-color":"transparent"});
+                $(this).removeClass("on");
+                rows.hide();
+              }
+            });
+          </script>
+          <div class="dataTables_paginate">
+            <a href="#" class="fg-button first">처음</a>
+            <a href="#" class="fg-button previous">이전</a>
+            <a href="#" class="fg-button ui-state-disabled">1</a>
+            <a href="#" class="fg-button">2</a>
+            <a href="#" class="fg-button">3</a>
+            <a href="#" class="fg-button">4</a>
+            <a href="#" class="fg-button">5</a>
+            <a href="#" class="fg-button">41</a>
+            <a href="#" class="fg-button next">다음</a>
+            <a href="#" class="fg-button last">마지막</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">선택한 채용공고 불러오기</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0014.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0014 = new LayerPopup({target: "WAP-EMPL-0014"});
+</script>;
   <div class="layer-popup type-modal" data-ref="WAP-CORP-0020">
   <section class="popup__container popup__size-l">
     <div class="popup__header">
@@ -1142,6 +1432,7 @@
     ]);
 
     const pop = {
+      "WAP_EMPL_0014" : ()=>{WAP_EMPL_0014.show()},
       "WAP_EMPL_0011" : ()=>{WAP_EMPL_0011.show()},
       "WAP_CORP_0020" : ()=>{WAP_CORP_0020.show()}
     }

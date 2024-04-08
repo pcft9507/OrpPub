@@ -1,0 +1,259 @@
+<div class="layer-popup type-modal pop-interview-tools" data-ref="WAP-EMPL-0090">
+  <section class="popup__container popup__size-l">
+    <div class="popup__header">
+      <h3 class="popup__title">통계</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view2">
+      <!-- 파이차트 -->
+      <div class="chart-wrap">
+        <div class="chart-box">
+          <p>서류 1차</p>
+          <div>
+            <canvas id="chart1" class="piechart" width="160" height="160"></canvas>
+          </div>
+          <div class="d-flex type-gap jc-c content-mt3">
+            <button class="base-btn type3">차트 인쇄</button>
+            <button class="base-btn type3">차트이미지 다운로드</button>
+          </div>
+        </div>
+        <div class="chart-box">
+          <p>필기 1차</p>
+          <div>
+            <canvas id="chart2" class="piechart" width="160" height="160"></canvas>
+          </div>
+          <div class="d-flex type-gap jc-c content-mt3">
+            <button class="base-btn type3">차트 인쇄</button>
+            <button class="base-btn type3">차트이미지 다운로드</button>
+          </div>
+        </div>
+        <div class="chart-box">
+          <p>면접 1차</p>
+          <div>
+            <canvas id="chart3" class="piechart" width="160" height="160"></canvas>
+          </div>
+          <div class="d-flex type-gap jc-c content-mt3">
+            <button class="base-btn type3">차트 인쇄</button>
+            <button class="base-btn type3">차트이미지 다운로드</button>
+          </div>
+        </div>
+        <div class="chart-box">
+          <p>학력별</p>
+          <div>
+            <canvas id="chart4" class="piechart" width="160" height="160"></canvas>
+          </div>
+          <div class="d-flex type-gap jc-c content-mt3">
+            <button class="base-btn type3">차트 인쇄</button>
+            <button class="base-btn type3">차트이미지 다운로드</button>
+          </div>
+        </div>
+        <div class="chart-box">
+          <p>소재지별</p>
+          <div>
+            <canvas id="chart5" class="piechart" width="160" height="160"></canvas>
+          </div>
+          <div class="d-flex type-gap jc-c content-mt3">
+            <button class="base-btn type3">차트 인쇄</button>
+            <button class="base-btn type3">차트이미지 다운로드</button>
+          </div>
+        </div>
+        <div class="chart-box">
+          <p>연령대별</p>
+          <div>
+            <canvas id="chart6" class="piechart" width="160" height="160"></canvas>
+          </div>
+          <div class="d-flex type-gap jc-c content-mt3">
+            <button class="base-btn type3">차트 인쇄</button>
+            <button class="base-btn type3">차트이미지 다운로드</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0090.hide()">닫기</button>
+  </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script>
+  const WAP_EMPL_0090 = new LayerPopup({target: "WAP-EMPL-0090"});
+
+  /* 옵션 */
+  var options1 = {
+    plugins: {
+      tooltips: {
+        enabled: false
+      },
+      legend: {
+        position: 'bottom',
+        labels: {
+          usePointStyle: true,
+          boxWidth: 12,
+          boxHeight: 12
+        }
+      },
+      datalabels: {
+        formatter: function (value, context) {
+          return Math.round(value / context.chart.getDatasetMeta(0).total * 100) + "%";
+        },
+        color: function(context) {
+          return context.dataIndex === 1 ? '#333' : '#fff';
+        }
+      }
+    }
+  };
+
+  var options2 = {
+    plugins: {
+      tooltips: {
+        enabled: false
+      },
+      legend: {
+        align: 'start', // 범례를 왼쪽으로 정렬
+        position: 'bottom',
+        labels: {
+          usePointStyle: true,
+          boxWidth: 12,
+          boxHeight: 12
+        },
+        margin: {
+          top: 4 // 각 범례 간의 상단 여백 설정
+        }
+      },
+      datalabels: {
+        formatter: function (value, context) {
+          return Math.round(value / context.chart.getDatasetMeta(0).total * 100) + "%";
+        },
+        color: function(context) {
+          return context.dataIndex === 0 ? '#333' : '#fff';
+        }
+      }
+    }
+  };
+
+  var options3 = {
+    plugins: {
+      tooltips: {
+        enabled: false
+      },
+      legend: {
+        align: 'start', // 범례를 왼쪽으로 정렬
+        position: 'bottom',
+        labels: {
+          usePointStyle: true,
+          boxWidth: 12,
+          boxHeight: 12
+        },
+      },
+      datalabels: {
+        formatter: function (value, context) {
+          return Math.round(value / context.chart.getDatasetMeta(0).total * 100) + "%";
+        },
+        color: function(context) {
+          return context.dataIndex === 4 ? '#333' : '#fff';
+        }
+      }
+    }
+  };
+
+  function createPieChart(chartId, data, options) {
+    var ctx = document.getElementById(chartId).getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: data,
+      options: options, // 전달된 옵션을 사용
+      plugins: [ChartDataLabels]
+    });
+  }
+
+
+  // 파이차트 데이터
+  var chartData1 = {
+    datasets: [{
+      data: [31, 69],
+      backgroundColor: [
+        '#029ED0', // 합격
+        '#F0F8FC', // 불합격
+      ],
+    }],
+    labels: ['합격', '불합격'],
+    borderColor: "#fff"
+  }; // 서류 1차
+  var chartData2 = {
+    datasets: [{
+      data: [69, 31],
+      backgroundColor: [
+        '#029ED0', // 합격
+        '#F0F8FC', // 불합격
+      ],
+    }],
+    labels: ['합격', '불합격'],
+    borderColor: "#fff"
+  }; // 필기 1차
+  var chartData3 = {
+    datasets: [{
+      data: [10, 90],
+      backgroundColor: [
+        '#029ED0', // 합격
+        '#F0F8FC', // 불합격
+      ],
+    }],
+    labels: ['합격', '불합격'],
+    borderColor: "#fff"
+  }; // 면접 1차
+  var chartData4 = {
+    datasets: [{
+      data: [20, 20, 20, 20, 20],
+      backgroundColor: [
+        '#EAEDF3', // 고등학교 졸업
+        '#ED8A34', // 전문대졸업
+        '#029ED0', // 대학교 졸업
+        '#00BA6C', // 석사
+        '#FF6060', // 박사
+      ],
+    }],
+    labels: ['고등학교 졸업', '전문대졸업', '대학교 졸업', '석사', '박사'],
+    borderColor: "#fff"
+  }; // 학력별
+  var chartData5= {
+    datasets: [{
+      data: [20, 20, 20, 20, 20],
+      backgroundColor: [
+        '#EAEDF3', // 서울
+        '#ED8A34', // 인천,경기
+        '#029ED0', // 충청도
+        '#00BA6C', // 강원도
+        '#FF6060', // 그 외
+      ],
+    }],
+    labels: ['서울', '인천,경기', '충청도', '강원도', '그 외'],
+    borderColor: "#fff"
+  }; // 소재지별
+  var chartData6= {
+    datasets: [{
+      data: [20, 20, 20, 20, 20],
+      backgroundColor: [
+        '#029ED0', // 20대
+        '#ED8A34', // 30대
+        '#00BA6C', // 40대
+        '#FF6060', // 50대
+        '#EAEDF3', // 60대
+      ],
+    }],
+    labels: ['서울', '인천,경기', '충청도', '강원도', '그 외'],
+    borderColor: "#fff"
+  }; // 연령대별
+
+
+  // 파이차트 생성
+  createPieChart('chart1', chartData1, options1);
+  createPieChart('chart2', chartData2, options1);
+  createPieChart('chart3', chartData3, options1);
+  createPieChart('chart4', chartData4, options2);
+  createPieChart('chart5', chartData5, options2);
+  createPieChart('chart6', chartData6, options3);
+
+
+  // 필요한 만큼 반복하여 다른 파이차트 생성
+
+
+
+</script>

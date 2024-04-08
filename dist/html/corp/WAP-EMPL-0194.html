@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -328,11 +299,11 @@
                           </div>
                           <div class="sch-comp__ss-result">
                             <ul class="sch-comp__result-list">
-                              <li><a href="#" class="sch-comp__btn-result">정보처리기사</a></li>
-                              <li><a href="#" class="sch-comp__btn-result">정보처리기사2</a></li>
-                              <li><a href="#" class="sch-comp__btn-result">정보처리기사3</a></li>
-                              <li><a href="#" class="sch-comp__btn-result">정보처리기사4</a></li>
-                              <li><a href="#" class="sch-comp__btn-result">정보처리기사5</a></li>
+                              <li><a href="#" class="sch-comp__btn-result" data-licenseCd="license1" data-licenseNm="a-12345">정보처리기사</a></li>
+                              <li><a href="#" class="sch-comp__btn-result" data-licenseCd="license2" data-licenseNm="b-12345">정보처리기사2</a></li>
+                              <li><a href="#" class="sch-comp__btn-result" data-licenseCd="license3" data-licenseNm="c-12345">정보처리기사3</a></li>
+                              <li><a href="#" class="sch-comp__btn-result" data-licenseCd="license4" data-licenseNm="d-12345">정보처리기사4</a></li>
+                              <li><a href="#" class="sch-comp__btn-result" data-licenseCd="license5" data-licenseNm="e-12345">정보처리기사5</a></li>
                             </ul>
                           </div>
                         </div>
@@ -343,6 +314,7 @@
 
                   <div class="search-tag content-mt4" id="searchTag">
                     <div class="tag__box">
+                      <div class="tag__item tag__item--type1"><span class="txt">정보처리기사2</span><button type="button" class="del"></button></div>
                     </div>
                   </div>
                 </div>
@@ -360,6 +332,8 @@
 <script>
   const searchListComponent1 = document.querySelector(".sch-comp1");
   const searchList1 = new SearchList(searchListComponent1, {/* 옵션 객체 */});
+
+
 </script>
 </body>
 </html>

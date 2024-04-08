@@ -1,0 +1,135 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0107">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">정량평가 항목별 점수 상세</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <div class="form-row__flex pd-ver">
+        <div class="form-th no-pd" style="width: 116px;">성명</div>
+        <div class="form-td" style="flex: 1;">김가나(25세)</div>
+      </div>
+      <div class="form-row__flex pd-ver">
+        <div class="form-th no-pd" style="width: 116px;">수험번호</div>
+        <div class="form-td" style="flex: 1;">01-000012</div>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="table1" class="type-s type-line">
+            <colgroup>
+              <col style="width: 33.33%"/>
+              <col style="width: 33.33%"/>
+              <col style="width: 33.33%"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">입사지원서항목</th>
+                <th scope="col">평가점수</th>
+                <th scope="col">최대점수</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            </tbody>
+          </table>
+        </div>
+        <script>
+          $(document).ready(function() {
+            var data = [
+              // 실제 데이터
+              {
+                '입사지원서항목': '학력사항',
+                '평가점수': 7,
+                '최대점수': 10,
+              },
+              {
+                '입사지원서항목': '학력사항',
+                '평가점수': 7,
+                '최대점수': 10,
+              },
+              {
+                '입사지원서항목': '학력사항',
+                '평가점수': 7,
+                '최대점수': 10,
+              },              {
+                '입사지원서항목': '학력사항',
+                '평가점수': 7,
+                '최대점수': 10,
+              },
+              {
+                '입사지원서항목': '학력사항',
+                '평가점수': 7,
+                '최대점수': 10,
+              },
+              // 다른 데이터를 이어서 추가할 수 있습니다.
+            ];
+
+            // 총점을 계산합니다.
+            var totalScore = data.reduce(function(sum, row) {
+              // 평가점수가 0인 경우 '-'으로 표시합니다.
+              var score = row['평가점수'] === 0 ? '-' : row['평가점수'];
+              return sum + row['평가점수'];
+            }, 0);
+
+            // 총점을 계산합니다.
+            var totalMaxScore = data.reduce(function(sum, row) {
+              return sum + row['최대점수'];
+            }, 0);
+
+            // 첫 번째 행에 총점을 추가합니다.
+            var totalRow = {
+              '입사지원서항목': '총점',
+              '평가점수': totalScore,
+              '최대점수': totalMaxScore, // 첫 번째 행의 최대점수에 값 설정
+            };
+            data.unshift(totalRow); // 이 부분을 데이터 처리 이후에 옮깁니다.
+
+            $('#table1').DataTable({
+              data: data,
+              columns: [
+                { data: '입사지원서항목' },
+                {
+                  data: '평가점수',
+                  render: function(data, type, row) {
+                    // 평가점수가 0인 경우 '-'으로 표시합니다.
+                    return data === 0 ? '-' : data + "점";
+                  }
+                },
+                {
+                  data: '최대점수',
+                  render: function(data, type, row) {
+                    // 평가점수가 0인 경우 '-'으로 표시합니다.
+                    return row['평가점수'] === 0 ? '-' : data + "점";
+                  }
+                },
+              ],
+              paging: false,
+              searching: false,
+              info: false,
+              createdRow: function(row, data, dataIndex) {
+                if (dataIndex === 0) {
+                  // 첫 번째 행에만 특별한 클래스를 추가합니다.
+                  $(row).addClass('first-row');
+                }
+              }
+            });
+          });
+
+        </script>
+        <style>
+          #table1 tbody tr:first-child {
+            background-color: #F0F8FC; /* 원하는 배경색으로 변경하세요 */
+          }
+          #table1 tbody tr:first-child > td{
+            color:#029ED0;
+            font-weight:700;
+          }
+        </style>
+      </div>
+
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0107.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0107 = new LayerPopup({target: "WAP-EMPL-0107"});
+</script>

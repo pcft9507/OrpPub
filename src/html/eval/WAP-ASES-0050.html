@@ -1,0 +1,138 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "평가시스템", dep1: "1", dep2: "1"})
+
+      <!-- contents-header -->
+      <div class="contents-header">
+        <div class="contents-header__title-cell">
+          <h2 class="contents-header--title">[경영지원](2023년도 ㈜오알피연구소 신입/경력사원 공개채용</h2>
+          <div class="cell">
+            2023-09-13~2023-09-15
+          </div>
+        </div>
+      </div>
+      <!-- // contents-header -->
+      <!-- contents -->
+      <div class="contents" style="padding-bottom:64px;">
+        <div class="top-title-box mb-24">
+          <div>
+            <h3 class="title-sub2 type2">서류점수</h3>
+            <p class="sub-text2">아래 그래프는 해당 서류전형에서 대상자들에 대해 귀하가 평가한 점수의 통계치를 보여줍니다. </p>
+          </div>
+        </div>
+        <div class="box-type1">
+          <div class="score-box">
+            <ul class="score-label-list">
+              <li>
+                <span class="label-badge state1"></span>
+                <span class="label-text">평균<img src="../../assets/images/ico-plusMinus.svg" alt="">표준편차</span>
+              </li>
+              <li>
+                <span class="label-badge state2"></span>
+                <span class="label-text">평균<img src="../../assets/images/ico-plusMinus.svg" alt="">표준편차</span>
+              </li>
+            </ul>
+            <div class="score-bar-box">
+              <!-- 각 score-amount-bar width값 계산 필요 + left 값 원점수에 따라 수정 필요 -->
+              <div class="score-bar">
+                <span class="score-amount-bar state1" style="left:85%;width:80px;"></span><!-- 표준편차가 a 일 경우 -->
+                <span class="score-amount-bar state2" style="left:85%;width:60px;"></span><!-- 표준편차가 b 일 경우 -->
+              </div>
+              <div class="score-desc-box">
+                <span class="sc-start">0</span>
+                <span class="sc-end">100</span>
+                <span class="sc-now" style="left:85%;">85</span><!-- 원점수 입력란 ,  style태그 left값 수정 필요 -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-body content-mt4">
+          <div class="table table-type1 ph4">
+            <table id="table">
+              <colgroup>
+                <col style="width: 25%;"/>
+                <col style="width: 25%;"/>
+                <col style="width: 25%;"/>
+                <col style="width: 25%;"/>
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col"><button type="button">평균</button></th>
+                <th scope="col"><button type="button">표준편차</button></th>
+                <th scope="col"><button type="button">최대</button></th>
+                <th scope="col"><button type="button">최저</button></th>
+              </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>
+          </div>
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  '평균' : 44.63,
+                  '표준편차' : 44.94,
+                  '최대' : 100.00,
+                  '최저' : 0.00,
+                },
+              ],
+              columns: [
+                {
+                  data: '평균',
+                  render: function(data){
+                    return data.toFixed(2);
+                  }
+                },
+                {
+                  data: '표준편차',
+                  render: function(data){
+                    return data.toFixed(2);
+                  }
+                },
+                {
+                  data: '최대',
+                  render: function(data){
+                    return `<span class="point-color">${data.toFixed(2)}</span>`;
+                  }
+                },
+                {
+                  data: '최저',
+                  render: function(data){
+                    return `<span class="point-color4">${data.toFixed(2)}</span>`;
+                  }
+                },
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+      </div>
+      <!-- //contents -->
+
+    <!-- //container -->
+    
+  </div>
+<!--  @@include('../html/eval/WAP-ASES-0033.html');-->
+
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+<!--  <script>
+    const pop = {
+      "WAP_ASES_0033" : ()=>{WAP_ASES_0033.show()},
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>-->
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

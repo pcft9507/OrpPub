@@ -1,0 +1,359 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "4", dep2: "2"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">권한관리</h3>
+        <div class="box-type1">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 136px;">
+              <div class="dropdown" style="width: 100%;">
+                <button type="button" class="dropdown-btn"
+                        data-dropdown='{
+                    "name": "selCate",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "키워드",
+                        "value": "키워드",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "구분",
+                        "value": "구분",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "등급",
+                        "value": "등급",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: calc(100% - 380px);">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+              <script>
+                const SAMPLE_DATA = [
+                  {"name": "키워드"},
+                  {"name": "키워드드"},
+                  {"name": "키워드드드"}
+                ]
+                dropdown.addItem({
+                  target: document.querySelector('[name="inputKeyword"]'),
+                  data: {
+                    "name": "inputKeyword",
+                    "type" : "input",
+                    "option": SAMPLE_DATA,
+                  }
+                });
+              </script>
+            </div>
+            <div class="box-flex__cell " style="width: 133px;">
+              <div class="label-wrap">
+                <label class="input-chk">
+                  <input type="radio" name="sample">
+                  <span>전체</span>
+                </label>
+                <label class="input-chk">
+                  <input type="radio" name="sample">
+                  <span>사용</span>
+                </label>
+              </div>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(
+                dropdown.items.selCate.value,
+                dropdown.items.inputKeyword.target.value
+              );">추가</button>
+            </div>
+          </div>
+
+          <div class="search-tag content-mt4" id="searchTag" style="display: none;">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m" onclick="searchTag.reset();">초기화</button>
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType: 1,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 172px">
+              <button type="button" class="dropdown-btn size-s"
+                      data-dropdown='{
+          "name": "dropdownMulti",
+          "type" : "multi",
+          "option": [
+            {
+              "name": "전체",
+              "value": "전체",
+              "all": true,
+              "disabled": false,
+              "checked": true
+            },
+            {
+              "name": "No",
+              "value": "No",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "사용자구분",
+              "value": "사용자구분",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "등급",
+              "value": "등급",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "등급일",
+              "value": "등급일",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "최종수정일",
+              "value": "최종수정일",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "최종수정자",
+              "value": "최종수정자",
+              "disabled": false,
+              "checked": false
+            },
+            {
+              "name": "사용여부",
+              "value": "사용여부",
+              "disabled": false,
+              "checked": false
+            }
+          ]
+        }'
+              >
+                <span class="dropdown-btn__label">분야</span>
+                <span class="dropdown-btn__checked">전체</span>
+              </button>
+            </div>
+            <script>
+              sampleDropdown.items.dropdownMulti.onChange((_this)=>{console.log(_this)});
+            </script>
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "50개씩",
+                      "value": "50개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "100개씩",
+                      "value": "100개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "200개씩",
+                      "value": "200개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="board-head__cell" data-ref="rowNoneCheck">
+            <button class="base-btn type2__size-s" onclick="WAP_CONT_0070.show()">
+              <span class="base-icon icon-add__color1__size-s">등록</span>
+            </button>
+          </div>
+          <div class="board-head__cell" data-ref="rowCheck" style="display: none;">
+            <button class="base-btn type2__size-s point-color4">
+              <span class="base-icon icon-del__color4__size-s">삭제</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="board-body">
+          <div class="table table-type1 line-ver">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 80px;"/>
+                <col style="width: 180px;"/>
+                <col style="width: 180px;"/>
+                <col style=""/>
+                <col />
+                <col />
+                <col style="width: 100px;"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">NO</th>
+                  <th scope="col">구분</th>
+                  <th scope="col">등급</th>
+                  <th scope="col">권한명</th>
+                  <th scope="col">등록정보</th>
+                  <th scope="col">최종수정정보</th>
+                  <th scope="col">사용여부</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '9999',
+                  '구분' : '외부관리자(채용대행사)',
+                  '등급' : 'Standard',
+                  '권한명' : '외부관리자(채용대행사)',
+                  '등록정보' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '사용여부' : '사용',
+                },
+                {
+                  'NO': '9999',
+                  '구분' : '외부관리자(채용대행사)',
+                  '등급' : 'Standard',
+                  '권한명' : '외부관리자(채용대행사)',
+                  '등록정보' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '사용여부' : '사용',
+                },
+                {
+                  'NO': '9999',
+                  '구분' : '외부관리자(채용대행사)',
+                  '등급' : 'Standard',
+                  '권한명' : '외부관리자(채용대행사)',
+                  '등록정보' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보' : ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '사용여부' : '사용',
+                }
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: 'NO' },
+                { data: '구분' },
+                { data: '등급' },
+                {
+                  data: '권한명',
+                  render: function(data) {
+                    return `<a href="#" class="point-color">${data}</a>`
+                  }
+                },
+                {
+                  data: '등록정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                },
+                {
+                  data: '최종수정정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                },
+                { data: '사용여부' },
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/corp/WAP-CONT-0070.html');
+  @@include('../html/corp/WAP-CONT-0080.html');
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_CONT_0070" : ()=>{WAP_CONT_0070.show()},
+      "WAP_CONT_0080" : ()=>{WAP_CONT_0080.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

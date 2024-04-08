@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -682,13 +653,170 @@
 <script>
   const WAP_ETPR_0160 = new LayerPopup({target: "WAP-ETPR-0160"});
 </script>;
-  
+  <div class="layer-popup type-modal pop-interview-tools" data-ref="WAP-ETPR-0180">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">팝업등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <!-- 제목 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">제목</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box" style="width: 100%;">
+              <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <label class="btn-toggle">
+              <input type="checkbox">
+              <span>버튼</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 노출위치 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">노출위치</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 100%;">
+            <button type="button" class="dropdown-btn"
+                    data-dropdown='{
+                "name": "addUserAuthDropdown",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "시스템접속후",
+                    "value": "시스템접속후",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "채용공고상세",
+                    "value": "채용공고상세",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "지원서작성",
+                    "value": "지원서작성",
+                    "disabled": false,
+                    "checked": false
+                  }
+                ]
+              }'
+            >선택하세요</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'addUserAuthDropdown',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <!-- 노출기간 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">노출기간</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box type-calendar" >
+              <input type="text" class="input-txt" id="calendarShow1_1" placeholder="일자 선택" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              <script>
+                const calendarShow1_1 = new Datepicker(document.getElementById('calendarShow1_1'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
+            </div>
+            <div class="input-box" style="width: 80px;">
+              <input class="input-txt timepicker ph-0 tac" type='text'name='timepicker' value="00:00" placeholder="시간 선택">
+            </div>
+            <div> ~ </div>
+            <div class="input-box type-calendar" >
+              <input type="text" class="input-txt" id="calendarShow1_2" placeholder="일자 선택" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              <script>
+                const calendarShow1_2 = new Datepicker(document.getElementById('calendarShow1_2'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
+            </div>
+            <div class="input-box" style="width: 80px;">
+              <input class="input-txt timepicker ph-0 tac" type='text'name='timepicker' value="00:00" placeholder="시간 선택">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 첨부 이미지 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">첨부 이미지</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box h-full">
+              <input type="text" class="input-txt" placeholder="입력해주세요." readonly>
+            </div>
+            <button class="base-btn type2__size-m" onclick="attachFile();">
+              <span class="base-icon">파일 첨부</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 내용 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">내용</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <textarea  style="height:474px;" name="" id="" title="내용입력 하기" placeholder="입력하세요"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">닫기</button>
+    </div>
+    <button class="btn-close" onclick="WAP_ETPR_0180.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ETPR_0180 = new LayerPopup({target: "WAP-ETPR-0180"});
+
+  /* 파일 업로드 */
+  function attachFile() {
+    var input = $('.base-btn.type2__size-m').closest('.form-inner').find('.input-txt');
+    var fileInput = $('<input type="file">');
+
+    fileInput.change(function() {
+      var file = fileInput.prop('files')[0];
+      input.val(file.name);
+    });
+
+    // 파일 첨부 버튼을 클릭하면 가상의 파일 input을 클릭하는 것으로 대체됩니다.
+    fileInput.click();
+  }
+</script>;
+
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
       "WAP_ETPR_0140" : ()=>{WAP_ETPR_0140.show()},
       "WAP_ETPR_0150" : ()=>{WAP_ETPR_0150.show()},
-      "WAP_ETPR_0160" : ()=>{WAP_ETPR_0160.show()}
+      "WAP_ETPR_0160" : ()=>{WAP_ETPR_0160.show()},
+      "WAP_ETPR_0180" : ()=>{WAP_ETPR_0180.show()},
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

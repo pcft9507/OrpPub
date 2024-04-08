@@ -1,0 +1,285 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "4", dep2: "4"})
+
+      <!-- contents -->
+      <div class="contents">
+        <h3 class="title-sub">발표문테스트</h3>
+        <div class="base-tab tab-type1 content-mt6" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">서류전형 1차</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">필기전형 1차</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">면접전형 1차</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">최종결과</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+        <div class="box-type1 content-mt5">
+          <div class="box-flex">
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." name="inputKeyword" oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m" onclick="searchTag.addTag(document.querySelector('[name=inputKeyword]').value)">추가</button>
+            </div>
+          </div>
+          <script>
+
+          </script>
+
+          <div class="search-tag content-mt4" id="searchTag" style="display: none;">
+            <div class="tag__box">
+            </div>
+            <div class="btn-wrap btn-size-type1">
+              <button class="base-btn type2__size-m" onclick="searchTag.reset();">초기화</button>
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+
+          <script>
+            const searchTag = new CreateTag({
+              target: document.getElementById('searchTag'),
+              tagType:3,
+            });
+          </script>
+
+        </div>
+
+        <div class="board-head content-mt6">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 172px;">
+              <button type="button" class="dropdown-btn size-s"
+                      data-dropdown='{
+                  "name": "boardDropdown",
+                  "type" : "multi",
+                  "option": [
+                    {
+                      "name": "전체",
+                      "value": "전체",
+                      "all": true,
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "채용분야",
+                      "value": "채용분야",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "수험번호",
+                      "value": "수험번호",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "성명",
+                      "value": "성명",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "연령",
+                      "value": "연령",
+                      "disabled": false,
+                      "checked": false
+                    },
+                    {
+                      "name": "전형결과",
+                      "value": "전형결과",
+                      "disabled": false,
+                      "checked": false
+                    },
+                  ]
+                }'
+              >
+                <span class="dropdown-btn__label">분야</span>
+                <span class="dropdown-btn__checked">전체</span>
+              </button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                      data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "25개씩",
+                      "value": "25개씩",
+                      "disabled": false,
+                      "checked": false
+                    },
+                                        {
+                      "name": "50개씩",
+                      "value": "50개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "100개씩",
+                      "value": "100개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table" class="type-line">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 200px;"/>
+                <col style="width: 150px;"/>
+                <col style="width: 150px;"/>
+                <col/>
+                <col/>
+                <col style="width: 120px"/>
+                <col style="width: 200px"/>
+                <col style="width:120px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">NO</th>
+                  <th scope="col">채용분야</th>
+                  <th scope="col">수험번호</th>
+                  <th scope="col">성명</th>
+                  <th scope="col">연락처</th>
+                  <th scope="col">E-mail</th>
+                  <th scope="col">주소</th>
+                  <th scope="col">전형 결과</th>
+                  <th scope="col" style="font-size: 0;">링크</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '1',
+                  '채용분야': '연구원 채용',
+                  '수험번호': '01-00001',
+                  '성명': '홍길동',
+                  '연락처': '010-1234-1234',
+                  '이메일': 'dayun.kim@orpinsitute.com',
+                  '주소': '서울특별시',
+                  '전형결과': '합격',
+                  '링크':''
+                },
+                {
+                  'NO': '1',
+                  '채용분야': '연구원 채용',
+                  '수험번호': '01-00001',
+                  '성명': '홍길동',
+                  '연락처': '010-1234-1234',
+                  '이메일': 'dayun.kim@orpinsitute.com',
+                  '주소': '서울특별시',
+                  '전형결과': '불합격',
+                  '링크':''
+                },
+              ],
+              columns: [
+                { data: 'NO' },
+                { data: '채용분야' },
+                {
+                  data: '수험번호',
+                  render: function(data) {
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '성명'},
+                { data: '연락처'},
+                { data: '이메일'},
+                { data: '주소'},
+                {
+                  data: '전형결과',
+                  render: function(data) {
+                    let temp;
+                    (data === '합격')
+                            ? temp = `<span class="point-color3">${data}</span>`
+                            : temp = data;
+                    return temp;
+                  }
+                },
+                { data: '링크',
+                  render: function(data) {
+                    return `<a href="${data}" class="base-btn type3">TEST</a>`
+                  }
+                 },
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    
+  </div>
+  @@include('../html/corp/WAP-CONT-0180.html');
+  @@include('../html/corp/WAP-CONT-0190.html');
+  @@include('../html/corp/WAP-CONT-0200.html');
+  <!-- **** 팝업 확인 용 스크립트 **** -->
+  <script>
+    const pop = {
+      "WAP_CONT_0180" : ()=>{WAP_CONT_0180.show()},
+      "WAP_CONT_0190" : ()=>{WAP_CONT_0190.show()},
+      "WAP_CONT_0200" : ()=>{WAP_CONT_0200.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>
+  <!-- ///**** 팝업 확인 용 스크립트 **** -->
+</body>
+</html>

@@ -1,0 +1,78 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0001">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">기타사항 입력방식 설정</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+
+      <div>
+        <div class="d-flex type-gap" data-inputParent="etc-parent">
+          <ul class="line-list">
+            <li class="d-flex ai-c type-gap2">
+              <label class="input-chk" style="min-width:140px;">
+                <input type="radio" name="etc-input-ver" value="text-ver">
+                <span>텍스트 입력형</span>
+              </label>
+              <div class="input-txt size-s d-flex ai-c">입력형</div>
+            </li>
+            <li class="d-flex ai-c type-gap2">
+              <label class="input-chk" style="min-width: 140px;">
+                <input type="radio" name="etc-input-ver" value="list-ver">
+                <span>목록형</span>
+              </label>
+              <div class="dropdown-btn">선택하세요</div>
+            </li>
+            <li class="d-flex ai-c type-gap2">
+              <label class="input-chk" style="min-width: 140px;">
+                <input type="radio" name="etc-input-ver" value="date-ver">
+                <span>날짜형(년,월,일)</span>
+              </label>
+              <div class="form-inner" style="flex: 1;gap:63px;">
+                <div class="chk-group left">
+                  <label class="input-chk type2">
+                    <input type="radio" name="date-long" value="date-long-ver">
+                    <span>년,월,일</span>
+                  </label>
+                  <label class="input-chk type2" style="margin-left:8px;">
+                    <input type="radio" name="date-long" value="date-short-ver">
+                    <span>월일</span>
+                  </label>
+                  <div class="input-box type-calendar" style="flex:1;width:150px;margin-left:63px;">
+                    <div class="input-txt">일자 선택</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="d-flex ai-c type-gap2">
+              <label class="input-chk" style="min-width: 140px;">
+                <input type="radio" name="etc-input-ver" value="ldate-ver">
+                <span>날짜형(기간)</span>
+              </label>
+              <div class="form-inner" style="flex: 1;gap:63px;">
+                <div class="chk-group left">
+                  <div class="input-box type-calendar" style="flex:1;width:150px;margin-right: 12px;">
+                    <div class="input-txt">일자 선택</div>
+                  </div>
+                  ~
+                  <div class="input-box type-calendar" style="flex:1;width:150px;margin-left:12px;">
+                    <div class="input-txt">일자 선택</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m" data-radioAdd="etc" onclick="WAP_EMPL_0001.addRadioColumn(this);">적용</button>
+    </div>
+
+    <button class="btn-close" onclick="WAP_EMPL_0001.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  let count = 0;
+  const WAP_EMPL_0001 = new LayerPopup({target: "WAP-EMPL-0001"});
+</script>

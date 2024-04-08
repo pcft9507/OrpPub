@@ -1,0 +1,316 @@
+<div class="layer-popup type-modal" data-ref="WAP-EMPL-0150">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">어학시험</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <p><strong>지원자에게 어학시험 목록을 제시하고 이 중에서 선택하여 작성할 수 있게 합니다.</strong></p>
+          <!-- 첫 번째 드롭다운 -->
+      <div class="dropdown" style="width: 136px;">
+        <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+              "name": "boardDropdown1",
+              "type": "single",
+              "relation" : "parent",
+              "option": [
+                {
+                  "name": "옵션1",
+                  "value": "옵션1",
+                  "disabled": false,
+                  "checked": true,
+                  "target-option": "target1"
+                },
+                {
+                  "name": "옵d션2",
+                  "value": "옵션2",
+                  "disabled": false,
+                  "checked": false,
+                  "target-option": "target2"
+                }
+              ]
+            }'
+        >10개씩</button>
+      </div>
+
+      <div class="dropdown" style="width: 136px;">
+        <button type="button" id="aaa"class="dropdown-btn size-s"
+                data-dropdown='{
+              "name": "boardDropdown2",
+              "type": "single",
+              "relation" : "children",
+              "option": [
+
+              ]
+            }'>선택하세요</button>
+      </div>
+      <script>
+
+
+        const aaa = $("#aaa")
+
+        const dropdownName = 'boardDropdown2'; // 업데이트할 드롭다운의 이름
+        const newOptions = [
+          { name: '새로운옵션1', value: 'newOption1' },
+          { name: '새로운옵션2', value: 'newOption2' }
+        ];
+
+        dropdown.init('dropdown', {
+           name: 'boardDropdown1',
+           onChange: _this => {
+             dropdown.items["boardDropdown2"].data.option=[
+               { name: '서브옵션1-1', value: 'suboption1-1' },
+               { name: '서브옵션1-2', value: 'suboption1-2' }
+             ];
+           }
+          });
+
+
+        function getOptionsForBoardDropdown2(targetOptionValue) {
+          // targetOptionValue에 따라서 적절한 옵션을 반환하는 로직을 구현
+          if (targetOptionValue === 'target1') {
+            return [
+              { name: '서브옵션1-1', value: 'suboption1-1' },
+              { name: '서브옵션1-2', value: 'suboption1-2' }
+            ];
+          } else if (targetOptionValue === 'target2') {
+            return [
+              { name: '서브옵션2-1', value: 'suboption2-1' },
+              { name: '서브옵션2-2', value: 'suboption2-2' }
+            ];
+          } else {
+            // 기본적으로 두 번째 드롭다운을 초기화
+            return [];
+          }
+        }*/
+      </script>
+
+
+      <div class="box-flex align-center content-mt3" data-table="addRow-ver3">
+        <div class="box-flex__cell flex-1">
+          <div class="sch-comp sch-comp1 h-full">
+            <div class="sch-comp__in">
+              <div class="sch-comp__inp-wrap">
+                <!-- D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+                <div class="sch-comp__inp" data-type="search-select" style="display:block!important;">
+                  <!-- 피그마에 맞춰 디자인을 다시 했는데, 살펴보시고 적정한 걸로 넣어주세요! -->
+                  <button class="sch-comp__ss-btn search-btn">자격증 검색</button>
+                  <!--<button class="sch-comp__ss-btn dropdown-btn">자격증 검색</button>-->
+                  <div class="sch-comp__ss">
+                    <div class="input-box type-search">
+                      <input type="text" class="input-txt" placeholder="자격증 검색" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                    </div>
+                    <div class="sch-comp__ss-result">
+                      <ul class="sch-comp__result-list">
+                        <li><a href="#" class="sch-comp__btn-result">정보처리기사</a></li>
+                        <li><a href="#" class="sch-comp__btn-result">정보처리기사2</a></li>
+                        <li><a href="#" class="sch-comp__btn-result">정보처리기사3</a></li>
+                        <li><a href="#" class="sch-comp__btn-result">정보처리기사4</a></li>
+                        <li><a href="#" class="sch-comp__btn-result">정보처리기사5</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- // D:선택이지만 선택 리스트의 검색은 텍스트로 -->
+              </div>
+            </div>
+
+            <div class="search-tag content-mt4" id="searchTag">
+              <div class="tag__box">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box-flex__cell">
+          <button class="base-btn type1__size-m">등록</button>
+        </div>
+        <div class="box-flex__cell">
+          <button class="base-btn type2__size-m" onclick="addRow3(this);">직접입력</button>
+        </div>
+      </div>
+
+      <div class="board-body content-mt4">
+        <div class="table table-type1">
+          <table id="table3" class="type-s type-line">
+            <colgroup>
+              <col style="width: 150px;">
+              <col style="width: 170px;">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">어학시험명</th>
+                <th scope="col">점수설정</th>
+                <th scope="col">등급설정</th>
+              </tr>
+            </thead>
+            <tbody class="first-td-bdt0">
+            <!-- 1. 등급을 설정해야하는 어학시험 -->
+            <tr>
+              <td>
+                <div class="input-box">
+                  <input type="text" class="input-txt tac ph-0 pop-table-height" value="JLPT" disabled>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex ai-c jc-c type-gap">
+                  <div class="input-box">
+                    <input type="number" class="input-txt tac ph-0 pop-table-height">
+                  </div>점
+                  <span>~</span>
+                  <div class="input-box">
+                    <input type="number" class="input-txt tac ph-0 pop-table-height">
+                  </div>점
+                </div>
+              </td>
+              <td>
+                <div class="dropdown" style="width: 172px">
+                  <button type="button" class="dropdown-btn size-xs"
+                          data-dropdown='{
+                          "name": "licenseDropdownMulti",
+                          "type" : "multi",
+                          "option":[
+                            {
+                              "name": "전체",
+                              "value": "전체",
+                              "all": true,
+                              "disabled": false,
+                              "checked": true
+                            },
+                            {
+                              "name": "N1",
+                              "value": "N1",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "N2",
+                              "value": "N2",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "N3",
+                              "value": "N3",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "N4",
+                              "value": "N4",
+                              "disabled": false,
+                              "checked": false
+                            },
+                            {
+                              "name": "N5",
+                              "value": "N5",
+                              "disabled": false,
+                              "checked": false
+                            }
+                          ]
+                        }'
+                    >
+                    <span class="dropdown-btn__label">5개중 </span>
+                    <span class="dropdown-btn__checked">전체</span> 선택됨
+                  </button>
+                </div>
+<!--                <script>
+                  sampleDropdown.items.licenseDropdownMulti.onChange((_this)=>{console.log(_this)});
+                </script>-->
+              </td>
+            </tr>
+            <!-- 2. 점수를 입력해야 하는 어학시험 -->
+            <tr>
+              <td>
+                <div class="input-box">
+                  <input type="text" class="input-txt tac ph-0 pop-table-height" value="TOFRL" disabled>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex ai-c jc-c type-gap">
+                  <div class="input-box">
+                    <input type="number" class="input-txt tac ph-0 pop-table-height">
+                  </div>점
+                  <span>~</span>
+                  <div class="input-box">
+                    <input type="number" class="input-txt tac ph-0 pop-table-height">
+                  </div>점
+                </div>
+              </td>
+              <td>
+                <p class="point-color5">등급을 선택하세요</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="box-type3 content-mt3">
+        <p class="point-color5 tac">위 목록에 등록되지 않은 어학시험을 지원자가 직접 입력하여 작성할 수 있습니다.</p>
+        <div class="d-flex jc-c type-gap3 content-mt2">
+          <label class="input-chk">
+            <input type="radio" name="sample2" checked>
+            <span>예</span>
+          </label>
+          <label class="input-chk">
+            <input type="radio" name="sample2">
+            <span>아니오</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">적용</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0150.hide()">닫기</button>
+    <script>
+      const WAP_EMPL_0150 = new LayerPopup({target: "WAP-EMPL-0150"});
+
+      // 새로운 행을 추가하는 함수
+      function addRow3(button) {
+        const currentTable = button.closest('[data-table="addRow-ver3"]').nextElementSibling.querySelector('#table3');
+        const tbodyInTable3 = currentTable.querySelector('tbody');
+        const rows = tbodyInTable3.querySelectorAll('tr');
+        const lastRowIndex = rows.length - 1;
+        const lastTr = rows[lastRowIndex];
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>
+              <div class="input-box">
+                 <input type="text" class="input-txt tac ph-0 pop-table-height" value=""></td>
+              </div>
+            <td>
+              <div class="d-flex ai-c jc-c type-gap">
+                <div class="input-box">
+                  <input type="number" class="input-txt tac ph-0 pop-table-height">
+                </div>점
+                <span>~</span>
+                <div class="input-box">
+                  <input type="number" class="input-txt tac ph-0 pop-table-height">
+                </div>점
+              </div>
+            </td>
+            <td>
+              <!-- 1. 등급을 설정해야하는 어학시험 -->
+              <!-- 2. 점수를 입력해야 하는 어학시험 -->
+            </td>
+    `;
+
+        // 새로운 행을 tbody의 마지막 tr 다음에 삽입
+        if (lastTr) {
+          lastTr.insertAdjacentElement('afterend', newRow);
+        } else {
+          // 테이블에 행이 없는 경우, 첫 번째 행으로 추가
+          tbodyInTable3.appendChild(newRow);
+        }
+      }
+
+      // 검색어
+      const searchListComponent1 = document.querySelector(".sch-comp1");
+      const searchList1 = new SearchList(searchListComponent1, {/* 옵션 객체 */});
+
+    </script>
+  </section>
+</div>

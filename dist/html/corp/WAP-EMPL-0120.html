@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -86,7 +57,7 @@
       </div>
     </header>
     <!-- //header -->
-    
+
     <!-- container -->
     <div class="container">
       <!-- snb -->
@@ -240,7 +211,7 @@
       <!-- //contents navigation -->
 
       <!-- contents -->
-      <div class="contents mb-0 small-ver flex-ver">
+      <div class="contents small-ver flex-ver">
 
         <div class="contents-divide1 ver3">
           <div class="page-title__wrap type-mt2">
@@ -263,7 +234,18 @@
                     <span contenteditable="true" data-editText="text1">기본 항목</span>
                   </h4>
                 </div>
+                <div class="form-set__cell form-set__btn">
+                  <button type="button" class="base-btn type-icon__color1" >
+                    <span class="base-icon icon-openEdit__size-s">안내문 작성</span>
+                  </button>
+                </div>
               </div>
+              <!-- 에디터 영역 -->
+              <div class="box-type1 editor-ver">
+                <div style="width:100%;height:200px;background-color:lightblue;resize:horizontal;"></div>
+                <button type="button" class="edit-resize-btn"></button>
+              </div>
+              <!-- // 에디터 -->
               <div class="box-type1">
 
                 <!-- 구분 -->
@@ -311,7 +293,6 @@
                     <span class="has-placeholder limit-letter" contenteditable="true" placeholder="희망연봉" data-editText="text1-0">희망연봉</span>
                   </div>
                   <div class="form-td" style="flex: 1;">
-
                     <div class="input-box" style="width: 136px;">
                       <input type="number" class="input-txt" oninput="inputValueChk()" value="0">
                       <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
@@ -4109,21 +4090,19 @@
                 </div>
               </div>
               <div class="box-type1">
-
-                <div class="form-row">
-
+                <div class="form-row"  data-radioAdd="etc" >
                   <div class="form-inner">
                     <button type="button" class="btn-item--del" onclick="rowItemDel();">
                       <span>삭제</span>
                     </button>
-                    <div class="input-box" style="width: 108px;">
-                      <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
-                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                    <div class="form-inner" style="flex:1;">
+                      <div class="input-box" style="width: 108px;">
+                        <input type="text" class="input-txt" placeholder="항목" oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                      <button class="base-btn type2__size-m"  onclick="WAP_EMPL_0001.show(false, $(this).closest('.form-inner').parent().index(), 'addRow')"><span class="base-icon icon-setup2__size-s__color1">설정</span></button>
                     </div>
-                    <div class="input-box" style="flex: 1;">
-                      <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
-                      <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                    </div>
+
                     <div class="form-row__option">
                       <label class="input-chk type2">
                         <input type="checkbox">
@@ -4135,12 +4114,13 @@
                       </label>
                     </div>
                   </div>
+                </div>
+                <div class="form-row__flex">
                   <div class="form-inner type-mt3">
-                    <button type="button" class="btn-item--add type-mr2" onclick="rowItemAdd(2);">
+                    <button type="button" class="btn-item--add type-mr2" onclick="rowItemAdd(21, event.target.closest('.box-type1').querySelector('[data-radioAdd=etc]'));">
                       <span>항목 추가</span>
                     </button>
                   </div>
-
                 </div>
 
                 <!-- 증명서 -->
@@ -4202,22 +4182,35 @@
                     <span>삭제</span>
                   </button>
                   <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                    <textarea class="" placeholder="질의내용을 입력해주세요." rows="5" oninput="inputValueChk()"></textarea>
                     <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
                   </div>
-                  <div class="form-row__option">
-                    <label class="input-chk type2">
-                      <input type="checkbox">
-                      <span>필수</span>
-                    </label>
-                    <label class="toggle-show">
-                      <input type="checkbox" checked>
-                      <span>체크</span>
-                    </label>
+                  <div class="form-row__option_wrap" style="height:131px;">
+                    <div class="form-row__option col-ver">
+                      <label class="input-chk type2">
+                        <input type="checkbox">
+                        <span>필수</span>
+                      </label>
+                      <label class="toggle-show txt-ver">
+                        <input type="checkbox" checked>
+                        <span>AI</span>
+                      </label>
+                    </div>
+                    <div class="txt-limit">
+                      <p>답변글자 수 제한</p>
+                      <ul>
+                        <li>
+                          최소 <input type="text" placeholder="100" > 자
+                        </li>
+                        <li>
+                          최대 <input type="text" placeholder="500" > 자
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
                 <div class="form-inner type-mt3">
-                  <button type="button" class="btn-item--add type-mr2" onclick="rowItemAdd(3);">
+                  <button type="button" class="btn-item--add type-mr2" onclick="rowItemAdd(17);">
                     <span>기술서 추가</span>
                   </button>
                 </div>
@@ -4341,6 +4334,84 @@
     </div>
     <!-- //container -->
 
+    <div class="layer-popup type-modal" data-ref="WAP-EMPL-0001">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">기타사항 입력방식 설정</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+
+      <div>
+        <div class="d-flex type-gap" data-inputParent="etc-parent">
+          <ul class="line-list">
+            <li class="d-flex ai-c type-gap2">
+              <label class="input-chk" style="min-width:140px;">
+                <input type="radio" name="etc-input-ver" value="text-ver">
+                <span>텍스트 입력형</span>
+              </label>
+              <div class="input-txt size-s d-flex ai-c">입력형</div>
+            </li>
+            <li class="d-flex ai-c type-gap2">
+              <label class="input-chk" style="min-width: 140px;">
+                <input type="radio" name="etc-input-ver" value="list-ver">
+                <span>목록형</span>
+              </label>
+              <div class="dropdown-btn">선택하세요</div>
+            </li>
+            <li class="d-flex ai-c type-gap2">
+              <label class="input-chk" style="min-width: 140px;">
+                <input type="radio" name="etc-input-ver" value="date-ver">
+                <span>날짜형(년,월,일)</span>
+              </label>
+              <div class="form-inner" style="flex: 1;gap:63px;">
+                <div class="chk-group left">
+                  <label class="input-chk type2">
+                    <input type="radio" name="date-long" value="date-long-ver">
+                    <span>년,월,일</span>
+                  </label>
+                  <label class="input-chk type2" style="margin-left:8px;">
+                    <input type="radio" name="date-long" value="date-short-ver">
+                    <span>월일</span>
+                  </label>
+                  <div class="input-box type-calendar" style="flex:1;width:150px;margin-left:63px;">
+                    <div class="input-txt">일자 선택</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="d-flex ai-c type-gap2">
+              <label class="input-chk" style="min-width: 140px;">
+                <input type="radio" name="etc-input-ver" value="ldate-ver">
+                <span>날짜형(기간)</span>
+              </label>
+              <div class="form-inner" style="flex: 1;gap:63px;">
+                <div class="chk-group left">
+                  <div class="input-box type-calendar" style="flex:1;width:150px;margin-right: 12px;">
+                    <div class="input-txt">일자 선택</div>
+                  </div>
+                  ~
+                  <div class="input-box type-calendar" style="flex:1;width:150px;margin-left:12px;">
+                    <div class="input-txt">일자 선택</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m" data-radioAdd="etc" onclick="WAP_EMPL_0001.addRadioColumn(this);">적용</button>
+    </div>
+
+    <button class="btn-close" onclick="WAP_EMPL_0001.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  let count = 0;
+  const WAP_EMPL_0001 = new LayerPopup({target: "WAP-EMPL-0001"});
+</script>;
     <div class="layer-popup type-modal" data-ref="WAP-EMPL-0130">
   <section class="popup__container popup__size-m">
     <div class="popup__header">
@@ -4617,68 +4688,6 @@
     </div>
     <div class="popup__contents popup__scroll-view">
       <p><strong>지원자에게 어학시험 목록을 제시하고 이 중에서 선택하여 작성할 수 있게 합니다.</strong></p>
-          <!-- 첫 번째 드롭다운 -->
-      <div class="dropdown" style="width: 136px;">
-        <button type="button" class="dropdown-btn size-s"
-                data-dropdown='{
-              "name": "boardDropdown1",
-              "type": "single",
-              "relation" : "parent",
-              "targetRelation": "relation",
-              "option": [
-                {
-                  "name": "옵션1",
-                  "value": "옵션1",
-                  "disabled": false,
-                  "checked": false,
-                  "target-option": "target1"
-
-                },
-                {
-                  "name": "옵d션2",
-                  "value": "옵션2",
-                  "disabled": false,
-                  "checked": true,
-                  "target-option": "target2"
-                }
-              ]
-            }'
-        >10개씩</button>
-      </div>
-
-      <div class="dropdown" style="width: 136px;">
-        <button type="button" id="aaa"class="dropdown-btn size-s"
-                data-dropdown='{
-              "name": "boardDropdown2",
-              "type": "single",
-              "relation" : "children",
-              "targetRelation": "relation",
-              "option": [
-
-              ]
-            }'>선택하세요</button>
-      </div>
-
-      <script>
-        dropdown.init('dropdown', {
-          name: 'boardDropdown1',
-          onChange: _this => {
-            console.log( _this.value)
-           if( _this.value === "옵션1"){
-             dropdown.items["boardDropdown2"].data.option=[
-               { name: '서브옵션1-1', value: 'suboption1-1' },
-               { name: '서브옵션1-2', value: 'suboption1-2' }
-             ];
-           }else{
-             dropdown.items["boardDropdown2"].data.option=[
-               { name: '서브옵션1-s', value: 'suboption1-1' },
-               { name: '서브옵션1-s', value: 'suboption1-2' }
-             ];
-           }
-          }
-        });
-      </script>
-
       <div class="box-flex align-center content-mt3" data-table="addRow-ver3">
         <div class="box-flex__cell flex-1">
           <div class="sch-comp sch-comp1 h-full">
@@ -4761,7 +4770,7 @@
                 <div class="dropdown" style="width: 172px">
                   <button type="button" class="dropdown-btn size-xs"
                           data-dropdown='{
-                          "name": "licenseDropdownMulti",
+                          "name": "dropdownSingle",
                           "type" : "multi",
                           "option":[
                             {
@@ -4808,9 +4817,9 @@
                     <span class="dropdown-btn__checked">전체</span> 선택됨
                   </button>
                 </div>
-<!--                <script>
-                  sampleDropdown.items.licenseDropdownMulti.onChange((_this)=>{console.log(_this)});
-                </script>-->
+                <script>
+                  sampleDropdown.items.dropdownSingle.onChange((_this)=>{console.log(_this)});
+                </script>
               </td>
             </tr>
             <!-- 2. 점수를 입력해야 하는 어학시험 -->
@@ -5229,6 +5238,7 @@
 <script>
 
   const pop = {
+    "WAP_EMPL_0001" : ()=>{WAP_EMPL_0001.show()},
     "WAP_EMPL_0130" : ()=>{WAP_EMPL_0130.show()},
     "WAP_EMPL_0140" : ()=>{WAP_EMPL_0140.show()},
     "WAP_EMPL_0150" : ()=>{WAP_EMPL_0150.show()},
@@ -5236,7 +5246,7 @@
     "WAP_EMPL_0083" : ()=>{WAP_EMPL_0083.show()},
   }
   if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
-  
+
   // 모든 checkbox 요소와 form-set__box 요소를 선택합니다.
   const checkboxes = document.querySelectorAll('.categori-control__item input[type="checkbox"]');
   const formSetBoxes = document.querySelectorAll('.form-set__box');
@@ -5266,7 +5276,7 @@
     checkbox.addEventListener('change', (event) => {
       handleCheckboxChange(event, index);
     });
-  });  
+  });
 
   $.fn.hasPlaceholder = function (maxCharacters) {
     return this.each(function () {
@@ -5526,6 +5536,30 @@
       keySpan.text(value);
     }
   }
+
+  /* 안내문 작성 버튼 클릭시 에딧창 보이기 */
+  $(".icon-openEdit__size-s").on("click",function(){
+    if(!$(this).hasClass("on")){
+      $(this).addClass("on");
+      $(this).closest(".form-set__header").next().addClass("open");
+    } else{
+      $(this).removeClass("on");
+      $(this).closest(".form-set__header").next().removeClass("open");
+    }
+  });
+
+  /* 안내문 에딧창 하단 버튼 클릭시 영역 축소 확대 */
+  $(".edit-resize-btn").on("click",function(){
+    if(!$(this).hasClass("open")){
+      $(this).addClass("open");
+      $(this).prev().css({"height":"350px"});
+    }else{
+      $(this).removeClass("open");
+      $(this).prev().css({"height":"200px"});
+    }
+  });
+
+
 
 </script>
 </body>

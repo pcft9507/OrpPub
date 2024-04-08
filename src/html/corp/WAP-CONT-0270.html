@@ -11,203 +11,158 @@
       <!-- contents -->
       <div class="contents">
 
-        <h3 class="title-sub">만족도조사</h3>
-        <div class="base-tab tab-type1 content-mt4" data-ref="tabContents1">
-          <ul class="tab__list" role="tablist">
-            <li class="tab__item">
-              <button role="tab" aria-selected="false">서류전형</button>
-            </li>
-            <li class="tab__item">
-              <button role="tab" aria-selected="false">필기전형</button>
-            </li>
-            <li class="tab__item">
-              <button role="tab" aria-selected="true">면접전형</button>
-            </li>
-          </ul>
-        </div>
-        <script>
-          const tabContents1 = new TabContents({target: 'tabContents1'});
-        </script>
+        <h3 class="title-sub">만족도조사 Pool 등록</h3>
+        <div class="box-type1">
+          <div class="board-body">
+            <div class="table table-type1 line-ver">
+              <table id="table">
+                <colgroup>
+                  <col style="width: 30%;"/>
+                  <col style="width: 20%;"/>
+                  <col style="width: 25%;"/>
+                  <col style="width: 15%;"/>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th scope="col">문항</th>
+                  <th scope="col">유형</th>
+                  <th scope="col">문항상세</th>
+                  <th scope="col">순서</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td class="pd-type1">
+                    <div class="td-wrap">
+                      <button type="button" class="btn-item&#45;&#45;del" onclick="rowItemDel(5);">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력해주세요." oninput="inputValueChk()" value="효율성 추구">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="td-wrap center">
+                      <label class="input-chk">
+                        <input type="radio" name="type3" checked>
+                        <span>척도형</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="type3">
+                        <span>입력형</span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="td-wrap">
+                      <div class="tag__item tag__item&#45;&#45;type1 no-mw ">
+                        <span class="txt">매우부적합-부적합-보통-적합-매우적합</span>
+                        <button type="button" class="del"></button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="td-wrap center">
+                      <button type="button" onclick="rowItemUp('tr');">
+                        <span class="base-icon icon-up__size-m__color3">
+                          <span class="isHidden">위로</span>
+                        </span>
+                      </button>
+                      <button type="button" onclick="rowItemDown('tr');">
+                        <span class="base-icon icon-down2__size-m__color3">
+                          <span class="isHidden">아래로</span>
+                        </span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pd-type1">
+                    <div class="td-wrap">
+                      <button type="button" class="btn-item--del" onclick="rowItemDel(5);">
+                        <span>삭제</span>
+                      </button>
+                      <div class="input-box" style="width: 100%;">
+                        <input type="text" class="input-txt" placeholder="입력해주세요." oninput="inputValueChk()" value="효율성 추구">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="td-wrap center">
+                      <label class="input-chk">
+                        <input type="radio" name="type" value="척도형" onclick="changeInputType(this)">
+                        <span>척도형</span>
+                      </label>
+                      <label class="input-chk">
+                        <input type="radio" name="type" value="입력형" onclick="changeInputType(this)">
+                        <span>입력형</span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="td-wrap">
+                      <button class="base-btn type2__size-s" style="display:none;">
+                        <span class="base-icon icon-excel__size-s__color1">불러오기</span>
+                      </button>
+                      <div class="input-box" style="width: 100%; display:none;">
+                        <input type="text" class="input-txt" placeholder="내용을 입력하세요." oninput="inputValueChk()">
+                        <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="td-wrap center">
+                      <button type="button" onclick="rowItemUp('tr');">
+                            <span class="base-icon icon-up__size-m__color3">
+                                <span class="isHidden">위로</span>
+                            </span>
+                      </button>
+                      <button type="button" onclick="rowItemDown('tr');">
+                            <span class="base-icon icon-down2__size-m__color3">
+                                <span class="isHidden">아래로</span>
+                            </span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
 
-        <div class="board-head content-mt4">
-          <div class="board-head__cell">
-            <div class="dropdown" style="width: 136px;">
-              <button type="button" class="dropdown-btn size-s"
-                data-dropdown='{
-                  "name": "boardDropdown2",
-                  "type" : "single",
-                  "option": [
-                    {
-                      "name": "10개씩",
-                      "value": "10개씩",
-                      "disabled": false,
-                      "checked": true
-                    },
-                    {
-                      "name": "20개씩",
-                      "value": "20개씩",
-                      "disabled": false,
-                      "checked": false
-                    }
-                  ]
-                }'
-              >10개씩</button>
+                </tbody>
+              </table>
+              <div class="btn-wrap flex-start table-ver">
+                <button type="button" class="btn-item--add" onclick="rowItemAdd(16,event.target.closest('div.table').querySelector('table#table tbody'))">
+                  <span>추가</span>
+                </button>
+              </div>
+
               <script>
-                dropdown.init('dropdown', {
-                  name: 'boardDropdown2',
-                  onChange: _this=>{
-                    console.log(_this.value);
+                function changeInputType(radioButton) {
+                  var row = radioButton.closest('tr');
+                  var detailColumn = row.querySelector('td:nth-child(3)');
+                  var inputBox = detailColumn.querySelector('.input-box');
+                  var button = detailColumn.querySelector('button.base-btn');
+
+                  console.log(row)
+                  console.log(detailColumn)
+                  console.log(inputBox)
+                  console.log(button)
+
+                  if (radioButton.checked && radioButton.getAttribute('value') === '척도형') {
+                    inputBox.style.display = 'none';
+                    button.style.display = 'block';
+                  } else if (radioButton.checked && radioButton.getAttribute('value') === '입력형') {
+                    inputBox.style.display = 'block';
+                    button.style.display = 'none';
                   }
-                });
+                }
               </script>
             </div>
           </div>
-          <div class="board-head__cell" data-ref="rowNoneCheck">
-            <button class="base-btn type2__size-s" onclick="WAP_CONT_0240.show()">
-              <span class="base-icon icon-add__color1__size-s">등록</span>
-            </button>
-          </div>
-          <div class="board-head__cell" data-ref="rowCheck" style="display: none;">
-            <button class="base-btn type2__size-s">
-              <span class="base-icon icon-down__color1__size-s">엑셀 다운로드</span>
-            </button>
-            <button class="base-btn type2__size-s point-color4">
-              <span class="base-icon icon-del__color4__size-s">삭제</span>
-            </button>
-          </div>
         </div>
 
-        <div class="board-body">
-          <div class="table table-type1">
-            <table id="table">
-              <colgroup>
-                <col style="width: 56px;"/>
-                <col style="width: 56px;"/>
-                <col/>
-                <col style="width: 100px;"/>
-                <col style="width: 100px;"/>
-                <col style="width: 250px"/>
-                <col style="width: 250px"/>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col" class="pd-type1">
-                    <label class="input-chk">
-                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
-                      <span class="isHidden">선택</span>
-                    </label>
-                  </th>
-                  <th scope="col">NO</th>
-                  <th scope="col">만족도 조사명</th>
-                  <th scope="col">유형</th>
-                  <th scope="col">사용유무</th>
-                  <th scope="col">등록정보</th>
-                  <th scope="col">최종수정정보</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
 
-          <script>
-            $('#table').DataTable({
-              data: [
-                {
-                  'NO': '6',
-                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
-                  '유형': '척도형',
-                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
-                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
-                },
-                {
-                  'NO': '6',
-                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
-                  '유형': '척도형',
-                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
-                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
-                },
-                {
-                  'NO': '6',
-                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
-                  '유형': '척도형',
-                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
-                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
-                },
-                {
-                  'NO': '6',
-                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
-                  '유형': '척도형',
-                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
-                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
-                },
-                {
-                  'NO': '6',
-                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
-                  '유형': '척도형',
-                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
-                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
-                },
-                {
-                  'NO': '6',
-                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
-                  '유형': '척도형',
-                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
-                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
-                }
-              ],
-              columns: [
-                {
-                  data: '',
-                  className: 'pd-type1',
-                  render: function() {
-                    return `
-                      <label class="input-chk">
-                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
-                        <span class="isHidden">선택</span>
-                      </label>
-                    `
-                  }
-                },
-                { data: 'NO' },
-                { data: '만족도 조사명',
-                  render: function(data) {
-                    return `<span class="point-color">${data}</span>`
-                  }
-                },
-                { data: '유형' },
-                { data: '사용유무',
-                  render: function(data) {
-                    return `
-                      <label class="btn-toggle size-s">
-                        <input type="checkbox">
-                        <span>버튼</span>
-                      </label>
-                    `
-                  }
-                },
-                { data: '등록정보',
-                  render: function(data) {
-                    return `
-                      <div>${data[0]}</div>
-                      <div class="font-size-s">${data[1]}</div>
-                    `
-                  }
-                },
-                { data: '최종수정정보',
-                  render: function(data) {
-                    return `
-                      <div>${data[0]}</div>
-                      <div class="font-size-s">${data[1]}</div>
-                    `
-                  }
-                }
-              ],
-              paging: false,
-              searching: false,
-              showing: false,
-              info: false
-            });
-          </script>
-        </div>
 
       </div>
       <!-- //contents -->

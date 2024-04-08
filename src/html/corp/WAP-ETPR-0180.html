@@ -1,239 +1,156 @@
-@@include('./head.html', {title: ""})
-<body>
-  <div class="wrap">
-
-    @@include('./header.html')
-    
-    <!-- container -->
-    <div class="container">
-      @@include('./snb.html', {type: "기업담당자", dep1: "5", dep2: "2"})
-
-      <!-- contents navigation -->
-      <div class="contents-nav type2">
-        <div class="contents-nav__inner">
-          <div class="contents-nav__btn-box">
-            <button type="button" class="base-btn type2__size-m">초기화</button>
-          </div>
-          <div class="contents-nav__btn-box">
-            <button type="button" class="base-btn type2__size-m">취소</button>
-            <button type="button" class="base-btn type1__size-m">저장</button>
+<div class="layer-popup type-modal pop-interview-tools" data-ref="WAP-ETPR-0180">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">팝업등록</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <!-- 제목 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">제목</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box" style="width: 100%;">
+              <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+            </div>
+            <label class="btn-toggle">
+              <input type="checkbox">
+              <span>버튼</span>
+            </label>
           </div>
         </div>
       </div>
-      <!-- //contents navigation -->
 
-      <!-- contents -->
-      <div class="contents">
-        <h3 class="title-sub">팝업등록</h3>
+      <!-- 노출위치 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">노출위치</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="dropdown" style="width: 100%;">
+            <button type="button" class="dropdown-btn"
+                    data-dropdown='{
+                "name": "addUserAuthDropdown",
+                "type" : "single",
+                "option": [
+                  {
+                    "name": "시스템접속후",
+                    "value": "시스템접속후",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "채용공고상세",
+                    "value": "채용공고상세",
+                    "disabled": false,
+                    "checked": false
+                  },
+                  {
+                    "name": "지원서작성",
+                    "value": "지원서작성",
+                    "disabled": false,
+                    "checked": false
+                  }
+                ]
+              }'
+            >선택하세요</button>
+            <script>
+              dropdown.init('dropdown', {
+                name: 'addUserAuthDropdown',
+                onChange: _this=>{
+                  console.log(_this.value);
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
 
-        <section class="content-mt4">
-          <h4 class="title-sub">기본세팅</h4>
-
-          <div class="box-type1">
-
-            <div class="form-row__flex">
-              <!-- 제목 -->
-              <div class="form-th" style="width: 99px;">제목</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="input-box" style="width: 100%;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-              </div>
-              <!-- //제목 -->
-              <!-- 노출여부 -->
-              <div class="form-th" style="width: 99px; margin-left: 64px;">노출여부</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="dropdown" style="width: 100%;">
-                  <button type="button" class="dropdown-btn size-s" data-dropdown='{
-                    "name": "dropdown1",
-                    "type" : "single",
-                    "option": [
-                      {
-                        "name": "옵션1",
-                        "value": "val1",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션2",
-                        "value": "val2",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션3",
-                        "value": "val3",
-                        "disabled": false,
-                        "checked": false
-                      }
-                    ]
-                  }'>선택하세요</button> 
-                </div>
-              </div>
-              <!-- //노출여부 -->
+      <!-- 노출기간 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">노출기간</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box type-calendar" >
+              <input type="text" class="input-txt" id="calendarShow1_1" placeholder="일자 선택" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              <script>
+                const calendarShow1_1 = new Datepicker(document.getElementById('calendarShow1_1'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
             </div>
-            <!-- 노출기간 -->
-            <div class="form-row__flex type2">
-
-              <div class="form-th" style="width: 99px;">노출기간</div>
-              <div class="form-td form-inner" style="flex: 1;">
-                <div class="input-box type-calendar" style="flex:1">
-                  <input type="text" class="input-txt" id="calendar1_1" placeholder="일자 선택" oninput="inputValueChk()">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  <script>
-                    const calendar1_1 = new Datepicker(document.getElementById('calendar1_1'), {
-                      ...CALENDAR_DEFAULT_OPTION,
-                      ...{
-                        "minDate": "2023.12.06",
-                        "maxDate": "2023.12.20"
-                      }
-                    });
-                  </script>
-                </div>
-                <div class="input-box" style="width: 160px;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-                <div> ~ </div>
-                <div class="input-box type-calendar" style="flex:1">
-                  <input type="text" class="input-txt" id="calendar1_2" placeholder="일자 선택" oninput="inputValueChk()">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  <script>
-                    const calendar1_2 = new Datepicker(document.getElementById('calendar1_2'), {
-                      ...CALENDAR_DEFAULT_OPTION,
-                      ...{
-                        "minDate": "2023.12.06",
-                        "maxDate": "2023.12.20"
-                      }
-                    });
-                  </script>
-                </div>
-                <div class="input-box" style="width: 160px;">
-                  <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="입력하세요">
-                  <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                </div>
-              </div>
+            <div class="input-box" style="width: 80px;">
+              <input class="input-txt timepicker ph-0 tac" type='text'name='timepicker' value="00:00" placeholder="시간 선택">
             </div>
-            <!-- //노출기간 -->
-            <!-- 노출위치 -->
-            <div class="form-row__flex" style="width: calc(50% - 32px);">
-              <div class="form-th" style="width: 99px;">노출위치</div>
-              <div class="form-td form-inner" style="flex: 1;">
-                <div class="dropdown" style="flex: 1;">
-                  <button type="button" class="dropdown-btn size-s" data-dropdown='{
-                    "name": "dropdown2",
-                    "type" : "single",
-                    "option": [
-                      {
-                        "name": "옵션1",
-                        "value": "val1",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션2",
-                        "value": "val2",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션3",
-                        "value": "val3",
-                        "disabled": false,
-                        "checked": false
-                      }
-                    ]
-                  }'>채용홈페이지</button> 
-                </div>
-                <div class="dropdown" style="flex: 1;">
-                  <button type="button" class="dropdown-btn size-s" data-dropdown='{
-                    "name": "dropdown3",
-                    "type" : "single",
-                    "option": [
-                      {
-                        "name": "옵션1",
-                        "value": "val1",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션2",
-                        "value": "val2",
-                        "disabled": false,
-                        "checked": false
-                      },
-                      {
-                        "name": "옵션3",
-                        "value": "val3",
-                        "disabled": false,
-                        "checked": false
-                      }
-                    ]
-                  }'>선택</button> 
-                </div>
-              </div>
+            <div> ~ </div>
+            <div class="input-box type-calendar" >
+              <input type="text" class="input-txt" id="calendarShow1_2" placeholder="일자 선택" oninput="inputValueChk()">
+              <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+              <script>
+                const calendarShow1_2 = new Datepicker(document.getElementById('calendarShow1_2'), {
+                  ...CALENDAR_DEFAULT_OPTION,
+                  ...{
+                    "minDate": "2023.12.06",
+                    "maxDate": "2023.12.20"
+                  }
+                });
+              </script>
             </div>
-            <!-- //노출위치 -->
-
-            <div class="form-row__flex">
-              <!-- 화면 위치 -->
-              <div class="form-th" style="width: 99px;">화면 위치</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="form-inner">
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="TOP 간격">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="LEFT 간격">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-              </div>
-              <!-- //화면 위치 -->
-              <!-- 화면 크기 -->
-              <div class="form-th" style="width: 99px; margin-left: 64px;">화면 크기</div>
-              <div class="form-td" style="flex: 1;">
-                <div class="form-inner">
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="가로사이즈">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                  <div class="input-box" style="flex: 1;">
-                    <input type="text" class="input-txt" oninput="inputValueChk()" placeholder="세로사이즈">
-                    <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
-                  </div>
-                </div>
-              </div>
-              <!-- //화면 크기 -->
+            <div class="input-box" style="width: 80px;">
+              <input class="input-txt timepicker ph-0 tac" type='text'name='timepicker' value="00:00" placeholder="시간 선택">
             </div>
           </div>
-        </section>
-        <section class="content-mt6">
-          <h4 class="title-sub">내용 입력</h4>
-          <div style="display:flex;align-items:center;justify-content:center;height:650px;background:gainsboro;">에디터 영역</div>
-        </section>
-
+        </div>
       </div>
-      <!-- //contents -->
+
+      <!-- 첨부 이미지 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">첨부 이미지</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <div class="input-box h-full">
+              <input type="text" class="input-txt" placeholder="입력해주세요." readonly>
+            </div>
+            <button class="base-btn type2__size-m" onclick="attachFile();">
+              <span class="base-icon">파일 첨부</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 내용 -->
+      <div class="form-row__flex">
+        <div class="form-th" style="width: 116px;">내용</div>
+        <div class="form-td" style="flex: 1;">
+          <div class="form-inner">
+            <textarea  style="height:474px;" name="" id="" title="내용입력 하기" placeholder="입력하세요"></textarea>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- //container -->
-    
-  </div>
-  @@include('../html/corp/WAP-ETPR-0140.html');
-  @@include('../html/corp/WAP-ETPR-0150.html');
-  @@include('../html/corp/WAP-ETPR-0160.html');
-  
-  <!-- **** 팝업 확인 용 스크립트 **** -->
-  <script>
-    const pop = {
-      "WAP_ETPR_0140" : ()=>{WAP_ETPR_0140.show()},
-      "WAP_ETPR_0150" : ()=>{WAP_ETPR_0150.show()},
-      "WAP_ETPR_0160" : ()=>{WAP_ETPR_0160.show()}
-    }
-    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
-  </script>
-  <!-- ///**** 팝업 확인 용 스크립트 **** -->
-</body>
-</html>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">닫기</button>
+    </div>
+    <button class="btn-close" onclick="WAP_ETPR_0180.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ETPR_0180 = new LayerPopup({target: "WAP-ETPR-0180"});
+
+  /* 파일 업로드 */
+  function attachFile() {
+    var input = $('.base-btn.type2__size-m').closest('.form-inner').find('.input-txt');
+    var fileInput = $('<input type="file">');
+
+    fileInput.change(function() {
+      var file = fileInput.prop('files')[0];
+      input.val(file.name);
+    });
+
+    // 파일 첨부 버튼을 클릭하면 가상의 파일 input을 클릭하는 것으로 대체됩니다.
+    fileInput.click();
+  }
+</script>

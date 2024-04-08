@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -927,12 +898,170 @@
 <script>
   const WAP_EMPL_0313 = new LayerPopup({target: "WAP-EMPL-0313"});
 </script>;
+  <div class="layer-popup type-modal pop-interview-tools" data-ref="WAP-EMPL-0315">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">평가자 별 결과 다운로드</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+      <div class="form-row">
+        <h4 class="title-sub1 dot">토론면접</h4>
+        <div class="board-body content-mt2">
+          <div class="table table-type1">
+            <table id="popupTable1" class="type-line">
+              <colgroup>
+                <col style="width:33.3%;">
+                <col style="width:33.3%;">
+                <col style="width:33.3%;">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>평가자</th>
+                <th>평가완료자</th>
+                <th>선택된대상자</th>
+              </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#popupTable1').DataTable({
+              data: [
+                {
+                  '평가자': '평가자 1',
+                  '평가완료자' : [5 , ''],
+                  '선택된대상자' : [3 , '']
+                },
+                {
+                  '평가자': '평가자 1',
+                  '평가완료자' : [5 , ''],
+                  '선택된대상자' : [3 , '']
+                },
+                {
+                  '평가자': '평가자 1',
+                  '평가완료자' : [5 , ''],
+                  '선택된대상자' : [3 , '']
+                },
+                {
+                  '평가자': '평가자 1',
+                  '평가완료자' : [5 , ''],
+                  '선택된대상자' : [3 , '']
+                }
+              ],
+              columns: [
+                { data: '평가자' },
+                {
+                  data: '평가완료자',
+                  render:function(data){
+                    return `
+                        <span>${data[0]}명(<a href="$[data[1]" class="point-color" download>다운로드</a>)</span>
+                        `
+                  }
+                },
+                {
+                  data: '선택된대상자',
+                  render:function(data){
+                    return `
+                        <span>${data[0]}명(<a href="$[data[1]" class="point-color" download>다운로드</a>)</span>
+                        `
+                  }
+                },
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h4 class="title-sub1 dot">발표면접</h4>
+        <div class="board-body content-mt2">
+          <div class="table table-type1">
+            <table id="popupTable2" class="type-line">
+              <colgroup>
+                <col style="width:33.3%;">
+                <col style="width:33.3%;">
+                <col style="width:33.3%;">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>평가자</th>
+                <th>평가완료자</th>
+                <th>선택된대상자</th>
+              </tr>
+              </thead>
+            </table>
+          </div>
+          <script>
+            $('#popupTable2').DataTable({
+              data: [
+                {
+                  '평가자': '평가자 1',
+                  '평가완료자' : [5 , ''],
+                  '선택된대상자' : [3 , '']
+                },
+                {
+                  '평가자': '평가자 1',
+                  '평가완료자' : [5 , ''],
+                  '선택된대상자' : [3 , '']
+                },
+                {
+                  '평가자': '평가자 1',
+                  '평가완료자' : [5 , ''],
+                  '선택된대상자' : [3 , '']
+                },
+                {
+                  '평가자': '평가자 1',
+                  '평가완료자' : [5 , ''],
+                  '선택된대상자' : [3 , '']
+                }
+              ],
+              columns: [
+                { data: '평가자' },
+                {
+                  data: '평가완료자',
+                  render:function(data){
+                    return `
+                        <span>${data[0]}명(<a href="$[data[1]" class="point-color" download>다운로드</a>)</span>
+                        `
+                  }
+                },
+                {
+                  data: '선택된대상자',
+                  render:function(data){
+                    return `
+                        <span>${data[0]}명(<a href="$[data[1]" class="point-color" download>다운로드</a>)</span>
+                        `
+                  }
+                },
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+      <button class="base-btn type1__size-m">닫기</button>
+    </div>
+    <button class="btn-close" onclick="WAP_EMPL_0315.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_EMPL_0315 = new LayerPopup({target: "WAP-EMPL-0315"});
+</script>;
 
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
       "WAP_EMPL_0312" : ()=>{WAP_EMPL_0312.show()},
-      "WAP_EMPL_0313" : ()=>{WAP_EMPL_0313.show()}
+      "WAP_EMPL_0313" : ()=>{WAP_EMPL_0313.show()},
+      "WAP_EMPL_0315" : ()=>{WAP_EMPL_0315.show()}
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>

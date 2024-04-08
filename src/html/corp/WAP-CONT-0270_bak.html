@@ -1,0 +1,231 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+    
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "기업담당자", dep1: "4", dep2: "6"})
+
+      <!-- contents -->
+      <div class="contents">
+
+        <h3 class="title-sub">만족도조사</h3>
+        <div class="base-tab tab-type1 content-mt4" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">서류전형</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">필기전형</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">면접전형</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+        <div class="board-head content-mt4">
+          <div class="board-head__cell">
+            <div class="dropdown" style="width: 136px;">
+              <button type="button" class="dropdown-btn size-s"
+                data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "10개씩",
+                      "value": "10개씩",
+                      "disabled": false,
+                      "checked": true
+                    },
+                    {
+                      "name": "20개씩",
+                      "value": "20개씩",
+                      "disabled": false,
+                      "checked": false
+                    }
+                  ]
+                }'
+              >10개씩</button>
+              <script>
+                dropdown.init('dropdown', {
+                  name: 'boardDropdown2',
+                  onChange: _this=>{
+                    console.log(_this.value);
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="board-head__cell" data-ref="rowNoneCheck">
+            <button class="base-btn type2__size-s" onclick="WAP_CONT_0240.show()">
+              <span class="base-icon icon-add__color1__size-s">등록</span>
+            </button>
+          </div>
+          <div class="board-head__cell" data-ref="rowCheck" style="display: none;">
+            <button class="base-btn type2__size-s">
+              <span class="base-icon icon-down__color1__size-s">엑셀 다운로드</span>
+            </button>
+            <button class="base-btn type2__size-s point-color4">
+              <span class="base-icon icon-del__color4__size-s">삭제</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="board-body">
+          <div class="table table-type1">
+            <table id="table">
+              <colgroup>
+                <col style="width: 56px;"/>
+                <col style="width: 56px;"/>
+                <col/>
+                <col style="width: 100px;"/>
+                <col style="width: 100px;"/>
+                <col style="width: 250px"/>
+                <col style="width: 250px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="pd-type1">
+                    <label class="input-chk">
+                      <input type="checkbox" value="chkAll" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                      <span class="isHidden">선택</span>
+                    </label>
+                  </th>
+                  <th scope="col">NO</th>
+                  <th scope="col">만족도 조사명</th>
+                  <th scope="col">유형</th>
+                  <th scope="col">사용유무</th>
+                  <th scope="col">등록정보</th>
+                  <th scope="col">최종수정정보</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <script>
+            $('#table').DataTable({
+              data: [
+                {
+                  'NO': '6',
+                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
+                  '유형': '척도형',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
+                  '유형': '척도형',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
+                  '유형': '척도형',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
+                  '유형': '척도형',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
+                  '유형': '척도형',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                },
+                {
+                  'NO': '6',
+                  '만족도 조사명': '2023 인턴 채용 만족도 조사',
+                  '유형': '척도형',
+                  '등록정보': ['2023.09.01', 'dayun.kim@orpinsitute.com'],
+                  '최종수정정보': ['2023.09.01', 'dayun.kim@orpinsitute.com']
+                }
+              ],
+              columns: [
+                {
+                  data: '',
+                  className: 'pd-type1',
+                  render: function() {
+                    return `
+                      <label class="input-chk">
+                        <input type="checkbox" data-ref="chkItem" onchange="inputCheckAll('chkItem')">
+                        <span class="isHidden">선택</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: 'NO' },
+                { data: '만족도 조사명',
+                  render: function(data) {
+                    return `<span class="point-color">${data}</span>`
+                  }
+                },
+                { data: '유형' },
+                { data: '사용유무',
+                  render: function(data) {
+                    return `
+                      <label class="btn-toggle size-s">
+                        <input type="checkbox">
+                        <span>버튼</span>
+                      </label>
+                    `
+                  }
+                },
+                { data: '등록정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                },
+                { data: '최종수정정보',
+                  render: function(data) {
+                    return `
+                      <div>${data[0]}</div>
+                      <div class="font-size-s">${data[1]}</div>
+                    `
+                  }
+                }
+              ],
+              paging: false,
+              searching: false,
+              showing: false,
+              info: false
+            });
+          </script>
+        </div>
+
+      </div>
+      <!-- //contents -->
+    </div>
+    <!-- //container -->
+    @@include('../html/corp/WAP-CONT-0271.html');
+    @@include('../html/corp/WAP-CONT-0272.html');
+    @@include('../html/corp/WAP-CONT-0273.html');
+    @@include('../html/corp/WAP-CONT-0274.html');
+  </div>
+  <script>
+    const pop = {
+      "WAP_CONT_0271" : ()=>{WAP_CONT_0271.show()},
+      "WAP_CONT_0272" : ()=>{WAP_CONT_0272.show()},
+      "WAP_CONT_0273" : ()=>{WAP_CONT_0273.show()},
+      "WAP_CONT_0274" : ()=>{WAP_CONT_0274.show()}
+    }
+    if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
+  </script>  
+</body>
+</html>

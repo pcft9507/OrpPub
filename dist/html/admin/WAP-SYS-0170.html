@@ -5,47 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>wiselection</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" />
-<!--  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.0/css/fixedColumns.jqueryui.min.css" />-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.0/css/fixedColumns.dataTables.min.css" />
-
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Datatable -->
-  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedcolumns/5.0.0/js/dataTables.fixedColumns.min.js"></script>
-  <!-- <script src="https://cdn.datatables.net/fixedcolumns/1.8.0/js/dataTables.fixedColumns.min.js"></script>-->
-
-  <!-- Timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="../../assets/js/datepicker.min.js"></script>
-  <!-- personal -->
-  <script src="../../assets/js/ui.js"></script>
-</head>
-
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>wiselection</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.core.min.js"></script>
+  <script src="../../assets/js/jquery.ztree.all.min.js"></script>
   <script src="../../assets/js/datepicker.min.js"></script>
   <script src="../../assets/js/ui.js"></script>
 </head>
--->
+
 <body>
   <div class="wrap">
 
@@ -157,6 +128,158 @@
 
       <!-- contents -->
       <div class="contents">
+        <h3 class="title-sub no-mb">도움말 관리</h3>
+
+        <div class="base-tab tab-type1 content-mt3" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">도움말 정보</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">도움말 목록</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+        <div class="box-type1 content-mt3">
+          <div class="box-flex">
+            <div class="box-flex__cell">
+              <div class="dropdown" style="width: 136px;">
+                <button type="button" class="dropdown-btn size-s"
+                    data-dropdown='{
+                    "name": "searchDropdown1",
+                    "type" : "single",
+                    "option": [
+                      {
+                        "name": "전체",
+                        "value": "전체",
+                        "disabled": false,
+                        "checked": true
+                      },
+                      {
+                        "name": "도움말 명",
+                        "value": "도움말 명",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "도움말 코드",
+                        "value": "도움말 코드",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "소속메뉴",
+                        "value": "소속메뉴",
+                        "disabled": false,
+                        "checked": false
+                      },
+                      {
+                        "name": "사용여부",
+                        "value": "사용여부",
+                        "disabled": false,
+                        "checked": false
+                      }
+                    ]
+                  }'
+                >전체</button>
+                <script>
+                  dropdown.init('dropdown', {
+                    name: 'searchDropdown1',
+                    onChange: _this=>{
+                      console.log(_this.value);
+                    }
+                  });
+                </script>
+              </div>
+            </div>
+            <div class="box-flex__cell" style="width: 100%;">
+              <div class="input-box type-search" style="width: 100%;">
+                <input type="text" class="input-txt" placeholder="검색어를 입력해주세요." oninput="inputValueChk()">
+                <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+              </div>
+            </div>
+            <div class="box-flex__cell">
+              <button class="base-btn type1__size-m">검색</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-body content-mt6">
+          <div class="table table-type1">
+            <table id="table1">
+              <colgroup>
+                <col style="width: 86px;"/>
+                <col/>
+                <col style="width: 300px"/>
+                <col style="width: 300px"/>
+                <col style="width: 300px"/>
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">도움말 명</th>
+                <th scope="col">도움말 코드</th>
+                <th scope="col">소속 메뉴</th>
+                <th scope="col">사용여부</th>
+              </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <script>
+              $('#table1').DataTable({
+            data: [
+            {
+              'NO': '1',
+              '도움말 명' : '테스트 도움말1',
+              '도움말 코드' : '000000000',
+              '소속 메뉴' : 'TEST1메뉴1',
+              '사용여부' : true,
+              }
+            ],
+            columns: [
+            { data: 'NO' },
+            {
+              data: '도움말 명',
+              render: function(data) {
+                return `<a href="#" class="point-color">${data}</a>`
+              }
+            },
+            { data: '도움말 코드' },
+            { data: '소속 메뉴' },
+            { data: '사용여부',
+              render:function(data){
+                if(data === true){
+                  return `
+                          <label class="btn-toggle">
+                            <input type="checkbox" checked>
+                            <span>버튼</span>
+                          </label>
+                      `
+                } else{
+                  return `
+                            <label class="btn-toggle">
+                              <input type="checkbox">
+                              <span>버튼</span>
+                            </label>
+                        `
+                }
+              }
+            },
+
+            ],
+            paging: false,
+            searching: false,
+            showing: false,
+            info: false
+            });
+            </script>
+          </div>
+        </div>
 
       </div>
       <!-- //contents -->

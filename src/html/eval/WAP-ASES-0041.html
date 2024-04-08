@@ -1,0 +1,94 @@
+<div class="layer-popup type-modal pop-interview-tools" data-ref="WAP-ASES-0041">
+  <section class="popup__container popup__size-m">
+    <div class="popup__header">
+      <h3 class="popup__title">대상자 상제</h3>
+    </div>
+    <div class="popup__contents popup__scroll-view">
+
+      <div class="form-row box5-ver">
+        <div class="d-flex jc-sb ai-c">
+          <div class="member-box ver2">
+            <div class="m-wrap">
+              <div class="m-image-box">
+                <img src="../../assets/images/demo-user.png" alt="이미지">
+              </div>
+              <div class="m-desc-box">
+                <span class="m-name">홍길동</span>
+                <span class="m-num">01-000011</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span class="txt-regular" style="margin-right:16px;">최종</span>
+            <span class="point-color"><em style="font-size: 32px;font-weight:700;">0.00</em> 점</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <h5 class="title-sub2 fz-inherit">평가요소 | 끈기</h5>
+        <div class="form-inner">
+          <div class="input-box" style="width:110px;">
+            <input type="number" class="input-txt pr-0" oninput="inputValueChk()">
+            <button type="button" class="btn-del" onclick="inputValueDel()">입력 삭제</button>
+          </div>
+          <span class="txt-regular color1"> /100점</span>
+        </div>
+      </div>
+      <div class="content-mt2">
+        <textarea placeholder="메모" style="height:180px;"></textarea>
+      </div>
+
+      <div class="content-mt3">
+        <div class="dropdown h-full">
+          <button type="button" class="dropdown-btn size-s"
+                  data-dropdown='{
+              "name": "interviewDropdown",
+              "type" : "single",
+              "option": [
+                {
+                  "name": "강력추천",
+                  "value": "강력추천",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "추천",
+                  "value": "추천",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "보류",
+                  "value": "보류",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "추천하지않음",
+                  "value": "추천하지않음",
+                  "disabled": false,
+                  "checked": false
+                },
+                {
+                  "name": "절대적으로 추천하지 않음",
+                  "value": "절대적으로 추천하지 않음",
+                  "disabled": false,
+                  "checked": false
+                }
+              ]
+            }'
+          >최종의견을 선택해주세요</button>
+        </div>
+      </div>
+    </div>
+    <div class="popup__btn-wrap">
+        <button class="base-btn type1__size-m">저장</button>
+    </div>
+    <button class="btn-close" onclick="WAP_ASES_0041.hide()">닫기</button>
+  </section>
+</div>
+<script>
+  const WAP_ASES_0041 = new LayerPopup({target: "WAP-ASES-0041"});
+</script>

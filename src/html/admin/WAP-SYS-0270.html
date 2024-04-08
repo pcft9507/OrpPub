@@ -1,0 +1,210 @@
+@@include('./head.html', {title: ""})
+<body>
+  <div class="wrap">
+
+    @@include('./header.html')
+
+    <!-- container -->
+    <div class="container">
+      @@include('./snb.html', {type: "관리자", dep1: "3", dep2: "6"})
+
+      <!-- contents -->
+      <div class="contents" style="padding-bottom:84px;">
+
+        <h3 class="title-sub no-mb">메뉴정보</h3>
+
+        <div class="base-tab tab-type1 content-mt3" data-ref="tabContents1">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">관리자 시스템</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">평가 시스템</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents1 = new TabContents({target: 'tabContents1'});
+        </script>
+
+        <div class="base-tab tab-type2 content-mt3" data-ref="tabContents2">
+          <ul class="tab__list" role="tablist">
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">메뉴 정보</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="true">메뉴 등록</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">메뉴 순서</button>
+            </li>
+            <li class="tab__item">
+              <button role="tab" aria-selected="false">버튼 관리</button>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const tabContents2 = new TabContents({target: 'tabContents2'});
+        </script>
+
+        <div class="contents-wrap flex-ver ver2 content-mt3">
+          <div class="contents-divide2">
+            <!-- ztree -->
+            <div class="tree-box">
+              <button type="button" class="btn-item--add grey-btn-ver" onclick="rowItemAdd(13);">
+                <span>대분류 메뉴 등록</span>
+              </button>
+              <ul id="treeDemo" class="ztree organization"></ul>
+            </div>
+            <script>
+              var zTreeObj;
+              var setting = {
+                view: {
+                  selectedMulti: false
+                },
+                data: {
+                  simpleData: {
+                    enable: true
+                  }
+                },
+              };
+              var zNodes =[
+                { id:1, pId:0, name:"대분류 메뉴1", open:true,children:[
+                    { id:11, pId:1, name:"중분류", open:true,children:[
+                        {name:"Test메뉴",open:true,id:111,pId:21, url:"./WAP-SYS-0260.html", target:"_blank"},
+                        {name:"채용관리",open:true,id:112,pId:22, url:"./WAP-SYS-0270.html", target:"_blank"},
+                      ]},
+                  ]
+                },
+                { id:2, pId:0, name:"대분류 메뉴2", open:true,children:[
+                    { id:21, pId:2-1, name:"중분류", open:true,children:[
+                        {name:"Test메뉴",open:true,id:211,pId:221, url:"./WAP-SYS-0280.html", target:"_blank"},
+                        {name:"채용관리",open:true,id:212,pId:222, url:"./WAP-SYS-0290.html", target:"_blank"},
+                      ]},
+                  ]
+                },
+              ];
+              // 2. z-tree: 실행
+              $(document).ready(function(){
+                zTreeObj =$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+              });
+            </script>
+          </div>
+          <div class="contents-divide1 flex-between">
+            <div class="type-table ver2">
+              <div class="rows con2">
+                <div class="cell">
+                  <div class="th" style="">메뉴 명:</div>
+                  <div class="td">
+                    <div class="input-box" style="width: 224px;">
+                      <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="cell">
+                  <div class="th" style="">메뉴 코드:</div>
+                  <div class="td">00000000</div>
+                </div>
+              </div>
+
+              <div class="rows con2">
+                <div class="cell">
+                  <div class="th" style="">상위 메뉴 명:</div>
+                  <div class="td">Test 메뉴</div>
+                </div>
+                <div class="cell">
+                  <div class="th" style="">상위 메뉴 코드:</div>
+                  <div class="td">00000000</div>
+                </div>
+              </div>
+
+              <div class="rows con2">
+                <div class="cell">
+                  <div class="th" style="">메뉴 URL:</div>
+                  <div class="td">
+                    <div class="input-box" style="width: 224px;">
+                      <input type="text" class="input-txt" placeholder="입력하세요" oninput="inputValueChk()">
+                      <button type="button" class="btn-del" onclick="inputValueDel()">키워드 삭제</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="cell">
+                  <div class="th" style="">메뉴 구분:</div>
+                  <div class="td">
+                    <div class="dropdown" style="width: 224px;">
+                      <button type="button" class="dropdown-btn size-s"
+                              data-dropdown='{
+                  "name": "boardDropdown2",
+                  "type" : "single",
+                  "option": [
+                    {
+                      "name": "일반 페이지",
+                      "value": "일반 페이지",
+                      "disabled": false,
+                      "checked": true
+                    }
+                  ]
+                }'
+                      >일반 페이지</button>
+                      <script>
+                        dropdown.init('dropdown', {
+                          name: 'boardDropdown2',
+                          onChange: _this=>{
+                            console.log(_this.value);
+                          }
+                        });
+                      </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rows con2">
+                <div class="cell">
+                  <div class="th" style="">메뉴 사용여부:</div>
+                  <div class="td">사용중</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bottom-info-box">
+              <ul class="bottom-info-list">
+                <li>
+                  <span class="bi-tit">등록 정보: </span>
+                  <span class="bi-desc">TEST등록자(2000.00.00 00:00:00)</span>
+                </li>
+                <li>
+                  <span class="bi-tit">수정 정보: </span>
+                  <span class="bi-desc">TEST등록자(2000.00.00 00:00:00)</span>
+                  <div class="btn-wrap mt0">
+                    <button class="base-btn type3">수정</button>
+                    <button class="base-btn type3">삭제</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- //contents -->
+
+      <!-- contents navigation -->
+      <div class="contents-nav type2">
+        <div class="contents-nav__inner">
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type2__size-m">초기화</button>
+          </div>
+          <div class="contents-nav__btn-box">
+            <button type="button" class="base-btn type1__size-m">저장</button>
+          </div>
+        </div>
+      </div>
+      <!-- //contents navigation -->
+    </div>
+    <!-- //container -->
+
+  </div>
+</body>
+</html>

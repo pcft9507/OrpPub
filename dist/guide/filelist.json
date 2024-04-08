@@ -197,9 +197,19 @@
           "dep2" : "권한 관리"
         },
         {
+          "dep3" : "권한 관리",
+          "name" : "WAP-SYS-0120",
+          "url" : "./html/admin/WAP-SYS-0120.html "
+        },
+        {
           "dep3" : "권한 등록",
           "name" : "WAP-SYS-0130",
           "url" : "./html/admin/WAP-SYS-0130.html"
+        },
+        {
+          "dep3" : "권한 상세보기",
+          "name" : "WAP-SYS-0132",
+          "url" : "./html/admin/WAP-SYS-0132.html"
         },
         {
           "dep3" : "권한 등록 - pop1",
@@ -211,6 +221,24 @@
           "name" : "WAP-SYS-0130-pop2",
           "url" : "./html/admin/WAP-SYS-0130.html?popup=WAP_SYS_0130_pop2"
         },
+        {
+          "dep2" : "도움말 관리"
+        },
+        {
+          "dep3" : "도움말 목록",
+          "name" : "WAP-SYS-0170",
+          "url" : "./html/admin/WAP-SYS-0170.html "
+        },
+        {
+          "dep3" : "도움말 정보",
+          "name" : "WAP-SYS-0180",
+          "url" : "./html/admin/WAP-SYS-0180.html "
+        },
+        {
+          "dep3" : "도움말 등록",
+          "name" : "WAP-SYS-0190",
+          "url" : "./html/admin/WAP-SYS-0190.html "
+        },
 
         {
           "dep2" : "메뉴얼 관리"
@@ -219,6 +247,36 @@
           "dep2" : "접속 기록",
           "name" : "WAP-SYS-0230",
           "url" : "./html/admin/WAP-SYS-0230.html"
+        },
+        {
+          "dep2" : "메뉴관리",
+          "name" : "",
+          "url" : ""
+        },
+        {
+          "dep3" : "메뉴관리",
+          "name" : "WAP-SYS-0250",
+          "url" : "./html/admin/WAP-SYS-0250.html"
+        },
+        {
+          "dep3" : "메뉴정보",
+          "name" : "WAP-SYS-0260",
+          "url" : "./html/admin/WAP-SYS-0260.html"
+        },
+        {
+          "dep3" : "메뉴등록",
+          "name" : "WAP-SYS-0270",
+          "url" : "./html/admin/WAP-SYS-0270.html"
+        },
+        {
+          "dep3" : "메뉴 순서",
+          "name" : "WAP-SYS-0280",
+          "url" : "./html/admin/WAP-SYS-0280.html"
+        },
+        {
+          "dep3" : "버튼 관리",
+          "name" : "WAP-SYS-0290",
+          "url" : "./html/admin/WAP-SYS-0290.html"
         }
       ]
     },
@@ -239,6 +297,11 @@
           "dep1" : "채용등록 > 공고 불러오기 팝업",
           "name" : "WAP-EMPL-0011",
           "url" : "./html/corp/WAP-EMPL-0010.html?popup=WAP_EMPL_0011"
+        },
+        {
+          "dep1" : "채용등록 > NCS 조회",
+          "name" : "WAP-EMPL-0014",
+          "url" : "./html/corp/WAP-EMPL-0010.html?popup=WAP_EMPL_0014"
         },
         {
           "dep1" : "채용목록",
@@ -276,14 +339,24 @@
           "url" : "./html/corp/WAP-EMPL-0120.html?popup=WAP_EMPL_0083"
         },
         {
+          "dep2" : "발표문미리보기",
+          "name" : "WAP-EMPL-0084",
+          "url" : "./html/corp/WAP-EMPL-0084.html"
+        },
+        {
           "dep2" : "추가서류등록",
           "name" : "WAP-EMPL-0086",
           "url" : "./html/corp/WAP-EMPL-0080.html?popup=WAP_EMPL_0086"
         },
         {
-          "dep2" : "추가서류수정",
+          "dep3" : "popup - 추가서류수정",
           "name" : "WAP-EMPL-0087",
           "url" : "./html/corp/WAP-EMPL-0087.html"
+        },
+        {
+          "dep3" : "popup - 통계",
+          "name" : "WAP-EMPL-0090",
+          "url" : "./html/corp/WAP-EMPL-0084.html?popup=WAP_EMPL_0090"
         },
         {
           "dep2" : "전체지원자",
@@ -291,10 +364,31 @@
           "url" : "./html/corp/WAP-EMPL-0060.html"
         },
         {
+          "dep2" : "발표문등록",
+          "name" : "WAP-EMPL-0081",
+          "url" : "./html/corp/WAP-EMPL-0081.html"
+        },
+        {
+          "dep2" : "발표문테스트",
+          "name" : "WAP-EMPL-0082",
+          "url" : "./html/corp/WAP-EMPL-0082.html"
+        },
+        {
           "dep2" : "서류전형",
           "name" : "WAP-EMPL-0100",
           "url" : "./html/corp/WAP-EMPL-0100.html"
         },
+        {
+          "dep4" : "popup - 지원서pdf다운로드팝업",
+          "name" : "WAP-EMPL-0103",
+          "url" : "./html/corp/WAP-EMPL-0100.html?popup=WAP_EMPL_0103"
+        },
+        {
+          "dep4" : "popup - 적부평가 부적합 상세(팝업)",
+          "name" : "WAP-EMPL-0107",
+          "url" : "./html/corp/WAP-EMPL-0100.html?popup=WAP_EMPL_0107"
+        },
+
         {
           "dep2" : "지원자설정팝업",
           "name" : "WAP-EMPL-0320",
@@ -349,7 +443,7 @@
         {
           "dep4" : "인적사항",
           "name" : "WAP-EMPL-0191",
-          "url" : "./html/corp/WAP-EMPL-0180.html?popup=WAP_EMPL_0191"
+          "url" : "./html/corp/WAP-EMPL-0191.html"
         },
         {
           "dep4" : "학력사항",
@@ -390,6 +484,11 @@
           "dep4" : "학력사항",
           "name" : "WAP-EMPL-0211",
           "url" : "./html/corp/WAP-EMPL-0211.html"
+        },
+        {
+          "dep4" : "정량평가경험사항",
+          "name" : "WAP-EMPL-0216",
+          "url" : "./html/corp/WAP-EMPL-0216.html"
         },
         {
           "dep3" : "정성평가",
@@ -455,6 +554,11 @@
           "url" : "./html/corp/WAP-EMPL-0310.html?popup=WAP_EMPL_0312"
         },
         {
+          "dep3" : "popup - 면접전형 평가자별 평가점수 다운로드 팝업",
+          "name" : "WAP-EMPL-0315",
+          "url" : "./html/corp/WAP-EMPL-0310.html?popup=WAP_EMPL_0315"
+        },
+        {
           "dep3" : "면접정보",
           "name" : "WAP-EMPL-0340",
           "url" : "./html/corp/WAP-EMPL-0340.html"
@@ -483,6 +587,11 @@
           "dep4" : "집계기준",
           "name" : "WAP-EMPL-0370",
           "url" : "./html/corp/WAP-EMPL-0370.html"
+        },
+        {
+          "dep4" : "pop - 집계기준척도불러오기이전채용",
+          "name" : "WAP-EMPL-0371",
+          "url" : "./html/corp/WAP-EMPL-0370.html?popup=WAP_EMPL_0371"
         },
         {
           "dep4" : "등급",
@@ -706,6 +815,11 @@
           "url" : "./html/corp/WAP-ETPR-0170.html"
         },
         {
+          "dep3" : "popup - 팝업등록",
+          "name" : "WAP-ETPR-0180",
+          "url" : "./html/corp/WAP-ETPR-0170.html?popup=WAP_ETPR_0180"
+        },
+        {
           "dep4" : "팝업등록",
           "name" : "WAP-ETPR-0180",
           "url" : "./html/corp/WAP-ETPR-0180.html"
@@ -816,9 +930,29 @@
           "url" : "./html/eval/WAP-ASES-0034.html"
         },
         {
+          "dep2" : "평가하기(면접질문지)",
+          "name" : "WAP-ASES-0035",
+          "url" : "./html/eval/WAP-ASES-0035.html"
+        },
+        {
           "dep2" : "평가하기(면접과제)",
           "name" : "WAP-ASES-0036",
           "url" : "./html/eval/WAP-ASES-0036.html"
+        },
+        {
+          "dep2" : "평가자별 점수열람",
+          "name" : "WAP-ASES-0040",
+          "url" : "./html/eval/WAP-ASES-0040.html"
+        },
+        {
+          "dep2" : "응시자평가점수수정",
+          "name" : "WAP-ASES-0041",
+          "url" : "./html/eval/WAP-ASES-0040.html?popup=WAP_ASES_0041"
+        },
+        {
+          "dep2" : "서류면접점수통계",
+          "name" : "WAP-ASES-0050",
+          "url" : "./html/eval/WAP-ASES-0050.html"
         },
         {
           "dep2" : "평가완료리스트",

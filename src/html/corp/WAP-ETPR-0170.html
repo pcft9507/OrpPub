@@ -281,13 +281,15 @@
   @@include('../html/corp/WAP-ETPR-0140.html');
   @@include('../html/corp/WAP-ETPR-0150.html');
   @@include('../html/corp/WAP-ETPR-0160.html');
-  
+  @@include('../html/corp/WAP-ETPR-0180.html');
+
   <!-- **** 팝업 확인 용 스크립트 **** -->
   <script>
     const pop = {
       "WAP_ETPR_0140" : ()=>{WAP_ETPR_0140.show()},
       "WAP_ETPR_0150" : ()=>{WAP_ETPR_0150.show()},
-      "WAP_ETPR_0160" : ()=>{WAP_ETPR_0160.show()}
+      "WAP_ETPR_0160" : ()=>{WAP_ETPR_0160.show()},
+      "WAP_ETPR_0180" : ()=>{WAP_ETPR_0180.show()},
     }
     if(Util.getUrlParams().popup) pop[Util.getUrlParams().popup]();
   </script>
